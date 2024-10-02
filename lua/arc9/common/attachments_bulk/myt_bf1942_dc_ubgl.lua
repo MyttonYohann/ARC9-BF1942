@@ -43,19 +43,15 @@ ATT.IKAnimationProxy = {
     ["enter_ubgl"] = {
         Source = "to_ubgl",
     },
-	["idle"] = {
-        Source = "idle",
-    },
     ["idle_ubgl"] = {
         Source = "ubgl",
-		
     }, 
     ["exit_ubgl"] = {
         Source = "from_ubgl",
     },
 } -- When an animation event plays, override it with one based on this LHIK model.
 ATT.IKGunMotionQCA = 2
-ATT.IKGunMuzzleEffectQCA = 3
+ATT.MuzzleDeviceUBGL = true
 
 ATT.IKGunMotionOffset = Vector(0, 0, 0)
 ATT.IKGunMotionOffsetAngle = Angle(0, 0, 0)
@@ -123,11 +119,11 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.Sights = {
     {
-        Pos = Vector(2.5, 18, -2),
-        Ang = Angle(0, 0, -5),
+        Pos = Vector(5.05, 10, -5.2),
+        Ang = Angle(8.5, -4.2, -35),
         Magnification = 1.05,
         ViewModelFOV = 60,
-        CrosshairInSights = true,
+        CrosshairInSights = false,
         Blur = false,
         UBGLOnly = true,
         Disassociate = true,
