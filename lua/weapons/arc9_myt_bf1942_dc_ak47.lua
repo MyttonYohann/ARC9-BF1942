@@ -116,14 +116,14 @@ SWEP.RecoilKick = 1.5
 
 -------------------------- SPREAD
 
-SWEP.Spread = 0.0014
+SWEP.Spread = 0.0025
 
 SWEP.SpreadAddRecoil = 0
 SWEP.SpreadMultRecoil = 1.25
-SWEP.RecoilModifierCap = 16
+SWEP.RecoilModifierCap = 8
 
 SWEP.SpreadAddHipFire = 0.0025
-SWEP.SpreadMultHipFire = 1.75
+SWEP.SpreadMultHipFire = 5
 
 -------------------------- HANDLING
 
@@ -239,7 +239,7 @@ SWEP.Animations = {
         Source = {"fire"},
     },
     ["fire_iron"] = {
-        Source = {"fire"},
+        Source = {"fire_ads"},
     },
     ["reload"] = {
         Source = "wet",

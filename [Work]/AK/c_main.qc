@@ -99,6 +99,15 @@ $sequence "fire" {
 	fps 40
 }
 
+$sequence "fire_ads" {
+	"anims\fire_ads.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 2
+	fps 40
+}
+
 $sequence "dry" {
 	"anims\dry.smd"
 	activity "ACT_VM_RELOAD_EMPTY" 1		
