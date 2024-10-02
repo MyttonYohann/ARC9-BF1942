@@ -72,7 +72,7 @@ $cdmaterials "models\myt_bf1942\dc\ak\"
 $cdmaterials "models\myt_bf1942\dc\"
 
 $attachment "1" "W_Main" 0.00 2.00 29.00 rotate -90 -0 0
-$attachment "2" "W_Main" -1.00 3.00 7.00 rotate -0 -125 -180
+$attachment "2" "W_Main" -1.00 3.00 7.00 rotate -0 135 -180
 
 $sequence "idle" {
 	"anims\idle.smd"

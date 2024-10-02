@@ -42,12 +42,14 @@ ATT.IKAnimationProxy = {
     },
     ["enter_ubgl"] = {
         Source = "to_ubgl",
+        MinProgress = 0.7,
     },
     ["idle_ubgl"] = {
         Source = "ubgl",
     }, 
     ["exit_ubgl"] = {
         Source = "from_ubgl",
+        MinProgress = 0.7,
     },
 } -- When an animation event plays, override it with one based on this LHIK model.
 ATT.IKGunMotionQCA = 2

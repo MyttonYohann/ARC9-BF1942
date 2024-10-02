@@ -10,7 +10,7 @@ $origin -2.80527 -9.37854 -6.81793
 $cdmaterials "models\myt_bf1942\dc\ak\"
 $cdmaterials "models\myt_bf1942\dc\"
 
-$attachment "1" "W_PSS_Slide" 0 14 0.5 rotate 0 90 -180 // Muzzle
+$attachment "1" "W_PSS_Slide" 0.00 0.00 5.00 rotate -90 0 0 // Muzzle
 $attachment "2" "root"  2 5 -10 rotate 0 0 0     // VM movement
 //$attachment "3" "camera" 0 0 0 rotate 0 0 0     // Camera rotation (only rotation!)
 
