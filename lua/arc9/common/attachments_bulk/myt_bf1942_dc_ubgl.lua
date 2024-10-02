@@ -22,19 +22,34 @@ ATT.IKAnimationProxy = {
         EventTable = {
         },		
     },
+    ["fire_ubgl_iron"] = {
+        Source = "fire_ads",
+        EventTable = {
+        },		
+    }, 
+	["fire_ubgl_glempty"] = {
+        Source = "fire_last",
+        EventTable = {
+        },		
+    },
+    ["fire_ubgl_iron_glempty"] = {
+        Source = "fire_ads_last",
+        EventTable = {
+        },		
+    },
     ["reload_ubgl"] = {
-        Source = "ubgl",
+        Source = "ubgl_wet",
         EventTable = {		
-            {s =  "gekolt_css/g3sg1_clipout.wav" ,   t = 8 / 40},
-            {s =  "gekolt_css/galil_clipin.wav" ,    t = 59 / 40},			
+            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
+            {s =  "myt_bf1942/dc/pss_mag2.ogg" ,    t = 75 / 40},			
         },
     },  
 	["reload_ubgl_empty"] = {
-        Source = "ubgl",
+        Source = "ubgl_dry",
         EventTable = {		
-            {s =  "gekolt_css/g3sg1_clipout.wav" ,   t = 8 / 40},
-            {s =  "gekolt_css/galil_clipin.wav" ,    t = 59 / 40},	
-            {s =  "gekolt_css/m3_pump.wav" ,   t = 89 / 40},			
+            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
+            {s =  "myt_bf1942/dc/pss_mag2.ogg" ,    t = 75 / 40},	
+            {s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 91/ 40},			
         },
     },
     ["enter_ubgl"] = {
@@ -54,6 +69,17 @@ ATT.IKAnimationProxy = {
             {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
         },
     },
+
+    ["enter_ubgl_glempty"] = {
+        Source = "to_ubgl_last"
+    },
+    ["exit_ubgl_glempty"] = {
+        Source = "from_ubgl_last"
+    },
+    ["idle_ubgl_glempty"] = {
+        Source = "ubgl_last"
+    },
+
 } -- When an animation event plays, override it with one based on this LHIK model.
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
