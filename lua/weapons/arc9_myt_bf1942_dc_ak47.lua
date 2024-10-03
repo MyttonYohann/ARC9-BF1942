@@ -317,6 +317,8 @@ SWEP.Animations = {
 --------------------------------------------------------
     ["draw"] = {
         Source = "draw",
+        FireASAP = true,
+        MinProgress = 0.8,
         EventTable = {
             {s =  "gekolt_css_foley/draw_rif.wav" ,   t = 0 / 40},
         },
