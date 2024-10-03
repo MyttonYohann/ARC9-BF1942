@@ -17,10 +17,23 @@ ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_pss.mdl"
 ATT.RHIK = true
 
 ATT.IKAnimationProxy = {
-    ["fire_ubgl"] = {
-        Source = "fire",
+-- quick finger fix --
+--[[    ["fire"] = {
+        Source = "fire_ik",
         EventTable = {
         },		
+    }, 
+    ["fire_iron"] = {
+        Source = "fire_ik",
+        EventTable = {
+        },		
+    }, 
+]]
+
+	["fire_ubgl"] = {
+        Source = "fire",
+        EventTable = {
+        },
     },
     ["fire_ubgl_iron"] = {
         Source = "fire_ads",
@@ -96,7 +109,7 @@ ATT.AimDownSightsTimeMult = 1.1
 ATT.SprintToFireTimeMult = 1.1
 
 ATT.UBGL = true
-ATT.UBGLAmmo = "buckshot"
+ATT.UBGLAmmo = "pistol"
 ATT.UBGLClipSize = 12
 ATT.UBGLFiremode = 1
 ATT.UBGLFiremodeName = "PSS"
@@ -162,7 +175,7 @@ ATT.Sights = {
     },
 }
 
-ATT.ActivePosUBGL = Vector(4, 2, 0)
+ATT.ActivePosUBGL = Vector(4, 3, 0)
 ATT.ActiveAngUBGL = Angle(5, 0, 20)
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_pss")
