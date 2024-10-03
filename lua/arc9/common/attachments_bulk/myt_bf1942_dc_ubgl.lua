@@ -239,6 +239,8 @@ ATT.IKAnimationProxy = {
         Source = "fire",
         EventTable = {
         },		
+        MinProgress = 0.05,
+		FireASAP = true,
     },
 	["fire_ubgl_glempty"] = {
         Source = "fire",
@@ -259,18 +261,22 @@ ATT.IKAnimationProxy = {
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 28 / 40}, 
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
         },
+        MinProgress = 0.7,
+		FireASAP = true,
     },
     ["reload_ubgl_insert"] = {
         Source = "ubgl_reload2",
         EventTable = {		
-            {s = "myt_bf1942/dc/r870_reload.ogg", t = 6 / 40},		
+            {s = "myt_bf1942/dc/r870_reload.ogg", t = 20 / 40},		
         },
-		Time = 0.8,
+        MinProgress = 0.5,
+		--Time = 0.8,
     },
 
     ["enter_ubgl"] = {
         Source = "to_ubgl",
-        MinProgress = 0.7,
+        MinProgress = 0.8,
+		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
         },
@@ -280,7 +286,8 @@ ATT.IKAnimationProxy = {
     }, 
     ["exit_ubgl"] = {
         Source = "from_ubgl",
-        MinProgress = 0.7,
+        MinProgress = 0.8,
+		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
         },

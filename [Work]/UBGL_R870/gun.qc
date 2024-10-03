@@ -58,7 +58,7 @@ $sequence "ubgl_reload1" {
 	fps 40
 }
 $sequence "ubgl_reload2" {
-	"anims/ubgl_reload2.smd"
+	"anims/ubgl_reload2real.smd"
 	fadein 0.1
 	fadeout 0.1
 	fps 40
