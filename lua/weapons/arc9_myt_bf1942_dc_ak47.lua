@@ -197,7 +197,7 @@ SWEP.IronSights = {
     CrosshairInSights = false
 }
 
-SWEP.Crosshair = false
+SWEP.Crosshair = true
 
 SWEP.BipodPos = Vector(-2.58, 0, 1)
 SWEP.BipodAng = Angle(0, 0, -5)
