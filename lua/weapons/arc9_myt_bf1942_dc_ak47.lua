@@ -38,15 +38,17 @@ SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
 
-SWEP.DamageMax = 45 -- Damage done at point blank range
-SWEP.DamageMin = 25 -- Damage done at maximum range
+SWEP.DamageMax = 37 -- Damage done at point blank range
+SWEP.DamageMin = 17 -- Damage done at maximum range
 
-SWEP.DamageRand = 0
+SWEP.DamageRand = 0.1
 
-SWEP.RangeMin = 300 -- How far bullets retain their maximum damage for.
+SWEP.RangeMin = 500 -- How far bullets retain their maximum damage for.
 SWEP.RangeMax = 8000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
 
-SWEP.Penetration = 8 -- Units of wood that can be penetrated by this gun.
+SWEP.Penetration = 12 -- Units of wood that can be penetrated by this gun.
+
+SWEP.ImpactForce = 8
 
 SWEP.BodyDamageMults = {
     [HITGROUP_HEAD] = 2.5,
@@ -60,6 +62,8 @@ SWEP.BodyDamageMults = {
 -------------------------- PHYS BULLET BALLISTICS
 
 SWEP.PhysBulletMuzzleVelocity = 2329 * 12
+SWEP.PhysBulletGravity = 1.5
+SWEP.PhysBulletDrag = 1.15
 
 -------------------------- MAGAZINE
 
@@ -67,7 +71,7 @@ SWEP.Ammo = "ar2" -- What ammo type this gun uses.
 
 SWEP.ChamberSize = 1 -- The amount of rounds this gun can chamber.
 SWEP.ClipSize = 30 -- Self-explanatory.
-SWEP.SupplyLimit = 6 -- Amount of magazines of ammo this gun can take from an ARC9 supply crate.
+SWEP.SupplyLimit = 4 -- Amount of magazines of ammo this gun can take from an ARC9 supply crate.
 SWEP.SecondarySupplyLimit = 2 -- Amount of reserve UBGL magazines you can take.
 
 SWEP.ReloadInSights = false -- This weapon can aim down sights while reloading.
@@ -93,37 +97,51 @@ SWEP.Firemodes = {
         Mode = 1
     }
 }
+
 -------------------------- RECOIL
+
+SWEP.RecoilPatternDrift = 15
 
 -- General recoil multiplier
 SWEP.Recoil = 1
 
 -- These multipliers affect the predictible recoil by making the pattern taller, shorter, wider, or thinner.
-SWEP.RecoilUp = 0.5 -- Multiplier for vertical recoil
-SWEP.RecoilSide = 0.35 -- Multiplier for vertical recoil
+SWEP.RecoilUp = 0.75 -- Multiplier for vertical recoil
+SWEP.RecoilSide = 0.425 -- Multiplier for vertical recoil
 
 -- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
 -- This type of recoil CANNOT be predicted.
 SWEP.RecoilRandomUp = 0.5
 SWEP.RecoilRandomSide = 0.5
 
-SWEP.RecoilDissipationRate = 10 -- How much recoil dissipates per second.
+SWEP.RecoilDissipationRate = 7 -- How much recoil dissipates per second.
 SWEP.RecoilResetTime = 0 -- How long the gun must go before the recoil pattern starts to reset.
 
 SWEP.RecoilAutoControl = 0 -- Multiplier for automatic recoil control.
 
 SWEP.RecoilKick = 1.5
 
+SWEP.RecoilPerShot = 1
+SWEP.RecoilKickDamping = 50
+
+SWEP.RecoilMultCrouch = 0.7
+SWEP.RecoilMultHipFire = 1
+SWEP.RecoilMultSights = 1
+
 -------------------------- SPREAD
 
-SWEP.Spread = 0.0025
+SWEP.Spread = 0.005
 
-SWEP.SpreadAddRecoil = 0
-SWEP.SpreadMultRecoil = 1.25
-SWEP.RecoilModifierCap = 8
+SWEP.SpreadAddRecoil = 0.005 -- Applied per unit of recoil.
+SWEP.RecoilModifierCap = 5
 
-SWEP.SpreadAddHipFire = 0.0025
+SWEP.SpreadAddMove = 0.04
+SWEP.SpreadAddMidAir = 0.0075
 SWEP.SpreadMultHipFire = 5
+SWEP.SpreadAddCrouch = -0.01
+
+SWEP.SpreadSights = 0.0025
+SWEP.RecoilModifierCapSights = 2.5
 
 -------------------------- HANDLING
 
@@ -140,8 +158,8 @@ SWEP.SwayMultSights = 0.25
 
 SWEP.SwayMultSights = 0.4
 
-SWEP.AimDownSightsTime = 0.4
-SWEP.SprintToFireTime = 0.5
+SWEP.AimDownSightsTime = 0.5
+SWEP.SprintToFireTime = 0.6
 
 SWEP.SpeedMult = 1
 SWEP.SpeedMultSights = 0.75

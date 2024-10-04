@@ -230,9 +230,9 @@ ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
         Source = "fire_full",
         EventTable = {
-            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 36 / 40},  
-			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 48 / 40}, 
-            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 53 / 40},  			
+            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 29 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 41 / 40}, 
+            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 46 / 40},  			
         },
         MinProgress = 0.6,
 		FireASAP = true,
@@ -263,6 +263,7 @@ ATT.IKAnimationProxy = {
         EventTable = {		
             {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 28 / 40},  	
         },
+		Mult = 0.8,
     },
     ["reload_ubgl_finish"] = {
         Source = "ubgl_reload3",
@@ -328,12 +329,12 @@ ATT.SprintToFireTimeMult = 1.1
 
 ATT.UBGL = true
 ATT.UBGLAmmo = "buckshot"
-ATT.UBGLClipSize = 4
+ATT.UBGLClipSize = 5
 ATT.UBGLFiremode = 1
 ATT.UBGLFiremodeName = "R870"
-ATT.UBGLChamberSize = 1
+ATT.UBGLChamberSize = 0
 ATT.ShootVolumeUBGL = 110
-ATT.RPMUBGL = 40
+ATT.RPMUBGL = 43
 
 ATT.SpreadUBGL = 0.01
 
@@ -362,13 +363,13 @@ ATT.RecoilResetTimeUBGL = 0 -- How long the gun must go before the recoil patter
 ATT.RecoilAutoControlUBGL = 0 -- Multiplier for automatic recoil control.
 
 ATT.DamageTypeUBGL = DMG_BULLET
-ATT.DamageMaxUBGL = 24 -- Damage done at point blank range
-ATT.DamageMinUBGL = 6 -- Damage done at maximum range
+ATT.DamageMaxUBGL = 26 -- Damage done at point blank range
+ATT.DamageMinUBGL = 7 -- Damage done at maximum range
 
 ATT.DamageRandUBGL = 0.3 -- Damage varies randomly per shot by this fraction. 0.1 = +- 10% damage per shot.
 
-ATT.RangeMinUBGL = 300 -- How far bullets retain their maximum damage for.
-ATT.RangeMaxUBGL = 8000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
+ATT.RangeMinUBGL = 200 -- How far bullets retain their maximum damage for.
+ATT.RangeMaxUBGL = 4000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
 
 ATT.PenetrationUBGL = 0 -- Units of wood that can be penetrated by this gun.
 
