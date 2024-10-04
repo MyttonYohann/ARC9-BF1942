@@ -350,9 +350,45 @@ SWEP.AttachmentElements = {
 	["g_6"] = 	{ Bodygroups = { {3, 7} },},
 	["g_7"] = 	{ Bodygroups = { {3, 2} },},
 	
-	["hg_1"] = 	{ Bodygroups = { {1, 6} },},
-	["hg_2"] = 	{ Bodygroups = { {1, 4} },},
-	["hg_3"] = 	{ Bodygroups = { {1, 1} },},
+	["hg_1"] = 	{ 
+		Bodygroups = { {1, 6} },
+		IronSights = {
+			Pos = Vector(-2.725, -1, 1.25),
+			Ang = Angle(0,0.3,0),
+			Midpoint = 	{ -- Where the gun should be at the middle of it's irons
+			Pos = Vector(0, 15, -4),
+			Ang = Angle(0, 0, -45),
+						},
+    Magnification = 1.1,
+    CrosshairInSights = false,
+						}
+	},
+	["hg_2"] = 	{ 
+		Bodygroups = { {1, 4} },
+		IronSights = {
+			Pos = Vector(-2.725, -1, 0.2),
+			Ang = Angle(0,0.4,0),
+			Midpoint = 	{ -- Where the gun should be at the middle of it's irons
+			Pos = Vector(0, 15, -4),
+			Ang = Angle(0, 0, -45),
+						},
+    Magnification = 1.1,
+    CrosshairInSights = false,
+						}
+	},
+	["hg_3"] = 	{ 
+		Bodygroups = { {1, 1} },
+		IronSights = {
+			Pos = Vector(-2.725, -2, 0.65),
+			Ang = Angle(0,-0.15,0),
+			Midpoint = 	{ -- Where the gun should be at the middle of it's irons
+			Pos = Vector(0, 15, -4),
+			Ang = Angle(0, 0, -45),
+						},
+    Magnification = 1.1,
+    CrosshairInSights = false,
+						}
+	},
 	["hg_4"] = 	{ Bodygroups = { {1, 2} },},
 
 	["cal_1"] =	{ Bodygroups = { {0, 11} },},

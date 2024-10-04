@@ -323,7 +323,6 @@ ATT.MuzzleParticleOverride_Priority = 10
 ATT.MuzzleDevice = true
 ATT.Silencer = true
 
-
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg1")
 
 
