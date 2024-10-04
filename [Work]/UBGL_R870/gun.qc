@@ -10,7 +10,7 @@ $origin -2.80527 -9.37854 -6.81793
 $cdmaterials "models\myt_bf1942\dc\ak\"
 $cdmaterials "models\myt_bf1942\dc\"
 
-$attachment "1" "W_R870_Pump" 0.00 0.00 6.00 rotate -90 0 0 // Muzzle
+$attachment "1" "W_R870_Pump" 0.00 2.00 8.00 rotate -90 -0 0 // Muzzle
 $attachment "2" "root"  2 5 -10 rotate 0 0 0     // VM movement
 //$attachment "3" "camera" 0 0 0 rotate 0 0 0     // Camera rotation (only rotation!)
 
@@ -25,6 +25,13 @@ $sequence "ubgl" {
 	fps 40
 }
 
+$sequence "pump" {
+	"anims/ubgl_pump.smd"
+	fadein 0.03
+	fadeout 0.2
+	fps 40
+}
+
 $sequence "fire" {
 	"anims/ubgl_fire.smd"
 	fadein 0.03
@@ -33,13 +40,6 @@ $sequence "fire" {
 }
 $sequence "fire_full" {
 	"anims/ubgl_fire_full.smd"
-	fadein 0.03
-	fadeout 0.2
-	fps 40
-}
-
-$sequence "pump" {
-	"anims/ubgl_pump.smd"
 	fadein 0.03
 	fadeout 0.2
 	fps 40
