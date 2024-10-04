@@ -38,6 +38,13 @@ $sequence "fire_full" {
 	fps 40
 }
 
+$sequence "pump" {
+	"anims/ubgl_pump.smd"
+	fadein 0.03
+	fadeout 0.2
+	fps 40
+}
+
 $sequence "to_ubgl" {
 	"anims/to_ubgl.smd"
 	fadein 0.1

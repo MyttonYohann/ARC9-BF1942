@@ -167,7 +167,7 @@ ATT.Description = [[
 
 ATT.SortOrder = 21
 ATT.Category = "bf1942_dc_ak47_grip"
-ATT.ActivateElements = {"g_2", "nostock"}
+ATT.ActivateElements = {"g_2", "nostock", "rh_occupied"}
 
 ATT.RHIK = true
 ATT.RHIK_Priority = 0
@@ -181,6 +181,10 @@ ATT.SpreadMultHipFire = 2
 ATT.SwayMultSights = 0.75
 ATT.AimDownSightsTimeMult = 1.15
 ATT.SprintToFireTimeMult = 1.15
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0, 3, -0.5)
+end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip2")
 
@@ -198,7 +202,7 @@ ATT.Description = [[
 
 ATT.SortOrder = 21
 ATT.Category = "bf1942_dc_ak47_grip"
-ATT.ActivateElements = {"g_4", "nostock"}
+ATT.ActivateElements = {"g_4", "nostock", "rh_occupied"}
 
 ATT.RHIK = true
 ATT.RHIK_Priority = 0
@@ -212,6 +216,10 @@ ATT.SpreadMultHipFire = 2
 ATT.SwayMultSights = 0.75
 ATT.AimDownSightsTimeMult = 1.15
 ATT.SprintToFireTimeMult = 1.15
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0, 3, -0.5)
+end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip4")
 
@@ -229,7 +237,7 @@ ATT.Description = [[
 
 ATT.SortOrder = 25
 ATT.Category = "bf1942_dc_ak47_grip"
-ATT.ActivateElements = {"g_5", "nostock"}
+ATT.ActivateElements = {"g_5", "nostock", "rh_occupied"}
 
 ATT.RHIK = true
 ATT.RHIK_Priority = 0
@@ -243,6 +251,10 @@ ATT.SpreadMultHipFire = 2
 ATT.SwayMultSights = 0.75
 ATT.AimDownSightsTimeMult = 1.15
 ATT.SprintToFireTimeMult = 1.15
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0, 3, -0.5)
+end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip5")
 
@@ -260,7 +272,7 @@ ATT.Description = [[
 
 ATT.SortOrder = 25
 ATT.Category = "bf1942_dc_ak47_grip"
-ATT.ActivateElements = {"g_6", "nostock"}
+ATT.ActivateElements = {"g_6", "nostock", "rh_occupied"}
 
 ATT.RHIK = true
 ATT.RHIK_Priority = 0
@@ -274,6 +286,10 @@ ATT.SpreadMultHipFire = 2
 ATT.SwayMultSights = 0.75
 ATT.AimDownSightsTimeMult = 1.15
 ATT.SprintToFireTimeMult = 1.15
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0, 3, -0.5)
+end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip6")
 

@@ -237,19 +237,27 @@ ATT.IKAnimationProxy = {
         MinProgress = 0.6,
 		FireASAP = true,
     },
-	["fire_empty_ubgl"] = {
-        Source = "fire",
-        EventTable = {
-        },		
-        MinProgress = 0.05,
-		FireASAP = true,
-    },
 	["fire_ubgl_glempty"] = {
         Source = "fire",
         EventTable = {
         },		
     },
-	
+	["fire_empty_ubgl"] = {
+        Source = "fire",	
+        MinProgress = 0.05,
+		FireASAP = true,
+    },
+
+	["cycle_ubgl"] = {
+        Source = "pump",
+        MinProgress = 0.6,
+		FireASAP = true,
+	        EventTable = {
+            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 36 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 48 / 40}, 
+            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 53 / 40},  			
+        },
+    },
     ["reload_ubgl_start"] = {
         Source = "ubgl_reload1",
         EventTable = {		
@@ -300,6 +308,10 @@ ATT.IKAnimationProxy = {
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
 ATT.ShotgunReloadUBGL = true
+--ATT.ManualActionUGBL = true
+--ATT.ManualActionNoLastCycleUBGL = true
+--ATT.CanReloadWhileUnCycledUBGL = true
+--ATT.SlamFireUBGL = true
 
 ATT.CaseEffectQCAOverrideUBGL = 1	-- nope
 
@@ -321,9 +333,7 @@ ATT.UBGLFiremode = 1
 ATT.UBGLFiremodeName = "R870"
 ATT.UBGLChamberSize = 1
 ATT.ShootVolumeUBGL = 110
-ATT.RPMUBGL = 39
-ATT.RPMEmptyUBGL = 900
-ATT.RPMUBGLEmpty = 900
+ATT.RPMUBGL = 40
 
 ATT.SpreadUBGL = 0.01
 
@@ -482,7 +492,7 @@ ATT.MuzzleDeviceUBGL = true
 ATT.ShotgunReloadUBGL = false
 
 ATT.IKCameraMotionQCA = nil
-ATT.IKCameraMotionOffsetAngle = Angle(0, 90, 90)
+ATT.IKCameraMotionOffsetAngle = Angle(0, 90, 0)
 
 ATT.CaseEffectQCAOverrideUBGL = 1	-- nope
 

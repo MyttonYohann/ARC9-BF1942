@@ -473,7 +473,7 @@ SWEP.Attachments = {
         DefaultName = "None",
 
         DefaultIcon = Material("arc9/def_att_icons/grip.png"),
-        ExcludeElements = {"nooh"},
+        ExcludeElements = {"nooh", "rh_occupied"},
         Category = {"bf1942_dc_offhand"},
         Bone = "W_Main",
         Pos = Vector(0, 0, -10),
@@ -508,6 +508,7 @@ SWEP.Attachments = {
         PrintName = "",
         DefaultName = "",
         Hidden = true,
+        InstalledElements = {"nooh"},
         ExcludeElements = {"nogrip", "u_disk", "u_919x", "u_566"},
         Category = {"css_ubgl"},
         Bone = "W_Main",
