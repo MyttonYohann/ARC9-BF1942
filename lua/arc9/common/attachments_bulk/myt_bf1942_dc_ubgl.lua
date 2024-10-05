@@ -81,7 +81,7 @@ ATT.IKAnimationProxy = {
     },
     ["enter_ubgl"] = {
         Source = "to_ubgl",
-        MinProgress = 0.65,
+        MinProgress = 0.6,
 		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
@@ -264,7 +264,7 @@ ATT.IKAnimationProxy = {
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 10 / 40},  
             {s =  "myt_bf1942/dc/ak_foley2.ogg" ,   t = 12 / 40},  
         },
-		Mult = 0.8,
+		Mult = 1,
     },
     ["reload_ubgl_finish"] = {
         Source = "ubgl_reload3",
