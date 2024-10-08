@@ -65,6 +65,12 @@ $bodygroup "ak"
 	studio "AK_Main.smd"
 	blank
 }
+$bodygroup "bullet"
+{
+	studio "AK_Bullet_308.smd"
+	studio "AK_Bullet_12.smd"
+	blank
+}
 
 $illumposition 0 0 0
 
@@ -124,6 +130,14 @@ $sequence "wet" {
 	fps 40
 }
 
+$sequence "wet_fail" {
+	"anims\wet_fail.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
 $sequence "dry_u" {
 	"anims\dry_u.smd"
 	activity "ACT_VM_RELOAD_EMPTY" 1		
@@ -134,6 +148,22 @@ $sequence "dry_u" {
 
 $sequence "wet_u" {
 	"anims\wet_u.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
+$sequence "dry_saiga" {
+	"anims\dry_saiga.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "wet_saiga" {
+	"anims\wet_saiga.smd"
 	activity "ACT_VM_RELOAD" 1		
 	fadein 0.2
 	fadeout 0.2	

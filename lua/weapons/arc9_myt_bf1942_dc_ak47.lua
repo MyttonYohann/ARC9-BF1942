@@ -253,6 +253,18 @@ SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 
 SWEP.FiremodeSound = "arc9/firemode.wav"
 
+SWEP.Hook_SelectReloadAnimation = function(wep,curanim) -- numero random, uno per cento
+    local rng = math.Truncate(util.SharedRandom("vest pex best pex stall lame BO good", 1,100))
+	
+    if rng <= 15 then	-- fireblast missed fireblast missed
+		--[[if	wep.Attachments[7].Installed and curanim == "reload" 	then	return "reload_10_rare" 	end --- should be = something
+		if	!wep.Attachments[7].Installed and curanim == "reload" 	then	return "reload_rare" 		end	]]
+		-- condition check wep.HasElement
+		if	curanim == "reload" 	then	return "reload_fail" 		end
+	end
+end
+
+
 SWEP.Animations = {
     ["fire"] = {
         Source = {"fire"},
@@ -276,6 +288,25 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 62 / 40},
             {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 101 / 40},
             {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 114 / 40},
+        },
+    },  
+	["reload_fail"] = {
+        Source = "wet_fail",
+        FireASAP = true,
+        MinProgress = 0.96,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, },{ t = 0.9, lhik = 1, rhik = 0, },{ t = 0.975, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt4.ogg" ,   t = 30 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 32 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 62 / 40},
+            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,    t = 93 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 159 / 40},
+            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 162 / 40},
         },
     },
     ["reload_empty"] = {

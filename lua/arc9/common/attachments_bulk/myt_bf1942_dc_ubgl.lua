@@ -117,6 +117,9 @@ ATT.IKAnimationProxy = {
     },
     ["idle_ubgl_glempty"] = {
         Source = "ubgl_last"
+    },  
+	["idle_ubgl_empty"] = {
+        Source = "ubgl_last"
     },
 
 } -- When an animation event plays, override it with one based on this LHIK model.
