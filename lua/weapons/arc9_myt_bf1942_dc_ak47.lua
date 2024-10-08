@@ -256,11 +256,11 @@ SWEP.FiremodeSound = "arc9/firemode.wav"
 SWEP.Hook_SelectReloadAnimation = function(wep,curanim) -- numero random, uno per cento
     local rng = math.Truncate(util.SharedRandom("vest pex best pex stall lame BO good", 1,100))
 	
-    if rng <= 15 then	-- fireblast missed fireblast missed
+    if rng <= 100 then	-- fireblast missed fireblast missed
 		--[[if	wep.Attachments[7].Installed and curanim == "reload" 	then	return "reload_10_rare" 	end --- should be = something
 		if	!wep.Attachments[7].Installed and curanim == "reload" 	then	return "reload_rare" 		end	]]
 		-- condition check wep.HasElement
-		if	curanim == "reload" 	then	return "reload_fail" 		end
+		if	curanim == "reload" 	then	return "reload_fail" 			end		-- WHY DOES IT CHANGE BOTH?
 	end
 end
 
@@ -310,6 +310,24 @@ SWEP.Animations = {
         },
     },
     ["reload_empty"] = {
+        Source = "dry",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt2.ogg" ,   t = 27 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 54 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 84 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 131 / 40},
+            {s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 150 / 40},
+        },
+    }, 
+	["reload_fail_empty"] = {		-- youre fucking joking
         Source = "dry",
         FireASAP = true,
         MinProgress = 0.95,
