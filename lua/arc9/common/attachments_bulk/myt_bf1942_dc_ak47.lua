@@ -376,6 +376,7 @@ ATT.Description = [[
 ATT.SortOrder = 1
 ATT.Category = "bf1942_dc_ak47_hg"
 ATT.ActivateElements = {"hg_4"}
+ATT.ExcludeElements = {"barrel_sg"}
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg4")
 
@@ -481,6 +482,46 @@ ATT.Category = "bf1942_dc_ak47_cal"
 ATT.ActivateElements = {"cal_4"}
 
 ARC9.LoadAttachment(ATT, "gekolt_css_ak_cal4")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Saiga Calibre]]
+ATT.CompactName = [[Cal. Saiga]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[
+]]
+
+ATT.Hook_TranslateAnimation = function(wep, anim)
+    return anim .. "_saiga"
+end
+
+ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
+
+ATT.SortOrder = 100
+ATT.Category = "bf1942_dc_ak47_cal"
+ATT.ActivateElements = {"cal_5", "barrel_sg"}
+ATT.ExcludeElements = {"hg_4"}
+
+ATT.ClipSizeOverride = 8
+
+ATT.RPMMult = 300 / 600
+
+ATT.NumOverride = 8
+ATT.SpreadAdd = 0.02
+ATT.SpreadSights = 0.125*1.25
+ATT.DamageMaxMult = 0.4
+ATT.DamageMinMult = 0.4
+
+ATT.RecoilMult = 4
+ATT.RecoilPatternDriftMult = 5
+
+ATT.Ammo = "buckshot"
+
+ARC9.LoadAttachment(ATT, "gekolt_css_ak_cal5")
 
 
 ----------------------------------------------------------------------------------

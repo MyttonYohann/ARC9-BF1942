@@ -345,7 +345,7 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 150 / 40},
         },
     },  
-
+--------------------------------------------------------
 	["reload_u"] = {
         Source = "wet_u",
         FireASAP = true,
@@ -366,6 +366,43 @@ SWEP.Animations = {
     },
     ["reload_empty_u"] = {
         Source = "dry_u",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt2.ogg" ,   t = 27 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 54 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 84 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 131 / 40},
+            {s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 150 / 40},
+        },
+    },
+--------------------------------------------------------
+	["reload_saiga"] = {
+        Source = "wet_saiga",
+        FireASAP = true,
+        MinProgress = 0.93,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.125, lhik = 1, rhik = 0, },{ t = 0.75, lhik = 1, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt4.ogg" ,   t = 30 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 32 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 62 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 101 / 40},
+            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 114 / 40},
+        },
+    },
+    ["reload_empty_saiga"] = {
+        Source = "dry_saiga",
         FireASAP = true,
         MinProgress = 0.95,
         IKTimeLine = {
@@ -471,13 +508,16 @@ SWEP.AttachmentElements = {
 	["cal_2"] =	{ Bodygroups = { {0, 3} },},	
 	["cal_3"] =	{ Bodygroups = { {0, 7} },},
 	["cal_4"] =	{ Bodygroups = { {0, 6} },},
+	["cal_5"] =	{ Bodygroups = { {0, 9}, {5, 1}, {1, 8} },},
+
+
+
 
     ["hg_naked"] = { Bodygroups = { {3, 14}, {7, 2} },			AttPosMods = { [6] = { Pos = Vector(0, -0.9, 8), } }		},
     ["hg_poly"] = { Bodygroups = { {3, 4}, {1, 5}, {2, 2} },	AttPosMods = { [6] = { Pos = Vector(0, -0.4, 2.5), } }		},
     ["hg_amd"] = { Bodygroups = { {3, 13} },					AttPosMods = { [6] = { Pos = Vector(0, -0.4, 2.5), }, [7] = { Pos = Vector(0, 0.075, 24), } }		},
     ["hg_bizon"] = { Bodygroups = { {3, 9} },					AttPosMods = { [7] = { Pos = Vector(0, 0.075, 21), } }		},
-    ["hg_12"] = { Bodygroups = { {3, 12}, {1, 4}, {2, 2}, },	AttPosMods = { [6] = { Pos = Vector(0, 0.15 , 3.5), }, [5] = { Pos = Vector(0, 1.35, 16), }, [7] = { Pos = Vector(0.05, 0.05, 27), } }		},
-    ["hg_sd"] = { Bodygroups = { {3, 2}, {2, 2} }, 				AttPosMods = { [6] = { Pos = Vector(0, -0.4, 2.5), }, [5] = { Pos = Vector(0, 2.25, 18.5), } }		},
+	["hg_sd"] = { Bodygroups = { {3, 2}, {2, 2} }, 				AttPosMods = { [6] = { Pos = Vector(0, -0.4, 2.5), }, [5] = { Pos = Vector(0, 2.25, 18.5), } }		},
     ["hg_u"] = { Bodygroups = { {3, 1}, {2, 1} },				AttPosMods = { [7] = { Pos = Vector(0, 0.15, 19.5), }, [6] = { Pos = Vector(0, -0.9, 8), } }		},
     ["hg_rpk"] = { Bodygroups = { {3, 5}, {9, 1} },				AttPosMods = { [7] = { Pos = Vector(0, 0.075, 35), }, [6] = { Pos = Vector(0, -0.9, 8), } }		},
     ["hg_hunt"] = { Bodygroups = { {3, 6}, {2, 1} },			AttPosMods = { [7] = { Pos = Vector(0, 0.075, 37.5), } }	},
@@ -491,6 +531,12 @@ SWEP.AttachmentElements = {
 
 SWEP.Hook_ModifyBodygroups = function(wep, data)
     local model = data.model  -- most insufficient method ever
+    if wep:HasElement("barrel_sg") and wep:HasElement("hg_2") 	then model:SetBodygroup(1,10) end
+    if wep:HasElement("barrel_sg") and wep:HasElement("hg_3") 	then model:SetBodygroup(1,9) end 
+	if wep:HasElement("barrel_sg") and wep:HasElement("hg_1") 	then model:SetBodygroup(1,6) end
+
+
+
     if wep:HasElement("rail_def") and wep:HasElement("hg_12") 	then model:SetBodygroup(5,0) end
     if wep:HasElement("rail_def") and wep:HasElement("hg_12") 	then model:SetBodygroup(1,0) end
     if wep:HasElement("rail_def") and wep:HasElement("hg_rail") then model:SetBodygroup(5,0) end
