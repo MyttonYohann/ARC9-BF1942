@@ -327,12 +327,13 @@ ATT.UBGLChamberSize = 0
 ATT.ShootVolumeUBGL = 110
 ATT.RPMUBGL = 43
 
-ATT.SpreadUBGL = 0.01
+ATT.SpreadUBGL = 0.02
+ATT.SpreadSightsUBGL = 0.1
 
 ATT.FirstShootSoundUBGL = false
 ATT.ShootSoundUBGL = "myt_bf1942/dc/R870.wav"
 ATT.DistantShootSoundUBGL = false
-ATT.HasSightsUBGL = false
+ATT.HasSightsUBGL = true
 
 
 ATT.NumUBGL = 8
@@ -371,8 +372,8 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.Sights = {
     {
-        Pos = Vector(5.05, 10, -5.2),
-        Ang = Angle(8.5, -4.2, -35),
+        Pos = Vector(4.1, 10, -5.1),
+        Ang = Angle(7.95, -3.2, -35),
         Magnification = 1.05,
         ViewModelFOV = 60,
         CrosshairInSights = false,

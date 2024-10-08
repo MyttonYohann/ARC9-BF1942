@@ -510,9 +510,9 @@ ATT.ClipSizeOverride = 8
 
 ATT.RPMMult = 300 / 600
 
-ATT.NumOverride = 8
-ATT.SpreadAdd = 0.02
-ATT.SpreadSights = 0.125*1.25
+ATT.NumOverride = 10
+ATT.SpreadAdd = 0.01
+ATT.SpreadSights = 0.1
 ATT.DamageMaxMult = 0.4
 ATT.DamageMinMult = 0.4
 
