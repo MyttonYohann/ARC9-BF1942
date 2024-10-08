@@ -360,6 +360,25 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 150 / 40},
         },
     },
+	["reload_fail_u"] = {
+        Source = "wet_u_fail",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, },{ t = 0.9, lhik = 1, rhik = 0, },{ t = 0.975, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt4.ogg" ,   t = 30 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 32 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 62 / 40},
+            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,    t = 93 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 159 / 40},
+            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 162 / 40},
+        },
+    },
 --------------------------------------------------------
 	["reload_saiga"] = {
         Source = "wet_saiga",
@@ -453,6 +472,25 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 150 / 40},
         },
     },
+	["reload_scor_fail"] = {
+        Source = "wet_scor_fail",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, },{ t = 0.9, lhik = 1, rhik = 0, },{ t = 0.975, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt4.ogg" ,   t = 30 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 32 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 62 / 40},
+            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,    t = 93 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 159 / 40},
+            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 162 / 40},
+        },
+    },
 --------------------------------------------------------
     ["draw"] = {
         Source = "draw",
@@ -496,6 +534,12 @@ SWEP.AttachmentElements = {
 	["g_5"] = 	{ Bodygroups = { {3, 8} },},
 	["g_6"] = 	{ Bodygroups = { {3, 7} },},
 	["g_7"] = 	{ Bodygroups = { {3, 2} },},
+	["g_8"] = 	{ 
+		Bodygroups = { {3, 9} },
+		--[[AttPosMods = { 
+			[6] = { Pos = Vector(0, 0, 3), } 
+		}		]]
+	}, 
 	
 	["hg_1"] = 	{ 
 		Bodygroups = { {1, 6} },
@@ -543,21 +587,6 @@ SWEP.AttachmentElements = {
 	["cal_3"] =	{ Bodygroups = { {0, 7} },},
 	["cal_4"] =	{ Bodygroups = { {0, 6}, {5, 2} },},
 	["cal_5"] =	{ Bodygroups = { {0, 9}, {5, 1}, {1, 8} },},
-
-
-
-
-    ["hg_naked"] = { Bodygroups = { {3, 14}, {7, 2} },			AttPosMods = { [6] = { Pos = Vector(0, -0.9, 8), } }		},
-    ["hg_poly"] = { Bodygroups = { {3, 4}, {1, 5}, {2, 2} },	AttPosMods = { [6] = { Pos = Vector(0, -0.4, 2.5), } }		},
-    ["hg_amd"] = { Bodygroups = { {3, 13} },					AttPosMods = { [6] = { Pos = Vector(0, -0.4, 2.5), }, [7] = { Pos = Vector(0, 0.075, 24), } }		},
-    ["hg_bizon"] = { Bodygroups = { {3, 9} },					AttPosMods = { [7] = { Pos = Vector(0, 0.075, 21), } }		},
-	["hg_sd"] = { Bodygroups = { {3, 2}, {2, 2} }, 				AttPosMods = { [6] = { Pos = Vector(0, -0.4, 2.5), }, [5] = { Pos = Vector(0, 2.25, 18.5), } }		},
-    ["hg_u"] = { Bodygroups = { {3, 1}, {2, 1} },				AttPosMods = { [7] = { Pos = Vector(0, 0.15, 19.5), }, [6] = { Pos = Vector(0, -0.9, 8), } }		},
-    ["hg_rpk"] = { Bodygroups = { {3, 5}, {9, 1} },				AttPosMods = { [7] = { Pos = Vector(0, 0.075, 35), }, [6] = { Pos = Vector(0, -0.9, 8), } }		},
-    ["hg_hunt"] = { Bodygroups = { {3, 6}, {2, 1} },			AttPosMods = { [7] = { Pos = Vector(0, 0.075, 37.5), } }	},
-    ["hg_94"] = { Bodygroups = { {3, 8}, {2, 2}, {1, 2} },		AttPosMods = { [6] = { Pos = Vector(0, -0.4, 2.5), }, [7] = { Pos = Vector(0, 0.2, 29.5), } }		},
-    ["hg_rail"] = { Bodygroups = { {3, 3}, {2, 2}, {1, 1} },	AttPosMods = { [6] = { Pos = Vector(0, -0.35 , 5), }, [5] = { Pos = Vector(0, 2, 15), }, [7] = { Pos = Vector(0, 0.1, 27), } }		},
-
 
     ["rail_def"] = { Bodygroups = { {5, 3} },},
     ["fg_def"] = { Bodygroups = { {8, 1} },},

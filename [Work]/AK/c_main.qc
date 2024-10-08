@@ -48,15 +48,16 @@ $bodygroup "stock"
 
 $bodygroup "grip"
 {
-	studio "AK_Grip.smd"	
-	studio "AK_Grip_Stock.smd"	
-	studio "AK_Grip_Scor.smd"	
-	studio "AK_Grip_Poly.smd"	
-	studio "AK_Grip_PKM.smd"	
-	studio "AK_Grip_Hunt.smd"	
-	studio "AK_Grip_Hunt_Ske.smd"	
-	studio "AK_Grip_Hunt_Heavy.smd"	
-	studio "AK_Grip_Stub.smd"	
+	studio "AK_Grip.smd"
+	studio "AK_Grip_Stock.smd"
+	studio "AK_Grip_Scor.smd"
+	studio "AK_Grip_Poly.smd"
+	studio "AK_Grip_PKM.smd"
+	studio "AK_Grip_Hunt.smd"
+	studio "AK_Grip_Hunt_Ske.smd"
+	studio "AK_Grip_Hunt_Heavy.smd"
+	studio "AK_Grip_Stub.smd"
+	studio "AK_Grip_Bullpup.smd"
 	blank
 }
 
@@ -155,6 +156,15 @@ $sequence "wet_u" {
 	fps 40
 }
 
+$sequence "wet_u_fail" {
+	"anims\wet_u_fail.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
+
 $sequence "dry_saiga" {
 	"anims\dry_saiga.smd"
 	activity "ACT_VM_RELOAD_EMPTY" 1		
@@ -194,6 +204,15 @@ $sequence "wet_scor" {
 	fadeout 0.2	
 	fps 40
 }
+
+$sequence "wet_scor_fail" {
+	"anims\wet_scor_fail.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
 
 $bonemerge "ValveBiped.Bip01_Spine4"
 $bonemerge "ValveBiped.Bip01_L_Clavicle"

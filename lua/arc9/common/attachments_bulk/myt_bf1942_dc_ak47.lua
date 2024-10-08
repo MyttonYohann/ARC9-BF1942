@@ -297,6 +297,48 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip6")
 ----------------------------------------------------------------------------------
 
 
+ATT = {}
+
+ATT.PrintName = [[Bullpup Kit]]
+ATT.CompactName = [[G. Bullpup]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[
+]]
+
+ATT.SortOrder = 50
+ATT.Category = "bf1942_dc_ak47_grip"
+ATT.ActivateElements = {"g_8", "nostock", "rh_occupied"}
+
+ATT.RHIK = true
+ATT.RHIK_Priority = 0.01
+ATT.LHIK = true
+ATT.LHIK_Priority = 0.01
+ 
+ATT.Scale = 1
+ATT.ModelOffset = Vector(3, 0, 3.5)
+ATT.ModelAngleOffset = Angle(90, -90, 0)
+ATT.Model = "models/weapons/myt_bf1942/dc/c_ak47_ik_bullpup.mdl"
+
+ATT.SpreadMultHipFire = 0.75
+ATT.SwayMultSights = 1.5
+ATT.AimDownSightsTimeMult = 0.75
+ATT.SprintToFireTimeMult = 0.75
+
+ATT.CustomizePosHook = function(wep, vec)
+    return vec + Vector(5, 0, 0)
+end
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(-0.5, -3, -0.5)
+end
+
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip8")
+
+
+----------------------------------------------------------------------------------
+
+
 -- GUARD --
 
 
@@ -484,6 +526,17 @@ ATT.SortOrder = -10
 ATT.Category = "bf1942_dc_ak47_cal"
 ATT.ActivateElements = {"cal_4"}
 
+ATT.RPMMult = 800 / 600
+
+ATT.SpreadMult = 0.75
+ATT.SpreadSights = 0.01
+ATT.DamageMaxMult = 0.5
+ATT.DamageMinMult = 0.75
+
+ATT.Ammo = "pistol"
+ATT.ShellModel = "models/weapons/shell.mdl"
+ATT.ShellScale = 0.5
+
 ARC9.LoadAttachment(ATT, "gekolt_css_ak_cal4")
 
 
@@ -525,7 +578,7 @@ ATT.RecoilMult = 4
 ATT.RecoilPatternDriftMult = 5
 
 ATT.Ammo = "buckshot"
-ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
+ATT.ShellModel = "models/weapons/shell.mdl"
 ATT.ShellScale = 0.5
 
 ARC9.LoadAttachment(ATT, "gekolt_css_ak_cal5")

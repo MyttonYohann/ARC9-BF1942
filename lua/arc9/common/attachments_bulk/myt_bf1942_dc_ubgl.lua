@@ -15,6 +15,8 @@ ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_pss.mdl"
 ATT.RHIK = true
+ATT.RHIK_Priority = 10
+ATT.ActivateElements = {"off_hand"}
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
@@ -225,6 +227,8 @@ ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_r870.mdl"
 ATT.RHIK = true
+ATT.RHIK_Priority = 10
+ATT.ActivateElements = {"off_hand"}
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
