@@ -170,6 +170,14 @@ $sequence "wet_saiga" {
 	fps 40
 }
 
+$sequence "wet_saiga_fail" {
+	"anims\wet_saiga_fail.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
 $bonemerge "ValveBiped.Bip01_Spine4"
 $bonemerge "ValveBiped.Bip01_L_Clavicle"
 $bonemerge "ValveBiped.Bip01_L_UpperArm"
