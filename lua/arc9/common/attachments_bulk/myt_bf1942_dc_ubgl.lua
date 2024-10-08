@@ -17,19 +17,6 @@ ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_pss.mdl"
 ATT.RHIK = true
 
 ATT.IKAnimationProxy = {
--- quick finger fix --
---[[    ["fire"] = {
-        Source = "fire_ik",
-        EventTable = {
-        },		
-    }, 
-    ["fire_iron"] = {
-        Source = "fire_ik",
-        EventTable = {
-        },		
-    }, 
-]]
-
 	["fire_ubgl"] = {
         Source = "fire",
         EventTable = {
@@ -81,7 +68,7 @@ ATT.IKAnimationProxy = {
     },
     ["enter_ubgl"] = {
         Source = "to_ubgl",
-        MinProgress = 0.6,
+        MinProgress = 0.8,
 		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  

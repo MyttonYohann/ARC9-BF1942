@@ -98,13 +98,6 @@ $sequence "ubgl_dry" {
 	fps 40
 }
 
-$sequence "fire_ik" {
-	"anims/fire.smd"
-	fadein 0.1
-	fadeout 0.1
-	fps 40
-}
-
 $bonemerge "ValveBiped.Bip01_Spine4"
 $bonemerge "ValveBiped.Bip01_L_Clavicle"
 $bonemerge "ValveBiped.Bip01_L_UpperArm"
