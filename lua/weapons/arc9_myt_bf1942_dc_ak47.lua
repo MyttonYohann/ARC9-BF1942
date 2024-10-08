@@ -256,7 +256,7 @@ SWEP.FiremodeSound = "arc9/firemode.wav"
 SWEP.Hook_SelectReloadAnimation = function(wep,curanim) -- numero random, uno per cento
     local rng = math.Truncate(util.SharedRandom("vest pex best pex stall lame BO good", 1,100))
 	
-    if rng <= 100 then	-- fireblast missed fireblast missed
+    if rng <= 15 then	-- fireblast missed fireblast missed
 		--[[if	wep.Attachments[7].Installed and curanim == "reload" 	then	return "reload_10_rare" 	end --- should be = something
 		if	!wep.Attachments[7].Installed and curanim == "reload" 	then	return "reload_rare" 		end	]]
 		-- condition check wep.HasElement
