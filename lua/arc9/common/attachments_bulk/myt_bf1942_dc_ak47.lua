@@ -177,10 +177,10 @@ ATT.ModelOffset = Vector(3, 0, 3.5)
 ATT.ModelAngleOffset = Angle(90, -90, 0)
 ATT.Model = "models/weapons/myt_bf1942/dc/c_ak47_ik_hunt.mdl"
 
-ATT.SpreadMultHipFire = 2
-ATT.SwayMultSights = 0.75
-ATT.AimDownSightsTimeMult = 1.15
-ATT.SprintToFireTimeMult = 1.15
+ATT.SpreadMultHipFire = 0.75
+ATT.SwayMultSights = 1.5
+ATT.AimDownSightsTimeMult = 1.3
+ATT.SprintToFireTimeMult = 1.3
 
 ATT.ActivePosHook = function(wep, vec)
     return vec + Vector(0, 3, -0.5)
@@ -212,10 +212,10 @@ ATT.ModelOffset = Vector(3, 0, 3.5)
 ATT.ModelAngleOffset = Angle(90, -90, 0)
 ATT.Model = "models/weapons/myt_bf1942/dc/c_ak47_ik_hunt.mdl"
 
-ATT.SpreadMultHipFire = 2
-ATT.SwayMultSights = 0.75
-ATT.AimDownSightsTimeMult = 1.15
-ATT.SprintToFireTimeMult = 1.15
+ATT.SpreadMultHipFire = 0.75
+ATT.SwayMultSights = 1.5
+ATT.AimDownSightsTimeMult = 1.3
+ATT.SprintToFireTimeMult = 1.3
 
 ATT.ActivePosHook = function(wep, vec)
     return vec + Vector(0, 3, -0.5)
@@ -247,10 +247,10 @@ ATT.ModelOffset = Vector(3, 0, 3.5)
 ATT.ModelAngleOffset = Angle(90, -90, 0)
 ATT.Model = "models/weapons/myt_bf1942/dc/c_ak47_ik_hunt.mdl"
 
-ATT.SpreadMultHipFire = 2
-ATT.SwayMultSights = 0.75
-ATT.AimDownSightsTimeMult = 1.15
-ATT.SprintToFireTimeMult = 1.15
+ATT.SpreadMultHipFire = 0.75
+ATT.SwayMultSights = 1.5
+ATT.AimDownSightsTimeMult = 1.3
+ATT.SprintToFireTimeMult = 1.3
 
 ATT.ActivePosHook = function(wep, vec)
     return vec + Vector(0, 3, -0.5)
@@ -282,10 +282,10 @@ ATT.ModelOffset = Vector(3, 0, 3.5)
 ATT.ModelAngleOffset = Angle(90, -90, 0)
 ATT.Model = "models/weapons/myt_bf1942/dc/c_ak47_ik_hunt.mdl"
 
-ATT.SpreadMultHipFire = 2
-ATT.SwayMultSights = 0.75
-ATT.AimDownSightsTimeMult = 1.15
-ATT.SprintToFireTimeMult = 1.15
+ATT.SpreadMultHipFire = 0.75
+ATT.SwayMultSights = 1.5
+ATT.AimDownSightsTimeMult = 1.3
+ATT.SprintToFireTimeMult = 1.3
 
 ATT.ActivePosHook = function(wep, vec)
     return vec + Vector(0, 3, -0.5)
