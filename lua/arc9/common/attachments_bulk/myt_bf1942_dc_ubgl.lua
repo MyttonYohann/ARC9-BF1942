@@ -310,10 +310,6 @@ ATT.IKAnimationProxy = {
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
 ATT.ShotgunReloadUBGL = true
---ATT.ManualActionUGBL = true
---ATT.ManualActionNoLastCycleUBGL = true
---ATT.CanReloadWhileUnCycledUBGL = true
---ATT.SlamFireUBGL = true
 
 ATT.CaseEffectQCAOverrideUBGL = 1	-- nope
 
@@ -335,7 +331,7 @@ ATT.UBGLFiremode = 1
 ATT.UBGLFiremodeName = "R870"
 ATT.UBGLChamberSize = 0
 ATT.ShootVolumeUBGL = 110
-ATT.RPMUBGL = 43
+ATT.RPMUBGL = 44
 
 -- I LOVE BODGING
 ATT.Hook_Think = function(wep)	-- reset RPM cuz the bloody MANUAL ACTION DOESNT FUCKING WORK

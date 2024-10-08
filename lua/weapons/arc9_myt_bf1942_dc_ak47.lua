@@ -253,15 +253,10 @@ SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 
 SWEP.FiremodeSound = "arc9/firemode.wav"
 
-SWEP.Hook_SelectReloadAnimation = function(wep, curanim) -- numero random, uno per cento
+SWEP.Hook_TranslateAnimation = function(wep, curanim) -- numero random, uno per cento
     local rng = math.Truncate(util.SharedRandom("vest pex best pex stall lame BO good", 1,100))
-	local saiga = wep:HasElement("cal_5")
---	if empty then rng = 0???? 
-	if wep:Clip1() == 0 then rng = 0	end	-- im a fucking genius
---	bodging
-    if rng <= 15 and rng != 0 then	-- how the skarm be looking at me when i click fireblast on my chainchomp
-		if	saiga and 	curanim == "reload" 	then	return "reload_saiga_fail"		end				
-		if				curanim == "reload" 	then	return "reload_fail" 			end		-- WHY DOES IT CHANGE BOTH?
+    if rng <= 15  then	-- how the skarm be looking at me when i click fireblast on my chainchomp			
+		if	curanim == "reload" then return "reload_fail"	end	
 	end
 end
 

@@ -29,20 +29,20 @@ $sequence "ubgl" {
 
 $sequence "pump" {
 	"anims/ubgl_pump.smd"
-	fadein 0.03
+	fadein 0.1
 	fadeout 0.2
 	fps 40
 }
 
 $sequence "fire" {
 	"anims/ubgl_fire.smd"
-	fadein 0.03
+	fadein 0.1
 	fadeout 0.2
 	fps 40
 }
 $sequence "fire_full" {
 	"anims/ubgl_fire_full.smd"
-	fadein 0.03
+	fadein 0.1
 	fadeout 0.2
 	fps 40
 }
@@ -62,7 +62,7 @@ $sequence "from_ubgl" {
 
 $sequence "ubgl_reload1" {
 	"anims/ubgl_reload1real.smd"
-	fadein 0.1
+	fadein 0.5
 	fadeout 0.1
 	fps 40
 }
@@ -75,7 +75,7 @@ $sequence "ubgl_reload2" {
 $sequence "ubgl_reload3" {
 	"anims/ubgl_reload3.smd"
 	fadein 0.1
-	fadeout 0.1
+	fadeout 0.5
 	fps 40
 }
 

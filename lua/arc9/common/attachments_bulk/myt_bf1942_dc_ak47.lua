@@ -424,8 +424,10 @@ ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[
 ]]
 
-ATT.Hook_TranslateAnimation = function(wep, anim)
-    return anim .. "_u"
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"		then	return "reload_empty_u"		end
+	if	curanim == "reload"				then	return "reload_u"			end
+	if	curanim == "reload_fail"		then	return "reload_saiga_u"		end
 end
 
 ATT.SortOrder = 1
@@ -471,10 +473,11 @@ ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[
 ]]
 
-ATT.Hook_TranslateAnimation = function(wep, anim)
-    return anim .. "_scor"
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"		then	return "reload_empty_scor"		end
+	if	curanim == "reload"				then	return "reload_scor"			end
+	if	curanim == "reload_fail"		then	return "reload_scor_fail"		end
 end
-
 ATT.ShootSound = {"myt_bf1942/dc/scorpion.wav"}
 
 ATT.SortOrder = -10
@@ -494,9 +497,11 @@ ATT.CompactName = [[Cal. Saiga]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[
 ]]
-
-ATT.Hook_TranslateAnimation = function(wep, anim)
-    return anim .. "_saiga"
+-- has to do it manually otherwise it would stack
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"		then	return "reload_empty_saiga"		end
+	if	curanim == "reload"				then	return "reload_saiga"			end
+	if	curanim == "reload_fail"		then	return "reload_saiga_fail"		end
 end
 
 ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
@@ -520,6 +525,8 @@ ATT.RecoilMult = 4
 ATT.RecoilPatternDriftMult = 5
 
 ATT.Ammo = "buckshot"
+ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
+ATT.ShellScale = 0.5
 
 ARC9.LoadAttachment(ATT, "gekolt_css_ak_cal5")
 
