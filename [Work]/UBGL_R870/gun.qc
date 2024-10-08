@@ -7,6 +7,8 @@ $bodygroup "studio" {
 
 $origin -2.80527 -9.37854 -6.81793 
 
+$illumposition 0 0 0
+
 $cdmaterials "models\myt_bf1942\dc\ak\"
 $cdmaterials "models\myt_bf1942\dc\"
 
