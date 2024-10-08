@@ -183,7 +183,7 @@ ATT.AimDownSightsTimeMult = 1.3
 ATT.SprintToFireTimeMult = 1.3
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0, 3, -0.5)
+    return vec + Vector(0, 2, -0.5)
 end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip2")
@@ -218,7 +218,7 @@ ATT.AimDownSightsTimeMult = 1.3
 ATT.SprintToFireTimeMult = 1.3
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0, 3, -0.5)
+    return vec + Vector(0, 2, -0.5)
 end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip4")
@@ -253,7 +253,7 @@ ATT.AimDownSightsTimeMult = 1.3
 ATT.SprintToFireTimeMult = 1.3
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0, 3, -0.5)
+    return vec + Vector(0, 2, -0.5)
 end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip5")
@@ -288,7 +288,7 @@ ATT.AimDownSightsTimeMult = 1.3
 ATT.SprintToFireTimeMult = 1.3
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0, 3, -0.5)
+    return vec + Vector(0, 2, -0.5)
 end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip6")
