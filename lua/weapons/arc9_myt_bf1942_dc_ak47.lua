@@ -417,6 +417,43 @@ SWEP.Animations = {
         },
     }, 
 --------------------------------------------------------
+	["reload_scor"] = {
+        Source = "wet_scor",
+        FireASAP = true,
+        MinProgress = 0.93,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.125, lhik = 1, rhik = 0, },{ t = 0.75, lhik = 1, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt4.ogg" ,   t = 30 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 32 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 62 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 101 / 40},
+            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 114 / 40},
+        },
+    },	
+    ["reload_empty_scor"] = {
+        Source = "dry_scor",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt2.ogg" ,   t = 27 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 54 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 84 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 131 / 40},
+            {s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 150 / 40},
+        },
+    },
+--------------------------------------------------------
     ["draw"] = {
         Source = "draw",
         FireASAP = true,
@@ -504,7 +541,7 @@ SWEP.AttachmentElements = {
 	["cal_1"] =	{ Bodygroups = { {0, 11} },},
 	["cal_2"] =	{ Bodygroups = { {0, 3} },},	
 	["cal_3"] =	{ Bodygroups = { {0, 7} },},
-	["cal_4"] =	{ Bodygroups = { {0, 6} },},
+	["cal_4"] =	{ Bodygroups = { {0, 6}, {5, 2} },},
 	["cal_5"] =	{ Bodygroups = { {0, 9}, {5, 1}, {1, 8} },},
 
 
@@ -580,7 +617,7 @@ SWEP.Attachments = {
         ExcludeElements = {"noguard"},
         Category = "bf1942_dc_ak47_hg",
         Bone = "W_Main",
-        Pos = Vector(0, -0.5, 15),
+        Pos = Vector(0, -3, 15),
         Ang = Angle(90, 0, -90),
     },
 
@@ -618,7 +655,7 @@ SWEP.Attachments = {
         ExcludeElements = {"nofg"},
         Category = {"grip_css"},
         Bone = "W_Main",
-        Pos = Vector(0, 2.6, 14),
+        Pos = Vector(0, 0, 14),
         Ang = Angle(90, 0, -90),
         MergeSlots = {9},
     },
@@ -643,7 +680,7 @@ SWEP.Attachments = {
         DefaultIcon = Material("arc9/def_att_icons/optic.png"),
         Category = {"optic_css", "optic_css_free"},
         Bone = "W_Main",
-        Pos = Vector(0, -5, 0.8),
+        Pos = Vector(0, -4.5, 3),
         Ang = Angle(90, 0, -90),
     },
 
@@ -655,7 +692,7 @@ SWEP.Attachments = {
         ExcludeElements = {"pre_muzzed"},
         Category = {"muzzle_css"},
         Bone = "W_Main",
-        Pos = Vector(0, 0.075, 27.5),
+        Pos = Vector(0, -2.25, 28.5),
         Ang = Angle(90, 0, -90),
     },
 

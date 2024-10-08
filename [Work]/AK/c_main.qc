@@ -69,6 +69,7 @@ $bodygroup "bullet"
 {
 	studio "AK_Bullet_308.smd"
 	studio "AK_Bullet_12.smd"
+	studio "AK_Bullet_9mm.smd"
 	blank
 }
 
@@ -172,6 +173,22 @@ $sequence "wet_saiga" {
 
 $sequence "wet_saiga_fail" {
 	"anims\wet_saiga_fail.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
+$sequence "dry_scor" {
+	"anims\dry_scor.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "wet_scor" {
+	"anims\wet_scor.smd"
 	activity "ACT_VM_RELOAD" 1		
 	fadein 0.2
 	fadeout 0.2	

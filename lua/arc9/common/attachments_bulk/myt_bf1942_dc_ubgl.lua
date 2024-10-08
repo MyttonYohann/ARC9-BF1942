@@ -114,7 +114,7 @@ ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
 
 ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate arc9
-	if wep:Clip1() == 0 and wep:Clip2() != 0	then
+	if wep:Clip1() == 0 and wep:Clip2() != 0	then	-- well realistically need only check for if clip2 not empty
 		if	curanim == "idle_ubgl_empty" 		then	return "idle_ubgl"		end
 		if	curanim == "fire_ubgl_empty" 		then	return "fire_ubgl"		end	
 		if	curanim == "fire_ubgl_iron_empty" 	then	return "fire_ubgl_iron"	end	
