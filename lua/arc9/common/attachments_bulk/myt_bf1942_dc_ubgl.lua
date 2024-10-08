@@ -337,6 +337,11 @@ ATT.UBGLChamberSize = 0
 ATT.ShootVolumeUBGL = 110
 ATT.RPMUBGL = 43
 
+-- I LOVE BODGING
+ATT.Hook_Think = function(wep)	-- reset RPM cuz the bloody MANUAL ACTION DOESNT FUCKING WORK
+	if wep:Clip2() == 0 then wep:SetNextPrimaryFire(1) end
+end
+
 ATT.SpreadUBGL = 0.02
 ATT.SpreadSightsUBGL = 0.1
 
