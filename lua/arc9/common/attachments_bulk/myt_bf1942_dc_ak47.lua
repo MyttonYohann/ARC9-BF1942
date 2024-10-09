@@ -578,7 +578,7 @@ ATT.RecoilMult = 4
 ATT.RecoilPatternDriftMult = 5
 
 ATT.Ammo = "buckshot"
-ATT.ShellModel = "models/weapons/shell.mdl"
+ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
 ATT.ShellScale = 0.5
 
 ARC9.LoadAttachment(ATT, "gekolt_css_ak_cal5")
