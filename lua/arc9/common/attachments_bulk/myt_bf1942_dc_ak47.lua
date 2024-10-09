@@ -469,7 +469,7 @@ ATT.Description = [[
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"		then	return "reload_empty_u"		end
 	if	curanim == "reload"				then	return "reload_u"			end
-	if	curanim == "reload_fail"		then	return "reload_saiga_u"		end
+	if	curanim == "reload_fail"		then	return "reload_u_fail"		end
 end
 
 ATT.SortOrder = 1

@@ -360,7 +360,7 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 150 / 40},
         },
     },
-	["reload_fail_u"] = {
+	["reload_u_fail"] = {
         Source = "wet_u_fail",
         FireASAP = true,
         MinProgress = 0.95,
