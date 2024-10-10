@@ -234,12 +234,12 @@ SWEP.AnimDraw = false
 
 -------------------------- EFFECTS
 
-SWEP.MuzzleParticle = "muzzleflash_5"
+SWEP.MuzzleParticle = "muzzleflash_pistol"
 SWEP.MuzzleEffectQCA = 1
 
-SWEP.ShellModel = "models/shells/shell_556.mdl"
+SWEP.ShellModel = "models/weapons/shell.mdl"
 SWEP.ShellCorrectAng = Angle(0, 180, 0)
-SWEP.ShellScale = 1
+SWEP.ShellScale = 0.5
 SWEP.ShellPhysBox = Vector(0.5, 0.5, 2)
 
 -------------------------- SOUNDS
@@ -288,7 +288,7 @@ SWEP.Animations = {
     ["draw"] = {
         Source = "draw",
         FireASAP = true,
-        MinProgress = 0.5,
+        MinProgress = 0.65,
         EventTable = {
             {s =  "gekolt_css_foley/draw_rif.wav" ,   t = 0 / 40},
         },
@@ -296,7 +296,7 @@ SWEP.Animations = {
     ["draw_empty"] = {
         Source = "draw_last",
         FireASAP = true,
-        MinProgress = 0.5,
+        MinProgress = 0.65,
         EventTable = {
             {s =  "gekolt_css_foley/draw_rif.wav" ,   t = 0 / 40},
         },
@@ -304,7 +304,7 @@ SWEP.Animations = {
     ["ready"] = {
         Source = "draw",
         FireASAP = true,
-        MinProgress = 0.5,
+        MinProgress = 0.65,
         EventTable = {
             {s =  "gekolt_css_foley/draw_rif.wav" ,   t = 0 / 40},
         },
