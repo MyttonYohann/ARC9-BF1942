@@ -509,7 +509,7 @@ SWEP.Animations = {
         },
     },
     ["holster"] = {
-        Source = "idle",
+        Source = "holster",
     },
     ["idle"] = {
         Source = "idle",

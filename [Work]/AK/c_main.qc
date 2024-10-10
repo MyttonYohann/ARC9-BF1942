@@ -98,6 +98,14 @@ $sequence "draw" {
 	fps 40
 }
 
+$sequence "holster" {
+	"anims\holster.smd"
+	fadein 0.2
+	fadeout 0.2
+	snap	
+	fps 40
+}
+
 $sequence "fire" {
 	"anims\fire.smd"
 	activity "ACT_VM_PRIMARYATTACK" 1

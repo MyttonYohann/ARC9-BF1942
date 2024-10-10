@@ -70,7 +70,7 @@ ATT.IKAnimationProxy = {
     },
     ["enter_ubgl"] = {
         Source = "to_ubgl",
-        MinProgress = 0.8,
+        MinProgress = 0.6,
 		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
@@ -90,7 +90,7 @@ ATT.IKAnimationProxy = {
 
     ["enter_ubgl_glempty"] = {
         Source = "to_ubgl_last",
-        MinProgress = 0.7,
+        MinProgress = 0.6,
 		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
