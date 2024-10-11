@@ -397,7 +397,7 @@ SWEP.Attachments = {
         ExcludeElements = {"nooh", "rh_occupied"},
         Category = {"bf1942_dc_offhand"},
         Bone = "W_Main",
-        Pos = Vector(0.5, -1, -11),
+        Pos = Vector(-1, 0, -10),
         Ang = Angle(90, 0, -90),
     },
 
