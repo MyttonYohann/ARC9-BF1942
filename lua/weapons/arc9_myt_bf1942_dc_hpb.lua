@@ -167,7 +167,7 @@ SWEP.SpeedMultCrouch = 1
 
 -------------------------- MELEE
 
-SWEP.Bash = true
+SWEP.Bash = false
 SWEP.PrimaryBash = false
 
 SWEP.BashDamage = 50
@@ -210,7 +210,7 @@ SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
 SWEP.CrouchAng = Angle(0, 0, -7)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(13, 28, 7)
+SWEP.CustomizePos = Vector(10, 28, 7)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
 
@@ -361,21 +361,12 @@ SWEP.Animations = {
         { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
     },  
-	["exit_ubgl_glempty"] = {	
-        Source = "idle",
-        MinProgress = 0.6,
-		FireASAP = true,
-		Time = 0.5,
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, }, { t = 0.2, lhik = 1, rhik = 1, },
-        { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
-        },
-    },
 }
 
 
-SWEP.Hook_TranslateAnimation = function(wep, curanim) -- numero random, uno per cento		
+SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
+	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
 end
 
 
@@ -432,7 +423,7 @@ SWEP.Attachments = {
         ExcludeElements = {"pre_muzzed"},
         Category = {"muzzle_css"},
         Bone = "W_Main",
-        Pos = Vector(0, -2.25, 28.5),
+        Pos = Vector(0, -2.8, 9),
         Ang = Angle(90, 0, -90),
     },
 }

@@ -363,8 +363,10 @@ ATT.ShootVolumeUBGL = 110
 ATT.RPMUBGL = 44
 
 -- I LOVE BODGING
-ATT.Hook_Think = function(wep)	-- reset RPM cuz the bloody MANUAL ACTION DOESNT FUCKING WORK
+ATT.Hook_Think = function(wep)	-- reset RPM [FOR UGBL ONLY] cuz the bloody MANUAL ACTION DOESNT FUCKING WORK
+	if wep:GetUBGL(true) then
 	if wep:Clip2() == 0 then wep:SetNextPrimaryFire(1) end
+	end
 end
 
 ATT.SpreadUBGL = 0.02
@@ -624,3 +626,119 @@ ATT.ActivePosUBGL = Vector(4, 3, 0)
 ATT.ActiveAngUBGL = Angle(5, 0, 20)
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_rpg")
+
+
+-- Knife --
+
+ATT = {}
+ATT.PrintName = [[Knife]]
+ATT.CompactName = [[Knife]]
+ATT.Icon = Material("entities/gekolt_css_blank.png")
+ATT.Description = [[
+You run faster.
+]] 
+ATT.Pros = {}
+ATT.Cons = {}
+ATT.SortOrder = 0
+
+ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_knife.mdl"
+ATT.RHIK = true
+
+ATT.IKAnimationProxy = {
+	["bash"] = {
+        Source = {"fire", "fire2"},
+        MinProgress = 0.6,
+		FireASAP = true,
+		Mult = 0.8,
+    },
+
+    ["enter_ubgl"] = {
+        Source = "to_ubgl",
+        MinProgress = 0.8,
+		FireASAP = true,
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+        },
+    },
+    ["idle_ubgl"] = {
+        Source = "ubgl",
+    }, 
+    ["exit_ubgl"] = {
+        Source = "from_ubgl",
+        MinProgress = 0.8,
+		FireASAP = true,
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+} -- When an animation event plays, override it with one based on this LHIK model.
+ATT.IKGunMotionQCA = 2
+ATT.MuzzleDeviceUBGL = false
+
+ATT.IKCameraMotionQCA = nil
+ATT.IKCameraMotionOffsetAngle = Angle(0, 90, 0)
+
+ATT.CaseEffectQCAOverrideUBGL = 1	-- nope
+
+ATT.IKGunMotionOffset = Vector(0, 0, 0)
+ATT.IKGunMotionOffsetAngle = Angle(0, 0, 0)
+
+ATT.IKGunMotionMult = 0.5
+ATT.IKGunMotionAngleMult = 0.5
+
+ATT.Category = {"bf1942_dc_offhand"}
+
+ATT.AimDownSightsTimeMult = 1.1
+ATT.SprintToFireTimeMult = 1.1
+
+ATT.UBGL = true
+ATT.UBGLAmmo = ""
+ATT.UBGLClipSize = 0
+ATT.UBGLFiremode = 1
+ATT.UBGLFiremodeName = "Knife"
+ATT.UBGLChamberSize = 0
+ATT.ShootVolumeUBGL = 110
+
+ATT.FirstShootSoundUBGL = false
+ATT.ShootSoundUBGL = "myt_bf1942/dc/RPG.wav"
+ATT.DistantShootSoundUBGL = false
+ATT.HasSightsUBGL = false
+
+ATT.BashUBGL = true
+ATT.PrimaryBashUBGL = true
+ATT.BashDamageUBGL = 40
+ATT.BashLungeRangeUBGL = 0
+ATT.BashRangeUBGL = 64
+ATT.PreBashTimeUBGL = 0.1
+ATT.PostBashTimeUBGL = 0.3
+
+ATT.SpeedOverrideUGBL = 1.5
+
+ATT.ModelOffset = Vector(10, 0, -1)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.Sights = {
+    {
+        Pos = Vector(1.92, 10, -7.75),
+        Ang = Angle(7.5, -2.5, -5),
+        Magnification = 1.05,
+        ViewModelFOV = 60,
+        CrosshairInSights = false,
+        Blur = false,
+        UBGLOnly = true,
+        Disassociate = true,
+    },
+}
+
+ATT.ActivePosUBGL = Vector(4, 3, 0)
+ATT.ActiveAngUBGL = Angle(5, 0, 20)
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_knife")

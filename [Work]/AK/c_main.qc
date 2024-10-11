@@ -16,6 +16,7 @@ $bodygroup "mag"
 	studio "AK_Mag_Saiga.smd"	
 	studio "AK_Mag_Saiga4.smd"
 	studio "AK_Mag_ASVal.smd"	
+	studio "AK_Mag_ASVal_30.smd"	
 	blank
 }
 
@@ -33,6 +34,7 @@ $bodygroup "handguard"
 	studio "AK_HG_SG_U.smd"
 	studio "AK_HG_SG_Saiga.smd"	
 	studio "AK_HG_SG_SaigaU.smd"
+	studio "AK_HG_RPK.smd"
 	blank
 }
 

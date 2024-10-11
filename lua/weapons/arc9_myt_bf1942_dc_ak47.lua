@@ -170,7 +170,7 @@ SWEP.SpeedMultCrouch = 1
 
 -------------------------- MELEE
 
-SWEP.Bash = true
+SWEP.Bash = false
 SWEP.PrimaryBash = false
 
 SWEP.BashDamage = 50
@@ -583,6 +583,7 @@ SWEP.AttachmentElements = {
 	["hg_4"] = 	{ Bodygroups = { {1, 2} },},
 	["hg_5"] = 	{ Bodygroups = { {1, 5} },},
 	["hg_6"] = 	{ Bodygroups = { {1, 7} },},
+	["hg_7"] = 	{ Bodygroups = { {1, 12} },},
 
 	["cal_1"] =	{ Bodygroups = { {0, 11} },},
 	["cal_2"] =	{ Bodygroups = { {0, 3} },},	
@@ -602,11 +603,6 @@ SWEP.Hook_ModifyBodygroups = function(wep, data)
 	if wep:HasElement("barrel_sg") and wep:HasElement("hg_5") 	then model:SetBodygroup(1,11) end
 
 
-
-
-    if wep:HasElement("fg_def")	and wep:HasElement("hg_sd") 	then model:SetBodygroup(8,0) end
-    if wep:HasElement("fg_def") and wep:HasElement("hg_rail") 	then model:SetBodygroup(8,0) end
-    if wep:HasElement("fg_def") and wep:HasElement("hg_12") 	then model:SetBodygroup(8,0) end
 
     if wep:HasElement("hg_rpk") and wep:GetBipod() then
         model:SetBodygroup(9,2)

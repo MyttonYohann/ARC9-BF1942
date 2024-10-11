@@ -454,6 +454,25 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg4")
 
 ATT = {}
 
+ATT.PrintName = [[RPK Handguard]]
+ATT.CompactName = [[HG. RPK]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[
+]]
+
+ATT.SortOrder = 1
+ATT.Category = "bf1942_dc_ak47_hg"
+ATT.ActivateElements = {"hg_7"}
+ATT.ExcludeElements = {"barrel_sg"}
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg7")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
 ATT.PrintName = [[Short Saiga Handguard]]
 ATT.CompactName = [[HG. SSaiga]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
@@ -624,6 +643,17 @@ ATT.RecoilPatternDriftMult = 5
 ATT.Ammo = "buckshot"
 ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
 ATT.ShellScale = 0.5
+
+ATT.Attachments = {
+    {
+        PrintName = "Ammo Type",
+        DefaultName = "Default Type",
+        Category = {"css_ammo_sg"},
+        Pos = Vector(1, 0, -3.5),
+        Ang = Angle(0, 0, 0),
+    },
+}
+
 
 ARC9.LoadAttachment(ATT, "gekolt_css_ak_cal5")
 
