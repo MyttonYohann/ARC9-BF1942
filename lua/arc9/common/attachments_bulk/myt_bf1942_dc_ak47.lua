@@ -373,6 +373,32 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg1")
 
 ATT = {}
 
+ATT.PrintName = [[Short VSS Handguard]]
+ATT.CompactName = [[HG. SVSS]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[
+]]
+ATT.MuzzleParticleOverride = "muzzleflash_suppressed"
+ATT.Silencer = true
+
+ATT.SortOrder = 11.1
+ATT.Category = "bf1942_dc_ak47_hg"
+ATT.ActivateElements = {"hg_6", "pre_muzzed", "ak74u_irons"}
+
+ATT.ShootVolumeMult = 0.8
+ATT.MuzzleParticleOverride = "muzzleflash_suppressed"
+ATT.MuzzleParticleOverride_Priority = 10
+ATT.MuzzleDevice = true
+ATT.Silencer = true
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg6")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
 ATT.PrintName = [[Saiga Handguard]]
 ATT.CompactName = [[HG. Saiga]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
@@ -399,7 +425,7 @@ ATT.Description = [[
 
 ATT.SortOrder = 1
 ATT.Category = "bf1942_dc_ak47_hg"
-ATT.ActivateElements = {"hg_3"}
+ATT.ActivateElements = {"hg_3", "ak74u_irons"}
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg3")
 
@@ -421,6 +447,25 @@ ATT.ActivateElements = {"hg_4"}
 ATT.ExcludeElements = {"barrel_sg"}
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg4")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Short Saiga Handguard]]
+ATT.CompactName = [[HG. SSaiga]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[
+]]
+
+ATT.SortOrder = 10.1
+ATT.Category = "bf1942_dc_ak47_hg"
+ATT.ActivateElements = {"hg_5", "ak74u_irons"}
+ATT.ExcludeElements = {"barrel_sg"}
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg5")
 
 
 ----------------------------------------------------------------------------------

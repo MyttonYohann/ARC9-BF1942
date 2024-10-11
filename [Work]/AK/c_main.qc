@@ -31,7 +31,8 @@ $bodygroup "handguard"
 	studio "AK_HG_ASValU.smd"
 	studio "AK_HG_SG.smd"
 	studio "AK_HG_SG_U.smd"
-	studio "AK_HG_SG_Saiga.smd"
+	studio "AK_HG_SG_Saiga.smd"	
+	studio "AK_HG_SG_SaigaU.smd"
 	blank
 }
 

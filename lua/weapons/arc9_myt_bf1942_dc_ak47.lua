@@ -567,8 +567,7 @@ SWEP.AttachmentElements = {
     CrosshairInSights = false,
 						}
 	},
-	["hg_3"] = 	{ 
-		Bodygroups = { {1, 1} },
+	["ak74u_irons"] = 	{ 
 		IronSights = {
 			Pos = Vector(-2.725, -2, 0.65),
 			Ang = Angle(0,-0.15,0),
@@ -580,7 +579,10 @@ SWEP.AttachmentElements = {
     CrosshairInSights = false,
 						}
 	},
+	["hg_3"] = 	{ Bodygroups = { {1, 1} },},
 	["hg_4"] = 	{ Bodygroups = { {1, 2} },},
+	["hg_5"] = 	{ Bodygroups = { {1, 5} },},
+	["hg_6"] = 	{ Bodygroups = { {1, 7} },},
 
 	["cal_1"] =	{ Bodygroups = { {0, 11} },},
 	["cal_2"] =	{ Bodygroups = { {0, 3} },},	
@@ -597,25 +599,10 @@ SWEP.Hook_ModifyBodygroups = function(wep, data)
     if wep:HasElement("barrel_sg") and wep:HasElement("hg_2") 	then model:SetBodygroup(1,10) end
     if wep:HasElement("barrel_sg") and wep:HasElement("hg_3") 	then model:SetBodygroup(1,9) end 
 	if wep:HasElement("barrel_sg") and wep:HasElement("hg_1") 	then model:SetBodygroup(1,6) end
+	if wep:HasElement("barrel_sg") and wep:HasElement("hg_5") 	then model:SetBodygroup(1,11) end
 
 
 
-    if wep:HasElement("rail_def") and wep:HasElement("hg_12") 	then model:SetBodygroup(5,0) end
-    if wep:HasElement("rail_def") and wep:HasElement("hg_12") 	then model:SetBodygroup(1,0) end
-    if wep:HasElement("rail_def") and wep:HasElement("hg_rail") then model:SetBodygroup(5,0) end
-    if wep:HasElement("rail_def") and wep:HasElement("hg_rail") then model:SetBodygroup(1,0) end
-    if wep:HasElement("rail_def") and wep:HasElement("hg_poly") then model:SetBodygroup(1,0) end
-    if wep:HasElement("rail_def") and wep:HasElement("hg_poly") then model:SetBodygroup(5,2) end
-    if wep:HasElement("rail_def") and wep:HasElement("hg_sd") 	then model:SetBodygroup(5,2) end
-    if wep:HasElement("rail_def") and wep:HasElement("hg_amd") 	then model:SetBodygroup(5,2) end
-    if wep:HasElement("rail_def") and wep:HasElement("hg_94") 	then model:SetBodygroup(5,2) end
-    if wep:HasElement("rail_def") and wep:HasElement("u_566") 	then model:SetBodygroup(5,2) end
-    if wep:HasElement("rail_def") and wep:HasElement("u_566") 	then model:SetBodygroup(1,0) end
-    if wep:HasElement("rail_def") and wep:HasElement("u_disk") 	then model:SetBodygroup(5,0) end
-    if wep:HasElement("rail_def") and wep:HasElement("hg_u") 	then model:SetBodygroup(5,1) end  
-    if wep:HasElement("rail_def") and wep:HasElement("hg_naked")	then model:SetBodygroup(5,1) end
-    if wep:HasElement("rail_def") and wep:HasElement("hg_rpk") 	then model:SetBodygroup(5,1) end
-    if wep:HasElement("rail_def") and wep:HasElement("s_fold4") then model:SetBodygroup(5,1) end
 
     if wep:HasElement("fg_def")	and wep:HasElement("hg_sd") 	then model:SetBodygroup(8,0) end
     if wep:HasElement("fg_def") and wep:HasElement("hg_rail") 	then model:SetBodygroup(8,0) end

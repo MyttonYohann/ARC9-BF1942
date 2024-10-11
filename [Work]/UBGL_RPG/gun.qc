@@ -1,7 +1,7 @@
 $modelname "weapons/myt_bf1942/atts/dc/c_rpg.mdl"
 
 $bodygroup "studio" {
-	studio "RPG.smd"
+	studio "rpg_main_LOD1.smd"
 	blank
 }
 
@@ -16,7 +16,7 @@ $attachment "1" "W_RPG" 0.00 3.00 15.00 rotate -90 -0 0 // Muzzle
 $attachment "2" "root"  2 5 -10 rotate 0 0 0     // VM movement
 $attachment "3" "camera" 0 0 0 rotate 0 0 -90     // Camera rotation (only rotation!)
 
-$collisionmodel "RPG.smd"
+$collisionmodel "rpg_main_LOD1.smd"
 
 $sequence "idle" {
 	"anims/idle.smd"

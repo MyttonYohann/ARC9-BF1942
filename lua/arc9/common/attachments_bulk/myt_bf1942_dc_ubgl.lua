@@ -70,7 +70,7 @@ ATT.IKAnimationProxy = {
     },
     ["enter_ubgl"] = {
         Source = "to_ubgl",
-        MinProgress = 0.6,
+        MinProgress = 0.65,
 		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
@@ -85,7 +85,7 @@ ATT.IKAnimationProxy = {
     }, 
     ["exit_ubgl"] = {
         Source = "from_ubgl",
-        MinProgress = 0.6,
+        MinProgress = 0.65,
 		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
@@ -98,7 +98,7 @@ ATT.IKAnimationProxy = {
 
     ["enter_ubgl_glempty"] = {
         Source = "to_ubgl_last",
-        MinProgress = 0.6,
+        MinProgress = 0.65,
 		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
@@ -110,7 +110,7 @@ ATT.IKAnimationProxy = {
     },
     ["exit_ubgl_glempty"] = {
         Source = "from_ubgl_last",
-        MinProgress = 0.6,
+        MinProgress = 0.65,
 		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
@@ -538,7 +538,6 @@ ATT.IKAnimationProxy = {
 } -- When an animation event plays, override it with one based on this LHIK model.
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
-ATT.ShotgunReloadUBGL = false
 
 ATT.IKCameraMotionQCA = nil
 ATT.IKCameraMotionOffsetAngle = Angle(0, 90, 0)
@@ -570,7 +569,7 @@ ATT.SpreadUBGL = 0.01
 ATT.FirstShootSoundUBGL = false
 ATT.ShootSoundUBGL = "myt_bf1942/dc/RPG.wav"
 ATT.DistantShootSoundUBGL = false
-ATT.HasSightsUBGL = false
+ATT.HasSightsUBGL = true
 
 ATT.NumUBGL = 1
 ATT.ShootEntUBGL = "myt_bf1942_dc_rpg"
@@ -610,8 +609,8 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.Sights = {
     {
-        Pos = Vector(5.05, 10, -5.2),
-        Ang = Angle(8.5, -4.2, -35),
+        Pos = Vector(1.92, 10, -7.75),
+        Ang = Angle(7.5, -2.5, -5),
         Magnification = 1.05,
         ViewModelFOV = 60,
         CrosshairInSights = false,
