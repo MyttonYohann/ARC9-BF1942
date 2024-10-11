@@ -24,11 +24,6 @@ ATT.IKAnimationProxy = {
         EventTable = {
         },
     },
-    ["fire_ubgl_iron"] = {
-        Source = "fire_ads",
-        EventTable = {
-        },		
-    }, 
 	["fire_ubgl_glempty"] = {
         Source = "fire_last",
         EventTable = {
@@ -36,16 +31,6 @@ ATT.IKAnimationProxy = {
     },
 	["fire_ubgl_empty"] = {
         Source = "fire_last",
-        EventTable = {
-        },		
-    },
-    ["fire_ubgl_iron_glempty"] = {
-        Source = "fire_ads_last",
-        EventTable = {
-        },		
-    },  
-	["fire_ubgl_iron_empty"] = {
-        Source = "fire_ads_last",
         EventTable = {
         },		
     },
