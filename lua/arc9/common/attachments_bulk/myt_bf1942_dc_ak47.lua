@@ -463,7 +463,6 @@ ATT.Description = [[
 ATT.SortOrder = 10.1
 ATT.Category = "bf1942_dc_ak47_hg"
 ATT.ActivateElements = {"hg_5", "ak74u_irons"}
-ATT.ExcludeElements = {"barrel_sg"}
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg5")
 
