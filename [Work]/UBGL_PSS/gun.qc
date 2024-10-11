@@ -34,6 +34,13 @@ $sequence "fire" {
 	fps 40
 }
 
+$sequence "fire_bodge" {
+	"anims/fire.smd"
+	fadein 0.03
+	fadeout 0.2
+	fps 40
+}
+
 $sequence "to_ubgl" {
 	"anims/to_ubgl.smd"
 	fadein 0.1

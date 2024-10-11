@@ -4,7 +4,7 @@ SWEP.Base = "arc9_base"
 
 SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
-SWEP.SubCategory = "Desert Combat | Primaries"
+SWEP.SubCategory = "Desert Combat - Primaries"
 
 SWEP.PrintName = "AK47"
 SWEP.TrueName = "AK47"
@@ -497,7 +497,7 @@ SWEP.Animations = {
         FireASAP = true,
         MinProgress = 0.5,
         EventTable = {
-            {s =  "gekolt_css_foley/draw_rif.wav" ,   t = 0 / 40},
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
         },
     },
     ["ready"] = {
@@ -505,7 +505,7 @@ SWEP.Animations = {
         FireASAP = true,
         MinProgress = 0.5,
         EventTable = {
-            {s =  "gekolt_css_foley/draw_rif.wav" ,   t = 0 / 40},
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
         },
     },
     ["holster"] = {
@@ -584,7 +584,7 @@ SWEP.AttachmentElements = {
 
 	["cal_1"] =	{ Bodygroups = { {0, 11} },},
 	["cal_2"] =	{ Bodygroups = { {0, 3} },},	
-	["cal_3"] =	{ Bodygroups = { {0, 7} },},
+	["cal_3"] =	{ Bodygroups = { {0, 8} },},
 	["cal_4"] =	{ Bodygroups = { {0, 6}, {5, 2} },},
 	["cal_5"] =	{ Bodygroups = { {0, 9}, {5, 1}, {1, 8} },},
 

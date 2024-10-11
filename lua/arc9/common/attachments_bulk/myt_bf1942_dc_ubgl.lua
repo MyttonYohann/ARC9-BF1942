@@ -75,6 +75,10 @@ ATT.IKAnimationProxy = {
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
         },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+        },
     },
     ["idle_ubgl"] = {
         Source = "ubgl",
@@ -86,6 +90,10 @@ ATT.IKAnimationProxy = {
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
         },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
     },
 
     ["enter_ubgl_glempty"] = {
@@ -95,6 +103,10 @@ ATT.IKAnimationProxy = {
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
         },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+        },
     },
     ["exit_ubgl_glempty"] = {
         Source = "from_ubgl_last",
@@ -102,6 +114,10 @@ ATT.IKAnimationProxy = {
 		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
     },
     ["idle_ubgl_glempty"] = {
@@ -112,6 +128,7 @@ ATT.IKAnimationProxy = {
     },
 
 } -- When an animation event plays, override it with one based on this LHIK model.
+
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
 
@@ -296,6 +313,10 @@ ATT.IKAnimationProxy = {
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
         },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+        },
     },
     ["idle_ubgl"] = {
         Source = "ubgl",
@@ -306,6 +327,10 @@ ATT.IKAnimationProxy = {
 		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
     },
 } 
@@ -463,6 +488,10 @@ ATT.IKAnimationProxy = {
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
         },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+        },
     },
     ["idle_ubgl"] = {
         Source = "ubgl",
@@ -474,6 +503,10 @@ ATT.IKAnimationProxy = {
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
         },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
     },
     ["enter_ubgl_glempty"] = {
         Source = "to_ubgl_last",
@@ -482,6 +515,10 @@ ATT.IKAnimationProxy = {
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
         },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+        },
     },
     ["exit_ubgl_glempty"] = {
         Source = "from_ubgl_last",
@@ -489,6 +526,10 @@ ATT.IKAnimationProxy = {
 		FireASAP = true,
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
     },
     ["idle_ubgl_glempty"] = {

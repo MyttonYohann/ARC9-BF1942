@@ -4,7 +4,7 @@ SWEP.Base = "arc9_base"
 
 SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
-SWEP.SubCategory = "Desert Combat | Secondaries"
+SWEP.SubCategory = "Desert Combat - Secondaries"
 
 SWEP.PrintName = "HP Browning"
 SWEP.TrueName = "HP Browning"
@@ -253,21 +253,26 @@ SWEP.FiremodeSound = "arc9/firemode.wav"
 SWEP.Animations = {
     ["fire"] = {
         Source = {"fire"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     },
     ["fire_empty"] = {
         Source = {"fire_last"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     },
     ["reload"] = {
         Source = "wet",
         FireASAP = true,
         MinProgress = 0.93,
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },
-        { t = 0.125, lhik = 1, rhik = 0, },{ t = 0.75, lhik = 1, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 1, },
-        },
         EventTable = {
             {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 4 / 40},  
 			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 67 / 40},
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },  
     ["reload_empty"] = {
@@ -283,6 +288,9 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 61 / 40},
 			{s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 91 / 40},
         },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     }, 
 --------------------------------------------------------
     ["draw"] = {
@@ -290,7 +298,10 @@ SWEP.Animations = {
         FireASAP = true,
         MinProgress = 0.65,
         EventTable = {
-            {s =  "gekolt_css_foley/draw_rif.wav" ,   t = 0 / 40},
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },
     ["draw_empty"] = {
@@ -298,7 +309,10 @@ SWEP.Animations = {
         FireASAP = true,
         MinProgress = 0.65,
         EventTable = {
-            {s =  "gekolt_css_foley/draw_rif.wav" ,   t = 0 / 40},
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },
     ["ready"] = {
@@ -306,22 +320,64 @@ SWEP.Animations = {
         FireASAP = true,
         MinProgress = 0.65,
         EventTable = {
-            {s =  "gekolt_css_foley/draw_rif.wav" ,   t = 0 / 40},
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },
     ["holster"] = {
         Source = "holster",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     },
     ["idle"] = {
         Source = "idle",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     }, 
 	["holster_empty"] = {
         Source = "holster_last",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     },
     ["idle_empty"] = {
         Source = "idle_last",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+
+    ["exit_ubgl"] = {		-- bodging
+        Source = "idle",
+        MinProgress = 0.6,
+		FireASAP = true,
+		Time = 0.5,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, }, { t = 0.2, lhik = 1, rhik = 1, },
+        { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
+    },  
+	["exit_ubgl_glempty"] = {	
+        Source = "idle",
+        MinProgress = 0.6,
+		FireASAP = true,
+		Time = 0.5,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, }, { t = 0.2, lhik = 1, rhik = 1, },
+        { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
     },
 }
+
+
+SWEP.Hook_TranslateAnimation = function(wep, curanim) -- numero random, uno per cento		
+	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
+end
+
 
 -------------------------- ATTACHMENTS
 
