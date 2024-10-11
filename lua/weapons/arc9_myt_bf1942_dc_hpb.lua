@@ -157,11 +157,11 @@ SWEP.SwayMultSights = 0.25
 SWEP.SwayMultSights = 0.4
 
 SWEP.AimDownSightsTime = 0.5
-SWEP.SprintToFireTime = 0.6
+SWEP.SprintToFireTime = 0.3
 
 SWEP.SpeedMult = 1
 SWEP.SpeedMultSights = 0.75
-SWEP.SpeedMultShooting = 0.8
+SWEP.SpeedMultShooting = 0.9
 SWEP.SpeedMultMelee = 0.75
 SWEP.SpeedMultCrouch = 1
 
@@ -199,8 +199,8 @@ SWEP.Crosshair = true
 SWEP.BipodPos = Vector(-2.58, 0, 1)
 SWEP.BipodAng = Angle(0, 0, -5)
 
-SWEP.SprintAng = Angle(40, -15, -15)
-SWEP.SprintPos = Vector(3, 2, 0)
+SWEP.SprintAng = Angle(0, 50, 0)
+SWEP.SprintPos = Vector(3, 3, -2)
 
 SWEP.ViewModelFOVBase = 70
 SWEP.ActivePos = Vector(1, 8, 0.5)
@@ -272,7 +272,8 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 67 / 40},
         },
         IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 0, },
         },
     },  
     ["reload_empty"] = {
@@ -280,16 +281,13 @@ SWEP.Animations = {
         FireASAP = true,
         MinProgress = 0.95,
         IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },
-        { t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 4 / 40},  
 			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 61 / 40},
 			{s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 91 / 40},
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     }, 
 --------------------------------------------------------
@@ -301,7 +299,7 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
         },
         IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        { t = 0, lhik = 0, rhik = 0, }, { t = 0.5, lhik = 0, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },
     ["draw_empty"] = {
@@ -312,7 +310,7 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
         },
         IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        { t = 0, lhik = 0, rhik = 0, }, { t = 0.5, lhik = 0, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },
     ["ready"] = {
@@ -323,7 +321,7 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
         },
         IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        { t = 0, lhik = 0, rhik = 0, }, { t = 0.5, lhik = 0, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },
     ["holster"] = {
@@ -387,7 +385,7 @@ SWEP.Attachments = {
         ExcludeElements = {"nofg"},
         Category = {"grip_css"},
         Bone = "W_Main",
-        Pos = Vector(0, 0, 14),
+        Pos = Vector(0, -1.5, 6),
         Ang = Angle(90, 0, -90),
     },
 	
