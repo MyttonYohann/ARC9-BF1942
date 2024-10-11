@@ -184,7 +184,7 @@ SWEP.TracerColor = Color(255, 225, 200) -- Color of tracers. Only works if trace
 -------------------------- POSITIONS
 
 SWEP.IronSights = {
-    Pos = Vector(-2.72, 2, 1.9),
+    Pos = Vector(-2.705, 2, 1.9),
     Ang = Angle(0,0,0),
     Midpoint = { -- Where the gun should be at the middle of it's irons
         Pos = Vector(0, 15, -4),
@@ -273,7 +273,7 @@ SWEP.Animations = {
         },
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
     },  
     ["reload_empty"] = {
@@ -282,7 +282,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 4 / 40},  
@@ -351,7 +351,7 @@ SWEP.Animations = {
 
     ["exit_ubgl"] = {		-- bodging
         Source = "idle",
-        MinProgress = 0.6,
+        MinProgress = 0.7,
 		FireASAP = true,
 		Time = 0.5,
         IKTimeLine = {
