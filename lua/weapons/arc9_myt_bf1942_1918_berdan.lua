@@ -23,7 +23,7 @@ SWEP.Description = [[Cossack.]]
 SWEP.ViewModel = "models/weapons/myt_bf1942/1918/c_berdan.mdl"
 SWEP.WorldModel = "models/weapons/myt_bf1942/1918/c_berdan.mdl"
 
-SWEP.Slot = 1
+SWEP.Slot = 2
 
 SWEP.MirrorVMWM = true
 SWEP.WorldModelMirror = "models/weapons/myt_bf1942/1918/c_berdan.mdl"
@@ -61,7 +61,7 @@ SWEP.BodyDamageMults = {
 
 -------------------------- PHYS BULLET BALLISTICS
 
-SWEP.PhysBulletMuzzleVelocity = 1725 * 12
+SWEP.PhysBulletMuzzleVelocity = 2840 * 12
 SWEP.PhysBulletGravity = 1.5
 SWEP.PhysBulletDrag = 1.15
 
