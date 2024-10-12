@@ -431,6 +431,7 @@ ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_rpg.mdl"
 ATT.RHIK = true
+ATT.ActivateElements = {"off_hand"}
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
@@ -628,6 +629,8 @@ ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_knife.mdl"
 ATT.RHIK = true
+ATT.ActivateElements = {"off_hand", "is_melee"}
+ATT.ExcludeElements = {"bayonet"}
 
 ATT.IKAnimationProxy = {
 	["bash"] = {

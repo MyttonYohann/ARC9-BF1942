@@ -515,7 +515,7 @@ ATT.SortOrder = 20
 ATT.Category = "bf1942_dc_ak47_cal"
 ATT.ActivateElements = {"cal_1"}
 
-ARC9.LoadAttachment(ATT, "gekolt_css_ak_cal1")
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal1")
 
 
 ----------------------------------------------------------------------------------
@@ -539,7 +539,7 @@ ATT.SortOrder = 1
 ATT.Category = "bf1942_dc_ak47_cal"
 ATT.ActivateElements = {"cal_2"}
 
-ARC9.LoadAttachment(ATT, "gekolt_css_ak_cal2")
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal2")
 
 
 ----------------------------------------------------------------------------------
@@ -564,7 +564,7 @@ ATT.SortOrder = 30
 ATT.Category = "bf1942_dc_ak47_cal"
 ATT.ActivateElements = {"cal_3"}
 
-ARC9.LoadAttachment(ATT, "gekolt_css_ak_cal3")
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal3")
 
 
 ----------------------------------------------------------------------------------
@@ -600,7 +600,7 @@ ATT.Ammo = "pistol"
 ATT.ShellModel = "models/weapons/shell.mdl"
 ATT.ShellScale = 0.5
 
-ARC9.LoadAttachment(ATT, "gekolt_css_ak_cal4")
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal4")
 
 
 ----------------------------------------------------------------------------------
@@ -655,7 +655,7 @@ ATT.Attachments = {
 }
 
 
-ARC9.LoadAttachment(ATT, "gekolt_css_ak_cal5")
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal5")
 
 
 ----------------------------------------------------------------------------------
