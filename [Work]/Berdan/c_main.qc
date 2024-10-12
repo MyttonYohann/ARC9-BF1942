@@ -45,7 +45,7 @@ $attachment "2" "W_Main" -1.00 3.00 7.00 rotate -0 135 -180
 
 $sequence "idle" {
 	"anims\idle.smd"
-	fadein 0.2
+	fadein 0.05
 	fadeout 0.2
 	fps 40
 }

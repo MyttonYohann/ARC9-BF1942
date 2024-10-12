@@ -75,3 +75,21 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan2")
 
 
 ----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Raised Sight]]
+ATT.CompactName = [[RSight]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[Tall
+]]
+
+ATT.SortOrder = 100
+ATT.Category = "bf1942_1918_berdan_sight"
+ATT.ActivateElements = {"rsight"}
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan3")
+
+
+----------------------------------------------------------------------------------

@@ -389,6 +389,19 @@ SWEP.DefaultBodygroups = "00000000000000"
 SWEP.AttachmentElements = {
     ["cal_sg"] = 	{ Bodygroups = { {1, 1}, {2, 1} },}, 
 	["bayonet"] = 	{ Bodygroups = { {4, 1} },},
+	["rsight"] = 	{ 
+		Bodygroups = { {3, 1} },
+		IronSights = {
+			Pos = Vector(-2.705, -1, 2.6),
+			Ang = Angle(0,0.7,0),
+			Midpoint = 	{ -- Where the gun should be at the middle of it's irons
+			Pos = Vector(0, 15, -4),
+			Ang = Angle(0, 0, -45),
+						},
+    Magnification = 1.1,
+    CrosshairInSights = false,
+						}
+	},
 }
  
 SWEP.Attachments = {
@@ -432,7 +445,7 @@ SWEP.Attachments = {
         InstalledElements = {"rail_def"},
 
         DefaultIcon = Material("arc9/def_att_icons/optic.png"),
-        Category = {"optic_css", "optic_css_free"},
+        Category = {"optic_css", "optic_css_free", "bf1942_1918_berdan_sight"},
         Bone = "W_Main",
         Pos = Vector(0, -4.5, 3),
         Ang = Angle(90, 0, -90),
