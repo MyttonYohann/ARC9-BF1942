@@ -62,6 +62,14 @@ ATT.ExcludeElements = {"is_melee"}
 
 ATT.Bash = true
 
+--[[ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "idle_sprint"	then	return "idle_sprint_bayo"		end
+end]]
+
+ATT.SprintAng = Angle(2, -2, -30)
+ATT.SprintPos = Vector(0, 2, 1)
+ATT.BobSprintMult = 0.5
+
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan2")
 

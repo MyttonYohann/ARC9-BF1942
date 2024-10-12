@@ -21,7 +21,7 @@ SWEP.Credits = {
 SWEP.Description = [[Gun.]]
 
 SWEP.ViewModel = "models/weapons/myt_bf1942/dc/c_hpbrown.mdl"
-SWEP.WorldModel = "models/weapons/w_rif_ak47.mdl"
+SWEP.WorldModel = "models/weapons/myt_bf1942/dc/c_hpbrown.mdl"
 
 SWEP.Slot = 1
 

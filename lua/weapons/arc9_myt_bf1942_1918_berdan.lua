@@ -21,7 +21,7 @@ SWEP.Credits = {
 SWEP.Description = [[Cossack.]]
 
 SWEP.ViewModel = "models/weapons/myt_bf1942/1918/c_berdan.mdl"
-SWEP.WorldModel = "models/weapons/w_rif_ak47.mdl"
+SWEP.WorldModel = "models/weapons/myt_bf1942/1918/c_berdan.mdl"
 
 SWEP.Slot = 1
 
@@ -177,11 +177,11 @@ SWEP.PreBashTime = 0.15
 SWEP.PostBashTime = 0.8
 SWEP.BashWhileSprint = true
 
--- I LOVE BODGING
+--[[ I LOVE BODGING
 SWEP.Hook_Think = function(wep)	-- disable melee in UGBL
 	if wep:GetUBGL(true) then
-	wep:ThinkMelee(nil) end
-end
+	--wep:ThinkMelee(nil) end
+end]]
 
 -------------------------- TRACERS
 
@@ -272,6 +272,12 @@ SWEP.Animations = {
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
+    },	
+	["idle_sprint_bayo"] = {
+        Source = {"sprint"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     },
     ["reload"] = {
         Source = "dry",
@@ -346,6 +352,12 @@ SWEP.Animations = {
         },
     },
     ["idle"] = {
+        Source = "idle",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    }, 
+    ["idle_sprint"] = {
         Source = "idle",
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },

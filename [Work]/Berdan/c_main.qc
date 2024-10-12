@@ -47,7 +47,6 @@ $sequence "idle" {
 	"anims\idle.smd"
 	fadein 0.2
 	fadeout 0.2
-	snap	
 	fps 40
 }
 
@@ -94,8 +93,15 @@ $sequence "dry_sg" {
 
 $sequence "melee" {
 	"anims\melee.smd"	
-	fadein 0.1
+	fadein 0.05
 	fadeout 0.5	
+	fps 40
+}
+
+$sequence "sprint" {
+	"anims\sprint.smd"	
+	fadein 1
+	fadeout 1
 	fps 40
 }
 
