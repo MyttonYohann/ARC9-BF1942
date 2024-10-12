@@ -211,6 +211,9 @@ ATT.Sights = {
 ATT.ActivePosUBGL = Vector(4, 3, 0)
 ATT.ActiveAngUBGL = Angle(5, 0, 20)
 
+ATT.SprintAngUBGL = Angle(0, -20, 10)
+ATT.SprintPosUBGL = Vector(2, 3, 0)
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_pss")
 
 
@@ -413,6 +416,9 @@ ATT.Sights = {
 ATT.ActivePosUBGL = Vector(4, 3, 0)
 ATT.ActiveAngUBGL = Angle(5, 0, 20)
 
+ATT.SprintAngUBGL = Angle(5, -5, 10)
+ATT.SprintPosUBGL = Vector(3, 3, -3)
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_r870")
 
 
@@ -544,7 +550,7 @@ ATT.AimDownSightsTimeMult = 1.1
 ATT.SprintToFireTimeMult = 1.1
 
 ATT.UBGL = true
-ATT.UBGLAmmo = "buckshot"
+ATT.UBGLAmmo = "RPG_rocket"
 ATT.UBGLClipSize = 1
 ATT.UBGLFiremode = 1
 ATT.UBGLFiremodeName = "RPG"
@@ -610,6 +616,9 @@ ATT.Sights = {
 
 ATT.ActivePosUBGL = Vector(4, 3, 0)
 ATT.ActiveAngUBGL = Angle(5, 0, 20)
+
+ATT.SprintAngUBGL = Angle(0, -25, 10)
+ATT.SprintPosUBGL = Vector(2, 3, -0.5)
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_rpg")
 
@@ -728,5 +737,8 @@ ATT.Sights = {
 
 ATT.ActivePosUBGL = Vector(4, 3, 0)
 ATT.ActiveAngUBGL = Angle(5, 0, 20)
+
+ATT.SprintAngUBGL = Angle(0, -10, 10)
+ATT.SprintPosUBGL = Vector(2, 3, -1)
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_knife")
