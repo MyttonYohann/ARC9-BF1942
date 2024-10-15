@@ -26,6 +26,8 @@ ATT.DamageMinMult = 0.4
 ATT.RecoilMult = 4
 ATT.RecoilPatternDriftMult = 5
 
+ATT.ImpactForce = 4
+
 ATT.Ammo = "buckshot"
 ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
 ATT.ShellScale = 0.5

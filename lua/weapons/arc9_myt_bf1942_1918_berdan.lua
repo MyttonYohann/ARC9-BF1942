@@ -46,7 +46,7 @@ SWEP.DamageRand = 0.5
 SWEP.RangeMin = 700 -- How far bullets retain their maximum damage for.
 SWEP.RangeMax = 9000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
 
-SWEP.Penetration = 12 -- Units of wood that can be penetrated by this gun.
+SWEP.Penetration = 15 -- Units of wood that can be penetrated by this gun.
 
 SWEP.ImpactForce = 8
 
@@ -156,8 +156,8 @@ SWEP.SwayMultSights = 0.25
 
 SWEP.SwayMultSights = 0.4
 
-SWEP.AimDownSightsTime = 0.5
-SWEP.SprintToFireTime = 0.3
+SWEP.AimDownSightsTime = 0.6
+SWEP.SprintToFireTime = 0.5
 
 SWEP.SpeedMult = 1
 SWEP.SpeedMultSights = 0.75

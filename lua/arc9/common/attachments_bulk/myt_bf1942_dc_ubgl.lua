@@ -143,7 +143,7 @@ ATT.SprintToFireTimeMult = 1.1
 
 ATT.UBGL = true
 ATT.UBGLAmmo = "pistol"
-ATT.UBGLClipSize = 12
+ATT.UBGLClipSize = 8
 ATT.UBGLFiremode = 1
 ATT.UBGLFiremodeName = "PSS"
 ATT.UBGLChamberSize = 1
@@ -169,8 +169,8 @@ ATT.RecoilSideUBGL = 0.7 -- Multiplier for vertical recoil
 
 -- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
 -- This type of recoil CANNOT be predicted.
-ATT.RecoilRandomUpUBGL = 0.3
-ATT.RecoilRandomSideUBGL = 0.3
+ATT.RecoilRandomUpUBGL = 0.5
+ATT.RecoilRandomSideUBGL = 0.5
 
 ATT.RecoilDissipationRateUBGL = 50 -- How much recoil dissipates per second.
 ATT.RecoilResetTimeUBGL = 0 -- How long the gun must go before the recoil pattern starts to reset.
@@ -180,8 +180,8 @@ ATT.RecoilAutoControlUBGL = 0 -- Multiplier for automatic recoil control.
 ATT.RecoilKickUBGL = 1
 
 ATT.DamageTypeUBGL = DMG_BULLET
-ATT.DamageMaxUBGL = 23 -- Damage done at point blank range
-ATT.DamageMinUBGL = 15 -- Damage done at maximum range
+ATT.DamageMaxUBGL = 37 -- Damage done at point blank range
+ATT.DamageMinUBGL = 22 -- Damage done at maximum range
 
 ATT.DamageRandUBGL = 0.3 -- Damage varies randomly per shot by this fraction. 0.1 = +- 10% damage per shot.
 
@@ -721,19 +721,6 @@ ATT.SpeedOverrideUGBL = 1.5
 
 ATT.ModelOffset = Vector(10, 0, -1)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
-
-ATT.Sights = {
-    {
-        Pos = Vector(1.92, 10, -7.75),
-        Ang = Angle(7.5, -2.5, -5),
-        Magnification = 1.05,
-        ViewModelFOV = 60,
-        CrosshairInSights = false,
-        Blur = false,
-        UBGLOnly = true,
-        Disassociate = true,
-    },
-}
 
 ATT.ActivePosUBGL = Vector(4, 3, 0)
 ATT.ActiveAngUBGL = Angle(5, 0, 20)

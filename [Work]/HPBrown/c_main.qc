@@ -19,7 +19,6 @@ $sequence "idle" {
 	"anims\idle.smd"
 	fadein 0.2
 	fadeout 0.2
-	snap	
 	fps 40
 }
 
@@ -27,7 +26,6 @@ $sequence "draw" {
 	"anims\draw.smd"
 	fadein 0.2
 	fadeout 0.2
-	snap	
 	fps 40
 }
 
@@ -35,7 +33,6 @@ $sequence "holster" {
 	"anims\holster.smd"
 	fadein 0.2
 	fadeout 0.2
-	snap	
 	fps 40
 }
 
@@ -43,7 +40,6 @@ $sequence "idle_last" {
 	"anims\idle_last.smd"
 	fadein 0.2
 	fadeout 0.2
-	snap	
 	fps 40
 }
 
@@ -51,7 +47,6 @@ $sequence "draw_last" {
 	"anims\draw_last.smd"
 	fadein 0.2
 	fadeout 0.2
-	snap	
 	fps 40
 }
 
@@ -59,7 +54,6 @@ $sequence "holster_last" {
 	"anims\holster_last.smd"
 	fadein 0.2
 	fadeout 0.2
-	snap	
 	fps 40
 }
 
