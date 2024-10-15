@@ -38,13 +38,13 @@ SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
 
-SWEP.DamageMax = 28 -- Damage done at point blank range
-SWEP.DamageMin = 12 -- Damage done at maximum range
+SWEP.DamageMax = 52 -- Damage done at point blank range
+SWEP.DamageMin = 38 -- Damage done at maximum range
 
-SWEP.DamageRand = 0.1
+SWEP.DamageRand = 0.5
 
-SWEP.RangeMin = 500 -- How far bullets retain their maximum damage for.
-SWEP.RangeMax = 4000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
+SWEP.RangeMin = 700 -- How far bullets retain their maximum damage for.
+SWEP.RangeMax = 6000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
 
 SWEP.Penetration = 7 -- Units of wood that can be penetrated by this gun.
 
@@ -61,7 +61,7 @@ SWEP.BodyDamageMults = {
 
 -------------------------- PHYS BULLET BALLISTICS
 
-SWEP.PhysBulletMuzzleVelocity = 1725 * 12
+SWEP.PhysBulletMuzzleVelocity = 2055 * 12
 SWEP.PhysBulletGravity = 1.5
 SWEP.PhysBulletDrag = 1.15
 
@@ -200,7 +200,7 @@ SWEP.BulletBones = {
 }
 
 SWEP.IronSights = {
-    Pos = Vector(-2.705, 2, 0.875),
+    Pos = Vector(-2.705, 5, 0.875),
     Ang = Angle(0,0,0),
     Midpoint = { -- Where the gun should be at the middle of it's irons
         Pos = Vector(0, 15, -4),
