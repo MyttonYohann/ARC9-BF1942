@@ -298,7 +298,7 @@ SWEP.Animations = {
 		Mult = 1,
     },
     ["reload"] = {
-        Source = "dry",
+        Source = "wet",
         FireASAP = true,
         MagSwapTime = 65 / 40,	
         MinProgress = 0.93,

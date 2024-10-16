@@ -66,6 +66,14 @@ $sequence "fire_prep" {
 	fps 40
 }
 
+$sequence "wet" {
+	"anims\wet.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
 $sequence "dry" {
 	"anims\dry.smd"
 	activity "ACT_VM_RELOAD_EMPTY" 1		
