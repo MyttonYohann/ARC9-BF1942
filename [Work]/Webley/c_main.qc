@@ -25,8 +25,8 @@ $illumposition 0 0 0
 $cdmaterials "models\myt_bf1942\1918\"
 $cdmaterials "models\myt_bf1942\dc\"
 
-$attachment "1" "W_Main" 0.00 2.50 9.50 rotate -90 -0 0
-$attachment "2" "W_Main" -1.00 3.00 3.50 rotate -0 135 180
+$attachment "1" "W_Main" 0.00 3.80 10.00 rotate -90 -0 0
+$attachment "2" "W_Cylinder" 0.00 0.00 -2.00 rotate 90 0 0
 
 $sequence "idle" {
 	"anims\idle.smd"
