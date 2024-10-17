@@ -214,6 +214,10 @@ ATT.ActiveAngUBGL = Angle(5, 0, 20)
 ATT.SprintAngUBGL = Angle(0, -20, 10)
 ATT.SprintPosUBGL = Vector(2, 3, 0)
 
+ATT.CustomizeAngUBGL  = Angle(-90, 40, -5)
+ATT.CustomizePosUBGL  = Vector(-12, 28, 7)
+ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_pss")
 
 
@@ -419,6 +423,16 @@ ATT.ActiveAngUBGL = Angle(5, 0, 20)
 ATT.SprintAngUBGL = Angle(5, -5, 10)
 ATT.SprintPosUBGL = Vector(3, 3, -3)
 
+ATT.CustomizeAngUBGL  = Angle(-90, 40, -6)
+ATT.CustomizePosUBGL  = Vector(-20, 28, 7)
+ATT.CustomizeRotateAnchorUBGL = Vector(10, 0, -10)
+
+ATT.CustomCrosshairUBGL = true
+ATT.CustomCrosshairSingleUBGL = true
+ATT.CustomCrosshairMaterialUBGL = Material("arc9_myt_bf1942/circlehollow.png", "mips smooth")
+ATT.CustomCrosshairSizeUBGL = 70
+
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_r870")
 
 
@@ -620,6 +634,10 @@ ATT.ActiveAngUBGL = Angle(5, 0, 20)
 ATT.SprintAngUBGL = Angle(0, -25, 10)
 ATT.SprintPosUBGL = Vector(2, 3, -0.5)
 
+ATT.CustomizeAngUBGL  = Angle(-90, 40, -6)
+ATT.CustomizePosUBGL  = Vector(-8, 35, 7)
+ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_rpg")
 
 
@@ -639,16 +657,26 @@ ATT.SortOrder = 0
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_knife.mdl"
 ATT.RHIK = true
 ATT.ActivateElements = {"off_hand", "is_melee"}
-ATT.ExcludeElements = {"bayonet"}
+--ATT.ExcludeElements = {"bayonet"}
+--[[ATT.Hook_Think = function(wep)
+	if wep:GetUBGL(true) then wep.GetProcessedValue(wep, "Bash", false)
+	end
+end]]
 
 ATT.IKAnimationProxy = {
+	["bash_ubgl"] = {
+        Source = {"fire", "fire2"},
+        MinProgress = 0.6,
+		FireASAP = true,
+		Mult = 0.8,
+    },
 	["bash"] = {
         Source = {"fire", "fire2"},
         MinProgress = 0.6,
 		FireASAP = true,
 		Mult = 0.8,
     },
-
+	
     ["enter_ubgl"] = {
         Source = "to_ubgl",
         MinProgress = 0.8,
@@ -677,6 +705,14 @@ ATT.IKAnimationProxy = {
         },
     },
 } -- When an animation event plays, override it with one based on this LHIK model.
+
+ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate arc9
+	if wep:GetUBGL(true) and wep:HasAnimation("bash_bayo")	then
+		if	curanim == "bash" 		then	return "bash_ubgl"		end
+	else
+	end
+end
+
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = false
 
@@ -727,5 +763,9 @@ ATT.ActiveAngUBGL = Angle(5, 0, 20)
 
 ATT.SprintAngUBGL = Angle(0, -10, 10)
 ATT.SprintPosUBGL = Vector(2, 3, -1)
+
+ATT.CustomizeAngUBGL  = Angle(-90, 40, -5)
+ATT.CustomizePosUBGL  = Vector(-12, 28, 7)
+ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_knife")

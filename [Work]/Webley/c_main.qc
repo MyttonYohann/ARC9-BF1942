@@ -5,7 +5,8 @@ $modelname "weapons/myt_bf1942/1918/c_webley.mdl"
 $bodygroup "main"
 {
 	studio "webley.smd"	
-	studio "webley_short.smd"
+	studio "webley_short.smd"	
+	studio "webley_auto.smd"
 	blank
 }
 
@@ -53,15 +54,24 @@ $sequence "fire" {
 	"anims\fire.smd"
 	activity "ACT_VM_PRIMARYATTACK" 1
 	{ event 5001 0 "1" }
-	fadein 0.05
-	fadeout 0.2
+	fadein 0.1
+	fadeout 0.5
+	fps 40
+}
+
+$sequence "fire_auto" {
+	"anims\fire_auto.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.1
+	fadeout 0.5
 	fps 40
 }
 
 $sequence "fire_prep" {
 	"anims\fire_prep.smd"
 	{ event 5001 0 "1" }
-	fadein 0.05
+	fadein 0.1
 	fadeout 0.2
 	fps 40
 }
@@ -76,6 +86,22 @@ $sequence "wet" {
 
 $sequence "dry" {
 	"anims\dry.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "wet_auto" {
+	"anims\wet_auto.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "dry_auto" {
+	"anims\dry_auto.smd"
 	activity "ACT_VM_RELOAD_EMPTY" 1		
 	fadein 0.2
 	fadeout 0.2

@@ -11,8 +11,8 @@ SWEP.TrueName = "Webley"
 
 SWEP.Class = "Pistol"
 SWEP.Trivia = {
-   --["Country of Origin"] = [[[Soviet] Russia]],
-    --["Caliber"] = "7.62x39mm",
+   --["Country of Origin"] = [[Earth]],
+    --["Calibre"] = "idk",
 }
 
 SWEP.Credits = {
@@ -78,11 +78,11 @@ SWEP.ReloadInSights = false -- This weapon can aim down sights while reloading.
 
 -------------------------- FIREMODES
 
-SWEP.RPM = 400
+SWEP.RPM = 200
 
 SWEP.TriggerDelay = true -- Add a delay before the weapon fires.
-SWEP.TriggerDelayTime = 0.09 -- Time until weapon fires.
-SWEP.TriggerDelayRepeat = true -- Whether to do it for every shot on automatics.
+SWEP.TriggerDelayTime = 0.1 -- Time until weapon fires.
+SWEP.TriggerDelayRepeat = false -- Whether to do it for every shot on automatics.
 SWEP.TriggerDelayCancellable = true -- Whether it is possible to cancel trigger delay by releasing the trigger before it is done.
 SWEP.TriggerDelayReleaseToFire = true -- Release the trigger to fire instead of firing as soon as the delay is over.
 SWEP.TriggerStartFireAnim = false -- Whether trigger begins the firing animation
@@ -134,7 +134,7 @@ SWEP.RecoilMultSights = 1
 
 -------------------------- SPREAD
 
-SWEP.Spread = 0.005
+SWEP.Spread = 0.003
 
 SWEP.SpreadAddRecoil = 0.005 -- Applied per unit of recoil.
 SWEP.RecoilModifierCap = 10
@@ -144,7 +144,7 @@ SWEP.SpreadAddMidAir = 0.0075
 SWEP.SpreadMultHipFire = 5
 SWEP.SpreadMultCrouch = 0.5
 
-SWEP.SpreadMultSights = 0.0025/0.005
+SWEP.SpreadMultSights = 0.00125/0.003
 SWEP.RecoilModifierCapSights = 2.5
 SWEP.RecoilModifierCapCrouch = 5
 
@@ -226,7 +226,7 @@ SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
 SWEP.CrouchAng = Angle(0, 0, -7)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(10, 28, 7)
+SWEP.CustomizePos = Vector(8, 25, 6)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
 
@@ -275,6 +275,12 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
 		Time = 23/40,
+    }, 
+	["fire_auto"] = {
+        Source = {"fire_auto"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     },
     ["trigger"] = {
         Source = {"fire_prep"},
@@ -311,7 +317,7 @@ SWEP.Animations = {
         },
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.1	, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
     },   
 	["reload_empty"] = {
@@ -325,6 +331,44 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,   t = 47 / 40},  
             {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 99 / 40}, 
             {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 132 / 40}, 
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    },   
+	["reload_auto"] = {
+        Source = "wet_auto",
+        FireASAP = true,
+        MagSwapTime = 85 / 40,	
+        MinProgress = 0.93,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 15 / 40},   
+			{s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,   t = 28 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,   t = 47 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,   t = 59 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 111 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 144 / 40},   
+			{s =  "myt_bf1942/1918/Webley_Reload6.ogg" ,   t = 156 / 40}, 
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1	, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    },   
+	["reload_empty_auto"] = {
+        Source = "dry_auto",
+        FireASAP = true,
+        MagSwapTime = 85 / 40,	
+        MinProgress = 0.93,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 15 / 40},   
+			{s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,   t = 28 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,   t = 47 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,   t = 59 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 111 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 144 / 40},   
+			{s =  "myt_bf1942/1918/Webley_Reload6.ogg" ,   t = 156 / 40}, 
         },
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
@@ -390,10 +434,21 @@ end
 SWEP.DefaultBodygroups = "00000000000000000"
 
 SWEP.AttachmentElements = {
+    ["b_1"] = 	{ Bodygroups = { {0, 1}, },}, 
+    ["b_2"] = 	{ Bodygroups = { {0, 2}, },}, 
 }
  
 SWEP.Attachments = {
     {
+        PrintName = "Barrel",
+        DefaultName = "Default Length",
+
+        Category = {"bf1942_1918_webley_barrel"},
+        Bone = "W_Spin",
+        Pos = Vector(0, -3.5, 5),
+        Ang = Angle(90, 0, -90),
+    }, 
+	{
         PrintName = "Foregrip",
         DefaultName = "None",
         InstalledElements = {"fg_def"},
@@ -401,8 +456,8 @@ SWEP.Attachments = {
         DefaultIcon = Material("arc9/def_att_icons/grip.png"),
         ExcludeElements = {"nofg"},
         Category = {"grip_css"},
-        Bone = "W_Main",
-        Pos = Vector(0, -1.5, 6),
+        Bone = "W_Bolt2",
+        Pos = Vector(0, -0.75, 4),
         Ang = Angle(90, 0, -90),
     },
 	
@@ -413,8 +468,8 @@ SWEP.Attachments = {
         DefaultIcon = Material("arc9/def_att_icons/grip.png"),
         ExcludeElements = {"nooh", "rh_occupied"},
         Category = {"bf1942_dc_offhand"},
-        Bone = "W_Spin",
-        Pos = Vector(0, 0, -12),
+        Bone = "W_Bolt2",
+        Pos = Vector(-1, 2, -12),
         Ang = Angle(90, 0, -90),
     },
 
@@ -425,8 +480,8 @@ SWEP.Attachments = {
 
         DefaultIcon = Material("arc9/def_att_icons/optic.png"),
         Category = {"optic_css", "optic_css_free"},
-        Bone = "W_Main",
-        Pos = Vector(0, -4.5, 3),
+        Bone = "W_Bolt2",
+        Pos = Vector(0, -2.5, 1),
         Ang = Angle(90, 0, -90),
     },
 

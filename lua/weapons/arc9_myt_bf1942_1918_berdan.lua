@@ -202,7 +202,11 @@ SWEP.IronSights = {
 }
 
 SWEP.Crosshair = true
-
+--[[
+SWEP.PeekPos = Vector(2, 4, -2)
+SWEP.PeekAng = Angle(0, 0, -10)
+SWEP.NoPeekCrosshair = false -- Not displays peek crosshair even if its enabled
+]]
 SWEP.BipodPos = Vector(-2.58, 0, 1)
 SWEP.BipodAng = Angle(0, 0, -5)
 
@@ -267,7 +271,7 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     }, 
-	["bash"] = {
+	["bash_bayo"] = {
         Source = {"melee"},
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
@@ -320,6 +324,41 @@ SWEP.Animations = {
             {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
 			{s =  "myt_bf1942/1918/Berdan_MagSG.ogg" ,   t = 47 / 40},
 			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 71 / 40},
+        },
+    },  
+
+	["reload_fail"] = {
+        Source = "dry_fail",
+        FireASAP = true,
+        MinProgress = 0.9,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EjectAt = 32 / 40,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,   t = 80 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,   t = 100 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 120 / 40},
+        },
+    }, 
+    ["reload_sg_fail"] = {
+        Source = "dry_sg_fail",
+        FireASAP = true,
+        MinProgress = 0.9,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EjectAt = 32 / 40,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_MagSG.ogg" ,   t = 47 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,   t = 80 / 40},
+			{s =  "myt_bf1942/1918/Berdan_MagSG15.ogg" ,   t = 100 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 120 / 40},
         },
     }, 
 --------------------------------------------------------
@@ -379,8 +418,21 @@ SWEP.Animations = {
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
+
+    local rng = math.Truncate(util.SharedRandom("vest pex best pex", 1,100))
+	local varextra = 0
+	if wep:HasElement("cal_sg") then varextra = 15 end
+
+    if rng <= 25 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
+		if	curanim == "reload_empty" then return "reload_fail"	end	
+		if	curanim == "reload_empty_sg" then return "reload_sg_fail"	end	
+	end
 end
 
+SWEP.Hook_Think = function(wep)	-- diasble bash in ugbl, DOESNT FUCKING WORK
+	if wep:GetUBGL(true) and !wep:HasElement("is_melee") then wep:GetProcessedValue("Bash", false)
+	end
+end
 
 -------------------------- ATTACHMENTS
 

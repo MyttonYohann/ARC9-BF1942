@@ -91,6 +91,22 @@ $sequence "dry_sg" {
 	fps 40
 }
 
+$sequence "dry_fail" {
+	"anims\dry_fail.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "dry_sg_fail" {
+	"anims\dry_sg_fail.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
 $sequence "melee" {
 	"anims\melee.smd"	
 	fadein 0.05
