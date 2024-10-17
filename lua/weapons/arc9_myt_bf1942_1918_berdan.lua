@@ -277,6 +277,12 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },	
+	["bash"] = {
+        Source = {"melee"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },	
 	["idle_sprint_bayo"] = {
         Source = {"sprint"},
         IKTimeLine = {
@@ -428,12 +434,6 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 		if	curanim == "reload_empty_sg" then return "reload_sg_fail"	end	
 	end
 end
-
-SWEP.Hook_Think = function(wep)	-- diasble bash in ugbl, DOESNT FUCKING WORK
-	if wep:GetUBGL(true) and !wep:HasElement("is_melee") then wep:GetProcessedValue("Bash", false)
-	end
-end
-
 -------------------------- ATTACHMENTS
 
 SWEP.DefaultBodygroups = "00000000000000"

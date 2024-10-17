@@ -38,7 +38,7 @@ SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
 
-SWEP.DamageMax = 52 -- Damage done at point blank range
+SWEP.DamageMax = 62 -- Damage done at point blank range
 SWEP.DamageMin = 38 -- Damage done at maximum range
 
 SWEP.DamageRand = 0.5
@@ -78,7 +78,7 @@ SWEP.ReloadInSights = false -- This weapon can aim down sights while reloading.
 
 -------------------------- FIREMODES
 
-SWEP.RPM = 200
+SWEP.RPM = 300
 
 SWEP.TriggerDelay = true -- Add a delay before the weapon fires.
 SWEP.TriggerDelayTime = 0.1 -- Time until weapon fires.
@@ -212,11 +212,11 @@ SWEP.IronSights = {
 
 SWEP.Crosshair = true
 
-SWEP.BipodPos = Vector(-2.58, 0, 1)
-SWEP.BipodAng = Angle(0, 0, -5)
+SWEP.BipodPos = Vector(1, 7, 1)
+SWEP.BipodAng = Angle(0, 0, 0)
 
 SWEP.SprintAng = Angle(0, 50, 0)
-SWEP.SprintPos = Vector(3, 3, -2)
+SWEP.SprintPos = Vector(3, 6, -2)
 
 SWEP.ViewModelFOVBase = 70
 SWEP.ActivePos = Vector(0.5, 8, 0)
@@ -275,6 +275,25 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
 		Time = 23/40,
+    },  
+   ["jam"] = {
+        Source = {"fire_fail"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,   t = 1 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 30 / 40}, 
+        },
+        FireASAP = true,
+        MinProgress = 0.8,
+    }, 
+    ["fix"] = {
+        Source = "idle",
+		Time = 0.1,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     }, 
 	["fire_auto"] = {
         Source = {"fire_auto"},
@@ -422,12 +441,21 @@ SWEP.Animations = {
     },  
 }
 
+SWEP.MalfunctionWait = -1
+SWEP.Malfunction = true
+SWEP.MalfunctionMeanShotsToFail = 6
+SWEP.MalfunctionJam = false
 
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
-end
+	--[[local rng = math.Truncate(util.SharedRandom("vest pex best pex", 1,100))
 
+    if rng <= 20  then	-- the specs keldeo running both inaccurate stabs (literally me)
+		if	curanim == "fire" then return "fire_fail"	end	
+		-- HOW THE FUCK DO I MODIFY RPM
+	end]]
+end
 
 -------------------------- ATTACHMENTS
 
@@ -465,7 +493,6 @@ SWEP.Attachments = {
         PrintName = "Off Hand",
         DefaultName = "None",
 
-        DefaultIcon = Material("arc9/def_att_icons/grip.png"),
         ExcludeElements = {"nooh", "rh_occupied"},
         Category = {"bf1942_dc_offhand"},
         Bone = "W_Bolt2",

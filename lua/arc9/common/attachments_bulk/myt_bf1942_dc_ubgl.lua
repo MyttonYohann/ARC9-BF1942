@@ -127,7 +127,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate 
 		return 
 	end
 end
-
+ATT.BashUBGL = false
 ATT.CaseEffectQCAOverrideUBGL = 1	-- nope
 
 ATT.IKGunMotionOffset = Vector(0, 0, 0)
@@ -217,6 +217,8 @@ ATT.SprintPosUBGL = Vector(2, 3, 0)
 ATT.CustomizeAngUBGL  = Angle(-90, 40, -5)
 ATT.CustomizePosUBGL  = Vector(-12, 28, 7)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
+
+ATT.CustomCrosshairUBGL = false
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_pss")
 
@@ -327,6 +329,7 @@ ATT.IKAnimationProxy = {
     },
 } 
 
+ATT.BashUBGL = false
 -- When an animation event plays, override it with one based on this LHIK model.
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
@@ -544,6 +547,8 @@ ATT.IKAnimationProxy = {
         Source = "ubgl_last"
     },
 } -- When an animation event plays, override it with one based on this LHIK model.
+
+ATT.BashUBGL = false
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
 
@@ -637,6 +642,7 @@ ATT.SprintPosUBGL = Vector(2, 3, -0.5)
 ATT.CustomizeAngUBGL  = Angle(-90, 40, -6)
 ATT.CustomizePosUBGL  = Vector(-8, 35, 7)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
+ATT.CustomCrosshairUBGL = false
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_rpg")
 
@@ -707,7 +713,7 @@ ATT.IKAnimationProxy = {
 } -- When an animation event plays, override it with one based on this LHIK model.
 
 ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate arc9
-	if wep:GetUBGL(true) and wep:HasAnimation("bash_bayo")	then
+	if wep:GetUBGL(true)	then
 		if	curanim == "bash" 		then	return "bash_ubgl"		end
 	else
 	end
@@ -767,5 +773,6 @@ ATT.SprintPosUBGL = Vector(2, 3, -1)
 ATT.CustomizeAngUBGL  = Angle(-90, 40, -5)
 ATT.CustomizePosUBGL  = Vector(-12, 28, 7)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
+ATT.Crosshair = false
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_knife")

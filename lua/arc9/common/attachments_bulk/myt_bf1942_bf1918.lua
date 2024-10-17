@@ -120,7 +120,6 @@ ATT.Category = "bf1942_1918_webley_barrel"
 ATT.ActivateElements = {"b_1"}
 
 ATT.TriggerDelayTime = 0.05
-ATT.RPMMult = 400/200
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_webley1")
 
@@ -141,6 +140,7 @@ ATT.Category = "bf1942_1918_webley_barrel"
 ATT.ActivateElements = {"b_2"}
 
 ATT.TriggerDelay = false
+ATT.MalfunctionMeanShotsToFail = 4
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_auto"		end
@@ -150,12 +150,7 @@ end
 
 ATT.Firemodes = {
     {
-        Mode = -1,
-		RPMMult = 300/200,
-    },
-    {
         Mode = 1,
-		RPMMult = 600/200,
     },
 }
 
