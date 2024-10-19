@@ -152,6 +152,7 @@ ATT.RPMUBGL = 600
 
 ATT.SpreadUBGL = 0.0075
 ATT.SpreadMultHipFiredUBGL = 1
+ATT.FreeAimRadiusUGBL = 10
 
 ATT.FirstShootSoundUBGL = false
 ATT.ShootSoundUBGL = "myt_bf1942/dc/PSS_fire_st.wav"

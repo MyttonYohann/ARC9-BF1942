@@ -2,13 +2,14 @@ local ATT = {}
 
 ATT = {}
 
-ATT.PrintName = [[Shotgun Conversion]]
-ATT.CompactName = [[Shotgun]]
+ATT.PrintName = [[Shotgun Bore]]
+ATT.CompactName = [[B. Shotgun]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[idk i skimmed through wikipedia and saw shotgun mentioned somewhere
 ]]
 ATT.Hook_TranslateAnimation = function(wep, curanim)
-	if	curanim == "reload_empty"		then	return "reload_empty_sg"	end
+	if	curanim == "reload_empty"	then	return "reload_empty_sg"	end
+	if	curanim == "reload_fail"	then 	return "reload_sg_fail"	end	
 end
 
 ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
@@ -56,6 +57,82 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan1")
 
 ATT = {}
 
+ATT.PrintName = [[Anti-Tank Bore]]
+ATT.CompactName = [[B. AT]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[not a 50bmg fitted in a 12ga bore
+]]
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"	then	return "reload_empty_50bmg"	end
+	if	curanim == "reload_fail"	then 	return "reload_50bmg_fail"	end	
+end
+
+--ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
+
+ATT.SortOrder = 10
+ATT.Category = "bf1942_1918_berdan_cal"
+ATT.ActivateElements = {"cal_50"}
+
+ATT.SpreadAdd = 0.005
+ATT.SpreadSights = 0.0125
+ATT.DamageMaxMult = 3
+ATT.DamageMinMult = 1.5
+
+ATT.RecoilMult = 6
+ATT.RecoilPatternDriftMult = 7
+
+ATT.ImpactForce = 12
+
+--ATT.Ammo = "buckshot"
+--ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
+ATT.ShellScale = 2
+
+ATT.DamageType = DMG_BLAST + DMG_BULLET + DMG_AIRBOAT
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan4")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Grenade Launcher Bore]]
+ATT.CompactName = [[B. GL]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[this thing is basically a mosin isnt it
+]]
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"	then	return "reload_empty_rpg"	end
+	if	curanim == "reload_fail"	then	return "reload_rpg_fail"	end	
+end
+
+--ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
+
+ATT.SortOrder = 1
+ATT.Category = "bf1942_1918_berdan_cal"
+ATT.ActivateElements = {"cal_gl"}
+ATT.ExcludeElements = {"rsight"}
+
+ATT.SpreadAdd = 0.0075
+ATT.SpreadSights = 0.025
+
+ATT.Ammo = "smg1_grenade"
+ATT.ShootEnt = "myt_bf1942_1918_gl_launcher"
+ATT.ShootEntForce = 5000
+
+ATT.CustomizePosHook = function(wep, vec)
+    return vec + Vector(-7, 0, 0)
+end
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan5")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
 ATT.PrintName = [[Bayonet]]
 ATT.CompactName = [[Bayonet]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
@@ -96,14 +173,17 @@ ATT.Description = [[Tall
 ATT.SortOrder = 100
 ATT.Category = "bf1942_1918_berdan_sight"
 ATT.ActivateElements = {"rsight"}
+ATT.ExcludeElements = {"cal_gl"}
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan3")
 
 
 ----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
 
 --- Webley ---
 
+----------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------
 
 
@@ -140,7 +220,7 @@ ATT.Category = "bf1942_1918_webley_barrel"
 ATT.ActivateElements = {"b_2"}
 
 ATT.TriggerDelay = false
-ATT.MalfunctionMeanShotsToFail = 4
+ATT.MalfunctionMeanShotsToFail = 6
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_auto"		end

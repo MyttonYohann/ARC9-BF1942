@@ -12,13 +12,16 @@ $bodygroup "1"
 {
 	studio "Berdan_Ammo.smd"	
 	studio "Berdan_Ammo_Shotgun.smd"
+	studio "Berdan_Ammo_Blank.smd"
+	studio "Berdan_Ammo_50bmg.smd"
 	blank
 }
 
 $bodygroup "2"
 {
 	studio "Berdan_Guard.smd"	
-	studio "Berdan_Guard_SG.smd"
+	studio "Berdan_Guard_SG.smd"	
+	studio "Berdan_Guard_GL.smd"
 	blank
 }
 
@@ -26,6 +29,7 @@ $bodygroup "3"
 {
 	studio "Berdan_Sight.smd"	
 	studio "Berdan_Sight_Raised.smd"
+	studio "Berdan_Sight_GL.smd"
 	blank
 }
 
@@ -83,6 +87,22 @@ $sequence "dry" {
 	fps 40
 }
 
+$sequence "dry_50bmg" {
+	"anims\dry_50bmg.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "dry_rpg" {
+	"anims\dry_rpg.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
 $sequence "dry_sg" {
 	"anims\dry_sg.smd"
 	activity "ACT_VM_RELOAD" 1		
@@ -93,6 +113,22 @@ $sequence "dry_sg" {
 
 $sequence "dry_fail" {
 	"anims\dry_fail.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "dry_50bmg_fail" {
+	"anims\dry_50bmg_fail.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "dry_rpg_fail" {
+	"anims\dry_rpg_fail.smd"
 	activity "ACT_VM_RELOAD_EMPTY" 1		
 	fadein 0.2
 	fadeout 0.2

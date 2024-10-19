@@ -443,7 +443,7 @@ SWEP.Animations = {
 
 SWEP.MalfunctionWait = -1
 SWEP.Malfunction = true
-SWEP.MalfunctionMeanShotsToFail = 6
+SWEP.MalfunctionMeanShotsToFail = 8
 SWEP.MalfunctionJam = false
 
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging

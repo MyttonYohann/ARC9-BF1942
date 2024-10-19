@@ -143,7 +143,7 @@ SWEP.RecoilModifierCapCrouch = 5
 
 -------------------------- HANDLING
 
-SWEP.FreeAimRadius = 10
+SWEP.FreeAimRadius = 4
 SWEP.FreeAimRadiusSights = 0
 SWEP.Sway = 1
 
@@ -264,6 +264,10 @@ SWEP.DistantShootSound = "myt_bf1942/1918/BerdanDis.wav"
 
 SWEP.FiremodeSound = "arc9/firemode.wav"
 
+SWEP.BulletBones = {
+    [1] = "W_Rocket",
+}
+
 SWEP.Animations = {
     ["fire"] = {
         Source = {"fire"},
@@ -292,14 +296,16 @@ SWEP.Animations = {
     ["reload"] = {
         Source = "dry",
         FireASAP = true,
-        MinProgress = 0.93,
-        EventTable = {
-            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 4 / 40},  
-			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 67 / 40},
-        },
+        MinProgress = 0.9,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EjectAt = 32 / 40,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 71 / 40},
         },
     },  
     ["reload_empty"] = {
@@ -315,6 +321,38 @@ SWEP.Animations = {
             {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
 			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
 			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 71 / 40},
+        },
+    },  
+	["reload_empty_rpg"] = {
+        Source = "dry_rpg",
+        FireASAP = true,
+        MinProgress = 0.9,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },        { t = 0.6, lhik = 1, rhik = 0, },
+        { t = 0.65, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EjectAt = 32 / 40,
+        MagSwapTime = 80 / 40,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 71 / 40},
+			{s =  "myt_bf1942/1918/Berdan_RPG.ogg" ,   t = 118 / 40},
+        },
+    }, 
+    ["reload_empty_50bmg"] = {
+        Source = "dry_50bmg",
+        FireASAP = true,
+        MinProgress = 0.9,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EjectAt = 32 / 40,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 77 / 40},
         },
     }, 
     ["reload_empty_sg"] = {
@@ -349,6 +387,43 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,   t = 100 / 40},
 			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 120 / 40},
         },
+    }, 
+
+	["reload_50bmg_fail"] = {
+        Source = "dry_50bmg_fail",
+        FireASAP = true,
+        MinProgress = 0.9,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EjectAt = 32 / 40,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,   t = 80 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,   t = 100 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 125 / 40},
+        },
+    }, 	
+	["reload_rpg_fail"] = {
+        Source = "dry_rpg_fail",
+        FireASAP = true,
+        MinProgress = 0.9,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EjectAt = 32 / 40,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,   t = 80 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,   t = 100 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 125 / 40},
+			{s =  "myt_bf1942/1918/Berdan_RPG.ogg" ,   t = 163 / 40},
+        },
+        MagSwapTime = 80 / 40,
     }, 
     ["reload_sg_fail"] = {
         Source = "dry_sg_fail",
@@ -427,11 +502,13 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 
     local rng = math.Truncate(util.SharedRandom("vest pex best pex", 1,100))
 	local varextra = 0
-	if wep:HasElement("cal_sg") then varextra = 15 end
+	if wep:HasElement("cal_sg") then varextra = 15
+	elseif wep:HasElement("cal_50") then varextra = 20
+	elseif wep:HasElement("cal_gl") then varextra = -5
+	end
 
     if rng <= 25 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
-		if	curanim == "reload_empty" then return "reload_fail"	end	
-		if	curanim == "reload_empty_sg" then return "reload_sg_fail"	end	
+		if	curanim == "reload_empty" 		then return "reload_fail"		end	
 	end
 end
 -------------------------- ATTACHMENTS
@@ -439,7 +516,21 @@ end
 SWEP.DefaultBodygroups = "00000000000000"
 
 SWEP.AttachmentElements = {
-    ["cal_sg"] = 	{ Bodygroups = { {1, 1}, {2, 1} },}, 
+    ["cal_sg"] = 	{ Bodygroups = { {1, 1}, {2, 1} },},  
+	["cal_gl"] = 	{ 
+		Bodygroups = { {1, 2}, {2, 2}, {3, 2} },
+		IronSights = {
+			Pos = Vector(-2.705, -1, 2.3),
+			Ang = Angle(0,0,0),
+			Midpoint = 	{ -- Where the gun should be at the middle of it's irons
+			Pos = Vector(0, 15, -4),
+			Ang = Angle(0, 0, -45),
+						},
+    Magnification = 1.1,
+    CrosshairInSights = false,
+						}
+	}, 
+    ["cal_50"] = 	{ Bodygroups = { {1, 3}, {2, 1} },}, 
 	["bayonet"] = 	{ Bodygroups = { {4, 1} },},
 	["rsight"] = 	{ 
 		Bodygroups = { {3, 1} },
