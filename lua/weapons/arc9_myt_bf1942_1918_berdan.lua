@@ -18,7 +18,7 @@ SWEP.Trivia = {
 SWEP.Credits = {
 }
 
-SWEP.Description = [[Cossack.]]
+SWEP.Description = [[It's like a single shot mosin.]]
 
 SWEP.ViewModel = "models/weapons/myt_bf1942/1918/c_berdan.mdl"
 SWEP.WorldModel = "models/weapons/myt_bf1942/1918/c_berdan.mdl"
@@ -177,12 +177,6 @@ SWEP.PreBashTime = 0.15
 SWEP.PostBashTime = 0.8
 SWEP.BashWhileSprint = true
 
---[[ I LOVE BODGING
-SWEP.Hook_Think = function(wep)	-- disable melee in UGBL
-	if wep:GetUBGL(true) then
-	--wep:ThinkMelee(nil) end
-end]]
-
 -------------------------- TRACERS
 
 SWEP.TracerNum = 1 -- Tracer every X
@@ -275,6 +269,34 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     }, 
+    ["cycle"] = {
+        Source = {"bolt"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 10 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 20 / 40},
+        },
+        EjectAt = 18 / 40,
+        FireASAP = true,
+        MinProgress = 0.8,
+    },   
+	["cycle_fail"] = {
+        Source = {"bolt_fail"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = { 
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,	t = 10 / 40},  
+            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,	t = 20 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,	t = 50 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,	t = 68 / 40},
+        },
+        EjectAt = 18 / 40,
+        FireASAP = true,
+        MinProgress = 0.9,
+    }, 
 	["bash_bayo"] = {
         Source = {"melee"},
         IKTimeLine = {
@@ -293,6 +315,69 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },
+    ["reload_start"] = {
+        Source = "reload_start",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 22 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 45 / 40},
+        },
+		RestoreAmmo = 1
+    }, 
+    ["reload_start_empty"] = {
+        Source = "reload_start_empty",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EjectAt = 32 / 40,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 22 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 45 / 40},
+        },
+		RestoreAmmo = 1
+    },  
+    ["reload_insert"] = {
+        Source = "reload_loop",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = { 
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 15 / 40},
+        },
+    },  
+    ["reload_finish"] = {
+        Source = "reload_end",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 5 / 40},  
+        },
+        FireASAP = true,
+        MinProgress = 0.8,
+    },     
+	["reload_finish_fail"] = {
+        Source = "reload_end_fail",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,	t = 10 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,	t = 33 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,	t = 50 / 40},
+        },
+        FireASAP = true,
+        MinProgress = 0.9,
+    }, 
+
+
     ["reload"] = {
         Source = "dry",
         FireASAP = true,
@@ -499,24 +584,30 @@ SWEP.Animations = {
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
-
+	
+	-- reload fuck up --
     local rng = math.Truncate(util.SharedRandom("vest pex best pex", 1,100))
 	local varextra = 0
-	if wep:HasElement("cal_sg") then varextra = 15
-	elseif wep:HasElement("cal_50") then varextra = 20
-	elseif wep:HasElement("cal_gl") then varextra = -5
+	if wep:HasElement("cal_sg") then varextra = 15		-- hypnosis
+	elseif wep:HasElement("cal_50") then varextra = 20	-- grass whistle
+	elseif wep:HasElement("cal_gl") then varextra = -5	-- hydro pump
+	elseif wep:HasElement("cal_mag") then varextra = 25	-- the blunder policy inferno chandelure in the back
 	end
 
     if rng <= 25 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
-		if	curanim == "reload_empty" 		then return "reload_fail"		end	
+		if	curanim == "reload_empty"	then 	return "reload_fail"			end	
+		if	curanim == "cycle"			then 	return "cycle_fail"				end	
+		if	curanim == "reload_finish"	then 	return "reload_finish_fail"		end	
 	end
 end
+
 -------------------------- ATTACHMENTS
 
 SWEP.DefaultBodygroups = "00000000000000"
 
 SWEP.AttachmentElements = {
-    ["cal_sg"] = 	{ Bodygroups = { {1, 1}, {2, 1} },},  
+    ["cal_sg"] = 	{ Bodygroups = { {1, 1}, {2, 1} },},   
+	["cal_mag"] = 	{ Bodygroups = { {5, 1} },},  
 	["cal_gl"] = 	{ 
 		Bodygroups = { {1, 2}, {2, 2}, {3, 2} },
 		IronSights = {

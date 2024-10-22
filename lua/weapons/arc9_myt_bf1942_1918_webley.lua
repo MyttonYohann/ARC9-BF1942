@@ -18,7 +18,7 @@ SWEP.Trivia = {
 SWEP.Credits = {
 }
 
-SWEP.Description = [[Gun.]]
+SWEP.Description = [[How come no auto eject, author stupid?]]
 
 SWEP.ViewModel = "models/weapons/myt_bf1942/1918/c_webley.mdl"
 SWEP.WorldModel = "models/weapons/myt_bf1942/1918/c_webley.mdl"
@@ -443,18 +443,12 @@ SWEP.Animations = {
 
 SWEP.MalfunctionWait = -1
 SWEP.Malfunction = true
-SWEP.MalfunctionMeanShotsToFail = 8
+SWEP.MalfunctionMeanShotsToFail = 10
 SWEP.MalfunctionJam = false
 
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
-	--[[local rng = math.Truncate(util.SharedRandom("vest pex best pex", 1,100))
-
-    if rng <= 20  then	-- the specs keldeo running both inaccurate stabs (literally me)
-		if	curanim == "fire" then return "fire_fail"	end	
-		-- HOW THE FUCK DO I MODIFY RPM
-	end]]
 end
 
 -------------------------- ATTACHMENTS

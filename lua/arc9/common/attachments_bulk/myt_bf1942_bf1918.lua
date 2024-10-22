@@ -27,6 +27,7 @@ ATT.DamageMinMult = 0.4
 ATT.RecoilMult = 4
 ATT.RecoilPatternDriftMult = 5
 
+ATT.PhysBulletMuzzleVelocity = 1240 * 12
 ATT.ImpactForce = 4
 
 ATT.Ammo = "buckshot"
@@ -60,7 +61,7 @@ ATT = {}
 ATT.PrintName = [[Anti-Tank Bore]]
 ATT.CompactName = [[B. AT]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[not a 50bmg fitted in a 12ga bore
+ATT.Description = [[Not a 50bmg fitted in a 12ga bore
 ]]
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_50bmg"	end
@@ -81,6 +82,7 @@ ATT.DamageMinMult = 1.5
 ATT.RecoilMult = 6
 ATT.RecoilPatternDriftMult = 7
 
+ATT.PhysBulletMuzzleVelocity = 1840 * 12
 ATT.ImpactForce = 12
 
 --ATT.Ammo = "buckshot"
@@ -100,7 +102,7 @@ ATT = {}
 ATT.PrintName = [[Grenade Launcher Bore]]
 ATT.CompactName = [[B. GL]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[this thing is basically a mosin isnt it
+ATT.Description = [[The other anti-tank option
 ]]
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_rpg"	end
@@ -133,10 +135,41 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan5")
 
 ATT = {}
 
+ATT.PrintName = [[Internal Magazine]]
+ATT.CompactName = [[B. Mag]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[This thing is basically a mosin innit
+Extremely unreliable
+Damage magically decreased cuz this is a fucking game
+]]
+
+
+ATT.SortOrder = 0.1
+ATT.Category = "bf1942_1918_berdan_cal"
+ATT.ActivateElements = {"cal_mag"}
+
+ATT.ShotgunReload = true
+ATT.ManualAction = true
+ATT.ManualActionNoLastCycle = true
+ATT.ClipSize = 5
+
+ATT.DamageMaxMultMult = 0.8
+ATT.DamageMinMultMult = 0.8
+ATT.SpreadAdd = 0.0025
+ATT.SpreadSights = 0.0125
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan6")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
 ATT.PrintName = [[Bayonet]]
 ATT.CompactName = [[Bayonet]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[THERES A WHOLE OFF HAND WEAPON SYSTEM IN THIS MOD
+ATT.Description = [[This base has the worst melee function ever
 ]]
 
 ATT.SortOrder = 100
@@ -193,6 +226,7 @@ ATT.PrintName = [[Officer Barrel]]
 ATT.CompactName = [[B. Short]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Short
+Aids with trigger press, somehow
 ]]
 
 ATT.SortOrder = 1
@@ -213,6 +247,8 @@ ATT.PrintName = [[Auto Barrel]]
 ATT.CompactName = [[B. Auto]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[How do you mean that's not what it does?
+Does not require trigger press, effectively an auto single action(?)
+More prone to malfuctions
 ]]
 
 ATT.SortOrder = 1

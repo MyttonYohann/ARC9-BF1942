@@ -38,6 +38,11 @@ $bodygroup "4"
 	blank
 	studio "Berdan_Bayonet.smd"
 }
+$bodygroup "5"
+{
+	blank
+	studio "Berdan_Mag.smd"
+}
 
 $illumposition 0 0 0
 
@@ -154,6 +159,55 @@ $sequence "sprint" {
 	"anims\sprint.smd"	
 	fadein 1
 	fadeout 1
+	fps 40
+}
+
+$sequence "bolt" {
+	"anims\bolt.smd"	
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "bolt_fail" {
+	"anims\bolt_fail.smd"	
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "reload_start_empty" {
+	"anims\reload_start_empty.smd"	
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "reload_start" {
+	"anims\reload_start.smd"	
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "reload_loop" {
+	"anims\reload_loop.smd"	
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "reload_end" {
+	"anims\reload_end.smd"	
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "reload_end_fail" {
+	"anims\reload_end_fail.smd"	
+	fadein 0.2
+	fadeout 0.2
 	fps 40
 }
 
