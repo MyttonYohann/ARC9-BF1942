@@ -127,6 +127,14 @@ ATT.CustomizePosHook = function(wep, vec)
     return vec + Vector(-7, 0, 0)
 end
 
+ATT.ActiveAngHook = function(wep, ang)
+    return ang + Angle(0, 5, -3)
+end
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0, -1, -2)
+end
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan5")
 
 
