@@ -640,7 +640,7 @@ SWEP.Attachments = {
         Installed = "myt_bf1942_dc_ak47_stock1",
 
         DefaultIcon = Material("arc9/def_att_icons/stock_ak.png"),
-        Category = "bf1942_dc_ak47_stock",
+		Category = "bf1942_dc_ak47_stock",
         Bone = "W_Main",
         Pos = Vector(0, -1, -5),
         Ang = Angle(0, 0, 0),

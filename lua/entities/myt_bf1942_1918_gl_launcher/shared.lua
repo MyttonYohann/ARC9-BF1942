@@ -25,8 +25,8 @@ function ENT:Initialize()
     local phys = self:GetPhysicsObject()
     if phys:IsValid() then
         phys:Wake()
-        phys:SetMass(10)
-        phys:SetDragCoefficient(0.1)
+        phys:SetMass(2)
+        phys:SetDragCoefficient(10)
     end
 
     self.SpawnTime = CurTime()

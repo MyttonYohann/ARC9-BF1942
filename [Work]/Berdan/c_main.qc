@@ -164,14 +164,14 @@ $sequence "sprint" {
 
 $sequence "bolt" {
 	"anims\bolt.smd"	
-	fadein 0.2
+	fadein 0.25
 	fadeout 0.2
 	fps 40
 }
 
 $sequence "bolt_fail" {
 	"anims\bolt_fail.smd"	
-	fadein 0.2
+	fadein 0.25
 	fadeout 0.2
 	fps 40
 }
@@ -192,6 +192,13 @@ $sequence "reload_start" {
 
 $sequence "reload_loop" {
 	"anims\reload_loop.smd"	
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "reload_loop_fail" {
+	"anims\reload_loop_fail.smd"	
 	fadein 0.2
 	fadeout 0.2
 	fps 40

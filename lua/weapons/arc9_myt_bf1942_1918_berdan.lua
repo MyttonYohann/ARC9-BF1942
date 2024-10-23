@@ -6,8 +6,8 @@ SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
 SWEP.SubCategory = "1918 - Primaries"
 
-SWEP.PrintName = "Berdan"
-SWEP.TrueName = "Berdan"
+SWEP.PrintName = "Berdan No.2"
+SWEP.TrueName = "Berdan No.2"
 
 SWEP.Class = "Rifle"
 SWEP.Trivia = {
@@ -18,7 +18,7 @@ SWEP.Trivia = {
 SWEP.Credits = {
 }
 
-SWEP.Description = [[It's like a single shot mosin.]]
+SWEP.Description = [[Cock and Sack in the same word is wild.]]
 
 SWEP.ViewModel = "models/weapons/myt_bf1942/1918/c_berdan.mdl"
 SWEP.WorldModel = "models/weapons/myt_bf1942/1918/c_berdan.mdl"
@@ -281,7 +281,7 @@ SWEP.Animations = {
         EjectAt = 18 / 40,
         FireASAP = true,
         MinProgress = 0.8,
-    },   
+    },     
 	["cycle_fail"] = {
         Source = {"bolt_fail"},
         IKTimeLine = {
@@ -340,6 +340,19 @@ SWEP.Animations = {
         },
 		RestoreAmmo = 1
     },  
+    ["reload_start_uncycled"] = {
+        Source = "reload_start_empty",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EjectAt = 32 / 40,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 22 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 45 / 40},
+        },
+		RestoreAmmo = 1
+    },  
     ["reload_insert"] = {
         Source = "reload_loop",
         IKTimeLine = {
@@ -348,6 +361,17 @@ SWEP.Animations = {
         },
         EventTable = { 
 			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 15 / 40},
+        },
+    },   
+	["reload_insert_fail"] = {
+        Source = "reload_loop_fail",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = { 
+			{s =  "myt_bf1942/1918/Berdan_Mag125.ogg" ,	t = 20 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,	t = 45 / 40},
         },
     },  
     ["reload_finish"] = {
@@ -598,6 +622,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 		if	curanim == "reload_empty"	then 	return "reload_fail"			end	
 		if	curanim == "cycle"			then 	return "cycle_fail"				end	
 		if	curanim == "reload_finish"	then 	return "reload_finish_fail"		end	
+		if	curanim == "reload_insert"	then 	return "reload_insert_fail"		end	
 	end
 end
 

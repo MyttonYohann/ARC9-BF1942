@@ -176,12 +176,6 @@ SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 
 SWEP.FiremodeSound = "arc9/firemode.wav"
 
-SWEP.Hook_Think = function(wep)	-- reset RPM [FOR UGBL ONLY] cuz the bloody MANUAL ACTION DOESNT FUCKING WORK
-	if wep:GetUBGL(true) then wep:GetProcessedValue("Bash", false)
-	end
-end
-
-
 SWEP.Animations = {
     ["bash"] = {
         Source = {"throw"},
@@ -197,13 +191,22 @@ SWEP.Animations = {
     },
 	["enter_sights"] = {
         Source = "in_throw",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     },
     ["exit_sights"] = {
         Source = "in_throw",
         Reverse = true,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     },
     ["idle_sights"] = {
         Source = "ads",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     },	
 --------------------------------------------------------
     ["draw"] = {
@@ -256,6 +259,11 @@ SWEP.Animations = {
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
+	if	wep:GetUBGL(true) then
+	if	curanim == "enter_sights" 	then return "idle"		end	
+	if	curanim == "exit_sights" 	then return "idle"		end	
+	if	curanim == "idle_sights" 	then return "idle"		end	
+	end
 end
 
 

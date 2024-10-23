@@ -74,15 +74,15 @@ ATT.SortOrder = 10
 ATT.Category = "bf1942_1918_berdan_cal"
 ATT.ActivateElements = {"cal_50"}
 
-ATT.SpreadAdd = 0.005
-ATT.SpreadSights = 0.0125
-ATT.DamageMaxMult = 3
-ATT.DamageMinMult = 1.5
+ATT.SpreadAdd = 0.006
+ATT.SpreadSights = 0.025
+ATT.DamageMaxMult = 4
+ATT.DamageMinMult = 2
 
 ATT.RecoilMult = 6
 ATT.RecoilPatternDriftMult = 7
 
-ATT.PhysBulletMuzzleVelocity = 1840 * 12
+ATT.PhysBulletMuzzleVelocity = 1540 * 12
 ATT.ImpactForce = 12
 
 --ATT.Ammo = "buckshot"
@@ -102,8 +102,7 @@ ATT = {}
 ATT.PrintName = [[Grenade Launcher Bore]]
 ATT.CompactName = [[B. GL]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[The other anti-tank option
-]]
+ATT.Description = [[famous video game franchise Pocket Mortar™]]
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_rpg"	end
 	if	curanim == "reload_fail"	then	return "reload_rpg_fail"	end	
@@ -121,7 +120,7 @@ ATT.SpreadSights = 0.025
 
 ATT.Ammo = "smg1_grenade"
 ATT.ShootEnt = "myt_bf1942_1918_gl_launcher"
-ATT.ShootEntForce = 5000
+ATT.ShootEntForce = 20000
 
 ATT.CustomizePosHook = function(wep, vec)
     return vec + Vector(-7, 0, 0)
@@ -159,6 +158,7 @@ ATT.ActivateElements = {"cal_mag"}
 ATT.ShotgunReload = true
 ATT.ManualAction = true
 ATT.ManualActionNoLastCycle = true
+ATT.CanReloadWhileUnCycled = false
 ATT.ClipSize = 5
 
 ATT.DamageMaxMultMult = 0.8
@@ -267,9 +267,11 @@ ATT.TriggerDelay = false
 ATT.MalfunctionMeanShotsToFail = 6
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
-	if	curanim == "reload_empty"	then	return "reload_empty_auto"		end
-	if	curanim == "reload"			then	return "reload_auto"			end	
-	if	curanim == "fire"			then	return "fire_auto"				end
+	if	curanim == "reload_empty"		then	return "reload_empty_auto"		end
+	if	curanim == "reload"				then	return "reload_auto"			end	
+	if	curanim == "fire"				then	return "fire_auto"				end
+	if	curanim == "reload_empty_fail"	then 	return "reload_empty_auto_fail"	end	
+	if	curanim == "reload_fail"		then 	return "reload_auto_fail"		end	
 end
 
 ATT.Firemodes = {

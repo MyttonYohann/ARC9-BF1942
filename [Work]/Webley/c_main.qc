@@ -74,6 +74,7 @@ $sequence "fire_auto" {
 	{ event 5001 0 "1" }
 	fadein 0.1
 	fadeout 0.5
+	snap
 	fps 40
 }
 
@@ -111,6 +112,38 @@ $sequence "wet_auto" {
 
 $sequence "dry_auto" {
 	"anims\dry_auto.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "wet_fail" {
+	"anims\wet_fail.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "dry_fail" {
+	"anims\dry_fail.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "wet_auto_fail" {
+	"anims\wet_auto_fail.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "dry_auto_fail" {
+	"anims\dry_auto_fail.smd"
 	activity "ACT_VM_RELOAD_EMPTY" 1		
 	fadein 0.2
 	fadeout 0.2

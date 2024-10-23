@@ -128,6 +128,8 @@ ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate 
 	end
 end
 ATT.BashUBGL = false
+ATT.PrimaryBashUBGL = false
+ATT.BottomlessClipUBGL = false
 ATT.CaseEffectQCAOverrideUBGL = 1	-- nope
 
 ATT.IKGunMotionOffset = Vector(0, 0, 0)
@@ -331,6 +333,8 @@ ATT.IKAnimationProxy = {
 } 
 
 ATT.BashUBGL = false
+ATT.PrimaryBashUBGL = false
+ATT.BottomlessClipUBGL = false
 -- When an animation event plays, override it with one based on this LHIK model.
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
@@ -550,6 +554,8 @@ ATT.IKAnimationProxy = {
 } -- When an animation event plays, override it with one based on this LHIK model.
 
 ATT.BashUBGL = false
+ATT.PrimaryBashUBGL = false
+ATT.BottomlessClipUBGL = false
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
 
@@ -664,11 +670,6 @@ ATT.SortOrder = 0
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_knife.mdl"
 ATT.RHIK = true
 ATT.ActivateElements = {"off_hand", "is_melee"}
---ATT.ExcludeElements = {"bayonet"}
---[[ATT.Hook_Think = function(wep)
-	if wep:GetUBGL(true) then wep.GetProcessedValue(wep, "Bash", false)
-	end
-end]]
 
 ATT.IKAnimationProxy = {
 	["bash_ubgl"] = {

@@ -355,6 +355,42 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
+    }, 
+	["reload_fail"] = {
+        Source = "wet_fail",
+        FireASAP = true,
+        MagSwapTime = 65 / 40,	
+        MinProgress = 0.95,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,	t = 16 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,	t = 35 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,	t = 47 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,	t = 99 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_ReloadF1.ogg",	t = 132 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,	t = 166 / 40}, 
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1	, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    },   
+	["reload_empty_fail"] = {
+        Source = "dry_fail",
+        FireASAP = true,
+        MagSwapTime = 65 / 40,	
+        MinProgress = 0.95,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,	t = 16 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,	t = 35 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,	t = 47 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,	t = 99 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_ReloadF1.ogg",	t = 132 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,	t = 166 / 40}, 
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
     },   
 	["reload_auto"] = {
         Source = "wet_auto",
@@ -388,6 +424,46 @@ SWEP.Animations = {
             {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 111 / 40}, 
             {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 144 / 40},   
 			{s =  "myt_bf1942/1918/Webley_Reload6.ogg" ,   t = 156 / 40}, 
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    },  
+	["reload_auto_fail"] = {
+        Source = "wet_auto_fail",
+        FireASAP = true,
+        MagSwapTime = 85 / 40,	
+        MinProgress = 0.95,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,	t = 15 / 40},   
+			{s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,	t = 28 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,	t = 47 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,	t = 59 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,	t = 111 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_ReloadF1.ogg",	t = 145 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,	t = 175 / 40}, 
+			{s =  "myt_bf1942/1918/Webley_Reload6.ogg" ,	t = 195 / 40}, 
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1	, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    },   
+	["reload_empty_auto_fail"] = {
+        Source = "dry_auto_fail",
+        FireASAP = true,
+        MagSwapTime = 85 / 40,	
+        MinProgress = 0.95,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,	t = 15 / 40},   
+			{s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,	t = 28 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,	t = 47 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,	t = 59 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,	t = 111 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_ReloadF1.ogg",	t = 145 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,	t = 175 / 40}, 
+			{s =  "myt_bf1942/1918/Webley_Reload6.ogg" ,	t = 195 / 40}, 
         },
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
@@ -449,6 +525,17 @@ SWEP.MalfunctionJam = false
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
+	
+	-- reload fuck up --
+    local rng = math.Truncate(util.SharedRandom("vest pex best pex", 1,100))
+	local varextra = 0
+	if wep:HasElement("b_2") then varextra = 15
+	end
+
+    if rng <= 15 + varextra  then	-- fire blast
+		if	curanim == "reload_empty"	then 	return "reload_empty_fail"	end	
+		if	curanim == "reload"			then	return "reload_fail"		end	
+	end	
 end
 
 -------------------------- ATTACHMENTS
