@@ -200,7 +200,7 @@ SWEP.BulletBones = {
 }
 
 SWEP.IronSights = {
-    Pos = Vector(-2.705, 5, 0.875),
+    Pos = Vector(-2.705, 10, 0.875),
     Ang = Angle(0,0,0),
     Midpoint = { -- Where the gun should be at the middle of it's irons
         Pos = Vector(0, 15, -4),
@@ -219,7 +219,7 @@ SWEP.SprintAng = Angle(0, 50, 0)
 SWEP.SprintPos = Vector(3, 6, -2)
 
 SWEP.ViewModelFOVBase = 70
-SWEP.ActivePos = Vector(0.5, 8, 0)
+SWEP.ActivePos = Vector(0.5, 10, 0)
 SWEP.ActiveAng = Angle(0, 0, 0)
 
 SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)

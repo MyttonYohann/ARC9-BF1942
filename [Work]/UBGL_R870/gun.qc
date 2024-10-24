@@ -78,6 +78,12 @@ $sequence "ubgl_reload3" {
 	fadeout 0.5
 	fps 40
 }
+$sequence "ubgl_reload3_wet" {
+	"anims/ubgl_reload3_wet.smd"
+	fadein 0.1
+	fadeout 0.5
+	fps 40
+}
 
 $sequence "ubgl_holster" {
 	"anims/ubgl_holster.smd"

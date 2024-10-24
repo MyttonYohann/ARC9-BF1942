@@ -123,7 +123,7 @@ ATT.IKAnimationProxy = {
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
 
-ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate arc9
+ATT.Hook_TranslateAnimation = function(wep, curanim) -- i forgor why i did this and im too affraird to delete this
 	if wep:Clip1() == 0 and wep:Clip2() != 0	then	-- well realistically need only check for if clip2 not empty
 		if	curanim == "idle_ubgl_empty" 		then	return "idle_ubgl"		end
 		if	curanim == "fire_ubgl_empty" 		then	return "fire_ubgl"		end	
@@ -280,23 +280,31 @@ ATT.IKAnimationProxy = {
 	        EventTable = {
             {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 36 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 48 / 40}, 
-            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 53 / 40},  			
+            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 45 / 40},  			
         },
     },
     ["reload_ubgl_start"] = {
         Source = "ubgl_reload1",
         EventTable = {		
-            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 10 / 40},  
-            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,   t = 12 / 40},  
+            {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   t = 1 / 40}, 
+			{s =  "myt_bf1942/dc/ak_foley2.ogg" ,   t = 5 / 40},   
         },
 		Mult = 1,
     },
-    ["reload_ubgl_finish"] = {
+    ["reload_ubgl_finish_empty"] = {
         Source = "ubgl_reload3",
         EventTable = {		
             {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 16 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 28 / 40}, 
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
+        },
+        MinProgress = 0.6,
+		FireASAP = true,
+    },  
+	["reload_ubgl_finish"] = {
+        Source = "ubgl_reload3_wet",
+        EventTable = {		
+            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 5 / 40},  
         },
         MinProgress = 0.6,
 		FireASAP = true,
@@ -560,6 +568,13 @@ ATT.IKAnimationProxy = {
     },
     ["idle_ubgl_glempty"] = {
         Source = "ubgl_last"
+    },
+
+	["holster_ubgl"] = {
+        Source = "ubgl_holster"
+    },
+	["holster_ubgl_empty"] = {
+        Source = "ubgl_holster_last"
     },
 } -- When an animation event plays, override it with one based on this LHIK model.
 
