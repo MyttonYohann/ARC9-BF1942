@@ -274,12 +274,6 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_fail"		then 	return "reload_auto_fail"		end	
 end
 
-ATT.Firemodes = {
-    {
-        Mode = 1,
-    },
-}
-
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_webley2")
 

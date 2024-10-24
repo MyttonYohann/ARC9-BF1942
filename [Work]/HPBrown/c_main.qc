@@ -22,6 +22,27 @@ $sequence "idle" {
 	fps 40
 }
 
+$sequence "to_sights" {
+	"anims\to_sights.smd"
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "sights" {
+	"anims\sights.smd"
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "sights_last" {
+	"anims\sights_last.smd"
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
 $sequence "draw" {
 	"anims\draw.smd"
 	fadein 0.2
@@ -68,6 +89,24 @@ $sequence "fire" {
 
 $sequence "fire_last" {
 	"anims\fire_last.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 2
+	fps 40
+}
+
+$sequence "fire_sights" {
+	"anims\fire_sights.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 2
+	fps 40
+}
+
+$sequence "fire_sights_last" {
+	"anims\fire_sights_last.smd"
 	activity "ACT_VM_PRIMARYATTACK" 1
 	{ event 5001 0 "1" }
 	fadein 0.05

@@ -105,6 +105,20 @@ $sequence "ubgl_dry" {
 	fps 40
 }
 
+$sequence "ubgl_holster" {
+	"anims/ubgl_holster.smd"
+	fadein 0.1
+	fadeout 0.1
+	fps 40
+}
+
+$sequence "ubgl_holster_last" {
+	"anims/ubgl_holster_last.smd"
+	fadein 0.1
+	fadeout 0.1
+	fps 40
+}
+
 $bonemerge "ValveBiped.Bip01_Spine4"
 $bonemerge "ValveBiped.Bip01_L_Clavicle"
 $bonemerge "ValveBiped.Bip01_L_UpperArm"

@@ -87,7 +87,7 @@ function ENT:Detonate()
         --self:EmitSound("phx/kaboom.wav", 125, 100, 1, CHAN_AUTO)
     end
 
-    util.BlastDamage(self, self:GetOwner(), self:GetPos(), 256, 120)
+    util.BlastDamage(self, self:GetOwner(), self:GetPos(), 218, 120)
 
     self:FireBullets({
         Attacker = self:GetOwner(),

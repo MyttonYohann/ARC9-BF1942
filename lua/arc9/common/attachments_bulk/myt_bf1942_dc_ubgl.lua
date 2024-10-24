@@ -110,6 +110,12 @@ ATT.IKAnimationProxy = {
     },  
 	["idle_ubgl_empty"] = {
         Source = "ubgl_last"
+    },	
+	["holster_ubgl"] = {
+        Source = "ubgl_holster"
+    },
+	["holster_ubgl_empty"] = {
+        Source = "ubgl_holster_last"
     },
 
 } -- When an animation event plays, override it with one based on this LHIK model.
@@ -122,7 +128,8 @@ ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate 
 		if	curanim == "idle_ubgl_empty" 		then	return "idle_ubgl"		end
 		if	curanim == "fire_ubgl_empty" 		then	return "fire_ubgl"		end	
 		if	curanim == "fire_ubgl_iron_empty" 	then	return "fire_ubgl_iron"	end	
-		if	curanim == "reload_ubgl_empty" 		then	return "reload_ubgl"	end
+		if	curanim == "reload_ubgl_empty" 		then	return "reload_ubgl"	end	
+		if	curanim == "holster_ubgl_empty"		then	return "holster_ubgl"	end
 	else	
 		return 
 	end
@@ -329,6 +336,9 @@ ATT.IKAnimationProxy = {
         { t = 0, lhik = 1, rhik = 1, },
         { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
+    },
+	["holster_ubgl"] = {
+        Source = "ubgl_holster"
     },
 } 
 

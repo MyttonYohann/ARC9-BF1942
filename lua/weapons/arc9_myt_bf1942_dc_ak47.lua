@@ -379,6 +379,61 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 162 / 40},
         },
     },
+	["reload_tabuk"] = {
+        Source = "wet_tabuk",
+        FireASAP = true,
+        MinProgress = 0.93,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.125, lhik = 1, rhik = 0, },{ t = 0.75, lhik = 1, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt4.ogg" ,   t = 30 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 32 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 62 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 101 / 40},
+            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 114 / 40},
+        },
+    },
+    ["reload_empty_tabuk"] = {
+        Source = "dry_tabuk",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt2.ogg" ,   t = 27 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 54 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 84 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 131 / 40},
+            {s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 150 / 40},
+        },
+    },
+	["reload_tabuk_fail"] = {
+        Source = "wet_tabuk_fail",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, },{ t = 0.9, lhik = 1, rhik = 0, },{ t = 0.975, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt4.ogg" ,   t = 30 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 32 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 62 / 40},
+            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,    t = 93 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 159 / 40},
+            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 162 / 40},
+        },
+    },
 --------------------------------------------------------
 	["reload_saiga"] = {
         Source = "wet_saiga",
@@ -584,6 +639,7 @@ SWEP.AttachmentElements = {
 	["hg_5"] = 	{ Bodygroups = { {1, 5} },},
 	["hg_6"] = 	{ Bodygroups = { {1, 7} },},
 	["hg_7"] = 	{ Bodygroups = { {1, 12} },},
+	["hg_8"] = 	{ Bodygroups = { {1, 13} },},
 
 	["cal_1"] =	{ Bodygroups = { {0, 11} },},
 	["cal_2"] =	{ Bodygroups = { {0, 3} },},	

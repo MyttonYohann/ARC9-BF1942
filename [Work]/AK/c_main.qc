@@ -35,6 +35,7 @@ $bodygroup "handguard"
 	studio "AK_HG_SG_Saiga.smd"	
 	studio "AK_HG_SG_SaigaU.smd"
 	studio "AK_HG_RPK.smd"
+	studio "AK_HG_VPO.smd"
 	blank
 }
 
@@ -137,6 +138,30 @@ $sequence "dry" {
 
 $sequence "wet" {
 	"anims\wet.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
+$sequence "dry_tabuk" {
+	"anims\dry_tabuk.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "wet_tabuk" {
+	"anims\wet_tabuk.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
+$sequence "wet_tabuk_fail" {
+	"anims\wet_tabuk_fail.smd"
 	activity "ACT_VM_RELOAD" 1		
 	fadein 0.2
 	fadeout 0.2	

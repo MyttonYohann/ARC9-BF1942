@@ -359,6 +359,10 @@ ATT.SortOrder = 11
 ATT.Category = "bf1942_dc_ak47_hg"
 ATT.ActivateElements = {"hg_1", "pre_muzzed"}
 
+ATT.CustomizePosHook = function(wep, vec)
+    return vec + Vector(4, 0, 0)
+end
+
 ATT.ShootVolumeMult = 0.8
 ATT.MuzzleParticleOverride = "muzzleflash_suppressed"
 ATT.MuzzleParticleOverride_Priority = 10
@@ -380,6 +384,10 @@ ATT.Description = [[
 ]]
 ATT.MuzzleParticleOverride = "muzzleflash_suppressed"
 ATT.Silencer = true
+
+ATT.CustomizePosHook = function(wep, vec)
+    return vec + Vector(-2, 0, 0)
+end
 
 ATT.SortOrder = 11.1
 ATT.Category = "bf1942_dc_ak47_hg"
@@ -423,6 +431,10 @@ ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[
 ]]
 
+ATT.CustomizePosHook = function(wep, vec)
+    return vec + Vector(-2, 0, 0)
+end
+
 ATT.SortOrder = 1
 ATT.Category = "bf1942_dc_ak47_hg"
 ATT.ActivateElements = {"hg_3", "ak74u_irons"}
@@ -433,13 +445,17 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg3")
 ----------------------------------------------------------------------------------
 
 
-ATT = {}
+ATT = {}	-- maybe not?
 
 ATT.PrintName = [[Tabuk Handguard]]
 ATT.CompactName = [[HG. Tabuk]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[
 ]]
+
+ATT.CustomizePosHook = function(wep, vec)
+    return vec + Vector(8, 0, 0)
+end
 
 ATT.SortOrder = 1
 ATT.Category = "bf1942_dc_ak47_hg"
@@ -460,6 +476,10 @@ ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[
 ]]
 
+ATT.CustomizePosHook = function(wep, vec)
+    return vec + Vector(8, 0, 0)
+end
+
 ATT.SortOrder = 1
 ATT.Category = "bf1942_dc_ak47_hg"
 ATT.ActivateElements = {"hg_7"}
@@ -479,11 +499,38 @@ ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[
 ]]
 
+ATT.CustomizePosHook = function(wep, vec)
+    return vec + Vector(-2, 0, 0)
+end
+
 ATT.SortOrder = 10.1
 ATT.Category = "bf1942_dc_ak47_hg"
 ATT.ActivateElements = {"hg_5", "ak74u_irons"}
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg5")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[VPO Handguard]]
+ATT.CompactName = [[HG. VPO]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[
+]]
+
+ATT.SortOrder = 12
+ATT.Category = "bf1942_dc_ak47_hg"
+ATT.ActivateElements = {"hg_8"}
+ATT.ExcludeElements = {"barrel_sg"}
+
+ATT.CustomizePosHook = function(wep, vec)
+    return vec + Vector(8, 0, 0)
+end
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg8")
 
 
 ----------------------------------------------------------------------------------
@@ -553,16 +600,24 @@ ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[
 ]]
 
-ATT.Hook_TranslateAnimation = function(wep, anim)
-    return anim .. "_tabuk"
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"		then	return "reload_empty_tabuk"		end
+	if	curanim == "reload"				then	return "reload_tabuk"			end
+	if	curanim == "reload_fail"		then	return "reload_tabuk_fail"		end
 end
-
 ATT.ShootSound = {"myt_bf1942/dc/tabuk.wav"}
 --ATT.ShootSoundSilenced = "gekolt_css/tmp-1.wav"
 
 ATT.SortOrder = 30
 ATT.Category = "bf1942_dc_ak47_cal"
 ATT.ActivateElements = {"cal_3"}
+ATT.ClipSizeOverride = 20
+
+ATT.Firemodes = {
+    {
+        Mode = 1,
+    },
+}
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal3")
 

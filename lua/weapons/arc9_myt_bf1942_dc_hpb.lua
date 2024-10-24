@@ -184,7 +184,7 @@ SWEP.TracerColor = Color(255, 225, 200) -- Color of tracers. Only works if trace
 -------------------------- POSITIONS
 
 SWEP.IronSights = {
-    Pos = Vector(-2.705, 2, 1.9),
+    Pos = Vector(-2.705, 5, 1.9),
     Ang = Angle(0,0,0),
     Midpoint = { -- Where the gun should be at the middle of it's irons
         Pos = Vector(0, 15, -4),
@@ -258,6 +258,18 @@ SWEP.Animations = {
         },
     },
     ["fire_empty"] = {
+        Source = {"fire_last"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    }, 
+	["fire_sights"] = {
+        Source = {"fire"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["fire_sights_empty"] = {
         Source = {"fire_last"},
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
@@ -358,7 +370,47 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 1, }, { t = 0.2, lhik = 1, rhik = 1, },
         { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
+    }, 
+
+--[[	["enter_sights"] = {
+        Source = "in_sights",
+		Time = 1,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["exit_sights"] = {
+        Source = "in_sights",
+        Reverse = true,
+		Time = 1,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["idle_sights"] = {
+        Source = "sights",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     },  
+	["idle_sights_empty"] = {
+        Source = "sights_last",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },		
+    ["fire_sights"] = {
+        Source = {"fire_sights"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["fire_sights_empty"] = {
+        Source = {"fire_sights_last"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },]]
 }
 
 
