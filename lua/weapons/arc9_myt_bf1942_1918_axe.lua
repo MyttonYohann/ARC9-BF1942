@@ -11,14 +11,14 @@ SWEP.TrueName = "Axe"
 
 SWEP.Class = "Melee"
 SWEP.Trivia = {
-   --["Country of Origin"] = [[[Soviet] Russia]],
-    --["Caliber"] = "7.62x39mm",
+	["Country of Origin"] = [[Earth]],
+	["Caliber"] = "Newtonian Force",
 }
 
 SWEP.Credits = {
 }
 
-SWEP.Description = [[Gun.]]
+SWEP.Description = [[Not a gun.]]
 
 SWEP.ViewModel = "models/weapons/myt_bf1942/1918/c_axe.mdl"
 SWEP.WorldModel = "models/weapons/myt_bf1942/1918/c_axe.mdl"

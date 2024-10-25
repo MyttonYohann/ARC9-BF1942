@@ -5,7 +5,7 @@ ATT = {}
 ATT.PrintName = [[Wooden Stock]]
 ATT.CompactName = [[S. AK47]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ It's a classic
 ]]
 
 ATT.SortOrder = -0.1
@@ -21,7 +21,7 @@ ATT = {}
 ATT.PrintName = [[Skeleton Stock]]
 ATT.CompactName = [[S. AKS74U]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ It's also a classic
 ]]
 
 ATT.SortOrder = 1
@@ -45,7 +45,7 @@ ATT = {}
 ATT.PrintName = [[Tabuk Stock]]
 ATT.CompactName = [[S. Tabuk]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ It's less a classic
 ]]
 
 ATT.SortOrder = 3
@@ -63,7 +63,7 @@ ATT = {}
 ATT.PrintName = [[PKM Stock]]
 ATT.CompactName = [[S. PKM]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ There's no RPK in the mod so enjoy
 ]]
 
 ATT.SortOrder = 4
@@ -82,7 +82,7 @@ ATT = {}
 ATT.PrintName = [[Scorpion Stock]]
 ATT.CompactName = [[S. Scor]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ WIRE
 ]]
 
 ATT.SortOrder = 5
@@ -106,9 +106,9 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_stock5")
 ATT = {}
 
 ATT.PrintName = [[Polymer Grip]]
-ATT.CompactName = [[G. AKS74U]]
+ATT.CompactName = [[G. Saiga]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ Da future
 ]]
 
 ATT.SortOrder = 1
@@ -126,7 +126,7 @@ ATT = {}
 ATT.PrintName = [[Scorpion Grip]]
 ATT.CompactName = [[G. Scor]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ Yellow
 ]]
 
 ATT.SortOrder = 2
@@ -144,7 +144,7 @@ ATT = {}
 ATT.PrintName = [[VSS Grip]]
 ATT.CompactName = [[G. VSS]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ Full Grip and Stock combo
 ]]
 
 ATT.SortOrder = 20
@@ -162,7 +162,8 @@ ATT = {}
 ATT.PrintName = [[Hunting Grip]]
 ATT.CompactName = [[G. Hunt]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ (!) Disable Stock Attachments
+Supposedly popular with civilians
 ]]
 
 ATT.SortOrder = 21
@@ -197,7 +198,8 @@ ATT = {}
 ATT.PrintName = [[Hunting Grip (Skeleton)]]
 ATT.CompactName = [[G. HuntSke]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ (!) Disable Stock Attachments
+Bent Skeleton Stock to fit a hand grip
 ]]
 
 ATT.SortOrder = 21
@@ -232,7 +234,8 @@ ATT = {}
 ATT.PrintName = [[Hunting Grip (Stub)]]
 ATT.CompactName = [[G. HuntStub]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ (!) Disable Stock Attachments
+Cut down wooden stock for alledged comfortable gripping
 ]]
 
 ATT.SortOrder = 25
@@ -268,6 +271,8 @@ ATT.PrintName = [[Hunting Grip (PKM)]]
 ATT.CompactName = [[G. HuntPKM]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[
+ (!) Disable Stock Attachments
+There's still no RPK in the mod
 ]]
 
 ATT.SortOrder = 25
@@ -302,7 +307,9 @@ ATT = {}
 ATT.PrintName = [[Bullpup Kit]]
 ATT.CompactName = [[G. Bullpup]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ (!) Disable Stock Attachments
+Have you ever want gun but short?
+Increase Ergonomics(?)
 ]]
 
 ATT.SortOrder = 50
@@ -350,7 +357,7 @@ ATT = {}
 ATT.PrintName = [[VSS Handguard]]
 ATT.CompactName = [[HG. VSS]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ Or AS VAl, the world is your oyster
 ]]
 ATT.MuzzleParticleOverride = "muzzleflash_suppressed"
 ATT.Silencer = true
@@ -380,7 +387,7 @@ ATT = {}
 ATT.PrintName = [[Short VSS Handguard]]
 ATT.CompactName = [[HG. SVSS]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ Author too lazy to separate barrel length and handguard
 ]]
 ATT.MuzzleParticleOverride = "muzzleflash_suppressed"
 ATT.Silencer = true
@@ -410,7 +417,7 @@ ATT = {}
 ATT.PrintName = [[Saiga Handguard]]
 ATT.CompactName = [[HG. Saiga]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ Supposedly used with shotgun configuration
 ]]
 
 ATT.SortOrder = 10
@@ -428,7 +435,7 @@ ATT = {}
 ATT.PrintName = [[AKS74U Handguard]]
 ATT.CompactName = [[HG. AKS74U]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ Compact (?)
 ]]
 
 ATT.CustomizePosHook = function(wep, vec)
@@ -450,7 +457,7 @@ ATT = {}	-- maybe not?
 ATT.PrintName = [[Tabuk Handguard]]
 ATT.CompactName = [[HG. Tabuk]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ delete delete delete this
 ]]
 
 ATT.CustomizePosHook = function(wep, vec)
@@ -473,7 +480,7 @@ ATT = {}
 ATT.PrintName = [[RPK Handguard]]
 ATT.CompactName = [[HG. RPK]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ Would it be lmg if short barrel
 ]]
 
 ATT.CustomizePosHook = function(wep, vec)
@@ -496,7 +503,7 @@ ATT = {}
 ATT.PrintName = [[Short Saiga Handguard]]
 ATT.CompactName = [[HG. SSaiga]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ Author too lazy to separate barrel length and handguard
 ]]
 
 ATT.CustomizePosHook = function(wep, vec)
@@ -518,7 +525,8 @@ ATT = {}
 ATT.PrintName = [[VPO Handguard]]
 ATT.CompactName = [[HG. VPO]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ The wood market goes insane
+Supposed to be used with a hunting grip but I'm not your mum
 ]]
 
 ATT.SortOrder = 12
@@ -573,7 +581,7 @@ ATT = {}
 ATT.PrintName = [[AKS74U Calibre]]
 ATT.CompactName = [[Cal. AKS74U]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ 5.45 Calibre
 ]]
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
@@ -597,7 +605,7 @@ ATT = {}
 ATT.PrintName = [[Tabuk Calibre]]
 ATT.CompactName = [[Cal. Tabuk]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ .338 Calibre
 ]]
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
@@ -630,7 +638,7 @@ ATT = {}
 ATT.PrintName = [[Scorpion Calibre]]
 ATT.CompactName = [[Cal. Scor]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ 9mm (?) Calibre
 ]]
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
@@ -666,7 +674,7 @@ ATT = {}
 ATT.PrintName = [[Saiga Calibre]]
 ATT.CompactName = [[Cal. Saiga]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[ 12ga Calibre
 ]]
 -- has to do it manually otherwise it would stack
 ATT.Hook_TranslateAnimation = function(wep, curanim)

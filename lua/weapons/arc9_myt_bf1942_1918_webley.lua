@@ -11,8 +11,8 @@ SWEP.TrueName = "Webley"
 
 SWEP.Class = "Pistol"
 SWEP.Trivia = {
-   --["Country of Origin"] = [[Earth]],
-    --["Calibre"] = "idk",
+	["Country of Origin"] = [[United Kingdom]],
+    ["Calibre"] = ".455 Eley",
 }
 
 SWEP.Credits = {

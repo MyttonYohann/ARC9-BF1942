@@ -18,7 +18,7 @@ SWEP.Trivia = {
 SWEP.Credits = {
 }
 
-SWEP.Description = [[Gun.]]
+SWEP.Description = [[This is in every fucking game.]]
 
 SWEP.ViewModel = "models/weapons/myt_bf1942/dc/c_ak47.mdl"
 SWEP.WorldModel = "models/weapons/w_rif_ak47.mdl"

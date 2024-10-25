@@ -146,6 +146,7 @@ ATT.PrintName = [[Internal Magazine]]
 ATT.CompactName = [[B. Mag]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[This thing is basically a mosin innit
+'No magazine-fed versions of the Berdan ever progressed beyond the prototype phase' so there is at least one prototype mag-fed version
 Extremely unreliable
 Damage magically decreased cuz this is a fucking game
 ]]
@@ -208,7 +209,8 @@ ATT = {}
 ATT.PrintName = [[Raised Sight]]
 ATT.CompactName = [[RSight]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[Tall
+ATT.Description = [[Shooting aircrafts i think
+whoops wrong era
 ]]
 
 ATT.SortOrder = 100
@@ -233,7 +235,7 @@ ATT = {}
 ATT.PrintName = [[Officer Barrel]]
 ATT.CompactName = [[B. Short]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[Short
+ATT.Description = [[Made for the short king market
 Aids with trigger press, somehow
 ]]
 

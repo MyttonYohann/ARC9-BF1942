@@ -11,14 +11,14 @@ SWEP.TrueName = "HP Browning"
 
 SWEP.Class = "Pistol"
 SWEP.Trivia = {
-   --["Country of Origin"] = [[[Soviet] Russia]],
-    --["Caliber"] = "7.62x39mm",
+	["Country of Origin"] = [[Belgium]],
+	["Caliber"] = [[9x19mm, probably]],
 }
 
 SWEP.Credits = {
 }
 
-SWEP.Description = [[Gun.]]
+SWEP.Description = [[Despite the name, it has nothing to do with famous American novelist Howard Phillips Lovecraft.]]
 
 SWEP.ViewModel = "models/weapons/myt_bf1942/dc/c_hpbrown.mdl"
 SWEP.WorldModel = "models/weapons/myt_bf1942/dc/c_hpbrown.mdl"
@@ -70,7 +70,7 @@ SWEP.PhysBulletDrag = 1.15
 SWEP.Ammo = "pistol" -- What ammo type this gun uses.
 
 SWEP.ChamberSize = 1 -- The amount of rounds this gun can chamber.
-SWEP.ClipSize = 14 -- Self-explanatory.
+SWEP.ClipSize = 13 -- Self-explanatory.
 SWEP.SupplyLimit = 4 -- Amount of magazines of ammo this gun can take from an ARC9 supply crate.
 SWEP.SecondarySupplyLimit = 2 -- Amount of reserve UBGL magazines you can take.
 
