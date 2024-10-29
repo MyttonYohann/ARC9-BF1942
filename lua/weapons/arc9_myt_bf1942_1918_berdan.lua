@@ -276,6 +276,12 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     }, 
+	["fire_bmg"] = {
+        Source = {"fire_bmg"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    }, 
     ["cycle"] = {
         Source = {"bolt"},
         IKTimeLine = {
@@ -329,8 +335,9 @@ SWEP.Animations = {
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 22 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 45 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt1_Half.ogg" ,	t = 13 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Bolt2_Half.ogg" ,	t =	31 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,		t =	47 / 40},
         },
 		RestoreAmmo = 1,
         MagSwapTime = 5 / 40,
@@ -341,11 +348,13 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
-        EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 22 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 45 / 40},
+        EventTable = {   
+			{s =  "myt_bf1942/1918/Berdan_Bolt1_HalfE.ogg" ,	t = 13 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Bolt2_HalfE.ogg" ,	t =	31 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,			t =	47 / 40},
         },
 		RestoreAmmo = 1,
+		RefillProgress = 0.1,
         MagSwapTime = 1 / 40,
     },  
     ["reload_insert"] = {
@@ -392,11 +401,12 @@ SWEP.Animations = {
         },
         EventTable = {
 			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 15 / 40},
-            {s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 40 / 40},  
+            {s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 41 / 40},  
         },
         FireASAP = true,
         MinProgress = 0.8,
 		MagSwapTime = 5 / 40,
+		RefillProgress = 0.2,
 		RestoreAmmo = 1,
     },   
 	["reload_finish_overload"] = {
@@ -406,8 +416,9 @@ SWEP.Animations = {
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
-			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 15 / 40},
-            {s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 40 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag125.ogg" ,   t = 15 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Mag3.ogg" ,   t = 41 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 66 / 40},  
         },
         FireASAP = true,
         MinProgress = 0.8,
@@ -524,11 +535,11 @@ SWEP.Animations = {
         },
         EjectAt = 32 / 40,
         EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
-            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,   t = 80 / 40},
-			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,   t = 100 / 40},
-			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 120 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,	t = 26 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,	t = 47 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,	t = 80 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,	t = 100 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,	t = 120 / 40},
         },
     }, 
 	["reload_50bmg_fail"] = {
@@ -542,11 +553,11 @@ SWEP.Animations = {
         },
         EjectAt = 32 / 40,
         EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
-            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,   t = 80 / 40},
-			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,   t = 100 / 40},
-			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 125 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,	t = 26 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,	t = 47 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,	t = 80 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,	t = 100 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,	t = 125 / 40},
         },
     }, 	
 	["reload_rpg_fail"] = {
@@ -560,12 +571,12 @@ SWEP.Animations = {
         },
         EjectAt = 32 / 40,
         EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
-            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,   t = 80 / 40},
-			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,   t = 100 / 40},
-			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 125 / 40},
-			{s =  "myt_bf1942/1918/Berdan_RPG.ogg" ,   t = 163 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,	t = 26 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,	t = 47 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,	t = 80 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,	t = 100 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,	t = 125 / 40},
+			{s =  "myt_bf1942/1918/Berdan_RPG.ogg" ,	t = 163 / 40},
         },
     }, 
     ["reload_sg_fail"] = {
@@ -579,11 +590,11 @@ SWEP.Animations = {
         },
         EjectAt = 32 / 40,
         EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_MagSG.ogg" ,   t = 47 / 40},
-            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,   t = 80 / 40},
-			{s =  "myt_bf1942/1918/Berdan_MagSG15.ogg" ,   t = 100 / 40},
-			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 120 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,		t = 26 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_MagSG.ogg" ,		t = 47 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,		t = 80 / 40},
+			{s =  "myt_bf1942/1918/Berdan_MagSG15.ogg" ,	t = 100 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,		t = 120 / 40},
         },
     }, 
 --------------------------------------------------------
@@ -655,9 +666,11 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	elseif wep:HasElement("cal_mag") then varextra = 25	-- the blunder policy inferno chandelure in the back
 	end
 	
-	-- quick time event bottom text-
+	-- quick time event bottom text --
 	-- rmb or r when clip1 >= 4 then reload_bodge on
 	-- if double press r then reload_start = reload_start fast? always lose 1 round but speed up w/o draw back on empty?
+	--if wep:GetOwner():KeyPressed(IN_ATTACK) and wep:Clip1() == 5 then reload_bodge = 3 end
+	
 	if	wep:Clip1() == 5 then reload_bodge = 2 
 	elseif wep:Clip1() == 4 then reload_bodge = 1
 	else reload_bodge = 0 end	

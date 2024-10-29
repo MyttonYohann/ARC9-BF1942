@@ -689,7 +689,8 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"		then	return "reload_empty_saiga"		end
 	if	curanim == "reload"				then	return "reload_saiga"			end
 	if	curanim == "reload_fail"		then	return "reload_saiga_fail"		end	
-	if	curanim == "fire"				then	return "fire_sg"				end
+	if	curanim == "fire"				then	return "fire_sg"				end	
+	if	curanim == "fire_iron"			then	return "fire"					end
 end
 
 ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}

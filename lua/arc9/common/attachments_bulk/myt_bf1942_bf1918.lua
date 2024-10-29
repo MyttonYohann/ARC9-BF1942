@@ -69,7 +69,7 @@ ATT.Description = [[Not a 50bmg fitted in a 12ga bore
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_50bmg"	end
 	if	curanim == "reload_fail"	then 	return "reload_50bmg_fail"	end	
-	if	curanim == "fire"			then 	return "fire_big"			end	
+	if	curanim == "fire"			then 	return "fire_bmg"			end	
 end
 
 --ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
@@ -95,6 +95,27 @@ ATT.Penetration = 24
 ATT.ShellScale = 2
 
 ATT.DamageType = DMG_BLAST + DMG_BULLET + DMG_AIRBOAT
+
+ATT.Hook_PrimaryAttack = function(wep)
+    local rng = math.Truncate(util.SharedRandom("if stunfisk mention cb lokix again i will kick a dog", 1,100))
+	if rng <= 1  then
+        -- Stole from 8Z.
+        wep:GetOwner():EmitSound("vo/npc/male01/myarm0" .. math.random(1, 2) .. ".wav", 75)
+        local dmg = DamageInfo()
+        dmg:SetAttacker(wep:GetOwner())
+        dmg:SetInflictor(wep)
+        dmg:SetDamage(math.random(15, 25))
+        dmg:SetDamageType(DMG_GENERIC)
+        wep:GetOwner():TakeDamageInfo(dmg)
+        wep:GetOwner():ViewPunch(Angle(2, -10, 10))
+        -- can't do it right now because the gun isn't done firing yet
+        timer.Simple(0, function()
+            if IsValid(wep) and IsValid(wep:GetOwner()) then
+                wep:GetOwner():DropWeapon(wep, nil, wep:GetOwner():GetForward() * -200 + VectorRand() * 50 + Vector(0, 0, 150))
+            end
+        end)
+	end
+end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan4")
 

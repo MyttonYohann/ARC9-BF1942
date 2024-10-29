@@ -92,6 +92,14 @@ $sequence "fire_big" {
 	fadeout 2
 	fps 40
 }
+$sequence "fire_bmg" {
+	"anims\fire_bmg.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 2
+	fps 40
+}
 
 $sequence "dry" {
 	"anims\dry.smd"
@@ -194,6 +202,13 @@ $sequence "reload_start_empty" {
 
 $sequence "reload_start" {
 	"anims\reload_start1.smd"	
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "reload_start_fast" {
+	"anims\reload_start_fast.smd"	
 	fadein 0.2
 	fadeout 0.2
 	fps 40
