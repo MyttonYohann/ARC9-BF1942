@@ -620,6 +620,12 @@ ATT.SortOrder = 30
 ATT.Category = "bf1942_dc_ak47_cal"
 ATT.ActivateElements = {"cal_3"}
 ATT.ClipSizeOverride = 20
+ATT.Penetration = 20
+
+ATT.SpreadMult = 1.5
+ATT.SpreadSights = 0.001
+ATT.DamageMaxMult = 0.75
+ATT.DamageMinMult = 2
 
 ATT.Firemodes = {
     {
@@ -645,6 +651,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"		then	return "reload_empty_scor"		end
 	if	curanim == "reload"				then	return "reload_scor"			end
 	if	curanim == "reload_fail"		then	return "reload_scor_fail"		end
+	if	curanim == "fire"				then	return "fire_smg"				end
 end
 ATT.ShootSound = {"myt_bf1942/dc/scorpion.wav"}
 
@@ -653,6 +660,7 @@ ATT.Category = "bf1942_dc_ak47_cal"
 ATT.ActivateElements = {"cal_4"}
 
 ATT.RPMMult = 800 / 600
+ATT.Penetration = 1
 
 ATT.SpreadMult = 0.75
 ATT.SpreadSights = 0.01
@@ -680,7 +688,8 @@ ATT.Description = [[ 12ga Calibre
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"		then	return "reload_empty_saiga"		end
 	if	curanim == "reload"				then	return "reload_saiga"			end
-	if	curanim == "reload_fail"		then	return "reload_saiga_fail"		end
+	if	curanim == "reload_fail"		then	return "reload_saiga_fail"		end	
+	if	curanim == "fire"				then	return "fire_sg"				end
 end
 
 ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
@@ -702,6 +711,8 @@ ATT.DamageMinMult = 0.4
 
 ATT.RecoilMult = 4
 ATT.RecoilPatternDriftMult = 5
+ATT.Penetration = 2
+
 
 ATT.Ammo = "buckshot"
 ATT.ShellModel = "models/weapons/shotgun_shell.mdl"

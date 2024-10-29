@@ -260,11 +260,18 @@ SWEP.FiremodeSound = "arc9/firemode.wav"
 
 SWEP.BulletBones = {
     [1] = "W_Rocket",
+    [1] = "W_Mag",
 }
 
 SWEP.Animations = {
     ["fire"] = {
         Source = {"fire"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },  
+	["fire_big"] = {
+        Source = {"fire_big"},
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
@@ -325,7 +332,8 @@ SWEP.Animations = {
             {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 22 / 40},  
 			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 45 / 40},
         },
-		RestoreAmmo = 1
+		RestoreAmmo = 1,
+        MagSwapTime = 5 / 40,
     }, 
     ["reload_start_empty"] = {
         Source = "reload_start_empty",
@@ -333,25 +341,12 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
-        EjectAt = 32 / 40,
         EventTable = {
             {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 22 / 40},  
 			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 45 / 40},
         },
-		RestoreAmmo = 1
-    },  
-    ["reload_start_uncycled"] = {
-        Source = "reload_start_empty",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
-        },
-        EjectAt = 32 / 40,
-        EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 22 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 45 / 40},
-        },
-		RestoreAmmo = 1
+		RestoreAmmo = 1,
+        MagSwapTime = 1 / 40,
     },  
     ["reload_insert"] = {
         Source = "reload_loop",
@@ -362,7 +357,8 @@ SWEP.Animations = {
         EventTable = { 
 			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 15 / 40},
         },
-    },   
+		MagSwapTime = 5 / 40,
+    },
 	["reload_insert_fail"] = {
         Source = "reload_loop_fail",
         IKTimeLine = {
@@ -373,6 +369,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/1918/Berdan_Mag125.ogg" ,	t = 20 / 40},
 			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,	t = 45 / 40},
         },
+		MagSwapTime = 5 / 40,
     },  
     ["reload_finish"] = {
         Source = "reload_end",
@@ -385,7 +382,38 @@ SWEP.Animations = {
         },
         FireASAP = true,
         MinProgress = 0.8,
-    },     
+		MagSwapTime = 5 / 40,
+    },  
+	["reload_finish_prof"] = {
+        Source = "reload_end_prof",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 15 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 40 / 40},  
+        },
+        FireASAP = true,
+        MinProgress = 0.8,
+		MagSwapTime = 5 / 40,
+		RestoreAmmo = 1,
+    },   
+	["reload_finish_overload"] = {
+        Source = "reload_end_overload",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 15 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 40 / 40},  
+        },
+        FireASAP = true,
+        MinProgress = 0.8,
+		MagSwapTime = 5 / 40,
+		RestoreAmmo = 1,
+    },   	
 	["reload_finish_fail"] = {
         Source = "reload_end_fail",
         IKTimeLine = {
@@ -399,6 +427,7 @@ SWEP.Animations = {
         },
         FireASAP = true,
         MinProgress = 0.9,
+		MagSwapTime = 5 / 40,
     }, 
 
 
@@ -406,6 +435,7 @@ SWEP.Animations = {
         Source = "dry",
         FireASAP = true,
         MinProgress = 0.9,
+        MagSwapTime = 5 / 40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
@@ -421,6 +451,7 @@ SWEP.Animations = {
         Source = "dry",
         FireASAP = true,
         MinProgress = 0.9,
+        MagSwapTime = 5 / 40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
@@ -441,7 +472,7 @@ SWEP.Animations = {
         { t = 0.65, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EjectAt = 32 / 40,
-        MagSwapTime = 80 / 40,
+        MagSwapTime = 5 / 40,
         EventTable = {
             {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
 			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
@@ -453,6 +484,7 @@ SWEP.Animations = {
         Source = "dry_50bmg",
         FireASAP = true,
         MinProgress = 0.9,
+        MagSwapTime = 5 / 40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
@@ -468,6 +500,7 @@ SWEP.Animations = {
         Source = "dry",
         FireASAP = true,
         MinProgress = 0.9,
+        MagSwapTime = 5 / 40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
@@ -484,6 +517,7 @@ SWEP.Animations = {
         Source = "dry_fail",
         FireASAP = true,
         MinProgress = 0.9,
+        MagSwapTime = 5 / 40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
@@ -497,11 +531,11 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 120 / 40},
         },
     }, 
-
 	["reload_50bmg_fail"] = {
         Source = "dry_50bmg_fail",
         FireASAP = true,
         MinProgress = 0.9,
+        MagSwapTime = 5 / 40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
@@ -519,6 +553,7 @@ SWEP.Animations = {
         Source = "dry_rpg_fail",
         FireASAP = true,
         MinProgress = 0.9,
+        MagSwapTime = 5 / 40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
@@ -532,12 +567,12 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 125 / 40},
 			{s =  "myt_bf1942/1918/Berdan_RPG.ogg" ,   t = 163 / 40},
         },
-        MagSwapTime = 80 / 40,
     }, 
     ["reload_sg_fail"] = {
         Source = "dry_sg_fail",
         FireASAP = true,
         MinProgress = 0.9,
+        MagSwapTime = 5 / 40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
@@ -612,17 +647,29 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	-- reload fuck up --
     local rng = math.Truncate(util.SharedRandom("vest pex best pex", 1,100))
 	local varextra = 0
+	local reload_bodge = 0
+
 	if wep:HasElement("cal_sg") then varextra = 15		-- hypnosis
 	elseif wep:HasElement("cal_50") then varextra = 20	-- grass whistle
 	elseif wep:HasElement("cal_gl") then varextra = -5	-- hydro pump
 	elseif wep:HasElement("cal_mag") then varextra = 25	-- the blunder policy inferno chandelure in the back
 	end
+	
+	-- quick time event bottom text-
+	-- rmb or r when clip1 >= 4 then reload_bodge on
+	-- if double press r then reload_start = reload_start fast? always lose 1 round but speed up w/o draw back on empty?
+	if	wep:Clip1() == 5 then reload_bodge = 2 
+	elseif wep:Clip1() == 4 then reload_bodge = 1
+	else reload_bodge = 0 end	
+	if	curanim == "reload_finish" and reload_bodge == 1 then	return "reload_finish_prof"	end	
 
     if rng <= 25 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
 		if	curanim == "reload_empty"	then 	return "reload_fail"			end	
-		if	curanim == "cycle"			then 	return "cycle_fail"				end	
-		if	curanim == "reload_finish"	then 	return "reload_finish_fail"		end	
 		if	curanim == "reload_insert"	then 	return "reload_insert_fail"		end	
+		
+		if	curanim == "cycle"			and wep:Clip1() != 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail
+		if	curanim == "reload_finish"	and reload_bodge == 2	then	return "reload_finish_overload"	end	
+		if	curanim == "reload_finish"	and reload_bodge == 0	then	return "reload_finish_fail"	end	
 	end
 end
 

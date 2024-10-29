@@ -9,7 +9,8 @@ ATT.Description = [[idk i skimmed through wikipedia and saw shotgun mentioned so
 ]]
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_sg"	end
-	if	curanim == "reload_fail"	then 	return "reload_sg_fail"	end	
+	if	curanim == "reload_fail"	then 	return "reload_sg_fail"		end
+	if	curanim == "fire"			then 	return "fire_big"			end	
 end
 
 ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
@@ -44,6 +45,8 @@ ATT.Attachments = {
     },
 }
 
+ATT.Penetration = 0
+
 ATT.CustomCrosshair = true
 ATT.CustomCrosshairSingle = true
 ATT.CustomCrosshairMaterial = Material("arc9_myt_bf1942/circlehollow.png", "mips smooth")
@@ -66,6 +69,7 @@ ATT.Description = [[Not a 50bmg fitted in a 12ga bore
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_50bmg"	end
 	if	curanim == "reload_fail"	then 	return "reload_50bmg_fail"	end	
+	if	curanim == "fire"			then 	return "fire_big"			end	
 end
 
 --ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
@@ -84,6 +88,7 @@ ATT.RecoilPatternDriftMult = 7
 
 ATT.PhysBulletMuzzleVelocity = 1540 * 12
 ATT.ImpactForce = 12
+ATT.Penetration = 24
 
 --ATT.Ammo = "buckshot"
 --ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
@@ -158,7 +163,7 @@ ATT.ActivateElements = {"cal_mag"}
 
 ATT.ShotgunReload = true
 ATT.ManualAction = true
-ATT.ManualActionNoLastCycle = true
+ATT.ManualActionNoLastCycle = false
 ATT.CanReloadWhileUnCycled = false
 ATT.ClipSize = 5
 

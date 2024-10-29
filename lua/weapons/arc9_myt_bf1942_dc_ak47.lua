@@ -265,6 +265,12 @@ SWEP.Animations = {
     ["fire"] = {
         Source = {"fire"},
     },
+    ["fire_smg"] = {
+        Source = {"fire_smg"},
+    }, 
+	["fire_sg"] = {
+        Source = {"fire_sg"},
+    },
     ["fire_iron"] = {
         Source = {"fire_ads"},
     },

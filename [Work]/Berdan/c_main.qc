@@ -84,6 +84,15 @@ $sequence "fire" {
 	fps 40
 }
 
+$sequence "fire_big" {
+	"anims\fire_big.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 2
+	fps 40
+}
+
 $sequence "dry" {
 	"anims\dry.smd"
 	activity "ACT_VM_RELOAD_EMPTY" 1		
@@ -177,14 +186,14 @@ $sequence "bolt_fail" {
 }
 
 $sequence "reload_start_empty" {
-	"anims\reload_start_empty.smd"	
+	"anims\reload_start_empty1.smd"	
 	fadein 0.2
 	fadeout 0.2
 	fps 40
 }
 
 $sequence "reload_start" {
-	"anims\reload_start.smd"	
+	"anims\reload_start1.smd"	
 	fadein 0.2
 	fadeout 0.2
 	fps 40
@@ -206,6 +215,20 @@ $sequence "reload_loop_fail" {
 
 $sequence "reload_end" {
 	"anims\reload_end.smd"	
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "reload_end_prof" {
+	"anims\reload_end_prof.smd"	
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "reload_end_overload" {
+	"anims\reload_end_overload.smd"	
 	fadein 0.2
 	fadeout 0.2
 	fps 40

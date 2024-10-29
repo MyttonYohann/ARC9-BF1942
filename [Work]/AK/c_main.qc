@@ -119,6 +119,24 @@ $sequence "fire" {
 	fps 40
 }
 
+$sequence "fire_smg" {
+	"anims\fire_smg.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 2
+	fps 40
+}
+
+$sequence "fire_sg" {
+	"anims\fire_sg.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 2
+	fps 40
+}
+
 $sequence "fire_ads" {
 	"anims\fire_ads.smd"
 	activity "ACT_VM_PRIMARYATTACK" 1
