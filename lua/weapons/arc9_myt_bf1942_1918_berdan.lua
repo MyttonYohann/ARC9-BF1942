@@ -673,10 +673,10 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	wep:Clip1() == 5 then reload_bodge = 1 dementia_start = 0
 	-- sorry sorry sorry
 	elseif wep:Clip1() == 4 and dementia_start == 0 then dementia = 5  dementia_start = 1 reload_bodge = 0
-	elseif wep:Clip1() == 3 and dementia_start == 0 then dementia = 20 dementia_start = 1 reload_bodge = 0
-	elseif wep:Clip1() == 2 and dementia_start == 0 then dementia = 40 dementia_start = 1 reload_bodge = 0
-	elseif wep:Clip1() == 1 and dementia_start == 0 then dementia = 60 dementia_start = 1 reload_bodge = 0
-	elseif wep:Clip1() == 0 and dementia_start == 0 then dementia = 10 dementia_start = 1 reload_bodge = 0
+	elseif wep:Clip1() == 3 and dementia_start == 0 then dementia = 30 dementia_start = 1 reload_bodge = 0
+	elseif wep:Clip1() == 2 and dementia_start == 0 then dementia = 50 dementia_start = 1 reload_bodge = 0
+	elseif wep:Clip1() == 1 and dementia_start == 0 then dementia = 70 dementia_start = 1 reload_bodge = 0
+	elseif wep:Clip1() == 0 and dementia_start == 0 then dementia = 15 dementia_start = 1 reload_bodge = 0
 	else 												 dementia = 0  dementia_start = 0 reload_bodge = 0 end	
 
     if rng <= 25 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
