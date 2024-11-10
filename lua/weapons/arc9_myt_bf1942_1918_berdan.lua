@@ -669,9 +669,10 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	elseif wep:HasElement("cal_mag") then varextra = 25	-- the blunder policy inferno chandelure in the back
 	end
 
-	-- cant get demetia if clip1 is near full (==4) or completely empty
+	-- sometimes you just kinda forgot about the iron fleet and euron forces
 	if	wep:Clip1() == 5 then reload_bodge = 1 dementia_start = 0
 	-- sorry sorry sorry
+	elseif wep:Clip1() == 4 and dementia_start == 0 then dementia = 5  dementia_start = 1 reload_bodge = 0
 	elseif wep:Clip1() == 3 and dementia_start == 0 then dementia = 20 dementia_start = 1 reload_bodge = 0
 	elseif wep:Clip1() == 2 and dementia_start == 0 then dementia = 40 dementia_start = 1 reload_bodge = 0
 	elseif wep:Clip1() == 1 and dementia_start == 0 then dementia = 60 dementia_start = 1 reload_bodge = 0
@@ -684,7 +685,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_insert"	then 	return "reload_insert_fail"	end
 		if	curanim == "cycle"			and wep:Clip1() 	!= 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail
 		if	curanim == "reload_finish"	and reload_bodge	== 0	then	return "reload_finish_fail"		end	-- regular reload fail
-	elseif rng > dementia then	-- the more you innitially have to load the higher the chance of overloading
+	elseif rng > dementia then	-- the more you initially have to load the higher the chance of overloading
 		if	curanim == "reload_finish"	and reload_bodge	== 1	then	return "reload_finish_overload"	end	-- overloading a 6th bullet
 	end
 end
