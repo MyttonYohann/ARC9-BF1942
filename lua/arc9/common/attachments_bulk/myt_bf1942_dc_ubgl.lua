@@ -453,10 +453,7 @@ ATT.CustomizeAngUBGL  = Angle(-90, 40, -6)
 ATT.CustomizePosUBGL  = Vector(-20, 28, 7)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, 0, -10)
 
-ATT.CustomCrosshairUBGL = true
-ATT.CustomCrosshairSingleUBGL = true
-ATT.CustomCrosshairMaterialUBGL = Material("arc9_myt_bf1942/circlehollow.png", "mips smooth")
-ATT.CustomCrosshairSizeUBGL = 70
+ATT.CustomCrosshairUBGL = false
 
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_r870")

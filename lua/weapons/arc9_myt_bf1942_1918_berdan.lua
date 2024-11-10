@@ -143,8 +143,8 @@ SWEP.RecoilModifierCapCrouch = 5
 
 -------------------------- HANDLING
 
-SWEP.FreeAimRadius = 4
-SWEP.FreeAimRadiusSights = 0
+SWEP.FreeAimRadius = 6
+SWEP.FreeAimRadiusSights = 3
 SWEP.Sway = 1
 
 SWEP.SwayMultMidAir = 2
@@ -354,8 +354,9 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,			t =	47 / 40},
         },
 		RestoreAmmo = 1,
-		RefillProgress = 0.1,
-        MagSwapTime = 1 / 40,
+		RefillProgress = 50/40,
+		MinProgress = 0.1,
+        MagSwapTime = 50 / 40,
     },  
     ["reload_insert"] = {
         Source = "reload_loop",
@@ -366,7 +367,7 @@ SWEP.Animations = {
         EventTable = { 
 			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 15 / 40},
         },
-		MagSwapTime = 5 / 40,
+		RefillProgress = 20 / 40,
     },
 	["reload_insert_fail"] = {
         Source = "reload_loop_fail",
@@ -378,7 +379,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/1918/Berdan_Mag125.ogg" ,	t = 20 / 40},
 			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,	t = 45 / 40},
         },
-		MagSwapTime = 5 / 40,
+		RefillProgress = 55 / 40,
     },  
     ["reload_finish"] = {
         Source = "reload_end",
@@ -651,38 +652,40 @@ SWEP.Animations = {
 }
 
 
-SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
-	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
+SWEP.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end		-- 	bodging for off hand weapon
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
 	
 	-- reload fuck up --
     local rng = math.Truncate(util.SharedRandom("vest pex best pex", 1,100))
-	local varextra = 0
-	local reload_bodge = 0
+	local varextra = 0		-- for att
+	local reload_bodge = 0	-- accidental overloading only for the 5th to 6th bullet, ending at 4th or lower wont trigger
+	local dementia		 = 0
+	local dementia_start = 0
 
 	if wep:HasElement("cal_sg") then varextra = 15		-- hypnosis
 	elseif wep:HasElement("cal_50") then varextra = 20	-- grass whistle
 	elseif wep:HasElement("cal_gl") then varextra = -5	-- hydro pump
 	elseif wep:HasElement("cal_mag") then varextra = 25	-- the blunder policy inferno chandelure in the back
 	end
-	
-	-- quick time event bottom text --
-	-- rmb or r when clip1 >= 4 then reload_bodge on
-	-- if double press r then reload_start = reload_start fast? always lose 1 round but speed up w/o draw back on empty?
-	--if wep:GetOwner():KeyPressed(IN_ATTACK) and wep:Clip1() == 5 then reload_bodge = 3 end
-	
-	if	wep:Clip1() == 5 then reload_bodge = 2 
-	elseif wep:Clip1() == 4 then reload_bodge = 1
-	else reload_bodge = 0 end	
-	if	curanim == "reload_finish" and reload_bodge == 1 then	return "reload_finish_prof"	end	
+
+	-- cant get demetia if clip1 is near full (==4) or completely empty
+	if	wep:Clip1() == 5 then reload_bodge = 1 dementia_start = 0
+	-- sorry sorry sorry
+	elseif wep:Clip1() == 3 and dementia_start == 0 then dementia = 20 dementia_start = 1 reload_bodge = 0
+	elseif wep:Clip1() == 2 and dementia_start == 0 then dementia = 40 dementia_start = 1 reload_bodge = 0
+	elseif wep:Clip1() == 1 and dementia_start == 0 then dementia = 60 dementia_start = 1 reload_bodge = 0
+	elseif wep:Clip1() == 0 and dementia_start == 0 then dementia = 10 dementia_start = 1 reload_bodge = 0
+	else 												 dementia = 0  dementia_start = 0 reload_bodge = 0 end	
 
     if rng <= 25 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
-		if	curanim == "reload_empty"	then 	return "reload_fail"			end	
-		if	curanim == "reload_insert"	then 	return "reload_insert_fail"		end	
-		
-		if	curanim == "cycle"			and wep:Clip1() != 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail
-		if	curanim == "reload_finish"	and reload_bodge == 2	then	return "reload_finish_overload"	end	
-		if	curanim == "reload_finish"	and reload_bodge == 0	then	return "reload_finish_fail"	end	
+		if	curanim == "reload_empty"	then 	return "reload_fail"		end	
+
+		if	curanim == "reload_insert"	then 	return "reload_insert_fail"	end
+		if	curanim == "cycle"			and wep:Clip1() 	!= 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail
+		if	curanim == "reload_finish"	and reload_bodge	== 0	then	return "reload_finish_fail"		end	-- regular reload fail
+	elseif rng > dementia then	-- the more you innitially have to load the higher the chance of overloading
+		if	curanim == "reload_finish"	and reload_bodge	== 1	then	return "reload_finish_overload"	end	-- overloading a 6th bullet
 	end
 end
 

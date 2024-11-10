@@ -47,8 +47,8 @@ ATT.Attachments = {
 
 ATT.Penetration = 0
 
-ATT.CustomCrosshair = true
-ATT.CustomCrosshairSingle = true
+ATT.CustomCrosshair = false
+ATT.CustomCrosshairSingle = false
 ATT.CustomCrosshairMaterial = Material("arc9_myt_bf1942/circlehollow.png", "mips smooth")
 ATT.CustomCrosshairSize = 70
 

@@ -146,8 +146,8 @@ SWEP.RecoilModifierCapCrouch = 5
 
 -------------------------- HANDLING
 
-SWEP.FreeAimRadius = 10
-SWEP.FreeAimRadiusSights = 0
+SWEP.FreeAimRadius = 8
+SWEP.FreeAimRadiusSights = 2
 SWEP.Sway = 1
 
 SWEP.SwayMultMidAir = 2
