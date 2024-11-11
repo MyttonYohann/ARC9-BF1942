@@ -4,7 +4,7 @@ SWEP.Base = "arc9_base"
 
 SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
-SWEP.SubCategory = "Desert Combat - Primaries"
+SWEP.SubCategory = "Desert Combat"
 
 SWEP.PrintName = "AK47"
 SWEP.TrueName = "AK47"

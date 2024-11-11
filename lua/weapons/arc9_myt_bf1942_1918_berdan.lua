@@ -4,7 +4,7 @@ SWEP.Base = "arc9_base"
 
 SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
-SWEP.SubCategory = "1918 - Primaries"
+SWEP.SubCategory = "1918"
 
 SWEP.PrintName = "Berdan No.2"
 SWEP.TrueName = "Berdan No.2"
@@ -670,14 +670,14 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	end
 
 	-- sometimes you just kinda forgot about the iron fleet and euron forces
-	if	wep:Clip1() == 5 then reload_bodge = 1 dementia_start = 0
+	if	wep:Clip1() == 5 then 											dementia_start = 0 reload_bodge = 1 
 	-- sorry sorry sorry
-	elseif wep:Clip1() == 4 and dementia_start == 0 then dementia = 5  dementia_start = 1 reload_bodge = 0
-	elseif wep:Clip1() == 3 and dementia_start == 0 then dementia = 30 dementia_start = 1 reload_bodge = 0
-	elseif wep:Clip1() == 2 and dementia_start == 0 then dementia = 50 dementia_start = 1 reload_bodge = 0
-	elseif wep:Clip1() == 1 and dementia_start == 0 then dementia = 70 dementia_start = 1 reload_bodge = 0
-	elseif wep:Clip1() == 0 and dementia_start == 0 then dementia = 15 dementia_start = 1 reload_bodge = 0
-	else 												 dementia = 0  dementia_start = 0 reload_bodge = 0 end	
+	elseif wep:Clip1() == 4 and dementia_start == 0 then dementia = 5	dementia_start = 1 reload_bodge = 0	-- Diancie rolls worst fucking luck, asked to missed diamond storm
+	elseif wep:Clip1() == 3 and dementia_start == 0 then dementia = 30 	dementia_start = 1 reload_bodge = 0	-- focus missed
+	elseif wep:Clip1() == 2 and dementia_start == 0 then dementia = 50 	dementia_start = 1 reload_bodge = 0	-- also focus missed
+	elseif wep:Clip1() == 1 and dementia_start == 0 then dementia = 70 	dementia_start = 1 reload_bodge = 0	-- focus blast
+	elseif wep:Clip1() == 0 and dementia_start == 0 then dementia = 15 	dementia_start = 1 reload_bodge = 0
+	else 												 dementia = 0 	dementia_start = 0 reload_bodge = 0 end	
 
     if rng <= 25 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
 		if	curanim == "reload_empty"	then 	return "reload_fail"		end	

@@ -64,7 +64,8 @@ ATT = {}
 ATT.PrintName = [[Anti-Tank Bore]]
 ATT.CompactName = [[B. AT]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[Not a 50bmg fitted in a 12ga bore
+ATT.Description = [[Not a 50bmg fitted in a 12ga bore.
+Sometimes the gun will wack you when firing.
 ]]
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_50bmg"	end
@@ -104,7 +105,7 @@ ATT.Hook_PrimaryAttack = function(wep)
         local dmg = DamageInfo()
         dmg:SetAttacker(wep:GetOwner())
         dmg:SetInflictor(wep)
-        dmg:SetDamage(math.random(15, 25))
+        dmg:SetDamage(math.random(20, 40))
         dmg:SetDamageType(DMG_GENERIC)
         wep:GetOwner():TakeDamageInfo(dmg)
         wep:GetOwner():ViewPunch(Angle(2, -10, 10))
@@ -128,7 +129,7 @@ ATT = {}
 ATT.PrintName = [[Grenade Launcher Bore]]
 ATT.CompactName = [[B. GL]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[famous video game franchise Pocket Mortar™]]
+ATT.Description = [[Awesome grenade adaptor from famous video game franchise Pocket Mortar™]]
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_rpg"	end
 	if	curanim == "reload_fail"	then	return "reload_rpg_fail"	end	
@@ -171,10 +172,8 @@ ATT = {}
 ATT.PrintName = [[Internal Magazine]]
 ATT.CompactName = [[B. Mag]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[This thing is basically a mosin innit
-'No magazine-fed versions of the Berdan ever progressed beyond the prototype phase' so there is at least one prototype mag-fed version
-Extremely unreliable
-Damage magically decreased cuz this is a fucking game
+ATT.Description = [[This thing is basically a mosin innit.
+Sometimes the character develops dementia and overload a 6th round.
 ]]
 
 
@@ -262,7 +261,7 @@ ATT.PrintName = [[Officer Barrel]]
 ATT.CompactName = [[B. Short]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Made for the short king market
-Aids with trigger press, somehow
+Aids with trigger press, somehow.
 ]]
 
 ATT.SortOrder = 1
@@ -283,8 +282,8 @@ ATT.PrintName = [[Auto Barrel]]
 ATT.CompactName = [[B. Auto]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[How do you mean that's not what it does?
-Does not require trigger press, effectively an auto single action(?)
-More prone to malfuctions
+Does not require a heavy trigger press, effectively an auto single action(?)
+More prone to malfuctions. Like very prone
 ]]
 
 ATT.SortOrder = 1
