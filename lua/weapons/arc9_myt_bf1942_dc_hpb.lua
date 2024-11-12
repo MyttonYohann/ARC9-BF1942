@@ -425,22 +425,31 @@ end
 SWEP.DefaultBodygroups = "00000000000000000"
 
 SWEP.AttachmentElements = {
+    ["f_draco"] = 	{ 
+	Bodygroups = { {1, 1}, {2, 1} },
+	IronSights = {
+		Pos = Vector(-2.705, 3, 0.6),
+		Ang = Angle(0,0,0),
+		Midpoint = 	{ -- Where the gun should be at the middle of it's irons
+		Pos = Vector(0, 15, -4),
+		Ang = Angle(0, 0, -45),
+				},
+    Magnification = 1.1,
+    CrosshairInSights = false,
+						}
+	}, 	 
+    ["grip_sprint"] = {
+        SprintPosOverride = Vector(0, 5, -2),
+        SprintAngOverride = Angle(5, -18, 0),
+    },
 }
+
+SWEP.Hook_ModifyBodygroups = function(wep, data)
+    local model = data.model
+    if wep:HasElement("f_draco") and wep:HasElement("has_optic") 	then model:SetBodygroup(2,0) end
+end
  
 SWEP.Attachments = {
-    {
-        PrintName = "Foregrip",
-        DefaultName = "None",
-        InstalledElements = {"fg_def"},
-
-        DefaultIcon = Material("arc9/def_att_icons/grip.png"),
-        ExcludeElements = {"nofg"},
-        Category = {"grip_css"},
-        Bone = "W_Main",
-        Pos = Vector(0, -1.5, 6),
-        Ang = Angle(90, 0, -90),
-    },
-	
     {
         PrintName = "Off Hand",
         DefaultName = "None",
@@ -454,14 +463,13 @@ SWEP.Attachments = {
     },
 
     {
-        PrintName = "Optic",
+        PrintName = "Mount",
         DefaultName = "None",
         InstalledElements = {"rail_def"},
 
-        DefaultIcon = Material("arc9/def_att_icons/optic.png"),
-        Category = {"optic_css", "optic_css_free"},
+        Category = {"bf1942_dc_pistol_frame"},
         Bone = "W_Main",
-        Pos = Vector(0, -4.5, 3),
+        Pos = Vector(0, -3, 4),
         Ang = Angle(90, 0, -90),
     },
 

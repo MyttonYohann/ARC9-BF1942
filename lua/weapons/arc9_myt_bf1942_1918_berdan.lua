@@ -768,7 +768,7 @@ SWEP.Attachments = {
         InstalledElements = {"rail_def"},
 
         DefaultIcon = Material("arc9/def_att_icons/optic.png"),
-        Category = {"optic_css", "optic_css_free", "bf1942_1918_berdan_sight"},
+        Category = {"optic_css", "bf1942_1918_berdan_sight"},
         Bone = "W_Main",
         Pos = Vector(0, -4.5, 3),
         Ang = Angle(90, 0, -90),

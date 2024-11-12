@@ -8,6 +8,17 @@ $bodygroup "main"
 	blank
 }
 
+$bodygroup "1"
+{
+	blank
+	studio "LikeADragon_Rail.smd"
+}
+$bodygroup "2"
+{
+	blank
+	studio "LikeADragon_Irons.smd"
+}
+
 $illumposition 0 0 0
 
 $cdmaterials "models\myt_bf1942\dc\"
