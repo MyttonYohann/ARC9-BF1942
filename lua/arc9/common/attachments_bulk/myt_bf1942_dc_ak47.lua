@@ -719,11 +719,6 @@ ATT.Ammo = "buckshot"
 ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
 ATT.ShellScale = 0.5
 
-ATT.CustomCrosshair = true
-ATT.CustomCrosshairSingle = true
-ATT.CustomCrosshairMaterial = Material("arc9_myt_bf1942/circlehollow.png", "mips smooth")
-ATT.CustomCrosshairSize = 70
-
 ATT.Attachments = {
     {
         PrintName = "Ammo Type",
