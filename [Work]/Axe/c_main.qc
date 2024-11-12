@@ -20,6 +20,13 @@ $sequence "idle" {
 	fps 40
 }
 
+$sequence "axe_to_ubgl" {
+	"anims\to_ubgl.smd"
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
 $sequence "throw" {
 	"anims\throw.smd"
 	activity "ACT_VM_PRIMARYATTACK" 1

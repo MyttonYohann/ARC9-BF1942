@@ -253,12 +253,28 @@ SWEP.FiremodeSound = "arc9/firemode.wav"
 SWEP.Animations = {
     ["fire"] = {
         Source = {"fire"},
+		Mult = 0.8,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },
     ["fire_empty"] = {
         Source = {"fire_last"},
+		Mult = 0.8,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },  
+	["fire_grip"] = {
+        Source = {"fire_grip"},
+		Mult = 0.8,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["fire_grip_last"] = {
+        Source = {"fire_grip_last"},
+		Mult = 0.8,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
@@ -417,6 +433,14 @@ SWEP.Animations = {
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
+
+	if wep:HasElement("has_grip") then
+		if	curanim == "fire" 				then return "fire_grip"			end	
+		if	curanim == "fire_empty" 		then return "fire_grip_last"	end		
+		if	curanim == "fire_sights" 		then return "fire_grip"			end	
+		if	curanim == "fire_sights_empty" 	then return "fire_grip_last"	end			
+	end
+
 end
 
 
@@ -438,7 +462,7 @@ SWEP.AttachmentElements = {
     CrosshairInSights = false,
 						}
 	}, 	 
-    ["grip_sprint"] = {
+    ["has_grip"] = {
         SprintPosOverride = Vector(0, 5, -2),
         SprintAngOverride = Angle(5, -18, 0),
     },
@@ -446,7 +470,7 @@ SWEP.AttachmentElements = {
 
 SWEP.Hook_ModifyBodygroups = function(wep, data)
     local model = data.model
-    if wep:HasElement("f_draco") and wep:HasElement("has_optic") 	then model:SetBodygroup(2,0) end
+    if wep:HasElement("has_grip") and wep:HasElement("has_optic") 	then model:SetBodygroup(2,0) end
 end
  
 SWEP.Attachments = {

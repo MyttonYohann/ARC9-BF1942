@@ -26,7 +26,7 @@ ATT.Attachments = {
     {
         PrintName = "Mount D.",
         Category = {"grip_css"},
-        InstalledElements = {"grip_sprint"},
+        InstalledElements = {"has_grip"},
         Pos = Vector(-3,0, 2.6),
         Ang = Angle(0, 0, 0),
         MergeSlots = {3},

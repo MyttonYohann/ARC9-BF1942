@@ -107,6 +107,24 @@ $sequence "fire_last" {
 	fps 40
 }
 
+$sequence "fire_grip" {
+	"anims\fire_grip.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 2
+	fps 40
+}
+
+$sequence "fire_grip_last" {
+	"anims\fire_grip_last.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 2
+	fps 40
+}
+
 $sequence "fire_sights" {
 	"anims\fire_sights.smd"
 	activity "ACT_VM_PRIMARYATTACK" 1
