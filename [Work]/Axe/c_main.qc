@@ -20,6 +20,13 @@ $sequence "idle" {
 	fps 40
 }
 
+$sequence "ubgl_idle_bodge" {
+	"anims\ubgl_idle_bodge.smd"
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
 $sequence "axe_to_ubgl" {
 	"anims\to_ubgl.smd"
 	fadein 0.2

@@ -106,8 +106,8 @@ SWEP.RecoilPatternDrift = 15
 SWEP.Recoil = 1
 
 -- These multipliers affect the predictible recoil by making the pattern taller, shorter, wider, or thinner.
-SWEP.RecoilUp = 0.75 -- Multiplier for vertical recoil
-SWEP.RecoilSide = 0.425 -- Multiplier for vertical recoil
+SWEP.RecoilUp = 1.2 -- Multiplier for vertical recoil
+SWEP.RecoilSide = 0.8 -- Multiplier for vertical recoil
 
 -- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
 -- This type of recoil CANNOT be predicted.
@@ -119,7 +119,7 @@ SWEP.RecoilResetTime = 0 -- How long the gun must go before the recoil pattern s
 
 SWEP.RecoilAutoControl = 0 -- Multiplier for automatic recoil control.
 
-SWEP.RecoilKick = 1.5
+SWEP.RecoilKick = 1.75
 
 SWEP.RecoilPerShot = 1
 SWEP.RecoilKickDamping = 50
@@ -130,24 +130,24 @@ SWEP.RecoilMultSights = 1
 
 -------------------------- SPREAD
 
-SWEP.Spread = 0.005
+SWEP.Spread = 0.01
 
 SWEP.SpreadAddRecoil = 0.005 -- Applied per unit of recoil.
-SWEP.RecoilModifierCap = 10
+SWEP.RecoilModifierCap = 8
 
 SWEP.SpreadAddMove = 0.04
 SWEP.SpreadAddMidAir = 0.0075
 SWEP.SpreadMultHipFire = 5
-SWEP.SpreadMultCrouch = 0.5
+SWEP.SpreadMultCrouch = 0.75
 
-SWEP.SpreadMultSights = 0.0025/0.005
-SWEP.RecoilModifierCapSights = 2.5
+SWEP.SpreadMultSights = 0.005/0.005
+SWEP.RecoilModifierCapSights = 1.5
 SWEP.RecoilModifierCapCrouch = 5
 
 -------------------------- HANDLING
 
-SWEP.FreeAimRadius = 8
-SWEP.FreeAimRadiusSights = 2
+SWEP.FreeAimRadius = 7
+SWEP.FreeAimRadiusSights = 6
 SWEP.Sway = 1
 
 SWEP.SwayMultMidAir = 2
@@ -253,11 +253,13 @@ SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 
 SWEP.FiremodeSound = "arc9/firemode.wav"
 
-SWEP.Hook_TranslateAnimation = function(wep, curanim) -- numero random, uno per cento
-	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
+SWEP.Hook_TranslateAnimation = function(wep, curanim) 
+	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	-- bodging
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
+
+	if	wep:HasElement("s_4") and curanim == "ready"	then	return "ready_bullpup"			end --- nope doesnt work
 	
-    local rng = math.Truncate(util.SharedRandom("red card mimikyu worst fucking mon ever made", 1,100))
+    local rng = math.Truncate(util.SharedRandom("i lost 400 elo with red card mimikyu", 1,100))
     if rng <= 60 then	-- i fucking hate mp5	
 		if	curanim == "reload" 		then return "reload_fail"		end	
 		if	curanim == "reload_empty" 	then return "reload_empty_fail"	end	
@@ -529,16 +531,10 @@ SWEP.DefaultBodygroups = "00400000000000000000"
 SWEP.AttachmentElements = {
     ["s_1"] = 	{ Bodygroups = { {2, 0} },},
     ["s_2"] = 	{ Bodygroups = { {2, 3}, {3, 1} },},
-    ["s_3"] = 	{ Bodygroups = { {2, 1} },},   
-	["s_4"] = 	{ Bodygroups = { {3, 2}, {1, 1} },},  
+    ["s_3"] = 	{ Bodygroups = { {2, 1} },},
+	["s_32"] = 	{ Bodygroups = { {2, 2} },},   
+	["s_4"] = 	{ Bodygroups = { {3, 2}, {1, 1}, {5, 1} },},  
 	
-	["g_1"] = 	{ Bodygroups = { {3, 3} },},
-	["g_2"] = 	{ Bodygroups = { {3, 5} },},	
-	["g_3"] = 	{ Bodygroups = { {3, 1} },},
-	["g_4"] = 	{ Bodygroups = { {3, 6} },},
-	["g_5"] = 	{ Bodygroups = { {3, 8} },},
-	["g_6"] = 	{ Bodygroups = { {3, 7} },},
-	["g_7"] = 	{ Bodygroups = { {3, 2} },},
 	["g_8"] = 	{ 
 		Bodygroups = { {3, 9} },
 		--[[AttPosMods = { 
@@ -546,7 +542,10 @@ SWEP.AttachmentElements = {
 		}		]]
 	}, 
 
-	["hg_3"] = 	{ Bodygroups = { {1, 1} },},
+	["hg_1"] = 	{ Bodygroups = { {1, 4}, {4, 1}, {5, 2}, },},	
+	["hg_2"] = 	{ Bodygroups = { {1, 6},},},
+	["hg_3"] = 	{ Bodygroups = { {1, 8},},},
+	["hg_4"] = 	{ Bodygroups = { {1, 2},},},
 
 	["cal_1"] =	{ Bodygroups = { {0, 11} },},
 
@@ -556,10 +555,9 @@ SWEP.AttachmentElements = {
 
 SWEP.Hook_ModifyBodygroups = function(wep, data)
     local model = data.model  -- most insufficient method ever
-    if wep:HasElement("barrel_sg") and wep:HasElement("hg_2") 	then model:SetBodygroup(1,10) end
-    if wep:HasElement("barrel_sg") and wep:HasElement("hg_3") 	then model:SetBodygroup(1,9) end 
-	if wep:HasElement("barrel_sg") and wep:HasElement("hg_1") 	then model:SetBodygroup(1,6) end
-	if wep:HasElement("barrel_sg") and wep:HasElement("hg_5") 	then model:SetBodygroup(1,11) end
+    if wep:HasElement("s_4") and wep:HasElement("hg_1") 	then model:SetBodygroup(1,5) model:SetBodygroup(5,3) end 
+	if wep:HasElement("s_4") and wep:HasElement("hg_2") 	then model:SetBodygroup(1,7) end
+	if wep:HasElement("s_4") and wep:HasElement("hg_4") 	then model:SetBodygroup(1,3) end
 end
  
 SWEP.Attachments = {
@@ -578,7 +576,7 @@ SWEP.Attachments = {
         DefaultName = "Standard Handguard",
 
         ExcludeElements = {"noguard"},
-        Category = "bf1942_dc_ak47_hg",
+        Category = "bf1942_dc_mp5_hg",
         Bone = "W_Main",
         Pos = Vector(0, -3, 15),
         Ang = Angle(90, 0, -90),
@@ -596,19 +594,6 @@ SWEP.Attachments = {
         Pos = Vector(0, -4, -5),
         Ang = Angle(0, 0, 0),
     },
-
-    {
-        PrintName = "Grip",
-        DefaultName = "Standard Grip",
-
-        DefaultIcon = Material("arc9/def_att_icons/grip_ar.png"),
-        ExcludeElements = {"nogrip"},
-        Category = "bf1942_dc_ak47_grip",
-        Bone = "W_Main",
-        Pos = Vector(0, 2.5, -3),
-        Ang = Angle(0, 0, 0),
-    },
-
     {
         PrintName = "Foregrip",
         DefaultName = "None",
@@ -620,7 +605,7 @@ SWEP.Attachments = {
         Bone = "W_Main",
         Pos = Vector(0, 0, 14),
         Ang = Angle(90, 0, -90),
-        MergeSlots = {9},
+        MergeSlots = {8},
     },
 	
     {

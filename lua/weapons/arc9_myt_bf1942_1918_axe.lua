@@ -223,6 +223,12 @@ SWEP.Animations = {
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
+    },  
+	["idle_bodge"] = {
+        Source = "idle",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     }, 
     ["exit_ubgl"] = {		-- bodging
         Source = "idle",
@@ -250,6 +256,10 @@ SWEP.Animations = {
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
+
+	if wep:GetUBGL(true) then
+	if	curanim == "idle" then return "idle_bodge"	end	
+	end
 end
 
 

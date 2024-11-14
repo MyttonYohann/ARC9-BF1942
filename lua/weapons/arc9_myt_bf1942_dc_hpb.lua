@@ -409,8 +409,8 @@ SWEP.AttachmentElements = {
 						}
 	}, 	 
     ["has_grip"] = {
-        SprintPosOverride = Vector(0, 5, -2),
-        SprintAngOverride = Angle(5, -18, 0),
+        SprintPosOverride = Vector(1, 5, -2),
+        SprintAngOverride = Angle(8, -18, 0),
     },
 }
 
