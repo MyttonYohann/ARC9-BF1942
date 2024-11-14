@@ -127,12 +127,28 @@ ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[why did HK switch to a boring stub vertical grip, are they stupid
 ]]
 
-ATT.SortOrder = 0
+ATT.SortOrder = 1
 ATT.Category = "bf1942_dc_mp5_hg"
 ATT.ActivateElements = {"hg_1", "gripped"}
 
 ATT.CustomizePosHook = function(wep, vec)
     return vec + Vector(2, 0, 0)
+end
+
+ATT.LHIK = true
+ATT.LHIK_Priority = 0.01
+ 
+ATT.Scale = 1
+ATT.ModelOffset = Vector(-11, 0, -3)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+ATT.Model = "models/weapons/myt_bf1942/dc/c_mp5_ik_k.mdl"
+
+ATT.DrawFunc = function(swep, model) 
+	if swep:GetElements()["s_4"] then
+		model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl")	-- cant set nil?
+	else
+		model:SetModel("models/weapons/myt_bf1942/dc/c_mp5_ik_k.mdl")
+	end
 end
 
 ATT.RPMMult = 900/800
@@ -152,9 +168,25 @@ ATT.Description = [[Lesbian gun woah
 Cigarette wife
 ]]
 
-ATT.SortOrder = 0
+ATT.SortOrder = 2
 ATT.Category = "bf1942_dc_mp5_hg"
 ATT.ActivateElements = {"hg_2", "gripped"}
+
+ATT.LHIK = true
+ATT.LHIK_Priority = 0.01
+ 
+ATT.Scale = 1
+ATT.ModelOffset = Vector(-11, 0, -3)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+ATT.Model = "models/weapons/myt_bf1942/dc/c_mp5_ik_ii.mdl"
+
+ATT.DrawFunc = function(swep, model) 
+	if swep:GetElements()["s_4"] then
+		model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl")	-- cant set nil?
+	else
+		model:SetModel("models/weapons/myt_bf1942/dc/c_mp5_ik_ii.mdl")
+	end
+end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_mp5_hg2")
 
@@ -172,7 +204,7 @@ ATT.Description = [[
 ATT.MuzzleParticleOverride = "muzzleflash_suppressed"
 ATT.Silencer = true
 
-ATT.SortOrder = 11
+ATT.SortOrder = 3
 ATT.Category = "bf1942_dc_mp5_hg"
 ATT.ActivateElements = {"hg_3", "pre_muzzed"}
 

@@ -46,9 +46,9 @@ SWEP.DamageRand = 0.1
 SWEP.RangeMin = 500 -- How far bullets retain their maximum damage for.
 SWEP.RangeMax = 8000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
 
-SWEP.Penetration = 12 -- Units of wood that can be penetrated by this gun.
+SWEP.Penetration = 7 -- Units of wood that can be penetrated by this gun.
 
-SWEP.ImpactForce = 8
+SWEP.ImpactForce = 2
 
 SWEP.BodyDamageMults = {
     [HITGROUP_HEAD] = 2.5,
@@ -284,7 +284,7 @@ SWEP.Animations = {
         MinProgress = 0.93,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -301,7 +301,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -318,7 +318,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -336,7 +336,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -345,7 +345,7 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
 			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 156 / 40},	
-			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 188 / 40},
+			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 183 / 40},
             {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
         },
     }, 
@@ -405,7 +405,7 @@ SWEP.Animations = {
         MinProgress = 0.93,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -422,7 +422,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -439,7 +439,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -457,7 +457,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -466,7 +466,7 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
 			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 156 / 40},	
-			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 188 / 40},
+			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 183 / 40},
             {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
         },
     },    
@@ -476,7 +476,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -494,7 +494,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -503,7 +503,7 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
 			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 156 / 40},	
-			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 188 / 40},
+			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 183 / 40},
             {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
         },
     }, 
@@ -618,7 +618,7 @@ SWEP.Attachments = {
         ExcludeElements = {"noguard"},
         Category = "bf1942_dc_mp5_hg",
         Bone = "W_Main",
-        Pos = Vector(0, -3, 15),
+        Pos = Vector(0, -4, 12),
         Ang = Angle(90, 0, -90),
     },
 
