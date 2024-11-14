@@ -580,7 +580,12 @@ SWEP.AttachmentElements = {
 	[6] = { Pos = Vector(0, -7.4, 10), } 
 	},	
 	},  
-	["hg_1"] = 	{ Bodygroups = { {1, 4}, {4, 1}, {5, 2}, },},	
+	["hg_1"] = 	{ 
+	Bodygroups = { {1, 4}, {4, 1}, {5, 2}, },
+	AttPosMods = { 
+		[7] = { Pos = Vector(0, -3.95, 16), } 
+		},	
+	},	
 	["hg_2"] = 	{ Bodygroups = { {1, 6},},},
 	["hg_3"] = 	{ Bodygroups = { {1, 8},},},
 	["hg_4"] = 	{ Bodygroups = { {1, 2},},},
@@ -680,7 +685,7 @@ SWEP.Attachments = {
         ExcludeElements = {"pre_muzzed"},
         Category = {"muzzle_css"},
         Bone = "W_Main",
-        Pos = Vector(0, -2.25, 28.5),
+        Pos = Vector(0, -3.95, 19.25),
         Ang = Angle(90, 0, -90),
     },
 
