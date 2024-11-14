@@ -87,7 +87,7 @@ ATT.CustomizePosHook = function(wep, vec)
 end
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0, -1, 0)
+    return vec + Vector(0, -2, 0)
 end
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
