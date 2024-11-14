@@ -135,6 +135,8 @@ ATT.CustomizePosHook = function(wep, vec)
     return vec + Vector(2, 0, 0)
 end
 
+ATT.RPMMult = 900/800
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_mp5_hg1")
 
 
@@ -183,6 +185,8 @@ ATT.MuzzleParticleOverride = "muzzleflash_suppressed"
 ATT.MuzzleParticleOverride_Priority = 10
 ATT.MuzzleDevice = true
 ATT.Silencer = true
+
+ATT.RPMMult = 700/800
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_mp5_hg3")
 

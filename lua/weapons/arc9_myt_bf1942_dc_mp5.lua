@@ -38,8 +38,8 @@ SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
 
-SWEP.DamageMax = 37 -- Damage done at point blank range
-SWEP.DamageMin = 17 -- Damage done at maximum range
+SWEP.DamageMax = 24 -- Damage done at point blank range
+SWEP.DamageMin = 12 -- Damage done at maximum range
 
 SWEP.DamageRand = 0.1
 
@@ -67,7 +67,7 @@ SWEP.PhysBulletDrag = 1.15
 
 -------------------------- MAGAZINE
 
-SWEP.Ammo = "ar2" -- What ammo type this gun uses.
+SWEP.Ammo = "pistol" -- What ammo type this gun uses.
 
 SWEP.ChamberSize = 1 -- The amount of rounds this gun can chamber.
 SWEP.ClipSize = 30 -- Self-explanatory.
@@ -78,7 +78,7 @@ SWEP.ReloadInSights = false -- This weapon can aim down sights while reloading.
 
 -------------------------- FIREMODES
 
-SWEP.RPM = 600
+SWEP.RPM = 800
 
 -- Works different to ArcCW
 
@@ -656,7 +656,7 @@ SWEP.Attachments = {
         ExcludeElements = {"nooh", "rh_occupied"},
         Category = {"bf1942_dc_offhand"},
         Bone = "W_Main",
-        Pos = Vector(-0.5, -0.5, -12),
+        Pos = Vector(-0.5, 0, -10),
         Ang = Angle(90, 0, -90),
     },
 
