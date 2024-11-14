@@ -54,6 +54,13 @@ $bodygroup "5"
 	studio "MP5_Iron_KBullpup.smd"
 	blank
 }
+$bodygroup "6"
+{
+	blank
+	studio "MP5_Rail.smd"
+	studio "MP5_Rail_Bullpup.smd"
+	studio "MP5_Rail_BullpupK.smd"
+}
 
 $illumposition 0 0 0
 
@@ -216,6 +223,21 @@ $sequence "dry_bullpup" {
 
 $sequence "dry_bullpup_fail" {
 	"anims\dry_bullpup_fail.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+$sequence "dry_bullpup_optic" {
+	"anims\dry_bullpup_optic.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "dry_bullpup_optic_fail" {
+	"anims\dry_bullpup_optic_fail.smd"
 	activity "ACT_VM_RELOAD_EMPTY" 1		
 	fadein 0.2
 	fadeout 0.2

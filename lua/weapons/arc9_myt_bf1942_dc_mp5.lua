@@ -188,7 +188,7 @@ SWEP.TracerColor = Color(255, 225, 200) -- Color of tracers. Only works if trace
 
 SWEP.IronSights = {
     Pos = Vector(-2.7, 0, -1.37),
-    Ang = Angle(0,0.5,0),
+    Ang = Angle(0,0,0),
     Midpoint = { -- Where the gun should be at the middle of it's irons
         Pos = Vector(0, 15, -4),
         Ang = Angle(0, 0, -45),
@@ -256,8 +256,6 @@ SWEP.FiremodeSound = "arc9/firemode.wav"
 SWEP.Hook_TranslateAnimation = function(wep, curanim) 
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	-- bodging
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
-
-	if	wep:HasElement("s_4") and curanim == "ready"	then	return "ready_bullpup"			end --- nope doesnt work
 	
     local rng = math.Truncate(util.SharedRandom("i lost 400 elo with red card mimikyu", 1,100))
     if rng <= 60 then	-- i fucking hate mp5	
@@ -294,7 +292,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 49 / 40},
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 66 / 40},
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 112 / 40},
-            {s =  "myt_bf1942/dc/mp5_foley.ogg" ,	t = 129 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 129 / 40},
         },
     },  
 	["reload_fail"] = {
@@ -311,7 +309,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 49 / 40},
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 66 / 40},
             {s =  "myt_bf1942/dc/mp5_mag22.ogg" ,	t = 115 / 40},
-            {s =  "myt_bf1942/dc/mp5_foley.ogg" ,	t = 143 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 143 / 40},
         },
     },
     ["reload_empty"] = {
@@ -329,7 +327,7 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
 			{s =  "myt_bf1942/dc/mp5_bolt3.ogg" ,	t = 156 / 40},
-            {s =  "myt_bf1942/dc/mp5_foley.ogg" ,	t = 174 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 174 / 40},
         },
     },  
 	["reload_empty_fail"] = {
@@ -348,7 +346,7 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
 			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 156 / 40},	
 			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 188 / 40},
-            {s =  "myt_bf1942/dc/mp5_foley.ogg" ,	t = 194 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
         },
     }, 
 --------------------------------------------------------
@@ -415,7 +413,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 49 / 40},
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 66 / 40},
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 112 / 40},
-            {s =  "myt_bf1942/dc/mp5_foley.ogg" ,	t = 129 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 129 / 40},
         },
     },  
 	["wet_bullpup_fail"] = {
@@ -432,7 +430,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 49 / 40},
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 66 / 40},
             {s =  "myt_bf1942/dc/mp5_mag22.ogg" ,	t = 115 / 40},
-            {s =  "myt_bf1942/dc/mp5_foley.ogg" ,	t = 143 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 143 / 40},
         },
     },
     ["dry_bullpup"] = {
@@ -450,7 +448,7 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
 			{s =  "myt_bf1942/dc/mp5_bolt3.ogg" ,	t = 156 / 40},
-            {s =  "myt_bf1942/dc/mp5_foley.ogg" ,	t = 174 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 174 / 40},
         },
     },  
 	["dry_bullpup_fail"] = {
@@ -469,7 +467,44 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
 			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 156 / 40},	
 			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 188 / 40},
-            {s =  "myt_bf1942/dc/mp5_foley.ogg" ,	t = 194 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
+        },
+    },    
+	["dry_bullpup_optic"] = {
+        Source = "dry_bullpup_optic",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
+			{s =  "myt_bf1942/dc/mp5_bolt2.ogg" ,	t = 34 / 40},
+			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 66 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
+            {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
+			{s =  "myt_bf1942/dc/mp5_bolt3.ogg" ,	t = 156 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 174 / 40},
+        },
+    },  
+	["dry_bullpup_optic_fail"] = {
+        Source = "dry_bullpup_optic_fail",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
+			{s =  "myt_bf1942/dc/mp5_bolt2.ogg" ,	t = 34 / 40},
+			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 66 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
+            {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
+			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 156 / 40},	
+			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 188 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
         },
     }, 
 --------------------------------------------------------
@@ -529,23 +564,29 @@ SWEP.AttachmentElements = {
     ["s_2"] = 	{ Bodygroups = { {2, 3}, {3, 1} },},
     ["s_3"] = 	{ Bodygroups = { {2, 1} },},
 	["s_32"] = 	{ Bodygroups = { {2, 2} },},   
-	["s_4"] = 	{ Bodygroups = { {3, 2}, {1, 1}, {5, 1} },},  
-	
-	["g_8"] = 	{ 
-		Bodygroups = { {3, 9} },
-		--[[AttPosMods = { 
-			[6] = { Pos = Vector(0, 0, 3), } 
-		}		]]
-	}, 
-
+	["s_4"] = 	{ 
+	Bodygroups = { {3, 2}, {1, 1}, {5, 1} },
+	IronSights = {
+			Pos = Vector(-2.7, -5, -2.1),
+			Ang = Angle(0,0,0),
+			Midpoint = 	{ -- Where the gun should be at the middle of it's irons
+			Pos = Vector(0, 15, -4),
+			Ang = Angle(0, 0, -45),
+				},
+    Magnification = 1.1,
+    CrosshairInSights = false,
+	},
+	AttPosMods = { 
+	[6] = { Pos = Vector(0, -7.4, 10), } 
+	},	
+	},  
 	["hg_1"] = 	{ Bodygroups = { {1, 4}, {4, 1}, {5, 2}, },},	
 	["hg_2"] = 	{ Bodygroups = { {1, 6},},},
 	["hg_3"] = 	{ Bodygroups = { {1, 8},},},
 	["hg_4"] = 	{ Bodygroups = { {1, 2},},},
 
 	["cal_1"] =	{ Bodygroups = { {0, 11} },},
-
-    ["rail_def"] = { Bodygroups = { {5, 3} },},
+    ["rail_def"] = { Bodygroups = { {6, 1} },},
     ["fg_def"] = { Bodygroups = { {8, 1} },},
 }
 
@@ -554,6 +595,9 @@ SWEP.Hook_ModifyBodygroups = function(wep, data)
     if wep:HasElement("s_4") and wep:HasElement("hg_1") 	then model:SetBodygroup(1,5) model:SetBodygroup(5,3) end 
 	if wep:HasElement("s_4") and wep:HasElement("hg_2") 	then model:SetBodygroup(1,7) end
 	if wep:HasElement("s_4") and wep:HasElement("hg_4") 	then model:SetBodygroup(1,3) end
+	if wep:HasElement("s_4") and wep:HasElement("rail_def")	then model:SetBodygroup(6,2) end
+	if wep:HasElement("s_4") and wep:HasElement("rail_def") and wep:HasElement("hg1")	then model:SetBodygroup(6,3) end
+	if wep:HasElement("rail_def") then model:SetBodygroup(5,4) end	-- maybe
 end
  
 SWEP.Attachments = {
@@ -624,7 +668,7 @@ SWEP.Attachments = {
         DefaultIcon = Material("arc9/def_att_icons/optic.png"),
         Category = {"optic_css", "optic_css_free"},
         Bone = "W_Main",
-        Pos = Vector(0, -4.5, 3),
+        Pos = Vector(0, -6.65, 2.5),
         Ang = Angle(90, 0, -90),
     },
 

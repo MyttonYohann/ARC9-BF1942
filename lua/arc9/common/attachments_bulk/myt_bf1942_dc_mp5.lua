@@ -91,6 +91,9 @@ ATT.ActivePosHook = function(wep, vec)
 end
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	wep:HasElement("rail_def") and curanim == "reload_empty"		then	return "dry_bullpup_optic"			end	
+	if	wep:HasElement("rail_def") and curanim == "reload_empty_fail"	then	return "dry_bullpup_optic_fail"		end
+	
 	if	curanim == "reload_empty"		then	return "dry_bullpup"			end
 	if	curanim == "reload_empty_fail"	then	return "dry_bullpup_fail"		end
 	if	curanim == "reload"				then	return "wet_bullpup"			end
