@@ -279,18 +279,6 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     }, 
-	["fire_sights"] = {
-        Source = {"fire"},
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
-    },
-    ["fire_sights_empty"] = {
-        Source = {"fire_last"},
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
-    },
     ["reload"] = {
         Source = "wet",
         FireASAP = true,
@@ -387,46 +375,6 @@ SWEP.Animations = {
         { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
     }, 
-
---[[	["enter_sights"] = {
-        Source = "in_sights",
-		Time = 1,
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
-    },
-    ["exit_sights"] = {
-        Source = "in_sights",
-        Reverse = true,
-		Time = 1,
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
-    },
-    ["idle_sights"] = {
-        Source = "sights",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
-    },  
-	["idle_sights_empty"] = {
-        Source = "sights_last",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
-    },		
-    ["fire_sights"] = {
-        Source = {"fire_sights"},
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
-    },
-    ["fire_sights_empty"] = {
-        Source = {"fire_sights_last"},
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
-    },]]
 }
 
 
@@ -436,9 +384,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 
 	if wep:HasElement("has_grip") then
 		if	curanim == "fire" 				then return "fire_grip"			end	
-		if	curanim == "fire_empty" 		then return "fire_grip_last"	end		
-		if	curanim == "fire_sights" 		then return "fire_grip"			end	
-		if	curanim == "fire_sights_empty" 	then return "fire_grip_last"	end			
+		if	curanim == "fire_empty" 		then return "fire_grip_last"	end				
 	end
 
 end
