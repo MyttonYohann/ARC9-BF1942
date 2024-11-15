@@ -41,7 +41,7 @@ SWEP.MirrorVMWMHeldOnly = false
 SWEP.DamageMax = 24 -- Damage done at point blank range
 SWEP.DamageMin = 12 -- Damage done at maximum range
 
-SWEP.DamageRand = 0.1
+SWEP.DamageRand = 0.3
 
 SWEP.RangeMin = 500 -- How far bullets retain their maximum damage for.
 SWEP.RangeMax = 8000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
@@ -51,17 +51,17 @@ SWEP.Penetration = 7 -- Units of wood that can be penetrated by this gun.
 SWEP.ImpactForce = 2
 
 SWEP.BodyDamageMults = {
-    [HITGROUP_HEAD] = 2.5,
+    [HITGROUP_HEAD] = 2,
     [HITGROUP_CHEST] = 1,
     [HITGROUP_LEFTARM] = 0.9,
     [HITGROUP_RIGHTARM] = 0.9,
-    [HITGROUP_LEFTLEG] = 0.75,
-    [HITGROUP_RIGHTLEG] = 0.75,
+    [HITGROUP_LEFTLEG] = 0.9,
+    [HITGROUP_RIGHTLEG] = 0.9,
 }
 
 -------------------------- PHYS BULLET BALLISTICS
 
-SWEP.PhysBulletMuzzleVelocity = 2329 * 12
+SWEP.PhysBulletMuzzleVelocity = 1800 * 12
 SWEP.PhysBulletGravity = 1.5
 SWEP.PhysBulletDrag = 1.15
 
@@ -401,7 +401,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.875, lhik = 0, rhik = 0, },{ t = 0.975, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -419,7 +419,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.875, lhik = 0, rhik = 0, },{ t = 0.975, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -628,7 +628,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.875, lhik = 0, rhik = 0, },{ t = 0.975, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -646,7 +646,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.875, lhik = 0, rhik = 0, },{ t = 0.975, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
