@@ -237,12 +237,12 @@ SWEP.AnimDraw = false
 
 -------------------------- EFFECTS
 
-SWEP.MuzzleParticle = "muzzleflash_5"
+SWEP.MuzzleParticle = "muzzleflash_3"
 SWEP.MuzzleEffectQCA = 1
 
-SWEP.ShellModel = "models/shells/shell_556.mdl"
+SWEP.ShellModel = "models/weapons/shell.mdl"
 SWEP.ShellCorrectAng = Angle(0, 180, 0)
-SWEP.ShellScale = 1
+SWEP.ShellScale = 0.5
 SWEP.ShellPhysBox = Vector(0.5, 0.5, 2)
 
 -------------------------- SOUNDS
@@ -274,6 +274,18 @@ SWEP.Animations = {
     },
     ["fire_iron"] = {
         Source = {"fire_ads"},
+		IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    }, 
+	["fire_510_last"] = {
+        Source = {"fire_510_last"},
+		IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["fire_ads_510_last"] = {
+        Source = {"fire_ads_510_last"},
 		IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
@@ -348,10 +360,92 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 183 / 40},
             {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
         },
+    },   
+	["wet_510"] = {
+        Source = "wet_510",
+        FireASAP = true,
+        MinProgress = 0.93,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
+			{s =  "myt_bf1942/dc/mp5_bolt15.ogg" ,	t = 33 / 40},
+			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 49 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 66 / 40},
+            {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 112 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 129 / 40},
+        },
+    },  
+	["wet_510_fail"] = {
+        Source = "wet_510_fail",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
+			{s =  "myt_bf1942/dc/mp5_bolt15.ogg" ,	t = 33 / 40},
+			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 49 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 66 / 40},
+            {s =  "myt_bf1942/dc/mp5_mag22.ogg" ,	t = 115 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 143 / 40},
+        },
+    },
+    ["dry_510"] = {
+        Source = "dry_510",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
+			{s =  "myt_bf1942/dc/mp5_bolt2.ogg" ,	t = 34 / 40},
+			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 66 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
+            {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
+			{s =  "myt_bf1942/dc/mp5_bolt3.ogg" ,	t = 156 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 174 / 40},
+        },
+    },  
+	["dry_510_fail"] = {
+        Source = "dry_510_fail",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
+			{s =  "myt_bf1942/dc/mp5_bolt2.ogg" ,	t = 34 / 40},
+			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 66 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
+            {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
+			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 156 / 40},	
+			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 183 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
+        },
     }, 
 --------------------------------------------------------
-    ["draw"] = {
+	["draw"] = {
         Source = "draw",
+        FireASAP = true,
+        MinProgress = 0.5,
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },	
+	["draw_510_empty"] = {
+        Source = "draw_510_empty",
         FireASAP = true,
         MinProgress = 0.5,
         EventTable = {
@@ -372,14 +466,26 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },
-    ["holster"] = {
+	["holster"] = {
         Source = "holster",
 		IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },
-    ["idle"] = {
+	["holster_510_empty"] = {
+        Source = "holster_510_empty",
+		IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+	["idle"] = {
         Source = "idle",
+		IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },	
+	["idle_510_empty"] = {
+        Source = "idle_510_empty",
 		IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
@@ -395,6 +501,18 @@ SWEP.Animations = {
     },
     ["fire_bullpup_ads"] = {
         Source = {"fire_bullpup_ads"},
+		IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    }, 
+	["fire_bullpup_510_last"] = {
+        Source = {"fire_bullpup_510_last"},
+		IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["fire_bullpup_ads_510_last"] = {
+        Source = {"fire_bullpup_ads_510_last"},
 		IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
@@ -469,6 +587,77 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 183 / 40},
             {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
         },
+    },
+    ["wet_bullpup_510"] = {
+        Source = "wet_bullpup_510",
+        FireASAP = true,
+        MinProgress = 0.93,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
+			{s =  "myt_bf1942/dc/mp5_bolt15.ogg" ,	t = 33 / 40},
+			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 49 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 66 / 40},
+            {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 112 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 129 / 40},
+        },
+    },  
+	["wet_bullpup_510_fail"] = {
+        Source = "wet_bullpup_510_fail",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
+			{s =  "myt_bf1942/dc/mp5_bolt15.ogg" ,	t = 33 / 40},
+			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 49 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 66 / 40},
+            {s =  "myt_bf1942/dc/mp5_mag22.ogg" ,	t = 115 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 143 / 40},
+        },
+    },
+    ["dry_bullpup_510"] = {
+        Source = "dry_bullpup_510",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
+			{s =  "myt_bf1942/dc/mp5_bolt2.ogg" ,	t = 34 / 40},
+			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 66 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
+            {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
+			{s =  "myt_bf1942/dc/mp5_bolt3.ogg" ,	t = 156 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 174 / 40},
+        },
+    },  
+	["dry_bullpup_510_fail"] = {
+        Source = "dry_bullpup_510_fail",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
+			{s =  "myt_bf1942/dc/mp5_bolt2.ogg" ,	t = 34 / 40},
+			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 66 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
+            {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
+			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 156 / 40},	
+			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 183 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
+        },
     },    
 	["dry_bullpup_optic"] = {
         Source = "dry_bullpup_optic",
@@ -518,6 +707,17 @@ SWEP.Animations = {
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
+    }, 
+	["draw_bullpup_510_empty"] = {
+        Source = "draw_bullpup_510_empty",
+        FireASAP = true,
+        MinProgress = 0.5,
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     },
     ["ready_bullpup"] = {
         Source = "draw_bullpup",
@@ -538,6 +738,18 @@ SWEP.Animations = {
     },
     ["idle_bullpup"] = {
         Source = "idle_bullpup",
+		IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    }, 
+	["holster_bullpup_510_empty"] = {
+        Source = "holster_bullpup_510_empty",
+		IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["idle_bullpup_510_empty"] = {
+        Source = "idle_bullpup_510_empty",
 		IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
@@ -590,7 +802,7 @@ SWEP.AttachmentElements = {
 	["hg_3"] = 	{ Bodygroups = { {1, 8},},},
 	["hg_4"] = 	{ Bodygroups = { {1, 2},},},
 
-	["cal_1"] =	{ Bodygroups = { {0, 11} },},
+	["cal_1"] =	{ Bodygroups = { {0, 1} },},
     ["rail_def"] = { Bodygroups = { {6, 1} },},
     ["fg_def"] = { Bodygroups = { {8, 1} },},
 }
@@ -604,15 +816,15 @@ SWEP.Hook_ModifyBodygroups = function(wep, data)
 	if wep:HasElement("s_4") and wep:HasElement("rail_def") and wep:HasElement("hg1")	then model:SetBodygroup(6,3) end
 	if wep:HasElement("rail_def") and !wep:HasElement("optic_css_free") then model:SetBodygroup(5,4) end	-- maybe
 end
- 
+
 SWEP.Attachments = {
     {
         PrintName = "Receiver",
         DefaultName = "Standard Receiver",
 
-        Category = "bf1942_dc_ak47_cal",
+        Category = "bf1942_dc_mp5_cal",
         Bone = "W_Main",
-        Pos = Vector(0, 2, 7.5),
+        Pos = Vector(0, -2, 5.5),
         Ang = Angle(90, 0, -90),
     },
 

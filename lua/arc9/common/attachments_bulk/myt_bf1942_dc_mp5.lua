@@ -241,3 +241,57 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_mp5_hg4")
 
 
 ----------------------------------------------------------------------------------
+-- Calibre --
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+-- never fucking make a bullpup again
+ATT.PrintName = [[5/10 Reciever]]
+ATT.CompactName = [[Cal. Warden]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[Polizei with a bolt hold thing
+]]
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	local lazy = wep:Clip1() == 0			-- separate check for empty + last shot
+	local bullpup = wep:GetElements()["s_4"]
+
+	if bullpup then
+	if	curanim == "reload_empty"		then	return "dry_bullpup_510"			end
+	if	curanim == "reload_empty_fail"	then	return "dry_bullpup_510_fail"		end
+	if	curanim == "reload"				then	return "wet_bullpup_510"			end
+	if	curanim == "reload_fail"		then	return "wet_bullpup_510_fail"		end
+	
+	if	curanim == "fire" and lazy		then	return "fire_bullpup_510_last"		end
+	if	curanim == "fire_iron" and lazy	then	return "fire_bullpup_ads_510_last"	end
+	if	curanim == "idle"	and lazy	then	return "idle_bullpup_510_empty"		end	
+	if	curanim == "draw"	and lazy	then	return "draw_bullpup_510_empty"		end	
+	if	curanim == "holster" and lazy	then	return "holster_bullpup_510_empty"	end
+	end
+	
+	if	curanim == "reload_empty"		then	return "dry_510"			end
+	if	curanim == "reload_empty_fail"	then	return "dry_510_fail"		end
+	if	curanim == "reload"				then	return "wet_510"			end
+	if	curanim == "reload_fail"		then	return "wet_510_fail"		end
+
+	if	curanim == "idle"	and lazy	then	return "idle_510_empty"		end
+	if	curanim == "draw"	and lazy	then	return "draw_510_empty"		end	
+	if	curanim == "holster" and lazy	then	return "holster_510_empty"	end	
+	if	curanim == "fire" and lazy		then	return "fire_510_last"		end
+	if	curanim == "fire_iron" and lazy	then	return "fire_ads_510_last"	end
+end
+ATT.ShootSound = {"myt_bf1942/dc/scorpion.wav"} -- placeholder
+
+ATT.SortOrder = 1
+ATT.Category = "bf1942_dc_mp5_cal"
+ATT.ActivateElements = {"cal_1"}
+
+ATT.RPMMult = 750 / 800
+ATT.Penetration = 10
+
+ATT.SpreadMult = 0.8
+ATT.DamageMaxMult = 1.2
+ATT.DamageMinMult = 0.8
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_mp5_cal1")

@@ -154,7 +154,6 @@ $sequence "fire" {
 	fadeout 0.5
 	fps 40
 }
-
 $sequence "fire_ads" {
 	"anims\fire_ads.smd"
 	activity "ACT_VM_PRIMARYATTACK" 1
@@ -171,7 +170,6 @@ $sequence "fire_bullpup" {
 	fadeout 0.5
 	fps 40
 }
-
 $sequence "fire_bullpup_ads" {
 	"anims\fire_bullpup_ads.smd"
 	activity "ACT_VM_PRIMARYATTACK" 1
@@ -180,6 +178,40 @@ $sequence "fire_bullpup_ads" {
 	fadeout 0.5
 	fps 40
 }
+$sequence "fire_510_last" {
+	"anims\fire_510_last.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 0.5
+	fps 40
+}
+$sequence "fire_ads_510_last" {
+	"anims\fire_ads_510_last.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 0.5
+	fps 40
+}
+$sequence "fire_bullpup_510_last" {
+	"anims\fire_bullpup_510_last.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 0.5
+	fps 40
+}
+$sequence "fire_bullpup_ads_510_last" {
+	"anims\fire_bullpup_ads_510_last.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	{ event 5001 0 "1" }
+	fadein 0.05
+	fadeout 0.5
+	fps 40
+}
+
+
 
 $sequence "dry" {
 	"anims\dry.smd"
@@ -254,6 +286,71 @@ $sequence "wet_bullpup" {
 
 $sequence "wet_bullpup_fail" {
 	"anims\wet_bullpup_fail.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
+
+$sequence "dry_510" {
+	"anims\dry_510.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "dry_510_fail" {
+	"anims\dry_510_fail.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "wet_510" {
+	"anims\wet_510.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
+$sequence "wet_510_fail" {
+	"anims\wet_510_fail.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
+$sequence "dry_bullpup_510" {
+	"anims\dry_bullpup_510.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "dry_bullpup_510_fail" {
+	"anims\dry_bullpup_510_fail.smd"
+	activity "ACT_VM_RELOAD_EMPTY" 1		
+	fadein 0.2
+	fadeout 0.2
+	fps 40
+}
+
+$sequence "wet_bullpup_510" {
+	"anims\wet_bullpup_510.smd"
+	activity "ACT_VM_RELOAD" 1		
+	fadein 0.2
+	fadeout 0.2	
+	fps 40
+}
+
+$sequence "wet_bullpup_510_fail" {
+	"anims\wet_bullpup_510_fail.smd"
 	activity "ACT_VM_RELOAD" 1		
 	fadein 0.2
 	fadeout 0.2	
