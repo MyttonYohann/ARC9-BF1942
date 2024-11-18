@@ -430,6 +430,7 @@ SWEP.Attachments = {
         Bone = "W_Main",
         Pos = Vector(-1, 0, -10),
         Ang = Angle(90, 0, -90),
+        MergeSlots = {4},
     },
 
     {
@@ -452,6 +453,17 @@ SWEP.Attachments = {
         Category = {"muzzle_css"},
         Bone = "W_Main",
         Pos = Vector(0, -2.8, 9),
+        Ang = Angle(90, 0, -90),
+    },
+
+    {
+        PrintName = "",		-- 4, underhand
+        DefaultName = "",
+        Hidden = true,
+
+        Category = {"bf1942_dc_underhand"},
+        Bone = "W_Main",
+        Pos = Vector(0, 2, -10),
         Ang = Angle(90, 0, -90),
     },
 }
