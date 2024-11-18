@@ -463,7 +463,7 @@ SWEP.Attachments = {
 
         Category = {"bf1942_dc_underhand"},
         Bone = "W_Main",
-        Pos = Vector(0, 2, -10),
+        Pos = Vector(0, 0, -5),
         Ang = Angle(90, 0, -90),
     },
 }

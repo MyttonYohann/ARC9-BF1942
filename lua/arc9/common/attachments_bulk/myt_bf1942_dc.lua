@@ -68,43 +68,62 @@ ATT.IKAnimationProxy = {
         MinProgress = 0.6,
 		FireASAP = true,
 		Mult = 0.8,
+    },	
+	["idle_knife"] = {
+        Source = {"idle_knife"},
+		Time = 0.1,
     },
 	
     ["reload_knife_start"] = {
         Source = "reload_knife_start",
-        MinProgress = 0.8,
-		FireASAP = true,
         EventTable = {
             --{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
         },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
-        },
+		FireASAP = false,
+		Mult = 0.2,
+    },	
+    ["knife_hide"] = {
+        Source = "knife_hide",
+		FireASAP = false,
     },
     ["reload_knife_end"] = {
         Source = "reload_knife_end",
-        MinProgress = 0.8,
-		FireASAP = true,
         EventTable = {
             --{s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
         },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },
-        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
-        },
+		FireASAP = false,
     },
 } -- When an animation event plays, override it with one based on this LHIK model.
 
 ATT.IKAnimationAlsoPlayBase = true	 ---?? does this fucking work
 -- cant play both of them?
 -- possible bodge: play reload_knife_start and THEN play the actual reload anim
-ATT.Hook_PostReload = function(wep)
+
+--works, kind of, jitters a bit and reload stage gets undefined for some reason so you can still shoot and shit during reload
+--[[ATT.Hook_PostReload = function(wep)
 	wep:PlayAnimation("reload_knife_start")
-end
--- this works, kinda, though if you fire mid way through the anim they knife doesnt snap to idle
+
+	timer.Create("Bodge", 0.05, 1, function()
+	wep:PlayAnimation("reload")
+	end)
+end]]
+
+--[[ this works, kinda, though if you fire mid way through the anim they knife doesnt snap to idle
 ATT.Hook_EndReload = function(wep)
+	wep:SetReloading(false)
 	wep:PlayAnimation("reload_knife_end")
+	timer.Create("Bodge2", 0.05, 1, function()
+	wep:PlayAnimation("idle_knife")
+	end)
+end]]
+
+--fuck me in the ass SORRY SORRY SORRY
+ATT.DrawFunc = function(wep, model) 
+	if wep:GetReloading() then
+		model:SetModel("models/weapons/myt_bf1942/atts/dc/c_knife_uhand2.mdl")
+	else
+		model:SetModel("models/weapons/myt_bf1942/atts/dc/c_knife_uhand.mdl")
+	end
 end
 
 ATT.IKGunMotionQCA = 2
@@ -131,9 +150,9 @@ ATT.BashDamage = 60
 ATT.BashLungeRange = 0
 ATT.BashRange = 64
 ATT.PreBashTime = 0.2
-ATT.PostBashTime = 0.5
+ATT.PostBashTime = 0.4
 
---ATT.ModelOffset = Vector(10, 0, -1)
+ATT.ModelOffset = Vector(-5, 0, -2)
 --ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 --ATT.ActivePosUBGL = Vector(4, 3, 0)

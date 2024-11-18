@@ -1,4 +1,4 @@
-$modelname "weapons/myt_bf1942/atts/dc/c_knife_uhand.mdl"
+$modelname "weapons/myt_bf1942/atts/dc/c_knife_uhand2.mdl"
 
 $bodygroup "0" {
 	studio "Kebab.smd"
@@ -22,6 +22,13 @@ $attachment "2" "root"  2 5 -10 rotate 0 0 0     // VM movement
 
 $collisionmodel "Kebab.smd"
 
+$sequence "knife_hide" {
+	"anims/knife_hide.smd"
+	fadein 0.5
+	fadeout 0.5
+	fps 40
+}
+
 $sequence "idle_knife" {
 	"anims/idle_knife.smd"
 	fps 40
@@ -29,12 +36,6 @@ $sequence "idle_knife" {
 
 $sequence "knife" {
 	"anims/knife.smd"
-	fadein 0.1
-	fadeout 0.2
-	fps 40
-}
-$sequence "knife2" {
-	"anims/knife2.smd"
 	fadein 0.1
 	fadeout 0.2
 	fps 40
@@ -50,12 +51,6 @@ $sequence "reload_knife_end" {
 	"anims/reload_knife_end.smd"
 	fadein 0.1
 	fadeout 0.1
-	fps 40
-}
-$sequence "knife_hide" {
-	"anims/knife_hide.smd"
-	fadein 0.5
-	fadeout 0.5
 	fps 40
 }
 
