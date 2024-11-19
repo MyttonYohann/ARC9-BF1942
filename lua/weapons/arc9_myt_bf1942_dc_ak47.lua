@@ -653,8 +653,8 @@ SWEP.AttachmentElements = {
 	["cal_4"] =	{ Bodygroups = { {0, 6}, {5, 2} },},
 	["cal_5"] =	{ Bodygroups = { {0, 9}, {5, 1}, {1, 8} },},
 
-    ["rail_def"] = { Bodygroups = { {5, 3} },},
-    ["fg_def"] = { Bodygroups = { {8, 1} },},
+    --["rail_def"] = { Bodygroups = { {5, 3} },},
+    --["fg_def"] = { Bodygroups = { {8, 1} },},
 }
 
 SWEP.Hook_ModifyBodygroups = function(wep, data)
@@ -663,14 +663,6 @@ SWEP.Hook_ModifyBodygroups = function(wep, data)
     if wep:HasElement("barrel_sg") and wep:HasElement("hg_3") 	then model:SetBodygroup(1,9) end 
 	if wep:HasElement("barrel_sg") and wep:HasElement("hg_1") 	then model:SetBodygroup(1,6) end
 	if wep:HasElement("barrel_sg") and wep:HasElement("hg_5") 	then model:SetBodygroup(1,11) end
-
-
-
-    if wep:HasElement("hg_rpk") and wep:GetBipod() then
-        model:SetBodygroup(9,2)
-    elseif wep:HasElement("hg_rpk") and !wep:GetBipod() then
-        model:SetBodygroup(9,1)
-    end
 end
  
 SWEP.Attachments = {
@@ -697,7 +689,7 @@ SWEP.Attachments = {
 
     {
         PrintName = "Stock",
-        DefaultName = "Standard Stock",
+        DefaultName = "No Stock",
         ExcludeElements = {"nostock"},
         Installed = "myt_bf1942_dc_ak47_stock1",
 

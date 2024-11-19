@@ -809,7 +809,7 @@ SWEP.Hook_ModifyBodygroups = function(wep, data)
 	if wep:HasElement("s_4") and wep:HasElement("hg_2") 	then model:SetBodygroup(1,7) end
 	if wep:HasElement("s_4") and wep:HasElement("hg_4") 	then model:SetBodygroup(1,3) end
 	if wep:HasElement("s_4") and wep:HasElement("rail_def")	then model:SetBodygroup(6,2) end
-	if wep:HasElement("s_4") and wep:HasElement("rail_def") and wep:HasElement("hg1")	then model:SetBodygroup(6,3) end
+	if wep:HasElement("s_4") and wep:HasElement("rail_def") and wep:HasElement("hg_1")	then model:SetBodygroup(6,3) end
 	if wep:HasElement("rail_def") and !wep:HasElement("optic_css_free") then model:SetBodygroup(5,4) end	-- maybe
 end
 

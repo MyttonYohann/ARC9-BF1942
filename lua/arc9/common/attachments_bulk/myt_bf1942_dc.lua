@@ -108,12 +108,12 @@ ATT.IKAnimationAlsoPlayBase = true	 ---?? does this fucking work
 	end)
 end]]
 
---[[ this works, kinda, though if you fire mid way through the anim they knife doesnt snap to idle
+--[[ this works
 ATT.Hook_EndReload = function(wep)
 	wep:SetReloading(false)
 	wep:PlayAnimation("reload_knife_end")
 	timer.Create("Bodge2", 0.05, 1, function()
-	wep:PlayAnimation("idle_knife")
+	wep:PlayAnimation("idle_knife") -- force snap to idle
 	end)
 end]]
 

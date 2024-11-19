@@ -180,6 +180,7 @@ ATT.ModelOffset = Vector(-11, 0, -3)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 ATT.Model = "models/weapons/myt_bf1942/dc/c_mp5_ik_ii.mdl"
 
+-- actually could i use this to temporarily disable rhik on stuff like off hand weapon, and potentially rifle grenade?
 ATT.DrawFunc = function(swep, model) 
 	if swep:GetElements()["s_4"] then
 		model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl")	-- cant set nil?
