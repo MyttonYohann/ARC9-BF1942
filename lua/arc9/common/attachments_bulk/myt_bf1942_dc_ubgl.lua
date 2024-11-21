@@ -30,6 +30,9 @@ ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
 	end
 end
 
+ATT.PeekPosUBGL = Vector(1.5, 0, -1.5)
+ATT.PeekAngUBGL = Angle(0, 0, -10)
+
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
         Source = "fire",
@@ -276,6 +279,9 @@ ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
 	end
 end
 
+ATT.PeekPosUBGL = Vector(1.5, 0, -1.5)
+ATT.PeekAngUBGL = Angle(0, 0, -10)
+
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
         Source = "fire_full",
@@ -511,6 +517,9 @@ ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
 	model:SetBodygroup(0,0)
 	end
 end
+
+ATT.PeekPosUBGL = Vector(1.5, 0, -1.5)
+ATT.PeekAngUBGL = Angle(0, 0, -10)
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
@@ -845,5 +854,6 @@ ATT.CustomizeAngUBGL  = Angle(-90, 40, -5)
 ATT.CustomizePosUBGL  = Vector(-12, 28, 7)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
 ATT.Crosshair = false
+ATT.CanLeanUBGL = false
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_knife")
