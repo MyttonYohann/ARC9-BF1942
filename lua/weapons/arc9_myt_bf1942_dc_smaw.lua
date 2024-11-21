@@ -146,8 +146,8 @@ SWEP.RecoilModifierCapCrouch = 5
 
 -------------------------- HANDLING
 
-SWEP.FreeAimRadius = 4
-SWEP.FreeAimRadiusSights = 1
+SWEP.FreeAimRadius = 6
+SWEP.FreeAimRadiusSights = 0.2
 SWEP.Sway = 1
 
 SWEP.SwayMultMidAir = 2
@@ -421,7 +421,9 @@ SWEP.Attachments = {
     {
         PrintName = "Side Mount | Off Hand",
         DefaultName = "None",
-
+		Integral = true,
+		Installed = "myt_bf1942_dc_smol_spotting",
+		
         Category = {"bf1942_dc_smol"},
         Bone = "W_Main",
         Pos = Vector(0, 0, 0),

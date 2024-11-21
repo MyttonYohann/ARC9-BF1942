@@ -236,8 +236,8 @@ ATT.NumUBGL = 1
 ATT.RecoilUBGL = 1
 
 -- These multipliers affect the predictible recoil by making the pattern taller, shorter, wider, or thinner.
-ATT.RecoilUpUBGL = 0.7 -- Multiplier for vertical recoil
-ATT.RecoilSideUBGL = 0.7 -- Multiplier for vertical recoil
+ATT.RecoilUpUBGL = 0.5 -- Multiplier for vertical recoil
+ATT.RecoilSideUBGL = 0.3 -- Multiplier for vertical recoil
 
 -- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
 -- This type of recoil CANNOT be predicted.
@@ -252,15 +252,15 @@ ATT.RecoilAutoControlUBGL = 0 -- Multiplier for automatic recoil control.
 ATT.RecoilKickUBGL = 1
 
 ATT.DamageTypeUBGL = DMG_BULLET
-ATT.DamageMaxUBGL = 37 -- Damage done at point blank range
-ATT.DamageMinUBGL = 22 -- Damage done at maximum range
+ATT.DamageMaxUBGL = 38 -- Damage done at point blank range
+ATT.DamageMinUBGL = 14 -- Damage done at maximum range
 
 ATT.DamageRandUBGL = 0.3 -- Damage varies randomly per shot by this fraction. 0.1 = +- 10% damage per shot.
 
-ATT.RangeMinUBGL = 300 -- How far bullets retain their maximum damage for.
-ATT.RangeMaxUBGL = 8000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
+ATT.RangeMinUBGL = 400 -- How far bullets retain their maximum damage for.
+ATT.RangeMaxUBGL = 6000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
 
-ATT.PenetrationUBGL = 3 -- Units of wood that can be penetrated by this gun.
+ATT.PenetrationUBGL = 7 -- Units of wood that can be penetrated by this gun.
 
 ATT.MuzzleParticleUBGL = "muzzleflash_3"
 
