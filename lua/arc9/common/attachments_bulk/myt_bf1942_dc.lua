@@ -184,18 +184,23 @@ ATT.SortOrder = 0
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
 
-ATT.Hook_TranslateAnimation = function(wep, curanim) 
-	local lazy = wep:Clip2() == 0
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	local b_sight 	= wep:GetInSights()
+	local b_ugbl 	= wep:GetUBGL(true)	
+	local b_empty 	= wep:Clip2() == 0
 	
 	if	curanim == "enter_ubgl" 					then	return "ugbl_switch"	end
 	if	curanim == "exit_ubgl" 						then	return "ugbl_switch"	end
-	if	curanim == "fire_ubgl" 						then	return "fire_spot"		end
-	if	curanim == "fire_ubgl_iron" 				then	return "fire_spot_ads"	end
-	if	curanim == "reload_ubgl" 					then	return "spot_wet"		end
-	if	curanim == "reload_ubgl_empty"	and lazy	then	return "spot_dry"		end
-	if	curanim == "reload_ubgl"		and lazy 	then	return "spot_dry"		end
 
+	if	curanim == "fire" and b_sight and b_ugbl	then	return "fire_spot_ads"	end
+	if	curanim == "fire" and b_ugbl				then	return "fire_spot"	end
+	
+	if	curanim == "reload_ubgl"					then	return "spot_wet"		end	
+	--if	curanim == "reload_ubgl_empty" 				then	return "spot_dry"		end	-- cant change this, i deliberately using different name for this shit, oh well, hope it wont break the off hands
 end
+ATT.UBGLIntegralReload = true
+ATT.DoFireAnimationUBGL = true
+
 ATT.BashUBGL = false
 ATT.PrimaryBashUBGL = false
 ATT.BottomlessClipUBGL = false
@@ -221,7 +226,7 @@ ATT.SpreadMultHipFiredUBGL = 1
 ATT.FreeAimRadiusUGBL = 10
 
 ATT.FirstShootSoundUBGL = false
-ATT.ShootSoundUBGL = "myt_bf1942/dc/PSS_fire_st.wav"
+ATT.ShootSoundUBGL = "myt_bf1942/dc/smol_spot.ogg"
 ATT.DistantShootSoundUBGL = false
 ATT.HasSightsUBGL = true
 

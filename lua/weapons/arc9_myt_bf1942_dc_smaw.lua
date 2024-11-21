@@ -253,7 +253,7 @@ SWEP.ShootSound = "myt_bf1942/dc/SMAW_fire_st.wav"
 SWEP.ShootSoundSilenced = "gekolt_css/m4a1-1.wav"
 SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 
-SWEP.FiremodeSound = "arc9/firemode.wav"
+SWEP.FiremodeSound = "arc9/firemode.ogg"
 
 SWEP.Animations = {
     ["fire"] = {
@@ -290,8 +290,8 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/smol_out.ogg" ,   t = 52 / 40},
 			{s =  "myt_bf1942/dc/smol_in.ogg" ,   t = 139 / 40},
         },
-    }, 
-    ["reload"] = {
+    },  
+	["reload"] = {
         Source = "dry",
         FireASAP = true,
         MinProgress = 0.95,
@@ -304,7 +304,38 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/smol_out.ogg" ,   t = 52 / 40},
 			{s =  "myt_bf1942/dc/smol_in.ogg" ,   t = 139 / 40},
         },
-    }, 
+    },
+	["spot_wet"] = {
+        Source = "spot_wet",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/smol_spot_foley.ogg" ,   t = 0 / 40},  
+			{s =  "myt_bf1942/dc/smol_spot_out.ogg" ,   t = 15 / 40},
+			{s =  "myt_bf1942/dc/smol_spot_in.ogg" ,   t = 70 / 40},
+			{s =  "myt_bf1942/dc/smol_spot_foley2.ogg" ,   t = 82 / 40},
+        },
+    },	
+	["reload_ubgl_empty"] = {
+        Source = "spot_dry",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/smol_spot_foley.ogg" ,   t = 0 / 40},  
+			{s =  "myt_bf1942/dc/smol_spot_out.ogg" ,   t = 15 / 40},
+			{s =  "myt_bf1942/dc/smol_spot_in.ogg" ,   t = 70 / 40},
+			{s =  "myt_bf1942/dc/smol_spot_bolt.ogg" ,   t = 100 / 40},
+			{s =  "myt_bf1942/dc/smol_spot_foley2.ogg" ,   t = 125 / 40},
+        },
+    },
 --------------------------------------------------------
     ["draw"] = {
         Source = "draw",
@@ -338,6 +369,15 @@ SWEP.Animations = {
         Source = "idle",
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    }, 
+    ["ugbl_switch"] = {
+        Source = "ugbl_switch",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/smol_switch.ogg" ,   t = 9 / 40},
         },
     }, 
 
