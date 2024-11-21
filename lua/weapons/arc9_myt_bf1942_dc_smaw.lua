@@ -260,21 +260,18 @@ SWEP.FiremodeSound = "arc9/firemode.ogg"
 SWEP.Animations = {
     ["fire"] = {
         Source = {"fire"},
-		Mult = 0.8,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },
     ["fire_spot"] = {
         Source = {"fire_spot"},
-		Mult = 0.8,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },  
 	["fire_spot_ads"] = {
         Source = {"fire_spot_ads"},
-		Mult = 0.8,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
@@ -310,7 +307,7 @@ SWEP.Animations = {
 	["spot_wet"] = {
         Source = "spot_wet",
         FireASAP = true,
-        MinProgress = 0.95,
+        MinProgress = 0.9,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
@@ -325,7 +322,7 @@ SWEP.Animations = {
 	["reload_ubgl_empty"] = {
         Source = "spot_dry",
         FireASAP = true,
-        MinProgress = 0.95,
+        MinProgress = 0.9,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
@@ -392,14 +389,24 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 1, }, { t = 0.2, lhik = 1, rhik = 1, },
         { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
-    }, 
+    },  
 }
 
 
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
+	local bodge = wep:HasElement("spot_bodge")
+	local bodge2 = wep:HasElement("oh_bodge")
+	-- bloody hell
+	if bodge and !bodge2 then
+	if	curanim == "enter_ubgl"		then	return "ugbl_switch"	end
+	if	curanim == "exit_ubgl"		then	return "ugbl_switch"	end
+	if	curanim == "reload_ubgl"	then	return "spot_wet"		end	
+	
+	end
+	if bodge2 then
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
-
+	end
 end
 
 -------------------------- ATTACHMENTS
@@ -425,7 +432,8 @@ SWEP.Attachments = {
         DefaultName = "None",
 		Integral = true,
 		Installed = "myt_bf1942_dc_smol_spotting",
-		
+        InstalledElements = {"spot_bodge"},
+
         Category = {"bf1942_dc_smol"},
         Bone = "W_Main",
         Pos = Vector(0, 0, 0),
@@ -462,6 +470,7 @@ SWEP.Attachments = {
         DefaultName = "",
         Hidden = true,
 
+        InstalledElements = {"oh_bodge"},
         ExcludeElements = {"nooh", "rh_occupied"},
         Category = {"bf1942_dc_offhand"},
         Bone = "W_Main",

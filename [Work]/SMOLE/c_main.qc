@@ -57,7 +57,7 @@ $sequence "fire" {
 	"anims\fire.smd"
 	activity "ACT_VM_PRIMARYATTACK" 1
 	{ event 5001 0 "1" }
-	fadein 0.05
+	fadein 0.1
 	fadeout 0.2
 	fps 40
 }
@@ -66,7 +66,7 @@ $sequence "fire_spot" {
 	"anims\fire_spot.smd"
 	activity "ACT_VM_PRIMARYATTACK" 1
 	{ event 5001 0 "1" }
-	fadein 0.05
+	fadein 0.1
 	fadeout 0.2
 	fps 40
 }
@@ -75,7 +75,7 @@ $sequence "fire_spot_ads" {
 	"anims\fire_spot_ads.smd"
 	activity "ACT_VM_PRIMARYATTACK" 1
 	{ event 5001 0 "1" }
-	fadein 0.05
+	fadein 0.1
 	fadeout 0.2
 	fps 40
 }

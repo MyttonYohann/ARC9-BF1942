@@ -187,15 +187,10 @@ ATT.MuzzleDeviceUBGL = true
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	local b_sight 	= wep:GetInSights()
 	local b_ugbl 	= wep:GetUBGL(true)	
-	local b_empty 	= wep:Clip2() == 0
-	
-	if	curanim == "enter_ubgl" 					then	return "ugbl_switch"	end
-	if	curanim == "exit_ubgl" 						then	return "ugbl_switch"	end
 
 	if	curanim == "fire" and b_sight and b_ugbl	then	return "fire_spot_ads"	end
 	if	curanim == "fire" and b_ugbl				then	return "fire_spot"	end
-	
-	if	curanim == "reload_ubgl"					then	return "spot_wet"		end	
+
 	--if	curanim == "reload_ubgl_empty" 				then	return "spot_dry"		end	-- cant change this, i deliberately using different name for this shit, oh well, hope it wont break the off hands
 end
 ATT.UBGLIntegralReload = true

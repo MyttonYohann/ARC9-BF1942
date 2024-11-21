@@ -251,7 +251,7 @@ SWEP.ShootSound = "myt_bf1942/dc/MP5.wav"
 SWEP.ShootSoundSilenced = "gekolt_css/m4a1-1.wav"
 SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 
-SWEP.FiremodeSound = "arc9/firemode.wav"
+SWEP.FiremodeSound = "arc9/firemode.ogg"
 
 SWEP.Hook_TranslateAnimation = function(wep, curanim) 
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	-- bodging
