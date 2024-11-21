@@ -1,6 +1,8 @@
 local ATT = {}
 
+----------------------------------------------------------
 ---- Keymod Rail Pistol ----
+----------------------------------------------------------
 
 ATT = {}
 
@@ -45,7 +47,9 @@ ATT.Attachments = {
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_rail_pistol_draco")
 
+----------------------------------------------------------
 ---- Knife ----
+----------------------------------------------------------
 
 ATT = {}
 ATT.PrintName = [[Knife]]
@@ -152,13 +156,107 @@ ATT.BashRange = 64
 ATT.PreBashTime = 0.2
 ATT.PostBashTime = 0.4
 
-ATT.ModelOffset = Vector(-5, 0, -2)
---ATT.ModelAngleOffset = Angle(0, 0, 0)
+ATT.ModelOffset = Vector(-5, -1, -2)
+--[[ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 --ATT.ActivePosUBGL = Vector(4, 3, 0)
 --ATT.ActiveAngUBGL = Angle(5, 0, 20)
 
 --ATT.SprintAngUBGL = Angle(0, -10, 10)
---ATT.SprintPosUBGL = Vector(2, 3, -1)
+--ATT.SprintPosUBGL = Vector(2, 3, -1)]]
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_uh_knife")
+
+----------------------------------------------------------
+---- SMOL Spotting ----
+----------------------------------------------------------
+
+ATT = {}
+ATT.PrintName = [[Spotting Gun]]
+ATT.CompactName = [[Spot]]
+ATT.Icon = Material("entities/gekolt_css_blank.png")
+ATT.Description = [[Rechambered in 5.56.
+]] 
+ATT.Pros = {}
+ATT.Cons = {}
+ATT.SortOrder = 0
+
+ATT.IKGunMotionQCA = 2
+ATT.MuzzleDeviceUBGL = true
+
+ATT.Hook_TranslateAnimation = function(wep, curanim) 
+	local lazy = wep:Clip2() == 0
+	
+	if	curanim == "enter_ubgl" 					then	return "ugbl_switch"	end
+	if	curanim == "exit_ubgl" 						then	return "ugbl_switch"	end
+	if	curanim == "fire_ubgl" 						then	return "fire_spot"		end
+	if	curanim == "fire_ubgl_iron" 				then	return "fire_spot_ads"	end
+	if	curanim == "reload_ubgl" 					then	return "spot_wet"		end
+	if	curanim == "reload_ubgl_empty"	and lazy	then	return "spot_dry"		end
+	if	curanim == "reload_ubgl"		and lazy 	then	return "spot_dry"		end
+
+end
+ATT.BashUBGL = false
+ATT.PrimaryBashUBGL = false
+ATT.BottomlessClipUBGL = false
+ATT.NoShellEjectUBGL = false
+ATT.CaseEffectQCAUBGL = 2
+
+ATT.Category = {"bf1942_dc_smol"}
+
+ATT.AimDownSightsTimeMult = 1.1
+ATT.SprintToFireTimeMult = 1.1
+
+ATT.UBGL = true
+ATT.UBGLAmmo = "smg1"
+ATT.UBGLClipSize = 20
+ATT.UBGLFiremode = -1
+ATT.UBGLFiremodeName = "Spotting"
+ATT.UBGLChamberSize = 1
+ATT.ShootVolumeUBGL = 110
+ATT.RPMUBGL = 600
+
+ATT.SpreadUBGL = 0.0075
+ATT.SpreadMultHipFiredUBGL = 1
+ATT.FreeAimRadiusUGBL = 10
+
+ATT.FirstShootSoundUBGL = false
+ATT.ShootSoundUBGL = "myt_bf1942/dc/PSS_fire_st.wav"
+ATT.DistantShootSoundUBGL = false
+ATT.HasSightsUBGL = true
+
+
+ATT.NumUBGL = 1
+-- General recoil multiplier
+ATT.RecoilUBGL = 1
+
+-- These multipliers affect the predictible recoil by making the pattern taller, shorter, wider, or thinner.
+ATT.RecoilUpUBGL = 0.7 -- Multiplier for vertical recoil
+ATT.RecoilSideUBGL = 0.7 -- Multiplier for vertical recoil
+
+-- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
+-- This type of recoil CANNOT be predicted.
+ATT.RecoilRandomUpUBGL = 0.5
+ATT.RecoilRandomSideUBGL = 0.5
+
+ATT.RecoilDissipationRateUBGL = 50 -- How much recoil dissipates per second.
+ATT.RecoilResetTimeUBGL = 0 -- How long the gun must go before the recoil pattern starts to reset.
+
+ATT.RecoilAutoControlUBGL = 0 -- Multiplier for automatic recoil control.
+
+ATT.RecoilKickUBGL = 1
+
+ATT.DamageTypeUBGL = DMG_BULLET
+ATT.DamageMaxUBGL = 37 -- Damage done at point blank range
+ATT.DamageMinUBGL = 22 -- Damage done at maximum range
+
+ATT.DamageRandUBGL = 0.3 -- Damage varies randomly per shot by this fraction. 0.1 = +- 10% damage per shot.
+
+ATT.RangeMinUBGL = 300 -- How far bullets retain their maximum damage for.
+ATT.RangeMaxUBGL = 8000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
+
+ATT.PenetrationUBGL = 3 -- Units of wood that can be penetrated by this gun.
+
+ATT.MuzzleParticleUBGL = "muzzleflash_pistol"
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_smol_spotting")

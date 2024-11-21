@@ -339,6 +339,7 @@ ATT.ActivePosHook = function(wep, vec)
     return vec + Vector(-0.5, -3, -0.5)
 end
 
+ATT.BarrelLengthAdd = -10
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip8")
 
@@ -484,7 +485,7 @@ ATT.Description = [[ Would it be lmg if short barrel
 ]]
 
 ATT.CustomizePosHook = function(wep, vec)
-    return vec + Vector(8, 0, 0)
+    return vec + Vector(8, 3, 0)
 end
 
 ATT.SortOrder = 1
@@ -535,7 +536,7 @@ ATT.ActivateElements = {"hg_8"}
 ATT.ExcludeElements = {"barrel_sg"}
 
 ATT.CustomizePosHook = function(wep, vec)
-    return vec + Vector(8, 0, 0)
+    return vec + Vector(8, 3, 0)
 end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg8")

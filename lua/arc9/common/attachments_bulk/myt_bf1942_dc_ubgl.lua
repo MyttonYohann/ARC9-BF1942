@@ -1,6 +1,10 @@
 local ATT = {}
 
+
+----------------------------------------------------------
 -- PSS --
+----------------------------------------------------------
+
 
 ATT = {}
 ATT.PrintName = [[PSS]]
@@ -17,6 +21,14 @@ ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_pss.mdl"
 ATT.RHIK = true
 ATT.RHIK_Priority = 10
 ATT.ActivateElements = {"off_hand"}
+
+ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
+	if wep:GetReloading() and !wep:GetUBGL(true) then 
+	model:SetBodygroup(0,1)
+	else
+	model:SetBodygroup(0,0)
+	end
+end
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
@@ -137,7 +149,9 @@ end
 ATT.BashUBGL = false
 ATT.PrimaryBashUBGL = false
 ATT.BottomlessClipUBGL = false
-ATT.CaseEffectQCAOverrideUBGL = 1	-- nope
+ATT.NoShellEjectUBGL = true
+ATT.CaseEffectQCAUBGL = 2	-- nope, this still uses the gun qca
+
 
 ATT.IKGunMotionOffset = Vector(0, 0, 0)
 ATT.IKGunMotionOffsetAngle = Angle(0, 0, 0)
@@ -233,7 +247,10 @@ ATT.CustomCrosshairUBGL = false
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_pss")
 
 
+----------------------------------------------------------
 -- R870 --
+----------------------------------------------------------
+
 
 ATT = {}
 ATT.PrintName = [[Sawnoff R870]]
@@ -250,6 +267,14 @@ ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_r870.mdl"
 ATT.RHIK = true
 ATT.RHIK_Priority = 10
 ATT.ActivateElements = {"off_hand"}
+
+ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
+	if wep:GetReloading() and !wep:GetUBGL(true) then 
+	model:SetBodygroup(0,1)
+	else
+	model:SetBodygroup(0,0)
+	end
+end
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
@@ -459,7 +484,10 @@ ATT.CustomCrosshairUBGL = false
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_r870")
 
 
+----------------------------------------------------------
 -- RPG --
+----------------------------------------------------------
+
 
 ATT = {}
 ATT.PrintName = [[RPG]]
@@ -475,6 +503,14 @@ ATT.SortOrder = 0
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_rpg.mdl"
 ATT.RHIK = true
 ATT.ActivateElements = {"off_hand"}
+
+ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
+	if wep:GetReloading() and !wep:GetUBGL(true) then 
+	model:SetBodygroup(0,1)
+	else
+	model:SetBodygroup(0,0)
+	end
+end
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
@@ -676,7 +712,10 @@ ATT.CustomCrosshairUBGL = false
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_rpg")
 
 
+----------------------------------------------------------
 -- Knife --
+----------------------------------------------------------
+
 
 ATT = {}
 ATT.PrintName = [[Knife]]
@@ -692,6 +731,14 @@ ATT.SortOrder = 0
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_knife.mdl"
 ATT.RHIK = true
 ATT.ActivateElements = {"off_hand", "is_melee"}
+
+ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
+	if wep:GetReloading() and !wep:GetUBGL(true) then 
+	model:SetBodygroup(0,1)
+	else
+	model:SetBodygroup(0,0)
+	end
+end
 
 ATT.IKAnimationProxy = {
 	["bash_ubgl"] = {
