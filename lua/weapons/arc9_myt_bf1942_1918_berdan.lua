@@ -259,8 +259,7 @@ SWEP.DistantShootSound = "myt_bf1942/1918/BerdanDis.wav"
 SWEP.FiremodeSound = "arc9/firemode.ogg"
 
 SWEP.BulletBones = {
-    [1] = "W_Rocket",
-    [1] = "W_Mag",
+    [1] = {"W_Mag","W_Rocket"}
 }
 
 SWEP.Animations = {

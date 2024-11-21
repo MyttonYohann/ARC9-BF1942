@@ -30,7 +30,7 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_mp5.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-8, 2, -7),
+    TPIKPos = Vector(-10, 3, -5),
     TPIKAng = Angle(-5, 0, 180),
     Scale = 1
 }
@@ -187,7 +187,7 @@ SWEP.TracerColor = Color(255, 225, 200) -- Color of tracers. Only works if trace
 -------------------------- POSITIONS
 
 SWEP.IronSights = {
-    Pos = Vector(-2.7, 0, -1.37),
+    Pos = Vector(-2.7, 3, -1.37),
     Ang = Angle(0,0,0),
     Midpoint = { -- Where the gun should be at the middle of it's irons
         Pos = Vector(0, 15, -4),

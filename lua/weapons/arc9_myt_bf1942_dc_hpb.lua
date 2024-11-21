@@ -30,7 +30,7 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_hpbrown.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-8, 2, -7),
+    TPIKPos = Vector(-16, 3, -5),
     TPIKAng = Angle(-5, 0, 180),
     Scale = 1
 }
@@ -221,7 +221,7 @@ SWEP.StandardPresets = {
 
 -------------------------- HoldTypes
 
-SWEP.HoldType = "pistol"
+SWEP.HoldType = "revolver"
 SWEP.HoldTypeSprint = "passive"
 SWEP.HoldTypeHolstered = "passive"
 SWEP.HoldTypeSights = "revolver"

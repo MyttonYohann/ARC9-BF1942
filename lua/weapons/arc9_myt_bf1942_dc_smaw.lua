@@ -30,7 +30,7 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_smaw.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-8, 2, -7),
+    TPIKPos = Vector(-8, 6, -7),
     TPIKAng = Angle(-5, 0, 180),
     Scale = 1
 }
@@ -400,7 +400,6 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 
 end
 
-
 -------------------------- ATTACHMENTS
 
 SWEP.DefaultBodygroups = "00000000000000000"
@@ -410,6 +409,7 @@ SWEP.AttachmentElements = {
         SprintPosOverride = Vector(1, 5, -2),
         SprintAngOverride = Angle(8, -18, 0),
     },
+	["rail_def"] = 	{ Bodygroups = { {1, 1} },},
 }
 
 SWEP.Hook_ModifyBodygroups = function(wep, data)
@@ -432,13 +432,14 @@ SWEP.Attachments = {
     },
 
     {
-        PrintName = "Mount",
+        PrintName = "Optic",
         DefaultName = "None",
         InstalledElements = {"rail_def"},
 
-        Category = {"bf1942_dc_pistol_frame"},
+        DefaultIcon = Material("arc9/def_att_icons/optic.png"),
+        Category = {"optic_css"},
         Bone = "W_Main",
-        Pos = Vector(0, -3, 4),
+        Pos = Vector(2, -4.6, -1),
         Ang = Angle(90, 0, -90),
     },
 
