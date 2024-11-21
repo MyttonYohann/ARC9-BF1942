@@ -262,6 +262,6 @@ ATT.RangeMaxUBGL = 8000 -- In Hammer units, how far bullets can travel before de
 
 ATT.PenetrationUBGL = 3 -- Units of wood that can be penetrated by this gun.
 
-ATT.MuzzleParticleUBGL = "muzzleflash_pistol"
+ATT.MuzzleParticleUBGL = "muzzleflash_3"
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_smol_spotting")

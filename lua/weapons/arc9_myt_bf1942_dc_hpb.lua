@@ -238,7 +238,7 @@ SWEP.MuzzleParticle = "muzzleflash_pistol"
 SWEP.MuzzleEffectQCA = 1
 
 SWEP.ShellModel = "models/weapons/shell.mdl"
-SWEP.ShellCorrectAng = Angle(0, 180, 0)
+SWEP.ShellCorrectAng = Angle(0, 0, 0)
 SWEP.ShellScale = 0.5
 SWEP.ShellPhysBox = Vector(0.5, 0.5, 2)
 
@@ -248,7 +248,7 @@ SWEP.ShootSound = "myt_bf1942/dc/Browning.wav"
 SWEP.ShootSoundSilenced = "gekolt_css/m4a1-1.wav"
 SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 
-SWEP.FiremodeSound = "arc9/firemode.wav"
+SWEP.FiremodeSound = "arc9/firemode.ogg"
 
 SWEP.Animations = {
     ["fire"] = {

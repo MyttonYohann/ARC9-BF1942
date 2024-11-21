@@ -246,7 +246,7 @@ SWEP.MuzzleParticle = "muzzleflash_5"
 SWEP.MuzzleEffectQCA = 1
 
 SWEP.ShellModel = "models/shells/shell_556.mdl"
-SWEP.ShellCorrectAng = Angle(0, 180, 0)
+SWEP.ShellCorrectAng = Angle(0, 0, 0)
 SWEP.ShellScale = 1
 SWEP.ShellPhysBox = Vector(0.5, 0.5, 2)
 
@@ -256,10 +256,10 @@ SWEP.ShootSound = "myt_bf1942/dc/AKM.wav"
 SWEP.ShootSoundSilenced = "gekolt_css/m4a1-1.wav"
 SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 
-SWEP.FiremodeSound = "arc9/firemode.wav"
+SWEP.FiremodeSound = "arc9/firemode.ogg"
 
 SWEP.Hook_TranslateAnimation = function(wep, curanim) -- numero random, uno per cento
-    local rng = math.Truncate(util.SharedRandom("vest pex best pex stall lame BO good", 1,100))
+    local rng = math.Truncate(util.SharedRandom("vest pex best pex", 1,100))
     if rng <= 15  then	-- how the skarm be looking at me when i click fireblast on my chainchomp			
 		if	curanim == "reload" then return "reload_fail"	end	
 	end

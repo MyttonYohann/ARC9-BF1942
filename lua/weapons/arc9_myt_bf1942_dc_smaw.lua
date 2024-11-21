@@ -23,7 +23,7 @@ SWEP.Description = [[Died whenever smorg last updated, born whenever this mod is
 SWEP.ViewModel = "models/weapons/myt_bf1942/dc/c_smaw.mdl"
 SWEP.WorldModel = "models/weapons/myt_bf1942/dc/c_smaw.mdl"
 
-SWEP.Slot = 1
+SWEP.Slot = 3
 
 SWEP.MirrorVMWM = true
 SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_smaw.mdl"
@@ -240,9 +240,9 @@ SWEP.AnimDraw = false
 SWEP.MuzzleParticle = "muzzleflash_pistol"
 SWEP.MuzzleEffectQCA = 1
 
-SWEP.ShellModel = "models/weapons/shell.mdl"
-SWEP.ShellCorrectAng = Angle(0, 180, 0)
-SWEP.ShellScale = 0.5
+SWEP.ShellModel = "models/shells/shell_556.mdl"
+SWEP.ShellCorrectAng = Angle(0, 0, 0)
+SWEP.ShellScale = 1
 SWEP.ShellPhysBox = Vector(0.5, 0.5, 2)
 SWEP.CaseEffectQCA = 2
 SWEP.NoShellEject = true
