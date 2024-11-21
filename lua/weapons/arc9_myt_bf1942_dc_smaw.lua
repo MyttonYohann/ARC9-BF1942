@@ -372,6 +372,8 @@ SWEP.Animations = {
     }, 
     ["ugbl_switch"] = {
         Source = "ugbl_switch",
+        FireASAP = true,
+        MinProgress = 0.6,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },

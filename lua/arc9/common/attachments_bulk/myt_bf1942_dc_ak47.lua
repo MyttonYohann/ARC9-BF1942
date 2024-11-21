@@ -270,8 +270,7 @@ ATT = {}
 ATT.PrintName = [[Hunting Grip (PKM)]]
 ATT.CompactName = [[G. HuntPKM]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
- (!) Disable Stock Attachments
+ATT.Description = [[ (!) Disable Stock Attachments
 There's still no RPK in the mod
 ]]
 
@@ -308,7 +307,7 @@ ATT.PrintName = [[Bullpup Kit]]
 ATT.CompactName = [[G. Bullpup]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ (!) Disable Stock Attachments
-Have you ever want gun but short?
+Have you ever wanted gun but short?
 Increase Ergonomics(?)
 ]]
 
