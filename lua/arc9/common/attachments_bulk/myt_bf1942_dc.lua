@@ -192,6 +192,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "fire" and b_ugbl				then	return "fire_spot"	end
 
 	--if	curanim == "reload_ubgl_empty" 				then	return "spot_dry"		end	-- cant change this, i deliberately using different name for this shit, oh well, hope it wont break the off hands
+	-- update, it breaks off hand, doing it manually in the weapon lua instead
 end
 ATT.UBGLIntegralReload = true
 ATT.DoFireAnimationUBGL = true
