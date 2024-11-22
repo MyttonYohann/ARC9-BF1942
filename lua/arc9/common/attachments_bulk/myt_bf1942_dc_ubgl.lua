@@ -518,8 +518,8 @@ ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
 	end
 end
 
-ATT.PeekPosUBGL = Vector(1.5, 0, -1.5)
-ATT.PeekAngUBGL = Angle(0, 0, -10)
+ATT.PeekPosUBGL = Vector(2, 0, 0)
+ATT.PeekAngUBGL = Angle(0, 0, 10)
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {

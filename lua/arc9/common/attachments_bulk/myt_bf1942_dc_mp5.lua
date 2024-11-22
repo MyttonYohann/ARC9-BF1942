@@ -11,6 +11,10 @@ ATT.SortOrder = 0
 ATT.Category = "bf1942_dc_mp5_stock"
 ATT.ActivateElements = {"s_1"}
 
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0, -1, 0)
+end
+
 ATT.RecoilMult = 0.7
 ATT.VisualRecoilMult = 0.7
 
@@ -31,6 +35,10 @@ ATT.SortOrder = 0
 ATT.Category = "bf1942_dc_mp5_stock"
 ATT.ActivateElements = {"s_2"}
 
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0, -1, 0)
+end
+
 ATT.RecoilMult = 0.65
 ATT.VisualRecoilMult = 0.65
 
@@ -50,6 +58,10 @@ ATT.Description = [[]]
 ATT.SortOrder = 0
 ATT.Category = "bf1942_dc_mp5_stock"
 ATT.ActivateElements = {"s_3"}
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0, -1, 0)
+end
 
 ATT.ToggleStats = {
     {
@@ -74,7 +86,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_mp5_stock3")
 ATT = {}
 
 ATT.PrintName = [[Bullpup Kit]]
-ATT.CompactName = [[5 PM]]
+ATT.CompactName = [[5PM]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Commisar said you need to shorten mp5 even more, you have until 5 PM to complete.]]
 
@@ -87,7 +99,7 @@ ATT.CustomizePosHook = function(wep, vec)
 end
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0, -2, 0)
+    return vec + Vector(0, -3, 0)
 end
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)

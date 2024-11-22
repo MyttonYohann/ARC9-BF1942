@@ -206,7 +206,7 @@ SWEP.SprintAng = Angle(40, -15, -15)
 SWEP.SprintPos = Vector(3, 2.5, -3)
 
 SWEP.ViewModelFOVBase = 70
-SWEP.ActivePos = Vector(0.5, 3.5, -2.5)
+SWEP.ActivePos = Vector(0.5, 5, -2.5)
 SWEP.ActiveAng = Angle(0, 0, 0)
 
 SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
@@ -256,9 +256,15 @@ SWEP.FiremodeSound = "arc9/firemode.ogg"
 SWEP.Hook_TranslateAnimation = function(wep, curanim) 
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	-- bodging
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
+
+	local varextra = 0
+	if wep:HasElement("s_4") then varextra = -5
+	elseif wep:HasElement("hg_1") then varextra = -10
+	elseif wep:HasElement("hg_3") then varextra = 5
+	end
 	
     local rng = math.Truncate(util.SharedRandom("i lost 400 elo with red card mimikyu", 1,100))
-    if rng <= 60 then	-- i fucking hate mp5	
+    if rng <= 60 + varextra then	-- i fucking hate mp5	
 		if	curanim == "reload" 		then return "reload_fail"		end	
 		if	curanim == "reload_empty" 	then return "reload_empty_fail"	end	
 	end
