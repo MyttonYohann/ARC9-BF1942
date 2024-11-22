@@ -10,6 +10,7 @@ ATT.PrintName = [[Draco Keymod]]
 ATT.CompactName = [[DRAKE]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Keymod rail for pistols, shaped like a
+
 like a
 ]]
 
@@ -48,15 +49,14 @@ ATT.Attachments = {
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_rail_pistol_draco")
 
 ----------------------------------------------------------
----- Knife ----
+---- Underhand Knife ----
 ----------------------------------------------------------
 
 ATT = {}
 ATT.PrintName = [[Knife]]
 ATT.CompactName = [[U. Knife]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
-ATT.Description = [[
-You run faster.
+ATT.Description = [[Stab people
 ]] 
 ATT.Pros = {}
 ATT.Cons = {}
@@ -175,7 +175,7 @@ ATT = {}
 ATT.PrintName = [[Spotting Gun]]
 ATT.CompactName = [[Spot]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
-ATT.Description = [[Rechambered in 5.56.
+ATT.Description = [[The rocket does not have drop off, making the spotting gun entirely useless so this is rechambered in 5.56.
 ]] 
 ATT.Pros = {}
 ATT.Cons = {}

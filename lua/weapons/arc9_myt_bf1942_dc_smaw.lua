@@ -403,6 +403,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "enter_ubgl"		then	return "ugbl_switch"	end
 	if	curanim == "exit_ubgl"		then	return "ugbl_switch"	end
 	if	curanim == "reload_ubgl"	then	return "spot_wet"		end	
+	if	curanim == "reload_ubgl_empty" and wep:Clip1() == 0 and wep:Clip2() != 0	then	return "spot_wet"		end	-- this base has terrible suffix system	
 	
 	end
 	if bodge2 then
