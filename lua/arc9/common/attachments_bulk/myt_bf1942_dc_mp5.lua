@@ -89,6 +89,7 @@ ATT.PrintName = [[Bullpup Kit]]
 ATT.CompactName = [[5PM]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Commisar said you need to shorten mp5 even more, you have until 5 PM to complete.]]
+ATT.CustomPros = { Malfunction = "-5%" }
 
 ATT.SortOrder = 10
 ATT.Category = "bf1942_dc_mp5_stock"
@@ -138,6 +139,7 @@ ATT.CompactName = [[HG. Kurz]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[why did HK switch to a boring stub vertical grip, are they stupid
 ]]
+ATT.CustomPros = { Malfunction = "-10%" }
 
 ATT.SortOrder = 1
 ATT.Category = "bf1942_dc_mp5_hg"
@@ -214,6 +216,7 @@ ATT.CompactName = [[HG. SD]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[
 ]]
+ATT.CustomCons = { Malfunction = "+5%" }
 ATT.MuzzleParticleOverride = "muzzleflash_suppressed"
 ATT.Silencer = true
 
@@ -300,7 +303,8 @@ ATT.SortOrder = 1
 ATT.Category = "bf1942_dc_mp5_cal"
 ATT.ActivateElements = {"cal_1"}
 
-ATT.RPMMult = 750 / 800
+ATT.ClipSize = 25
+ATT.RPMMult = 730 / 800
 ATT.Penetration = 10
 
 ATT.SpreadMult = 0.8

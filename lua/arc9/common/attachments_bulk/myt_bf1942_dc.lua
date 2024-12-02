@@ -172,11 +172,10 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_uh_knife")
 ----------------------------------------------------------
 
 ATT = {}
-ATT.PrintName = [[Spotting Gun]]
-ATT.CompactName = [[Spot]]
+ATT.PrintName = [[Mk-217 Spotting Rifle]]
+ATT.CompactName = [[Mk-217]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
-ATT.Description = [[The rocket does not have drop off, making the spotting gun entirely useless so this is rechambered in 5.56.
-]] 
+ATT.Description = [[Rechambered in 5.56x45mm because the rocket does not have drop off]] 
 ATT.Pros = {}
 ATT.Cons = {}
 ATT.SortOrder = 0

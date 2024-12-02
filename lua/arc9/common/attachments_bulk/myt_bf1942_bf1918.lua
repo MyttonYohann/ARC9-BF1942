@@ -7,6 +7,7 @@ ATT.CompactName = [[B. Shotgun]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[idk i skimmed through wikipedia and saw shotgun mentioned somewhere
 ]]
+ATT.CustomCons = { Malfunction = "+15%" }
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_sg"	end
 	if	curanim == "reload_fail"	then 	return "reload_sg_fail"		end
@@ -67,6 +68,7 @@ ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Not a 50bmg fitted in a 12ga bore.
 Sometimes the gun will wack you when firing.
 ]]
+ATT.CustomCons = { Malfunction = "+20%" }
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_50bmg"	end
 	if	curanim == "reload_fail"	then 	return "reload_50bmg_fail"	end	
@@ -130,6 +132,7 @@ ATT.PrintName = [[Grenade Launcher Bore]]
 ATT.CompactName = [[B. GL]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Awesome grenade adaptor from famous video game franchise Pocket Mortar™]]
+ATT.CustomPros = { Malfunction = "-5%" }
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_rpg"	end
 	if	curanim == "reload_fail"	then	return "reload_rpg_fail"	end	
@@ -172,6 +175,7 @@ ATT = {}
 ATT.PrintName = [[Internal Magazine]]
 ATT.CompactName = [[B. Mag]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.CustomCons = { Malfunction = "+25%" }
 ATT.Description = [[This thing is basically a mosin innit.
 Sometimes the character develops dementia and overload a 6th round.
 ]]
