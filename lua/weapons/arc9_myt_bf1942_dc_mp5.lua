@@ -889,6 +889,7 @@ SWEP.Attachments = {
         Bone = "W_Main",
         Pos = Vector(0, -6.65, 2.5),
         Ang = Angle(90, 0, -90),
+        MergeSlots = {9},
     },
 
     {
@@ -903,7 +904,7 @@ SWEP.Attachments = {
         Ang = Angle(90, 0, -90),
     },
 
-    {   --9 permanent ubgl, affected separately from the changes of the above attachment
+    {   --8 permanent ubgl, affected separately from the changes of the above attachment
         PrintName = "",
         DefaultName = "",
         Hidden = true,
@@ -912,6 +913,17 @@ SWEP.Attachments = {
         Category = {"css_ubgl"},
         Bone = "W_Main",
         Pos = Vector(0, -2.5, 10),
+        Ang = Angle(90, 0, -90),
+    },
+    {   --9 dovetail
+        PrintName = "",
+        DefaultName = "",
+        Hidden = true,
+        InstalledElements = {"blank_toprail"},
+
+        Category = {"bfc_optic_dove"},
+        Bone = "W_Main",
+        Pos = Vector(0.9, -4.4, 2.5),
         Ang = Angle(90, 0, -90),
     },
 }
