@@ -205,7 +205,7 @@ SWEP.BipodPos = Vector(-2.58, 0, 1)
 SWEP.BipodAng = Angle(0, 0, -5)
 
 SWEP.SprintAng = Angle(10, -15, -15)
-SWEP.SprintPos = Vector(0, 2, 0)
+SWEP.SprintPos = Vector(0, 5, -2)
 
 SWEP.ViewModelFOVBase = 70
 SWEP.ActivePos = Vector(1.5, 5, 1)
@@ -443,7 +443,6 @@ SWEP.Attachments = {
         Ang = Angle(0, 0, 0),
         MergeSlots = {4},
     },
-
     {
         PrintName = "Optic",
         DefaultName = "None",
@@ -454,8 +453,8 @@ SWEP.Attachments = {
         Bone = "W_Main",
         Pos = Vector(2, -4.6, -1),
         Ang = Angle(90, 0, -90),
+        MergeSlots = {5},
     },
-
     {
         PrintName = "Muzzle",
         DefaultName = "None",
@@ -467,7 +466,6 @@ SWEP.Attachments = {
         Pos = Vector(0, -2.8, 9),
         Ang = Angle(90, 0, -90),
     },
-
     {
         PrintName = "",		-- 4, off hand
         DefaultName = "",
@@ -478,6 +476,17 @@ SWEP.Attachments = {
         Category = {"bf1942_dc_offhand"},
         Bone = "W_Main",
         Pos = Vector(-1, 0, -10),
+        Ang = Angle(90, 0, -90),
+    },
+    {   --5 dovetail
+        PrintName = "",
+        DefaultName = "",
+        Hidden = true,
+        InstalledElements = {"blank_toprail"},
+
+        Category = {"bfc_optic_dove"},
+        Bone = "W_Main",
+        Pos = Vector(1.5, -1.8, -1.5),
         Ang = Angle(90, 0, -90),
     },
 }

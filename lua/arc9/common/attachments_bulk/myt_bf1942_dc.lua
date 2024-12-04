@@ -171,6 +171,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_uh_knife")
 ---- SMOL Spotting ----
 ----------------------------------------------------------
 
+
 ATT = {}
 ATT.PrintName = [[Mk-217 Spotting Rifle]]
 ATT.CompactName = [[Mk-217]]
@@ -260,3 +261,184 @@ ATT.PenetrationUBGL = 7 -- Units of wood that can be penetrated by this gun.
 ATT.MuzzleParticleUBGL = "muzzleflash_3"
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_smol_spotting")
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+---- [[SCOPES]] ----
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+---- VSS ----
+----------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[VSS Scope]]
+ATT.CompactName = [[VSS]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[
+]]
+ATT.SortOrder = 1
+
+ATT.Model = "models/weapons/myt_bf1942/atts/scope_vss.mdl"
+ATT.ModelBodygroups = "000"
+
+ATT.Category = {"bfc_optic_dove"}
+ATT.Folder = "Dove Mount"
+
+-- Allows a custom sight position to be defined
+ATT.Sights = {
+    {
+        Pos = Vector(-0.255, 11, -3.445),
+        Ang = Angle(0, 0, 0),
+        Magnification = 1.5,
+        ViewModelFOV = 40
+    },
+}
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0.25, 0, -1)
+end
+
+ATT.SprintPosHook = function(wep, vec)
+    return vec + Vector(0, 0, -2.5)
+end
+
+ATT.PeekPos = Vector(2, 2, -1.2)
+ATT.PeekAng = Angle(0, 0, 0)
+
+ATT.RTScope = true
+ATT.RTScopeSubmatIndex = 3
+ATT.RTScopeMagnification = 2.5
+ATT.ScopeScreenRatio = 375/1080
+ATT.RTScopeReticle = Material("arc9_css/scope2_border.png", "mips smooth")
+ATT.RTScopeReticleScale = 0.98
+ATT.RTScopeColorable = true
+ATT.RTScopeShadowIntensity = 7
+
+ATT.SwayAdd = 0.05
+ATT.FreeAimRadiusMultSights = 0.1
+ATT.AimDownSightsTimeAdd = 0.12
+ATT.SprintToFireTimeAdd = 0.05
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_optic_vss")
+
+
+----------------------------------------------------------
+---- Tabek ----
+----------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Tabuk Scope]]
+ATT.CompactName = [[Tabuk]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[
+]]
+ATT.SortOrder = 1
+
+ATT.Model = "models/weapons/myt_bf1942/atts/scope_tabek.mdl"
+ATT.ModelBodygroups = "000"
+
+ATT.Category = {"bfc_optic_dove"}
+ATT.Folder = "Dove Mount"
+
+-- Allows a custom sight position to be defined
+ATT.Sights = {
+    {
+        Pos = Vector(-0.07, 14, -3.9),
+        Ang = Angle(0, 0, 0),
+        Magnification = 1.5,
+        ViewModelFOV = 40
+    },
+}
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0.25, 0, -2.5)
+end
+
+ATT.SprintPosHook = function(wep, vec)
+    return vec + Vector(0, 0, -3)
+end
+
+ATT.PeekPos = Vector(2, 2, -1.2)
+ATT.PeekAng = Angle(0, 0, 0)
+
+ATT.RTScope = true
+ATT.RTScopeSubmatIndex = 3
+ATT.RTScopeMagnification = 2.5
+ATT.ScopeScreenRatio = 375/1080
+ATT.RTScopeReticle = Material("arc9_css/scope2_border.png", "mips smooth")
+ATT.RTScopeReticleScale = 0.98
+ATT.RTScopeColorable = true
+ATT.RTScopeShadowIntensity = 7
+
+ATT.SwayAdd = 0.05
+ATT.FreeAimRadiusMultSights = 0.1
+ATT.AimDownSightsTimeAdd = 0.12
+ATT.SprintToFireTimeAdd = 0.05
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_optic_tabek")
+
+
+----------------------------------------------------------
+---- SMAW ----
+----------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[SMAW Scope]]
+ATT.CompactName = [[SMAW]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[
+]]
+ATT.SortOrder = 1
+
+ATT.Model = "models/weapons/myt_bf1942/atts/scope_smaw.mdl"
+ATT.ModelBodygroups = "000"
+
+ATT.Category = {"bfc_optic_dove"}
+ATT.Folder = "Dove Mount"
+
+-- Allows a custom sight position to be defined
+ATT.Sights = {
+    {
+        Pos = Vector(0.9375, 12, -2.605),
+        Ang = Angle(0, 0, 0),
+        Magnification = 1.5,
+        ViewModelFOV = 40
+    },
+}
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0.5, 0, -1)
+end
+
+ATT.SprintPosHook = function(wep, vec)
+    return vec + Vector(0, 0, -1)
+end
+
+ATT.PeekPos = Vector(-1.2, 2, -1.2)
+ATT.PeekAng = Angle(0, 0, 0)
+
+ATT.RTScope = true
+ATT.RTScopeSubmatIndex = 3
+ATT.RTScopeMagnification = 2.5
+ATT.ScopeScreenRatio = 375/1080
+ATT.RTScopeReticle = Material("arc9_css/scope2_border.png", "mips smooth")
+ATT.RTScopeReticleScale = 0.98
+ATT.RTScopeColorable = true
+ATT.RTScopeShadowIntensity = 7
+
+ATT.SwayAdd = 0.05
+ATT.FreeAimRadiusMultSights = 0.1
+ATT.AimDownSightsTimeAdd = 0.12
+ATT.SprintToFireTimeAdd = 0.05
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_optic_smaw")

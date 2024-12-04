@@ -131,7 +131,7 @@ ATT = {}
 ATT.PrintName = [[Grenade Launcher Bore]]
 ATT.CompactName = [[B. GL]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[Awesome grenade adaptor from famous video game franchise Pocket Mortar™]]
+ATT.Description = [[Awesome grenade firing mortar mount from famous video game franchise Pocket Mortar™]]
 ATT.CustomPros = { Malfunction = "-5%" }
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_rpg"	end
