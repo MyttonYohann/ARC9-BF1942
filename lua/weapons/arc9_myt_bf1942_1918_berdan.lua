@@ -699,8 +699,8 @@ SWEP.AttachmentElements = {
 	["cal_gl"] = 	{ 
 		Bodygroups = { {1, 2}, {2, 2}, {3, 2} },
 		IronSights = {
-			Pos = Vector(-2.705, -1, 2.3),
-			Ang = Angle(0,0,0),
+			Pos = Vector(-2.705, -1, 2),
+			Ang = Angle(0,0.5,0),
 			Midpoint = 	{ -- Where the gun should be at the middle of it's irons
 			Pos = Vector(0, 15, -4),
 			Ang = Angle(0, 0, -45),
@@ -771,6 +771,7 @@ SWEP.Attachments = {
         Bone = "W_Main",
         Pos = Vector(0, -4.5, 3),
         Ang = Angle(90, 0, -90),
+        MergeSlots = {6},
     },
 
     {
@@ -782,6 +783,17 @@ SWEP.Attachments = {
         Category = {"muzzle_css"},
         Bone = "W_Main",
         Pos = Vector(0, -1.4, 47),
+        Ang = Angle(90, 0, -90),
+    },
+    {   --6 dovetail
+        PrintName = "",
+        DefaultName = "",
+        Hidden = true,
+        InstalledElements = {"blank_toprail"},
+
+        Category = {"bfc_optic_dove"},
+        Bone = "W_Main",
+        Pos = Vector(1, -1.1, 5),
         Ang = Angle(90, 0, -90),
     },
 }
