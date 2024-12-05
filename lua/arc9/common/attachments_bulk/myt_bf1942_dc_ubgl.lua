@@ -37,8 +37,8 @@ ATT.IKAnimationProxy = {
 	["fire_ubgl"] = { Source = "fire", },	
 	["fire_ubgl_sights"] = { Source = "ubgl_fire_sight", },
 	["fire_ubgl_sights_nope"] = { Source = "ubgl_fire_sight_last", },
-	["enter_sights_ubgl"] = { Source = "ubgl_to_sight",	Time = 0.2, NoStatAffectors = true, },	
-	["enter_sights_ubgl_nope"] = { Source = "ubgl_to_sight_empty",	Time = 0.2, NoStatAffectors = true, },
+	["enter_sights_ubgl"] = { Source = "ubgl_to_sight",	Time = 8/40, NoStatAffectors = true, },	
+	["enter_sights_ubgl_nope"] = { Source = "ubgl_to_sight_empty",	Time = 8/40, NoStatAffectors = true, },
 	
 	["fire_ubgl_glempty"] = { Source = "fire_last",  },		
 	["fire_ubgl_empty"] = {Source = "fire_last", },
