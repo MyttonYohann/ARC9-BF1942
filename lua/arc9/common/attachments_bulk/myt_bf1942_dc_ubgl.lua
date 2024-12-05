@@ -30,25 +30,18 @@ ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
 	end
 end
 
-ATT.PeekPosUBGL = Vector(1.5, 0, -1.5)
+ATT.PeekPosUBGL = Vector(1.5, -5, -1.5)
 ATT.PeekAngUBGL = Angle(0, 0, -10)
 
 ATT.IKAnimationProxy = {
-	["fire_ubgl"] = {
-        Source = "fire",
-        EventTable = {
-        },
-    },
-	["fire_ubgl_glempty"] = {
-        Source = "fire_last",
-        EventTable = {
-        },		
-    },
-	["fire_ubgl_empty"] = {
-        Source = "fire_last",
-        EventTable = {
-        },		
-    },
+	["fire_ubgl"] = { Source = "fire", },	
+	["fire_ubgl_sights"] = { Source = "ubgl_fire_sight", },
+	["fire_ubgl_sights_nope"] = { Source = "ubgl_fire_sight_last", },
+	["enter_sights_ubgl"] = { Source = "ubgl_to_sight",	Time = 0.2, NoStatAffectors = true, },	
+	["enter_sights_ubgl_nope"] = { Source = "ubgl_to_sight_empty",	Time = 0.2, NoStatAffectors = true, },
+	
+	["fire_ubgl_glempty"] = { Source = "fire_last",  },		
+	["fire_ubgl_empty"] = {Source = "fire_last", },
     ["reload_ubgl"] = {
         Source = "ubgl_wet",
         MinProgress = 0.8,
@@ -80,9 +73,10 @@ ATT.IKAnimationProxy = {
         { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
         },
     },
-    ["idle_ubgl"] = {
-        Source = "ubgl",
-    }, 
+    ["idle_ubgl"] = { Source = "ubgl", }, 
+    ["idle_ubgl_sights"] = { Source = "ubgl_sight", }, 
+    ["idle_ubgl_glempty_sights"] = { Source = "ubgl_sight_last", },  
+	["idle_ubgl_sights_nope"] = { Source = "ubgl_sight_last", }, 
     ["exit_ubgl"] = {
         Source = "from_ubgl",
         MinProgress = 0.7,
@@ -120,25 +114,34 @@ ATT.IKAnimationProxy = {
         { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
     },
-    ["idle_ubgl_glempty"] = {
-        Source = "ubgl_last"
-    },  
-	["idle_ubgl_empty"] = {
-        Source = "ubgl_last"
-    },	
-	["holster_ubgl"] = {
-        Source = "ubgl_holster"
-    },
-	["holster_ubgl_empty"] = {
-        Source = "ubgl_holster_last"
-    },
+    ["idle_ubgl_glempty"] = { Source = "ubgl_last" },  
+	["idle_ubgl_empty"] = { Source = "ubgl_last" },	
+	["holster_ubgl"] = { Source = "ubgl_holster"  },
+	["holster_ubgl_empty"] = { Source = "ubgl_holster_last"},
 
 } -- When an animation event plays, override it with one based on this LHIK model.
 
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = true
 
-ATT.Hook_TranslateAnimation = function(wep, curanim) -- i forgor why i did this and im too affraird to delete this
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	--[[local lazy = wep:GetInSights() --and wep:GetUBGL(true)
+	
+	if lazy then
+		if	curanim == "idle_ubgl"			then	return "sight_ugbl"		end
+		if	curanim == "idle_ubgl_glempty"	then	return "sight_ugbl_empty"		end
+		if	curanim == "fire_ubgl"			then	return "fire_sight_ugbl"		end	
+		if	curanim == "fire_ubgl_glempty"	then	return "fire_sight_ugbl_empty"		end
+		--if	curanim == "fire_iron" 	then	return "fire_ads_510_last"	end
+	end]]	-- nope, just do it manually
+	
+	if wep:Clip2() == 0 then
+		if	curanim == "fire_ubgl_sights" 		then	return "fire_ubgl_sights_nope"		end
+		if	curanim == "enter_sights_ubgl" 		then	return "enter_sights_ubgl_nope"		end	
+		if	curanim == "idle_ubgl_sights" 		then	return "idle_ubgl_sights_nope"		end	
+	end
+
+	-- i forgor why i did this and im too affraird to delete this
 	if wep:Clip1() == 0 and wep:Clip2() != 0	then	-- well realistically need only check for if clip2 not empty
 		if	curanim == "idle_ubgl_empty" 		then	return "idle_ubgl"		end
 		if	curanim == "fire_ubgl_empty" 		then	return "fire_ubgl"		end	
@@ -149,6 +152,8 @@ ATT.Hook_TranslateAnimation = function(wep, curanim) -- i forgor why i did this 
 		return 
 	end
 end
+
+
 ATT.BashUBGL = false
 ATT.PrimaryBashUBGL = false
 ATT.BottomlessClipUBGL = false
@@ -224,7 +229,7 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.Sights = {
     {
-        Pos = Vector(5.05, 10, -5.2),
+        Pos = Vector(4.65, 15, -5.75),
         Ang = Angle(8.5, -4.2, -35),
         Magnification = 1.05,
         ViewModelFOV = 60,
