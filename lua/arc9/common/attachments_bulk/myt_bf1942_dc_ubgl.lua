@@ -35,6 +35,10 @@ ATT.PeekAngUBGL = Angle(0, 0, -10)
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = { Source = "fire", },	
+    ["idle_ubgl"] = { Source = "ubgl", }, 
+	["idle_ubgl_sights"] = { Source = "ubgl_sight", }, 
+	["idle_ubgl_glempty_sights"] = { Source = "ubgl_sight_last", },  
+	["idle_ubgl_sights_nope"] = { Source = "ubgl_sight_last", }, 
 	["fire_ubgl_sights"] = { Source = "ubgl_fire_sight", },
 	["fire_ubgl_sights_nope"] = { Source = "ubgl_fire_sight_last", },
 	["enter_sights_ubgl"] = { Source = "ubgl_to_sight",	Time = 8/40, NoStatAffectors = true, },	
@@ -73,10 +77,6 @@ ATT.IKAnimationProxy = {
         { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
         },
     },
-    ["idle_ubgl"] = { Source = "ubgl", }, 
-    ["idle_ubgl_sights"] = { Source = "ubgl_sight", }, 
-    ["idle_ubgl_glempty_sights"] = { Source = "ubgl_sight_last", },  
-	["idle_ubgl_sights_nope"] = { Source = "ubgl_sight_last", }, 
     ["exit_ubgl"] = {
         Source = "from_ubgl",
         MinProgress = 0.7,

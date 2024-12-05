@@ -93,7 +93,7 @@ ATT.CustomPros = { Malfunction = "-5%" }
 
 ATT.SortOrder = 10
 ATT.Category = "bf1942_dc_mp5_stock"
-ATT.ActivateElements = {"s_4"}
+ATT.ActivateElements = {"s_4", "no_animbodge"}
 
 ATT.CustomizePosHook = function(wep, vec)
     return vec + Vector(4, 0, 0)
@@ -104,8 +104,8 @@ ATT.ActivePosHook = function(wep, vec)
 end
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
-	if	wep:HasElement("rail_def") and curanim == "reload_empty"		then	return "dry_bullpup_optic"			end	
-	if	wep:HasElement("rail_def") and curanim == "reload_empty_fail"	then	return "dry_bullpup_optic_fail"		end
+	if	wep:HasElement("has_optic") and curanim == "reload_empty"		then	return "dry_bullpup_optic"			end	
+	if	wep:HasElement("has_optic") and curanim == "reload_empty_fail"	then	return "dry_bullpup_optic_fail"		end
 	
 	if	curanim == "reload_empty"		then	return "dry_bullpup"			end
 	if	curanim == "reload_empty_fail"	then	return "dry_bullpup_fail"		end
@@ -301,7 +301,7 @@ ATT.ShootSound = {"myt_bf1942/dc/scorpion.wav"} -- placeholder
 
 ATT.SortOrder = 1
 ATT.Category = "bf1942_dc_mp5_cal"
-ATT.ActivateElements = {"cal_1"}
+ATT.ActivateElements = {"cal_1", "no_animbodge"}
 
 ATT.ClipSize = 25
 ATT.RPMMult = 730 / 800

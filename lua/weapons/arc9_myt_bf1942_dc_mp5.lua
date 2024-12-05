@@ -206,7 +206,7 @@ SWEP.SprintAng = Angle(40, -15, -15)
 SWEP.SprintPos = Vector(3, 2.5, -3)
 
 SWEP.ViewModelFOVBase = 70
-SWEP.ActivePos = Vector(0.5, 5, -2.5)
+SWEP.ActivePos = Vector(0.5, 6, -2.5)
 SWEP.ActiveAng = Angle(0, 0, 0)
 
 SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
@@ -257,6 +257,9 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	-- bodging
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
 
+	local optic_reload = wep:HasElement("has_optic") and !wep:HasElement("no_animbodge")
+	if	optic_reload and curanim == "reload_empty"		then	return "dry_optic"			end	
+
 	local varextra = 0
 	if wep:HasElement("s_4") then varextra = -5
 	elseif wep:HasElement("hg_1") then varextra = -10
@@ -266,7 +269,9 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
     local rng = math.Truncate(util.SharedRandom("i lost 400 elo with red card mimikyu", 1,100))
     if rng <= 60 + varextra then	-- i fucking hate mp5	
 		if	curanim == "reload" 		then return "reload_fail"		end	
-		if	curanim == "reload_empty" 	then return "reload_empty_fail"	end	
+		if	optic_reload and curanim == "reload_empty"	then	return "dry_optic_fail"
+			else if curanim == "reload_empty" 	then return "reload_empty_fail"	end	
+		end
 	end
 end
 
@@ -350,6 +355,43 @@ SWEP.Animations = {
     },  
 	["reload_empty_fail"] = {
         Source = "dry_fail",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
+			{s =  "myt_bf1942/dc/mp5_bolt2.ogg" ,	t = 34 / 40},
+			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 66 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
+            {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
+			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 156 / 40},	
+			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 183 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
+        },
+    },  
+	["dry_optic"] = {
+        Source = "dry_optic",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
+			{s =  "myt_bf1942/dc/mp5_bolt2.ogg" ,	t = 34 / 40},
+			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 66 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
+            {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
+			{s =  "myt_bf1942/dc/mp5_bolt3.ogg" ,	t = 156 / 40},
+            {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 174 / 40},
+        },
+    },  
+	["dry_optic_fail"] = {
+        Source = "dry_optic_fail",
         FireASAP = true,
         MinProgress = 0.95,
         IKTimeLine = {
@@ -882,7 +924,7 @@ SWEP.Attachments = {
     {
         PrintName = "Optic",
         DefaultName = "None",
-        InstalledElements = {"rail_def"},
+        InstalledElements = {"rail_def", "has_optic"},
 
         DefaultIcon = Material("arc9/def_att_icons/optic.png"),
         Category = {"optic_css", "optic_css_free"},
@@ -919,7 +961,7 @@ SWEP.Attachments = {
         PrintName = "",
         DefaultName = "",
         Hidden = true,
-        InstalledElements = {"blank_toprail"},
+        InstalledElements = {"blank_toprail", "has_optic"},
 
         Category = {"bfc_optic_dove"},
         Bone = "W_Main",
