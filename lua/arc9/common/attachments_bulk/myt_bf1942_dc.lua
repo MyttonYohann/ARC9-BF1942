@@ -359,7 +359,7 @@ ATT.Sights = {
 }
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0.25, 0, -2.5)
+    return vec + Vector(0.25, 0, -1.5)
 end
 
 ATT.SprintPosHook = function(wep, vec)

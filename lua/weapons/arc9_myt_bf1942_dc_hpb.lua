@@ -184,7 +184,7 @@ SWEP.TracerColor = Color(255, 225, 200) -- Color of tracers. Only works if trace
 -------------------------- POSITIONS
 
 SWEP.IronSights = {
-    Pos = Vector(-2.705, 5, 1.9),
+    Pos = Vector(-2.705, 10, 1.9),
     Ang = Angle(0,0,0),
     Midpoint = { -- Where the gun should be at the middle of it's irons
         Pos = Vector(0, 15, -4),
@@ -193,7 +193,7 @@ SWEP.IronSights = {
     Magnification = 1.1,
     CrosshairInSights = false
 }
-SWEP.PeekPos = Vector(1.5, 0, -1.5)
+SWEP.PeekPos = Vector(1.75, -3, -1.75)
 SWEP.PeekAng = Angle(0, 0, -10)
 
 SWEP.Crosshair = true
@@ -205,7 +205,7 @@ SWEP.SprintAng = Angle(0, 50, 0)
 SWEP.SprintPos = Vector(3, 3, -2)
 
 SWEP.ViewModelFOVBase = 70
-SWEP.ActivePos = Vector(1, 8, 0.5)
+SWEP.ActivePos = Vector(1, 10, 0.5)
 SWEP.ActiveAng = Angle(0, 0, 0)
 
 SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
@@ -215,6 +215,13 @@ SWEP.CustomizeAng = Angle(90, 0, 0)
 SWEP.CustomizePos = Vector(10, 28, 7)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
+
+-- nope, doesnt work like this
+--[[SWEP.ActivePosHook = function(wep, vec)
+	if wep:GetUBGL(true) then
+		return vec + Vector(0, 5, 0)
+	end
+end]]
 
 SWEP.CustomizeRotateAnchor = Vector(10.5, -2.55, -2.23)
 
