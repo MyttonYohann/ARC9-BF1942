@@ -341,7 +341,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.125, lhik = 0, rhik = 0, }, { t = 0.875, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -359,7 +359,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.125, lhik = 0, rhik = 0, }, { t = 0.875, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -378,7 +378,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.125, lhik = 0, rhik = 0, }, { t = 0.875, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -396,7 +396,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.15, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.125, lhik = 0, rhik = 0, }, { t = 0.875, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
