@@ -258,6 +258,17 @@ end
 ATT.PeekPos = Vector(1.5, 8, -6.5)
 ATT.PeekAng = Angle(0, 0, -75)
 
+ATT.SprintPosHook = function(wep, vec)
+	if wep:GetElements()["s_4"] then
+		return vec + Vector(-0.5, -8, -9)
+	else
+		return vec + Vector(0, 0, 0)
+	end
+end
+
+ATT.SprintPos = Vector(4, 8, -4)
+ATT.SprintAng = Angle(0, 60, 0)
+
 
 ATT.Category = {"bfc_onehand_smg"}
 
