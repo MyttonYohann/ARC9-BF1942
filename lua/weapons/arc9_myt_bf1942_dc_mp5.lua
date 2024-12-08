@@ -915,7 +915,7 @@ SWEP.Attachments = {
 
         DefaultIcon = Material("arc9/def_att_icons/grip.png"),
         ExcludeElements = {"nooh", "rh_occupied"},
-        Category = {"bf1942_dc_offhand"},
+        Category = {"bf1942_dc_offhand", "bfc_onehand_smg"},
         Bone = "W_Main",
         Pos = Vector(-0.5, 0, -10),
         Ang = Angle(90, 0, -90),

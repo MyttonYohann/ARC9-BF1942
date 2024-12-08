@@ -168,6 +168,102 @@ ATT.ModelOffset = Vector(-5, -1, -2)
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_uh_knife")
 
 ----------------------------------------------------------
+---- Pistol Pointshooting ----
+----------------------------------------------------------
+
+ATT = {}
+ATT.PrintName = [[One Handed]]
+ATT.CompactName = [[1H]]
+ATT.Icon = Material("entities/gekolt_css_blank.png")
+ATT.Description = [[Doctrin
+]] 
+ATT.Pros = {}
+ATT.Cons = {}
+ATT.SortOrder = 0
+
+ATT.LHIK = true
+ATT.LHIK_Priority = 10
+ 
+ATT.Scale = 1
+ATT.ModelOffset = Vector(-12, -5, -10)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+ATT.Model = "models/weapons/myt_bf1942/dc/c_mp5_ik_k.mdl"
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(-1, 2, 0)
+end
+
+ATT.ActiveAngHook = function(wep, ang)
+    return ang + Angle(0, 0, -5)
+end
+
+ATT.PeekPos = Vector(0.5, -2.5, -7.25)
+ATT.PeekAng = Angle(0, 0, -80)
+
+
+ATT.Category = {"bfc_onehand_pistol"}
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_bfc_pshoot")
+
+----------------------------------------------------------
+---- SMG Pointshooting ----
+----------------------------------------------------------
+
+ATT = {}
+ATT.PrintName = [[One Handed]]
+ATT.CompactName = [[1H]]
+ATT.Icon = Material("entities/gekolt_css_blank.png")
+ATT.Description = [[Doctrin
+]] 
+ATT.Pros = {}
+ATT.Cons = {}
+ATT.SortOrder = 0
+
+ATT.LHIK = true
+ATT.LHIK_Priority = 10
+ 
+ATT.Scale = 1
+ATT.ModelOffset = Vector(-12, -5, -10)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+ATT.Model = "models/weapons/myt_bf1942/dc/c_mp5_ik_k.mdl"
+
+ATT.ActivePosHook = function(wep, vec)
+	if wep:GetElements()["s_4"] then
+		return vec + Vector(0.5, 0, 0)
+	else
+	    return vec + Vector(0.5, 4, 0)
+	end
+end
+
+ATT.ActiveAngHook = function(wep, ang)
+    return ang + Angle(0, 0, -5)
+end
+
+ATT.PeekPosHook = function(wep, vec)
+	if wep:GetElements()["s_4"] then
+		return vec + Vector(-0.5, -2, 2)
+	else
+		return vec + Vector(0, 0, 0)
+	end
+end
+
+ATT.PeekAngHook = function(wep, ang)
+	if wep:GetElements()["s_4"] then
+		return ang + Angle(0, 0, 10)
+	else
+		return ang + Angle(0, 0, 0)
+	end
+end
+
+ATT.PeekPos = Vector(1.5, 8, -6.5)
+ATT.PeekAng = Angle(0, 0, -75)
+
+
+ATT.Category = {"bfc_onehand_smg"}
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_bfc_pshoot2")
+
+----------------------------------------------------------
 ---- SMOL Spotting ----
 ----------------------------------------------------------
 
@@ -277,10 +373,10 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_smol_spotting")
 
 ATT = {}
 
-ATT.PrintName = [[VSS Scope]]
-ATT.CompactName = [[VSS]]
+ATT.PrintName = [[PSO-1 Scope]]
+ATT.CompactName = [[PSO-1]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[4x
 ]]
 ATT.SortOrder = 1
 

@@ -407,7 +407,7 @@ SWEP.AttachmentElements = {
     ["f_draco"] = 	{ 
 	Bodygroups = { {1, 1}, {2, 1} },
 	IronSights = {
-		Pos = Vector(-2.705, 3, 0.6),
+		Pos = Vector(-2.705, 8, 0.6),
 		Ang = Angle(0,0,0),
 		Midpoint = 	{ -- Where the gun should be at the middle of it's irons
 		Pos = Vector(0, 15, -4),
@@ -470,7 +470,7 @@ SWEP.Attachments = {
         DefaultName = "",
         Hidden = true,
 
-        Category = {"bf1942_dc_underhand"},
+        Category = {"bf1942_dc_underhand", "bfc_onehand_pistol"},
         Bone = "W_Main",
         Pos = Vector(0, 0, -5),
         Ang = Angle(90, 0, -90),

@@ -141,7 +141,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "idle_ubgl_sights" 		then	return "idle_ubgl_sights_nope"		end	
 	end
 
-	-- i forgor why i did this and im too affraird to delete this
+	-- i forgor why i did this and im too afraid to delete this
 	if wep:Clip1() == 0 and wep:Clip2() != 0	then	-- well realistically need only check for if clip2 not empty
 		if	curanim == "idle_ubgl_empty" 		then	return "idle_ubgl"		end
 		if	curanim == "fire_ubgl_empty" 		then	return "fire_ubgl"		end	
