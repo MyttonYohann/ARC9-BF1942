@@ -634,16 +634,17 @@ SWEP.AttachmentElements = {
 						}
 	},
 	["ak74u_irons"] = 	{ 
-		IronSights = {
-			Pos = Vector(-2.725, -2, 0.65),
-			Ang = Angle(0,-0.15,0),
-			Midpoint = 	{ -- Where the gun should be at the middle of it's irons
-			Pos = Vector(0, 15, -4),
-			Ang = Angle(0, 0, -45),
-						},
+	Bodygroups = { {6, 2}, },
+	IronSights = {
+		Pos = Vector(-2.725, -2, 0.65),
+		Ang = Angle(0,-0.15,0),
+		Midpoint = 	{ -- Where the gun should be at the middle of it's irons
+		Pos = Vector(0, 15, -4),
+		Ang = Angle(0, 0, -45),
+				},
     Magnification = 1.1,
     CrosshairInSights = false,
-						}
+		}
 	},
 	["hg_3"] = 	{ Bodygroups = { {1, 1} },},
 	["hg_4"] = 	{ Bodygroups = { {1, 2} },},
@@ -658,7 +659,7 @@ SWEP.AttachmentElements = {
 	["cal_4"] =	{ Bodygroups = { {0, 6}, {5, 2} },},
 	["cal_5"] =	{ Bodygroups = { {0, 9}, {5, 1}, {1, 8} },},
 
-    --["rail_def"] = { Bodygroups = { {5, 3} },},
+    ["rail_def"] = { Bodygroups = { {6, 1} },},
     --["fg_def"] = { Bodygroups = { {8, 1} },},
 }
 
@@ -668,6 +669,8 @@ SWEP.Hook_ModifyBodygroups = function(wep, data)
     if wep:HasElement("barrel_sg") and wep:HasElement("hg_3") 	then model:SetBodygroup(1,9) end 
 	if wep:HasElement("barrel_sg") and wep:HasElement("hg_1") 	then model:SetBodygroup(1,6) end
 	if wep:HasElement("barrel_sg") and wep:HasElement("hg_5") 	then model:SetBodygroup(1,11) end
+	-- force top rail
+	if wep:HasElement("rail_def") then model:SetBodygroup(6,1) end
 end
  
 SWEP.Attachments = {
@@ -751,7 +754,7 @@ SWEP.Attachments = {
         DefaultIcon = Material("arc9/def_att_icons/optic.png"),
         Category = {"optic_css", "optic_css_free"},
         Bone = "W_Main",
-        Pos = Vector(0, -4.5, 3),
+        Pos = Vector(0, -4.8, 3),
         Ang = Angle(90, 0, -90),
         MergeSlots = {10},
     },
