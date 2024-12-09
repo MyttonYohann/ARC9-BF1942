@@ -103,6 +103,10 @@ ATT.ActivePosHook = function(wep, vec)
     return vec + Vector(0, -3, 0)
 end
 
+ATT.SprintPosHook = function(wep, vec)
+    return vec + Vector(2, 0, 0)
+end
+
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	wep:HasElement("has_optic") and curanim == "reload_empty"		then	return "dry_bullpup_optic"			end	
 	if	wep:HasElement("has_optic") and curanim == "reload_empty_fail"	then	return "dry_bullpup_optic_fail"		end
