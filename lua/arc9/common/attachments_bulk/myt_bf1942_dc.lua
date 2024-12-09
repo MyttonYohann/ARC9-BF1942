@@ -395,7 +395,7 @@ ATT.CompactName = [[PSO-1]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[4x
 ]]
-ATT.SortOrder = 1
+ATT.SortOrder = 4
 
 ATT.Model = "models/weapons/myt_bf1942/atts/scope_vss.mdl"
 ATT.ModelBodygroups = "000"
@@ -426,7 +426,7 @@ ATT.PeekAng = Angle(0, 0, 0)
 
 ATT.RTScope = true
 ATT.RTScopeSubmatIndex = 3
-ATT.RTScopeMagnification = 2.5
+ATT.RTScopeMagnification = 4
 ATT.ScopeScreenRatio = 375/1080
 ATT.RTScopeReticle = Material("myt_bfc_reticle/pso1.png", "mips smooth")
 ATT.RTScopeReticleScale = 0.98
@@ -451,9 +451,9 @@ ATT = {}
 ATT.PrintName = [[Tabuk Scope]]
 ATT.CompactName = [[Tabuk]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[6x
 ]]
-ATT.SortOrder = 1
+ATT.SortOrder = 6
 
 ATT.Model = "models/weapons/myt_bf1942/atts/scope_tabek.mdl"
 ATT.ModelBodygroups = "000"
@@ -484,7 +484,7 @@ ATT.PeekAng = Angle(0, 0, 0)
 
 ATT.RTScope = true
 ATT.RTScopeSubmatIndex = 3
-ATT.RTScopeMagnification = 2.5
+ATT.RTScopeMagnification = 6
 ATT.ScopeScreenRatio = 375/1080
 ATT.RTScopeReticle = Material("myt_bfc_reticle/tabuk.png", "mips smooth")
 ATT.RTScopeReticleScale = 0.98
@@ -509,9 +509,9 @@ ATT = {}
 ATT.PrintName = [[SMAW Scope]]
 ATT.CompactName = [[SMAW]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[
+ATT.Description = [[2.5x
 ]]
-ATT.SortOrder = 1
+ATT.SortOrder = 2.5
 
 ATT.Model = "models/weapons/myt_bf1942/atts/scope_smaw.mdl"
 ATT.ModelBodygroups = "000"
