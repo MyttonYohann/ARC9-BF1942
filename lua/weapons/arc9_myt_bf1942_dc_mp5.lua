@@ -258,7 +258,6 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
 
 	local optic_reload = wep:HasElement("has_optic") and !wep:HasElement("no_animbodge")
-	if	optic_reload and curanim == "reload_empty"		then	return "dry_optic"			end	
 
 	local varextra = 0
 	if wep:HasElement("s_4") then varextra = -5
@@ -273,6 +272,8 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 			else if curanim == "reload_empty" 	then return "reload_empty_fail"	end	
 		end
 	end
+
+	if	optic_reload and curanim == "reload_empty"		then	return "dry_optic"			end	
 end
 
 
@@ -341,7 +342,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.125, lhik = 0, rhik = 0, }, { t = 0.875, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.125, lhik = 0, rhik = 0, }, { t = 0.86, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  
@@ -359,7 +360,7 @@ SWEP.Animations = {
         MinProgress = 0.95,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.125, lhik = 0, rhik = 0, }, { t = 0.875, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.125, lhik = 0, rhik = 0, }, { t = 0.86, lhik = 0, rhik = 0, },{ t = 0.94, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,  	t = 18 / 40},  

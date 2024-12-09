@@ -197,6 +197,9 @@ ATT.ActiveAngHook = function(wep, ang)
     return ang + Angle(0, 0, -5)
 end
 
+ATT.AimDownSightsTimeMult = 0.6
+ATT.SprintToFireTimeMult = 0.6
+
 ATT.PeekPos = Vector(0.5, -2.5, -7.25)
 ATT.PeekAng = Angle(0, 0, -80)
 
@@ -265,6 +268,9 @@ ATT.SprintPosHook = function(wep, vec)
 		return vec + Vector(0, 0, 0)
 	end
 end
+
+ATT.AimDownSightsTimeMult = 0.6
+ATT.SprintToFireTimeMult = 0.6
 
 ATT.SprintPos = Vector(4, 8, -4)
 ATT.SprintAng = Angle(0, 60, 0)
