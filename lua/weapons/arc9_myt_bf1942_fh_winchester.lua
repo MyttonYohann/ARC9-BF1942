@@ -263,15 +263,20 @@ SWEP.DistantShootSound = "myt_bf1942/1918/BerdanDis.wav"
 
 SWEP.FiremodeSound = "arc9/firemode.ogg"
 
-SWEP.BulletBones = {
-    [1] = {"W_Mag","W_Rocket"}
-}
-
 SWEP.Animations = {
     ["fire"] = {
         Source = {"fire"},
         IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+    }, 
+	["fire_auto"] = {
+        Source = {"fire_auto"},
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+    },
+	["fire_auto_last"] = {
+        Source = {"fire_auto_last"},
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
     },  
+
     ["cycle"] = {
         Source = {"pump","pump2"},
         IKTimeLine = {
@@ -475,6 +480,30 @@ SWEP.Animations = {
     },
     ["idle"] = {
         Source = "idle",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    }, 
+
+    ["draw_last"] = {
+        Source = "draw_last",
+        FireASAP = true,
+        MinProgress = 0.65,
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 0, rhik = 0, }, { t = 0.5, lhik = 0, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["holster_last"] = {
+        Source = "holster_last",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["idle_last"] = {
+        Source = "idle_last",
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },

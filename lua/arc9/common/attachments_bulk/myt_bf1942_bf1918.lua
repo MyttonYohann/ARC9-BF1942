@@ -367,7 +367,15 @@ ATT.Description = [[autofive
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_end_empty" 	then	return "reload_end_empty_auto"	end
 	if	curanim == "reload_emptoloop"	then	return "reload_emptoloop_auto"	end
-	if	curanim == "reload_start_empty"	then	return "reload_start_empty_auto"	end
+	if	curanim == "reload_start_empty"	then	return "reload_start_empty_auto"	end	
+	
+	if  wep:Clip1() == 0 then
+	if	curanim == "fire"		then	return "fire_auto_last"	end
+	if	curanim == "idle"		then	return "idle_last"		end
+	if	curanim == "draw"		then	return "draw_last"		end	
+	if	curanim == "holster"	then	return "holster_last"	end
+	end
+	if	curanim == "fire"		then	return "fire_auto"	end
 end
 
 ATT.SortOrder = 10
