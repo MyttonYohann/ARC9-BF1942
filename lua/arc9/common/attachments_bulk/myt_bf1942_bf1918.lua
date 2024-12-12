@@ -327,7 +327,7 @@ ATT.CompactName = [[B. Hydra]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[olimpa
 ]]
-ATT.CustomCons = { Malfunction = "+15%" }
+--ATT.CustomCons = { Malfunction = "+15%" }
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload" and wep:Clip1() == 0	then	return "dry_hydra"	end
 	if	curanim == "reload"							then	return "wet_hydra"	end
@@ -341,7 +341,7 @@ ATT.NumOverride = 14
 ATT.DamageMaxMult = 1.2
 ATT.DamageMinMult = 1.2
 
-ATT.PhysBulletMuzzleVelocity = 1640 * 12
+ATT.PhysBulletMuzzleVelocityAdd = 400 * 12
 ATT.ImpactForce = 6
 
 ATT.Penetration = 2
@@ -352,6 +352,57 @@ ATT.ClipSize = 2
 ATT.ChamberSize = 0
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch1")
+
+
+----------------------------------------------------------------------------------
+
+ATT = {}
+
+ATT.PrintName = [[Cyclone Barrel]]
+ATT.CompactName = [[B. Cyclone]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[autofive
+]]
+--ATT.CustomCons = { Malfunction = "+15%" }
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_end_empty" 	then	return "reload_end_empty_auto"	end
+	if	curanim == "reload_emptoloop"	then	return "reload_emptoloop_auto"	end
+	if	curanim == "reload_start_empty"	then	return "reload_start_empty_auto"	end
+end
+
+ATT.SortOrder = 10
+ATT.Category = "bf1942_fh_winch_cal"
+ATT.ActivateElements = {"cal_auto"}
+
+ATT.NumOverride = 8
+ATT.DamageMaxMult = 0.9
+ATT.DamageMinMult = 0.9
+
+ATT.PhysBulletMuzzleVelocityAdd = -200 * 12
+ATT.ImpactForce = 2
+
+ATT.ManualAction = false
+ATT.ClipSize = 5
+ATT.RPMMult = 400/600
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch2")
+
+
+----------------------------------------------------------------------------------
+
+ATT = {}
+
+ATT.PrintName = [[Fireflux Barrel]]
+ATT.CompactName = [[B. Flux]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[spasm
+]]
+
+ATT.SortOrder = 2
+ATT.Category = "bf1942_fh_winch_cal"
+ATT.ActivateElements = {"cal_flux"}
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch3")
 
 
 ----------------------------------------------------------------------------------

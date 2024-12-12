@@ -303,6 +303,22 @@ SWEP.Animations = {
 		MinProgress = 35/40,
         MagSwapTime = 35/ 40,
     },  
+
+    ["reload_start_empty_auto"] = {
+        Source = "reload_start_empty_auto",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {   
+            {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 1 / 40},  
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 22 / 40},
+        },
+		RestoreAmmo = 1,
+		RefillProgress = 35/40,
+		MinProgress = 35/40,
+        MagSwapTime = 35/40,
+    },  
     ["reload_start"] = {
         Source = "reload_start",
         IKTimeLine = {
@@ -342,6 +358,19 @@ SWEP.Animations = {
 		RefillProgress = 60/40,
         MinProgress = 60/40,
     },
+	["reload_emptoloop_auto"] = {
+        Source = "reload_emptoloop_auto",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = { 
+            {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,  		t = 15 / 40},  
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 50 / 40},
+        },
+		RefillProgress = 52/40,
+        MinProgress = 52/40,
+    },
     ["reload_finish"] = {
         Source = "reload_end",
         IKTimeLine = {
@@ -363,6 +392,18 @@ SWEP.Animations = {
         },
         EventTable = {
             {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 20 / 40},  
+        },
+        FireASAP = true,
+        MinProgress = 32/40,
+    },  
+    ["reload_end_empty_auto"] = {
+        Source = "reload_end_empty_auto",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 12 / 40},  
         },
         FireASAP = true,
         MinProgress = 32/40,
@@ -466,7 +507,9 @@ end
 SWEP.DefaultBodygroups = "00000000000000"
 
 SWEP.AttachmentElements = {
-    ["cal_hydra"] = 	{ Bodygroups = { {0, 1},  {1, 1}, {2, 1} },},   
+    ["cal_hydra"] = 	{ Bodygroups = { {0, 1}, {1, 1}, {2, 1} },},   
+    ["cal_auto"] = 		{ Bodygroups = { {0, 2}, {2, 2} },},    
+	["cal_flux"] = 		{ Bodygroups = { {2, 6}, {4, 1} },},   
 }
  
 SWEP.Attachments = {
