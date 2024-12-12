@@ -57,7 +57,7 @@ ATT.Attachments = {
 
 ATT.Penetration = 0
 
-ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan1")
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan1")
 
 
 ----------------------------------------------------------------------------------
@@ -123,7 +123,7 @@ ATT.Hook_PrimaryAttack = function(wep)
 	end
 end
 
-ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan4")
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan4")
 
 
 ----------------------------------------------------------------------------------
@@ -167,7 +167,7 @@ ATT.ActivePosHook = function(wep, vec)
     return vec + Vector(0, -1, -2)
 end
 
-ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan5")
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan5")
 
 
 ----------------------------------------------------------------------------------
@@ -199,7 +199,7 @@ ATT.DamageMinMultMult = 0.8
 ATT.SpreadAdd = 0.0025
 ATT.SpreadSights = 0.0125
 
-ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan6")
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan6")
 
 
 ----------------------------------------------------------------------------------
@@ -230,7 +230,7 @@ ATT.SprintPos = Vector(0, 2, 1)
 ATT.BobSprintMult = 0.5
 
 
-ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan2")
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan2")
 
 
 ----------------------------------------------------------------------------------
@@ -250,7 +250,7 @@ ATT.Category = "bf1942_1918_berdan_sight"
 ATT.ActivateElements = {"rsight"}
 ATT.ExcludeElements = {"cal_gl"}
 
-ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_berdan3")
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan3")
 
 
 ----------------------------------------------------------------------------------
@@ -277,7 +277,7 @@ ATT.ActivateElements = {"b_1"}
 
 ATT.TriggerDelayTime = 0.05
 
-ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_webley1")
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley1")
 
 
 ----------------------------------------------------------------------------------
@@ -309,7 +309,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 end
 
 
-ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_webley2")
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley2")
 
 
 ----------------------------------------------------------------------------------

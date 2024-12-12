@@ -292,11 +292,12 @@ ATT.IKAnimationProxy = {
         Source = "fire_full",
         EventTable = {
             {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 29 / 40},  
-			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 41 / 40}, 
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 39 / 40}, 
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 46 / 40},  			
         },
         MinProgress = 0.6,
 		FireASAP = true,
+		Mult = 0.95,
     },
 	["fire_ubgl_glempty"] = {
         Source = "fire",
@@ -309,7 +310,7 @@ ATT.IKAnimationProxy = {
 		FireASAP = true,
     },
 
-	["cycle_ubgl"] = {
+	--[[["cycle_ubgl"] = { -- doesnt work
         Source = "pump",
         MinProgress = 0.6,
 		FireASAP = true,
@@ -318,7 +319,7 @@ ATT.IKAnimationProxy = {
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 48 / 40}, 
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 45 / 40},  			
         },
-    },
+    },]]
     ["reload_ubgl_start"] = {
         Source = "ubgl_reload1",
         EventTable = {		
