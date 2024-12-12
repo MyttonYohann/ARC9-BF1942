@@ -395,6 +395,7 @@ ATT.PrintName = [[PSO-1 Scope]]
 ATT.CompactName = [[PSO-1]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[4x
+|^|
 ]]
 ATT.SortOrder = 4
 
@@ -453,6 +454,7 @@ ATT.PrintName = [[Tabuk Scope]]
 ATT.CompactName = [[Tabuk]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[6x
+hes so sad
 ]]
 ATT.SortOrder = 6
 
@@ -511,6 +513,7 @@ ATT.PrintName = [[SMAW Scope]]
 ATT.CompactName = [[SMAW]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[2.5x
+lots of useless triangle
 ]]
 ATT.SortOrder = 2.5
 

@@ -391,7 +391,7 @@ ATT.ImpactForce = 2
 
 ATT.ManualAction = false
 ATT.ClipSize = 5
-ATT.RPMMult = 400/600
+ATT.RPMMult = 350/500
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch2")
 

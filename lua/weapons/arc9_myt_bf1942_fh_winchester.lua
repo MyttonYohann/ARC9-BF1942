@@ -83,7 +83,7 @@ SWEP.CanReloadWhileUnCycled = false
 
 -------------------------- FIREMODES
 SWEP.Num = 10
-SWEP.RPM = 600
+SWEP.RPM = 500
 
 -- Works different to ArcCW
 
@@ -605,7 +605,7 @@ SWEP.Attachments = {
 
         Category = {"bfc_optic_dove"},
         Bone = "W_Main",
-        Pos = Vector(1, -1.1, 5),
+        Pos = Vector(0.8, -1.2, 2),
         Ang = Angle(90, 0, -90),
     },
 }
