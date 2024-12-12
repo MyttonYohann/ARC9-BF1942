@@ -270,12 +270,10 @@ SWEP.BulletBones = {
 SWEP.Animations = {
     ["fire"] = {
         Source = {"fire"},
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
     },  
     ["cycle"] = {
-        Source = {"pump	","pump2"},
+        Source = {"pump","pump2"},
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
@@ -489,11 +487,10 @@ SWEP.Attachments = {
         DefaultIcon = Material("arc9/def_att_icons/grip.png"),
         ExcludeElements = {"nofg"},
         Category = {"grip_css"},
-        Bone = "W_Main",
-        Pos = Vector(0, 1.25, 12),
+        Bone = "W_Break",
+        Pos = Vector(0, 1.25, 4),
         Ang = Angle(90, 0, -90),
     },
-	
     {
         PrintName = "Off Hand",
         DefaultName = "None",
@@ -505,7 +502,6 @@ SWEP.Attachments = {
         Pos = Vector(-1, 0, -10),
         Ang = Angle(90, 0, -90),
     },
-
     {
         PrintName = "Optic",
         DefaultName = "None",
@@ -518,7 +514,6 @@ SWEP.Attachments = {
         Ang = Angle(90, 0, -90),
         MergeSlots = {6},
     },
-
     {
         PrintName = "Muzzle",
         DefaultName = "None",
