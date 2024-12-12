@@ -319,3 +319,39 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_bf1942_1918_webley2")
 
 ----------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------
+
+ATT = {}
+
+ATT.PrintName = [[Hydra Barrel]]
+ATT.CompactName = [[B. Hydra]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[olimpa
+]]
+ATT.CustomCons = { Malfunction = "+15%" }
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload" and wep:Clip1() == 0	then	return "dry_hydra"	end
+	if	curanim == "reload"							then	return "wet_hydra"	end
+end
+
+ATT.SortOrder = 100
+ATT.Category = "bf1942_fh_winch_cal"
+ATT.ActivateElements = {"cal_hydra"}
+
+ATT.NumOverride = 14
+ATT.DamageMaxMult = 1.2
+ATT.DamageMinMult = 1.2
+
+ATT.PhysBulletMuzzleVelocity = 1640 * 12
+ATT.ImpactForce = 6
+
+ATT.Penetration = 2
+
+ATT.ShotgunReload = false
+ATT.ManualAction = false
+ATT.ClipSize = 2
+ATT.ChamberSize = 0
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch1")
+
+
+----------------------------------------------------------------------------------

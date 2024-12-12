@@ -275,7 +275,7 @@ SWEP.Animations = {
         },
     },  
     ["cycle"] = {
-        Source = {"pump"},
+        Source = {"pump	","pump2"},
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
@@ -381,11 +381,11 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
-        EjectAt = 32 / 40,
         EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
-			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 71 / 40},
+            {s =  "myt_bf1942/1918/Winch_Hydra_Open.ogg" ,  t = 5 / 40},  
+            {s =  "myt_bf1942/1918/Winch_Hydra_Mag1.ogg" ,  t = 28 / 40},  
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 69 / 40},
+			{s =  "myt_bf1942/1918/Winch_Hydra_Close.ogg" ,	t = 97 / 40},
         },
     },  
     ["dry_hydra"] = {
@@ -397,11 +397,11 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
-        EjectAt = 32 / 40,
         EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
-			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 71 / 40},
+            {s =  "myt_bf1942/1918/Winch_Hydra_Open.ogg" ,  t = 13 / 40},  
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 53 / 40}, 
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 79 / 40},
+			{s =  "myt_bf1942/1918/Winch_Hydra_Close.ogg" ,	t = 106 / 40},
         },
     },  
 
@@ -468,36 +468,7 @@ end
 SWEP.DefaultBodygroups = "00000000000000"
 
 SWEP.AttachmentElements = {
-    ["cal_sg"] = 	{ Bodygroups = { {1, 1}, {2, 1} },},   
-	["cal_mag"] = 	{ Bodygroups = { {5, 1} },},  
-	["cal_gl"] = 	{ 
-		Bodygroups = { {1, 2}, {2, 2}, {3, 2} },
-		IronSights = {
-			Pos = Vector(-2.705, -1, 2),
-			Ang = Angle(0,0.5,0),
-			Midpoint = 	{ -- Where the gun should be at the middle of it's irons
-			Pos = Vector(0, 15, -4),
-			Ang = Angle(0, 0, -45),
-						},
-    Magnification = 1.1,
-    CrosshairInSights = false,
-						}
-	}, 
-    ["cal_50"] = 	{ Bodygroups = { {1, 3}, {2, 1} },}, 
-	["bayonet"] = 	{ Bodygroups = { {4, 1} },},
-	["rsight"] = 	{ 
-		Bodygroups = { {3, 1} },
-		IronSights = {
-			Pos = Vector(-2.705, -1, 2.6),
-			Ang = Angle(0,0.7,0),
-			Midpoint = 	{ -- Where the gun should be at the middle of it's irons
-			Pos = Vector(0, 15, -4),
-			Ang = Angle(0, 0, -45),
-						},
-    Magnification = 1.1,
-    CrosshairInSights = false,
-						}
-	},
+    ["cal_hydra"] = 	{ Bodygroups = { {0, 1},  {1, 1}, {2, 1} },},   
 }
  
 SWEP.Attachments = {
@@ -505,7 +476,7 @@ SWEP.Attachments = {
         PrintName = "Barrel",
         DefaultName = "Standard Barrel",
 
-        Category = "bf1942_1918_berdan_cal",
+        Category = "bf1942_fh_winch_cal",
         Bone = "W_Main",
         Pos = Vector(0, -1, 12),
         Ang = Angle(90, 0, -90),
