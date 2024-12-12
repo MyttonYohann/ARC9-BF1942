@@ -366,9 +366,7 @@ ATT.IKAnimationProxy = {
         { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
         },
     },
-    ["idle_ubgl"] = {
-        Source = "ubgl",
-    }, 
+    ["idle_ubgl"] = { Source = "ubgl", }, 
     ["exit_ubgl"] = {
         Source = "from_ubgl",
         MinProgress = 0.8,
@@ -381,9 +379,7 @@ ATT.IKAnimationProxy = {
         { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
     },
-	["holster_ubgl"] = {
-        Source = "ubgl_holster"
-    },
+	["holster_ubgl"] = { Source = "ubgl_holster" },
 } 
 
 ATT.BashUBGL = false

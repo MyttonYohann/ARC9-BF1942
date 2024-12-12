@@ -93,7 +93,7 @@ ATT.CustomPros = { Malfunction = "-5%" }
 
 ATT.SortOrder = 10
 ATT.Category = "bf1942_dc_mp5_stock"
-ATT.ActivateElements = {"s_4", "no_animbodge"}
+ATT.ActivateElements = {"s_4", "no_animbodge", "nofg"}
 
 ATT.CustomizePosHook = function(wep, vec)
     return vec + Vector(4, 0, 0)
@@ -147,7 +147,7 @@ ATT.CustomPros = { Malfunction = "-10%" }
 
 ATT.SortOrder = 1
 ATT.Category = "bf1942_dc_mp5_hg"
-ATT.ActivateElements = {"hg_1", "gripped"}
+ATT.ActivateElements = {"hg_1", "gripped", "nofg"}
 
 ATT.CustomizePosHook = function(wep, vec)
     return vec + Vector(2, 0, 0)
@@ -188,7 +188,7 @@ Cigarette wife
 
 ATT.SortOrder = 2
 ATT.Category = "bf1942_dc_mp5_hg"
-ATT.ActivateElements = {"hg_2", "gripped"}
+ATT.ActivateElements = {"hg_2", "gripped", "nofg"}
 
 ATT.LHIK = true
 ATT.LHIK_Priority = 0.01

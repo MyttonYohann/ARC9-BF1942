@@ -18,7 +18,8 @@ SWEP.Trivia = {
 SWEP.Credits = {
 }
 
-SWEP.Description = [[This is in every fucking game.]]
+SWEP.Description = [[Gun is in everything.
+Character stupid sometimes and bring empty magazines.]]
 
 SWEP.ViewModel = "models/weapons/myt_bf1942/dc/c_ak47.mdl"
 SWEP.WorldModel = "models/weapons/w_rif_ak47.mdl"
