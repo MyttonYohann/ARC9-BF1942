@@ -9,7 +9,7 @@ SWEP.SubCategory = "1918"
 SWEP.PrintName = "Winchester 1200"
 SWEP.TrueName = "Winchester 1200"
 
-SWEP.Class = "Rifle"
+SWEP.Class = "Shotgun"
 SWEP.Trivia = {
 	["Country of Origin"] = [[Amerika]],
 	["Caliber"] = "12 Gauge",
@@ -96,7 +96,7 @@ SWEP.RPM = 500
 SWEP.Firemodes = {
     {
         Mode = 1,
-        -- add other attachment modifiers
+		PrintName = "PUMP",
     },
 }
 
@@ -190,7 +190,7 @@ SWEP.TracerColor = Color(255, 225, 200) -- Color of tracers. Only works if trace
 -------------------------- POSITIONS
 
 SWEP.IronSights = {
-    Pos = Vector(-2.705, 0, 2.15),
+    Pos = Vector(-2.705, 0, 2.3),
     Ang = Angle(0,0,0),
     Midpoint = { -- Where the gun should be at the middle of it's irons
         Pos = Vector(0, 15, -4),
@@ -268,12 +268,18 @@ SWEP.Animations = {
         Source = {"fire"},
         IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
     }, 
+    ["fire_monolith"] = {
+        Source = {"fire_monolith"},
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+    }, 
 	["fire_auto"] = {
         Source = {"fire_auto"},
+        EjectAt = 1/ 40,
         IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
     },
 	["fire_auto_last"] = {
         Source = {"fire_auto_last"},
+        EjectAt = 1/ 40,
         IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
     },  
 
@@ -304,7 +310,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 43 / 40},
         },
 		RestoreAmmo = 1,
-        EjectAt = 16 / 40,
+        EjectAt = 18 / 40,
 		RefillProgress = 35/40,
 		MinProgress = 35/40,
         MagSwapTime = 35/ 40,
@@ -557,7 +563,7 @@ SWEP.DefaultBodygroups = "00000000000000"
 SWEP.AttachmentElements = {
     ["cal_hydra"] = 	{ Bodygroups = { {0, 1}, {1, 1}, {2, 1} },},   
     ["cal_auto"] = 		{ Bodygroups = { {0, 2}, {2, 2} },},    
-	["cal_flux"] = 		{ Bodygroups = { {2, 6}, {4, 1} },},  
+	["cal_flux"] = 		{ Bodygroups = { {2, 6}, {4, 1}, {3, 1} },},  
 	["cal_monolith"] =	{ Bodygroups = { {1, 2}, {2, 3}, },},   
 }
  

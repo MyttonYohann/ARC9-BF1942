@@ -86,8 +86,8 @@ ATT.ActivateElements = {"cal_50"}
 
 ATT.SpreadAdd = 0.006
 ATT.SpreadSights = 0.025
-ATT.DamageMaxMult = 4
-ATT.DamageMinMult = 2
+ATT.DamageMaxMult = 2.75
+ATT.DamageMinMult = 1.5
 
 ATT.RecoilMult = 6
 ATT.RecoilPatternDriftMult = 7
@@ -333,6 +333,12 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload"							then	return "wet_hydra"	end
 end
 
+ATT.Firemodes = {
+    {
+        Mode = 1,
+    },
+}
+
 ATT.SortOrder = 120
 ATT.Category = "bf1942_fh_winch_cal"
 ATT.ActivateElements = {"cal_hydra"}
@@ -367,17 +373,27 @@ ATT.Description = [[same diameter
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload" and wep:Clip1() == 0	then	return "dry_monolith"	end
 	if	curanim == "reload"							then	return "dry_monolith"	end
+
+	if	curanim == "fire"		then	return "fire_monolith"	end
 end
 
 ATT.SortOrder = 100
 ATT.Category = "bf1942_fh_winch_cal"
 ATT.ActivateElements = {"cal_monolith"}
 
+ATT.Firemodes = {
+    {
+        Mode = 1,
+    },
+}
+
 ATT.NumOverride = 1
-ATT.DamageMaxMult = 6
-ATT.DamageMinMult = 5
+ATT.DamageMaxMult = 12
+ATT.DamageMinMult = 8
+ATT.DamageType = DMG_BLAST + DMG_BULLET + DMG_AIRBOAT
 ATT.RecoilMult = 2
 ATT.RecoilPatternDriftMult = 2
+ATT.SpreadMultSights = 0.0005/0.0025
 
 ATT.PhysBulletMuzzleVelocityAdd = 800 * 12
 ATT.ImpactForce = 12
@@ -388,6 +404,28 @@ ATT.ShotgunReload = false
 ATT.ManualAction = false
 ATT.ClipSize = 1
 ATT.ChamberSize = 0
+
+
+ATT.Hook_PrimaryAttack = function(wep)
+    local rng = math.Truncate(util.SharedRandom("fallout did NOT win best adaptation	lies all of them", 1,100))
+	if rng <= 1  then
+        -- Stole from 8Z.
+        wep:GetOwner():EmitSound("vo/npc/male01/myarm0" .. math.random(1, 2) .. ".wav", 75)
+        local dmg = DamageInfo()
+        dmg:SetAttacker(wep:GetOwner())
+        dmg:SetInflictor(wep)
+        dmg:SetDamage(math.random(20, 40))
+        dmg:SetDamageType(DMG_GENERIC)
+        wep:GetOwner():TakeDamageInfo(dmg)
+        wep:GetOwner():ViewPunch(Angle(2, -10, 10))
+        -- can't do it right now because the gun isn't done firing yet
+        timer.Simple(0, function()
+            if IsValid(wep) and IsValid(wep:GetOwner()) then
+                wep:GetOwner():DropWeapon(wep, nil, wep:GetOwner():GetForward() * -200 + VectorRand() * 50 + Vector(0, 0, 150))
+            end
+        end)
+	end
+end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch4")
 
@@ -420,6 +458,12 @@ ATT.SortOrder = 10
 ATT.Category = "bf1942_fh_winch_cal"
 ATT.ActivateElements = {"cal_auto"}
 
+ATT.Firemodes = {
+    {
+        Mode = 1,
+    },
+}
+
 ATT.NumOverride = 8
 ATT.DamageMaxMult = 0.9
 ATT.DamageMinMult = 0.9
@@ -442,11 +486,27 @@ ATT.PrintName = [[Fireflux Barrel]]
 ATT.CompactName = [[B. Flux]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[spasm
+dual firemode
 ]]
 
 ATT.SortOrder = 2
 ATT.Category = "bf1942_fh_winch_cal"
 ATT.ActivateElements = {"cal_flux"}
+
+ATT.Firemodes = {
+    {
+        Mode = 1,
+		PrintName = "PUMP",
+		ImpactForce = 4,
+		RPM = 600,
+    }, 
+	{
+        Mode = 1,
+		ManualAction = false,
+		ImpactForce = 2,
+		RPM = 200,
+    },
+}
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch3")
 
