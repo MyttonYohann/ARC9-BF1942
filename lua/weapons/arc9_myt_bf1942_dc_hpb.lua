@@ -298,7 +298,7 @@ SWEP.Animations = {
         },
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
     },  
     ["reload_empty"] = {
