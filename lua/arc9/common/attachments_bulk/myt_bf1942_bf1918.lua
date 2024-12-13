@@ -333,7 +333,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload"							then	return "wet_hydra"	end
 end
 
-ATT.SortOrder = 100
+ATT.SortOrder = 120
 ATT.Category = "bf1942_fh_winch_cal"
 ATT.ActivateElements = {"cal_hydra"}
 
@@ -352,6 +352,44 @@ ATT.ClipSize = 2
 ATT.ChamberSize = 0
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch1")
+
+
+----------------------------------------------------------------------------------
+
+ATT = {}
+
+ATT.PrintName = [[Monolith Barrel]]
+ATT.CompactName = [[B. Monolith]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[same diameter
+]]
+--ATT.CustomCons = { Malfunction = "+15%" }
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload" and wep:Clip1() == 0	then	return "dry_monolith"	end
+	if	curanim == "reload"							then	return "dry_monolith"	end
+end
+
+ATT.SortOrder = 100
+ATT.Category = "bf1942_fh_winch_cal"
+ATT.ActivateElements = {"cal_monolith"}
+
+ATT.NumOverride = 1
+ATT.DamageMaxMult = 6
+ATT.DamageMinMult = 5
+ATT.RecoilMult = 2
+ATT.RecoilPatternDriftMult = 2
+
+ATT.PhysBulletMuzzleVelocityAdd = 800 * 12
+ATT.ImpactForce = 12
+
+ATT.Penetration = 20
+
+ATT.ShotgunReload = false
+ATT.ManualAction = false
+ATT.ClipSize = 1
+ATT.ChamberSize = 0
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch4")
 
 
 ----------------------------------------------------------------------------------

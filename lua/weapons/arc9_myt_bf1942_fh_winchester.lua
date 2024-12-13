@@ -286,7 +286,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	2 / 40},
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	10 / 40},
         },
-        EjectAt = 8 / 40,
+        EjectAt = 6 / 40,
         FireASAP = true,
         MinProgress = 20/40,
     },     
@@ -304,6 +304,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 43 / 40},
         },
 		RestoreAmmo = 1,
+        EjectAt = 16 / 40,
 		RefillProgress = 35/40,
 		MinProgress = 35/40,
         MagSwapTime = 35/ 40,
@@ -420,7 +421,7 @@ SWEP.Animations = {
         Source = "wet_hydra",
         FireASAP = true,
         MinProgress = 0.9,
-        MagSwapTime = 5 / 40,
+        MagSwapTime = 70 / 40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
@@ -436,7 +437,7 @@ SWEP.Animations = {
         Source = "dry_hydra",
         FireASAP = true,
         MinProgress = 0.9,
-        MagSwapTime = 5 / 40,
+        MagSwapTime = 80 / 40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
@@ -446,6 +447,24 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 53 / 40}, 
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 79 / 40},
 			{s =  "myt_bf1942/1918/Winch_Hydra_Close.ogg" ,	t = 106 / 40},
+        },
+    },  
+	["dry_monolith"] = {
+        Source = "dry_monolith",
+        FireASAP = true,
+        MinProgress = 0.95,
+        MagSwapTime = 83 / 40,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 1 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	14 / 40},
+            {s =  "myt_bf1942/1918/Winch_Hydra_Open.ogg" ,  t = 33 / 40}, 
+            {s =  "myt_bf1942/1918/Winch_Hydra_Mag1.ogg" ,  t = 38 / 40},
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 83 / 40},
+            {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   		t = 120 / 40},  
         },
     },  
 
@@ -538,7 +557,8 @@ SWEP.DefaultBodygroups = "00000000000000"
 SWEP.AttachmentElements = {
     ["cal_hydra"] = 	{ Bodygroups = { {0, 1}, {1, 1}, {2, 1} },},   
     ["cal_auto"] = 		{ Bodygroups = { {0, 2}, {2, 2} },},    
-	["cal_flux"] = 		{ Bodygroups = { {2, 6}, {4, 1} },},   
+	["cal_flux"] = 		{ Bodygroups = { {2, 6}, {4, 1} },},  
+	["cal_monolith"] =	{ Bodygroups = { {1, 2}, {2, 3}, },},   
 }
  
 SWEP.Attachments = {
