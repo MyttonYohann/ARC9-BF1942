@@ -1,5 +1,27 @@
 local ATT = {}
+local shared = {
+	RHIK = true
+	RHIK_Priority = 10
+	ActivateElements = {"off_hand"}
 
+	IKGunMotionQCA = 2,
+	MuzzleDeviceUBGL = true,
+
+	BashUBGL = false,
+	PrimaryBashUBGL = false,
+	BottomlessClipUBGL = false,
+	NoShellEjectUBGL = true,
+
+-- what the actual heck do these do
+	IKGunMotionOffset = Vector(0, 0, 0),
+	IKGunMotionOffsetAngle = Angle(0, 0, 0),
+	IKGunMotionMult = 0.5,
+	IKGunMotionAngleMult = 0.5,
+
+	CustomCrosshairUBGL = false,
+	PushBackForce = 0
+}
+----------------------------------------------------------
 
 ----------------------------------------------------------
 -- PSS --
@@ -7,20 +29,16 @@ local ATT = {}
 
 
 ATT = {}
+table.Merge(ATT, shared)
 ATT.PrintName = [[PSS]]
 ATT.CompactName = [[PSS]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
 ATT.Description = [[
 Switching sidearm is faster reload.
 ]] 
-ATT.Pros = {}
-ATT.Cons = {}
 ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_pss.mdl"
-ATT.RHIK = true
-ATT.RHIK_Priority = 10
-ATT.ActivateElements = {"off_hand"}
 
 ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
 	if wep:GetReloading() and !wep:GetUBGL(true) then 
@@ -121,20 +139,7 @@ ATT.IKAnimationProxy = {
 
 } -- When an animation event plays, override it with one based on this LHIK model.
 
-ATT.IKGunMotionQCA = 2
-ATT.MuzzleDeviceUBGL = true
-
-ATT.Hook_TranslateAnimation = function(wep, curanim)
-	--[[local lazy = wep:GetInSights() --and wep:GetUBGL(true)
-	
-	if lazy then
-		if	curanim == "idle_ubgl"			then	return "sight_ugbl"		end
-		if	curanim == "idle_ubgl_glempty"	then	return "sight_ugbl_empty"		end
-		if	curanim == "fire_ubgl"			then	return "fire_sight_ugbl"		end	
-		if	curanim == "fire_ubgl_glempty"	then	return "fire_sight_ugbl_empty"		end
-		--if	curanim == "fire_iron" 	then	return "fire_ads_510_last"	end
-	end]]	-- nope, just do it manually
-	
+ATT.Hook_TranslateAnimation = function(wep, curanim)	
 	if wep:Clip2() == 0 then
 		if	curanim == "fire_ubgl_sights" 		then	return "fire_ubgl_sights_nope"		end
 		if	curanim == "enter_sights_ubgl" 		then	return "enter_sights_ubgl_nope"		end	
@@ -152,20 +157,6 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 		return 
 	end
 end
-
-
-ATT.BashUBGL = false
-ATT.PrimaryBashUBGL = false
-ATT.BottomlessClipUBGL = false
-ATT.NoShellEjectUBGL = true
-ATT.CaseEffectQCAUBGL = 2	-- nope, this still uses the gun qca
-
-
-ATT.IKGunMotionOffset = Vector(0, 0, 0)
-ATT.IKGunMotionOffsetAngle = Angle(0, 0, 0)
-
-ATT.IKGunMotionMult = 0.5
-ATT.IKGunMotionAngleMult = 0.5
 
 ATT.Category = {"bf1942_dc_offhand"}
 
@@ -250,8 +241,6 @@ ATT.CustomizeAngUBGL  = Angle(-90, 40, -5)
 ATT.CustomizePosUBGL  = Vector(-12, 28, 7)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
 
-ATT.CustomCrosshairUBGL = false
-
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_pss")
 
 
@@ -261,21 +250,16 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_pss")
 
 
 ATT = {}
+table.Merge(ATT, shared)
 ATT.PrintName = [[Sawnoff R870]]
 ATT.CompactName = [[R870]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
 ATT.Description = [[
 Switching primary is faster reload.
 ]] 
-ATT.Pros = {}
-ATT.Cons = {}
 ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_r870.mdl"
-ATT.RHIK = true
-ATT.RHIK_Priority = 10
-ATT.ActivateElements = {"off_hand"}
-
 ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
 	if wep:GetReloading() and !wep:GetUBGL(true) then 
 	model:SetBodygroup(0,1)
@@ -381,23 +365,7 @@ ATT.IKAnimationProxy = {
         },
     },
 	["holster_ubgl"] = { Source = "ubgl_holster" },
-} 
-
-ATT.BashUBGL = false
-ATT.PrimaryBashUBGL = false
-ATT.BottomlessClipUBGL = false
--- When an animation event plays, override it with one based on this LHIK model.
-ATT.IKGunMotionQCA = 2
-ATT.MuzzleDeviceUBGL = true
-ATT.ShotgunReloadUBGL = true
-
-ATT.CaseEffectQCAOverrideUBGL = 1	-- nope
-
-ATT.IKGunMotionOffset = Vector(0, 0, 0)
-ATT.IKGunMotionOffsetAngle = Angle(0, 0, 0)
-
-ATT.IKGunMotionMult = 0.5
-ATT.IKGunMotionAngleMult = 0.5
+}
 
 ATT.Category = {"bf1942_dc_offhand"}
 
@@ -498,19 +466,16 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_r870")
 
 
 ATT = {}
+table.Merge(ATT, shared)
 ATT.PrintName = [[RPG]]
 ATT.CompactName = [[RPG]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
 ATT.Description = [[
 Switching gadget is faster reload.
 ]] 
-ATT.Pros = {}
-ATT.Cons = {}
 ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_rpg.mdl"
-ATT.RHIK = true
-ATT.ActivateElements = {"off_hand"}
 
 ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
 	if wep:GetReloading() and !wep:GetUBGL(true) then 
@@ -622,23 +587,6 @@ ATT.IKAnimationProxy = {
     },
 } -- When an animation event plays, override it with one based on this LHIK model.
 
-ATT.BashUBGL = false
-ATT.PrimaryBashUBGL = false
-ATT.BottomlessClipUBGL = false
-ATT.IKGunMotionQCA = 2
-ATT.MuzzleDeviceUBGL = true
-
-ATT.IKCameraMotionQCA = nil
-ATT.IKCameraMotionOffsetAngle = Angle(0, 90, 0)
-
-ATT.CaseEffectQCAOverrideUBGL = 1	-- nope
-
-ATT.IKGunMotionOffset = Vector(0, 0, 0)
-ATT.IKGunMotionOffsetAngle = Angle(0, 0, 0)
-
-ATT.IKGunMotionMult = 0.5
-ATT.IKGunMotionAngleMult = 0.5
-
 ATT.Category = {"bf1942_dc_offhand"}
 
 ATT.AimDownSightsTimeMult = 1.1
@@ -729,18 +677,16 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_rpg")
 
 
 ATT = {}
+table.Merge(ATT, shared)
 ATT.PrintName = [[Knife]]
 ATT.CompactName = [[Knife]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
 ATT.Description = [[
 You run faster.
 ]] 
-ATT.Pros = {}
-ATT.Cons = {}
 ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_knife.mdl"
-ATT.RHIK = true
 ATT.ActivateElements = {"off_hand", "is_melee"}
 
 ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
@@ -800,21 +746,6 @@ ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate 
 	else
 	end
 end
-
-ATT.IKGunMotionQCA = 2
-ATT.MuzzleDeviceUBGL = false
-
-ATT.IKCameraMotionQCA = nil
-ATT.IKCameraMotionOffsetAngle = Angle(0, 90, 0)
-
-ATT.CaseEffectQCAOverrideUBGL = 1	-- nope
-
-ATT.IKGunMotionOffset = Vector(0, 0, 0)
-ATT.IKGunMotionOffsetAngle = Angle(0, 0, 0)
-
-ATT.IKGunMotionMult = 0.5
-ATT.IKGunMotionAngleMult = 0.5
-
 ATT.Category = {"bf1942_dc_offhand"}
 
 ATT.AimDownSightsTimeMult = 1.1
@@ -855,7 +786,7 @@ ATT.SprintPosUBGL = Vector(2, 3, -1)
 ATT.CustomizeAngUBGL  = Angle(-90, 40, -5)
 ATT.CustomizePosUBGL  = Vector(-12, 28, 7)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
-ATT.Crosshair = false
+ATT.CrosshairUBGL = false
 ATT.CanLeanUBGL = false
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_knife")
