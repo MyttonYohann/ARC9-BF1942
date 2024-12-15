@@ -6,8 +6,8 @@ SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"	-- it's from Forgotten Hope but im not putting 1 gun in a whole category
 SWEP.SubCategory = "1918"
 
-SWEP.PrintName = "Winchester 1200"
-SWEP.TrueName = "Winchester 1200"
+SWEP.PrintName = "M1912"
+SWEP.TrueName = "M1912"
 
 SWEP.Class = "Shotgun"
 SWEP.Trivia = {
@@ -30,7 +30,7 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/1918/c_winchester.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-8, 2, -7),
+    TPIKPos = Vector(-8, 3, -6),
     TPIKAng = Angle(-5, 0, 180),
     Scale = 1
 }
@@ -231,10 +231,10 @@ SWEP.StandardPresets = {
 
 -------------------------- HoldTypes
 
-SWEP.HoldType = "pistol"
+SWEP.HoldType = "ar2"
 SWEP.HoldTypeSprint = "passive"
 SWEP.HoldTypeHolstered = "passive"
-SWEP.HoldTypeSights = "revolver"
+SWEP.HoldTypeSights = "ar2"
 SWEP.HoldTypeCustomize = "slam"
 SWEP.HoldTypeBlindfire = "pistol"
 

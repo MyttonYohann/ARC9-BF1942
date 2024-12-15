@@ -48,7 +48,7 @@ ATT.IKAnimationProxy = {
 	["fire_ubgl_empty"] = {Source = "fire_last", },
     ["reload_ubgl"] = {
         Source = "ubgl_wet",
-        MinProgress = 0.8,
+        MinProgress = 0.825,
 		FireASAP = true,
         EventTable = {		
             {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
