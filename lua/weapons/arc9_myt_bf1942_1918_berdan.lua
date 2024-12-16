@@ -660,7 +660,6 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	local varextra = 0		-- for att
 	local reload_bodge = 0	-- accidental overloading only for the 5th to 6th bullet, ending at 4th or lower wont trigger
 	local dementia		 = 0
-	local dementia_start = 0
 
 	if wep:HasElement("cal_sg") then varextra = 15		-- hypnosis
 	elseif wep:HasElement("cal_50") then varextra = 20	-- grass whistle
@@ -669,14 +668,18 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	end
 
 	-- sometimes you just kinda forgot about the iron fleet and euron forces
-	if	wep:Clip1() == 5 then 											dementia_start = 0 reload_bodge = 1 
-	-- sorry sorry sorry
-	elseif wep:Clip1() == 4 and dementia_start == 0 then dementia = 5	dementia_start = 1 reload_bodge = 0	-- Diancie rolls worst fucking luck, asked to missed diamond storm
-	elseif wep:Clip1() == 3 and dementia_start == 0 then dementia = 30 	dementia_start = 1 reload_bodge = 0	-- focus missed
-	elseif wep:Clip1() == 2 and dementia_start == 0 then dementia = 50 	dementia_start = 1 reload_bodge = 0	-- also focus missed
-	elseif wep:Clip1() == 1 and dementia_start == 0 then dementia = 70 	dementia_start = 1 reload_bodge = 0	-- focus blast
-	elseif wep:Clip1() == 0 and dementia_start == 0 then dementia = 15 	dementia_start = 1 reload_bodge = 0
-	else 												 dementia = 0 	dementia_start = 0 reload_bodge = 0 end	
+	if	wep:Clip1() == 5 then	reload_bodge = 1 
+	else reload_bodge = 0
+	end		
+	-- the more you initially have to load the higher the chance of overloading
+	if curanim == "reload_start" then 
+		if 		wep:Clip1() == 4 then dementia = 5	-- Diancie rolls worst fucking luck, asked to missed diamond storm
+		elseif	wep:Clip1() == 3 then dementia = 30 	-- focus missed
+		elseif	wep:Clip1() == 2 then dementia = 50 	-- also focus missed
+		elseif	wep:Clip1() == 1 then dementia = 70 	-- focus blast
+		elseif	wep:Clip1() == 0 then dementia = 15
+		end
+	end
 
     if rng <= 25 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
 		if	curanim == "reload_empty"	then 	return "reload_fail"		end	
@@ -684,7 +687,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_insert"	then 	return "reload_insert_fail"	end
 		if	curanim == "cycle"			and wep:Clip1() 	!= 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail
 		if	curanim == "reload_finish"	and reload_bodge	== 0	then	return "reload_finish_fail"		end	-- regular reload fail
-	elseif rng > dementia then	-- the more you initially have to load the higher the chance of overloading
+	elseif rng <= dementia then	-- does this fucking work?
 		if	curanim == "reload_finish"	and reload_bodge	== 1	then	return "reload_finish_overload"	end	-- overloading a 6th bullet
 	end
 end

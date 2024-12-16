@@ -295,6 +295,20 @@ SWEP.Animations = {
         EjectAt = 6 / 40,
         FireASAP = true,
         MinProgress = 20/40,
+    },  
+    ["cycle_fail"] = {
+        Source = {"pump_fail"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	2 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	42 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	50 / 40},
+        },
+        EjectAt = 6 / 40,
+        FireASAP = true,
+        MinProgress = 0.8,
     },     
 	
 
@@ -357,6 +371,19 @@ SWEP.Animations = {
 		RefillProgress = 32 / 40,
         MinProgress = 32/40,
     }, 
+    ["reload_loop_fail"] = {
+        Source = "reload_loop_fail",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = { 
+            {s =  "myt_bf1942/1918/Berdan_MagSG15.ogg" ,	t = 25 / 40},  
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	67 / 40},
+        },
+		RefillProgress = 72 / 40,
+        MinProgress = 72/40,
+    }, 
 	["reload_emptoloop"] = {
         Source = "reload_emptoloop",
         IKTimeLine = {
@@ -391,6 +418,20 @@ SWEP.Animations = {
         },
         EventTable = {
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 10 / 40},  
+        },
+        FireASAP = true,
+        MinProgress = 24/40, 
+		RefillProgress = 24/40,
+    },  
+    ["reload_finish_fail"] = {
+        Source = "reload_end_fail",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_MagSG15.ogg" ,   t = 25 / 40},  
+            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 72 / 40},  
         },
         FireASAP = true,
         MinProgress = 24/40, 
@@ -553,6 +594,31 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	wep:Clip1() == 1 then
 		if curanim == "reload_finish"	then return "reload_end_empty"	end	
 		if curanim == "reload_insert" 	then return "reload_emptoloop"	end	
+	end
+
+
+	-- reload fuck up --
+	local varextra = 0		-- for att
+	local dementia		 = 0
+    local rng = math.Truncate(util.SharedRandom("AV pex last soldier", 1,100))
+
+	if curanim == "reload_start" then 
+		if 		wep:Clip1() == 7 then dementia = 500	-- Diancie rolls worst fucking luck, asked to missed diamond storm
+		elseif	wep:Clip1() == 6 then dementia = 30 	-- focus missed	
+		elseif	wep:Clip1() == 5 then dementia = 30 	-- focus missed	
+		elseif	wep:Clip1() == 4 then dementia = 30 	-- focus missed
+		elseif	wep:Clip1() == 3 then dementia = 30 	-- focus missed
+		elseif	wep:Clip1() == 2 then dementia = 50 	-- also focus missed
+		elseif	wep:Clip1() == 1 then dementia = 70 	-- focus blast
+		elseif	wep:Clip1() == 0 then dementia = 15
+		end
+	end
+	
+    if rng <= 28 + varextra  then	-- how the dnite be staring at me while my weavile miss all 3 triple axel
+		if	curanim == "reload_insert"	then 	return "reload_loop_fail"	end
+		if	curanim == "cycle"			and wep:Clip1() 	!= 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail, it doesnt cycle on last shot but keeping this just in case i do slam fire
+	elseif rng <= dementia then	-- the more you initially have to load the higher the chance of overloading
+		if	curanim == "reload_finish"	then	return "reload_finish_fail"	end	-- overloading an 8th(?) bullet
 	end
 end
 
