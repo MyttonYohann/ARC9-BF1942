@@ -452,8 +452,8 @@ SWEP.Animations = {
         MinProgress = 0.9,
         MagSwapTime = 70 / 40,
         IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0, lhik = 1, rhik = 0, }, { t = 0.1, lhik = 1, rhik = 0, },
+        { t = 0.25, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/1918/Winch_Hydra_Open.ogg" ,  t = 5 / 40},  
@@ -607,7 +607,7 @@ SWEP.Attachments = {
         DefaultName = "Standard Barrel",
 
         Category = "bf1942_fh_winch_cal",
-        Bone = "W_Main",
+        Bone = "W_Break",
         Pos = Vector(0, -2, 4),
         Ang = Angle(90, 0, -90),
     },

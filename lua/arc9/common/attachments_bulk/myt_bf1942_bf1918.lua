@@ -361,7 +361,7 @@ ATT.LHIK = true
 ATT.LHIK_Priority = 0.01
  
 ATT.Scale = 1
-ATT.ModelOffset = Vector(-15, -2.6, 3.5)
+ATT.ModelOffset = Vector(-22, -2.6, 3.5)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 ATT.Model = "models/weapons/myt_bf1942/1918/c_winchester.mdl"
 ATT.ModelBodygroups = "43740"
@@ -488,7 +488,7 @@ ATT.LHIK = true
 ATT.LHIK_Priority = 0.01
  
 ATT.Scale = 1
-ATT.ModelOffset = Vector(-15, -2.6, 3.5)
+ATT.ModelOffset = Vector(-22, -2.6, 3.5)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 ATT.Model = "models/weapons/myt_bf1942/1918/c_winchester.mdl"
 ATT.ModelBodygroups = "43740"
