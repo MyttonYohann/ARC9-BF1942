@@ -461,6 +461,22 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 69 / 40},
 			{s =  "myt_bf1942/1918/Winch_Hydra_Close.ogg" ,	t = 97 / 40},
         },
+    }, 
+    ["wet_hydra_optic"] = {
+        Source = "wet_hydra_optic",
+        FireASAP = true,
+        MinProgress = 0.9,
+        MagSwapTime = 70 / 40,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 0.1, lhik = 1, rhik = 0, },
+        { t = 0.25, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Winch_Hydra_Open.ogg" ,  t = 5 / 40},  
+            {s =  "myt_bf1942/1918/Winch_Hydra_Mag1.ogg" ,  t = 28 / 40},  
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 69 / 40},
+			{s =  "myt_bf1942/1918/Winch_Hydra_Close.ogg" ,	t = 97 / 40},
+        },
     },  
     ["dry_hydra"] = {
         Source = "dry_hydra",
@@ -661,7 +677,7 @@ SWEP.Attachments = {
         PrintName = "",
         DefaultName = "",
         Hidden = true,
-        InstalledElements = {"blank_toprail"},
+        InstalledElements = {"blank_toprail", "dovemount"},
 
         Category = {"bfc_optic_dove"},
         Bone = "W_Main",

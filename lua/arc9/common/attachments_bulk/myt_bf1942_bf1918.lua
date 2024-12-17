@@ -329,8 +329,9 @@ ATT.Description = [[olimpa
 ]]
 --ATT.CustomCons = { Malfunction = "+15%" }
 ATT.Hook_TranslateAnimation = function(wep, curanim)
-	if	curanim == "reload" and wep:Clip1() == 0	then	return "dry_hydra"	end
-	if	curanim == "reload"							then	return "wet_hydra"	end
+	if	curanim == "reload" and wep:Clip1() == 0			then	return "dry_hydra"			end
+	if	curanim == "reload"	and wep:HasElement("dovemount")	then	return "wet_hydra_optic"	end
+	if	curanim == "reload"									then	return "wet_hydra"			end
 end
 
 ATT.Firemodes = {
