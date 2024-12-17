@@ -640,7 +640,7 @@ SWEP.Attachments = {
         ExcludeElements = {"nofg"},
         Category = {"grip_css"},
         Bone = "W_Break",
-        Pos = Vector(0, 1.25, 4),
+        Pos = Vector(0, 0.5, 11.5),
         Ang = Angle(90, 0, -90),
     },
     {
