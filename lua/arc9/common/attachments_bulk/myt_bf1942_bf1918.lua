@@ -357,6 +357,15 @@ ATT.ManualAction = false
 ATT.ClipSize = 2
 ATT.ChamberSize = 0
 
+ATT.LHIK = true
+ATT.LHIK_Priority = 0.01
+ 
+ATT.Scale = 1
+ATT.ModelOffset = Vector(-15, -2.6, 3.5)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+ATT.Model = "models/weapons/myt_bf1942/1918/c_winchester.mdl"
+ATT.ModelBodygroups = "43740"
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch1")
 
 
@@ -474,6 +483,15 @@ ATT.ImpactForce = 2
 ATT.ManualAction = false
 ATT.ClipSize = 5
 ATT.RPMMult = 300/500
+
+ATT.LHIK = true
+ATT.LHIK_Priority = 0.01
+ 
+ATT.Scale = 1
+ATT.ModelOffset = Vector(-15, -2.6, 3.5)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+ATT.Model = "models/weapons/myt_bf1942/1918/c_winchester.mdl"
+ATT.ModelBodygroups = "43740"
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch2")
 

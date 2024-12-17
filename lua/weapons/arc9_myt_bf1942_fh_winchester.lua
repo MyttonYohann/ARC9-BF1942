@@ -314,10 +314,7 @@ SWEP.Animations = {
 
     ["reload_start_empty"] = {
         Source = "reload_start_empty",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
         EventTable = {   
             {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 1 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	14 / 40},
@@ -332,10 +329,7 @@ SWEP.Animations = {
 
     ["reload_start_empty_auto"] = {
         Source = "reload_start_empty_auto",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
         EventTable = {   
             {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 1 / 40},  
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 22 / 40},
@@ -349,7 +343,7 @@ SWEP.Animations = {
         Source = "reload_start",
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 1, rhik = 0, }, { t = 0.3, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },
         },
         EventTable = {   
             {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 10 / 40},  
@@ -361,10 +355,7 @@ SWEP.Animations = {
     },  
     ["reload_insert"] = {
         Source = "reload_loop",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
-        },
+		IKTimeLine = { { t = 0, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },  },
         EventTable = { 
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	25 / 40},
         },
@@ -373,10 +364,7 @@ SWEP.Animations = {
     }, 
     ["reload_loop_fail"] = {
         Source = "reload_loop_fail",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
-        },
+		IKTimeLine = { { t = 0, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },  },
         EventTable = { 
             {s =  "myt_bf1942/1918/Berdan_MagSG15.ogg" ,	t = 25 / 40},  
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	67 / 40},
@@ -388,7 +376,7 @@ SWEP.Animations = {
         Source = "reload_emptoloop",
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.4, lhik = 1, rhik = 0, }, { t = 0.6, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },
         },
         EventTable = { 
             {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,  		t = 15 / 40},  
@@ -401,7 +389,7 @@ SWEP.Animations = {
         Source = "reload_emptoloop_auto",
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 1, rhik = 0, }, { t = 0.6, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },
         },
         EventTable = { 
             {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,  		t = 15 / 40},  
@@ -413,8 +401,8 @@ SWEP.Animations = {
     ["reload_finish"] = {
         Source = "reload_end",
         IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0, lhik = 0, rhik = 0, },
+        { t = 0.3, lhik = 0, rhik = 0, }, { t = 0.9, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 10 / 40},  
@@ -439,10 +427,7 @@ SWEP.Animations = {
     },  
     ["reload_end_empty"] = {
         Source = "reload_end_empty",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = {  { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
         EventTable = {
             {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 20 / 40},  
         },
@@ -451,10 +436,7 @@ SWEP.Animations = {
     },  
     ["reload_end_empty_auto"] = {
         Source = "reload_end_empty_auto",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = {  { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
         EventTable = {
             {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 12 / 40},  
         },
@@ -523,9 +505,7 @@ SWEP.Animations = {
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
         },
-        IKTimeLine = {
-        { t = 0, lhik = 0, rhik = 0, }, { t = 0.5, lhik = 0, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
     },
     ["ready"] = {
         Source = "draw",
@@ -534,21 +514,15 @@ SWEP.Animations = {
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
         },
-        IKTimeLine = {
-        { t = 0, lhik = 0, rhik = 0, }, { t = 0.5, lhik = 0, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
     },
     ["holster"] = {
         Source = "holster",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
     },
     ["idle"] = {
         Source = "idle",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
     }, 
 
     ["draw_last"] = {
@@ -558,21 +532,15 @@ SWEP.Animations = {
         EventTable = {
             {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
         },
-        IKTimeLine = {
-        { t = 0, lhik = 0, rhik = 0, }, { t = 0.5, lhik = 0, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
     },
     ["holster_last"] = {
         Source = "holster_last",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
     },
     ["idle_last"] = {
         Source = "idle_last",
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
     }, 
 
     ["exit_ubgl"] = {		-- bodging
@@ -616,7 +584,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 
     if rng <= 10 + varextra  then	-- how the dnite be staring at me while my weavile miss all 3 triple axel
 		if	curanim == "reload_insert"	then 	return "reload_loop_fail"	end
-		if	curanim == "cycle"			and wep:Clip1() 	!= 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail, it doesnt cycle on last shot but keeping this just in case i do slam fire
+		if	curanim == "cycle"			and wep:Clip1() 	!= 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail, it doesnt cycle on last shot but keeping this in case i do slam fire
 	elseif rng <= wep.DementiaCounter + varextra and wep:Clip1() == wep.ClipSize + wep.ChamberSize then	-- the more you initially have to load the higher the chance of overloading
 		if	curanim == "reload_finish" 	then	return "reload_finish_fail"	end	-- overloading, doesnt work with cal_auto?
 	end
@@ -640,7 +608,7 @@ SWEP.Attachments = {
 
         Category = "bf1942_fh_winch_cal",
         Bone = "W_Main",
-        Pos = Vector(0, -1, 12),
+        Pos = Vector(0, -2, 4),
         Ang = Angle(90, 0, -90),
     },
     {
