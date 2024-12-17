@@ -611,9 +611,9 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		wep.DementiaCounter = wep.DementiaCounter + 10	-- gradual demetia
 	elseif curanim == "reload_insert_fail" then
 		wep.DementiaCounter = wep.DementiaCounter + 15
+	elseif curanim == "reload_start_empty" then
+		wep.DementiaCounter = wep.DementiaCounter - 20
 	end
-	
-	if wep.DementiaCounter > 10 then print "CUNT" end
 
     if rng <= 10 + varextra  then	-- how the dnite be staring at me while my weavile miss all 3 triple axel
 		if	curanim == "reload_insert"	then 	return "reload_loop_fail"	end

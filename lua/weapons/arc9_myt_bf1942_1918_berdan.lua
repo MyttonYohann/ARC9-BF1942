@@ -676,6 +676,8 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		wep.DementiaCounter = wep.DementiaCounter + 15	-- gradual demetia
 	elseif curanim == "reload_insert_fail" then
 		wep.DementiaCounter = wep.DementiaCounter + 20
+	elseif curanim == "reload_start_empty" then
+		wep.DementiaCounter = wep.DementiaCounter - 40
 	end
 
     if rng <= 25 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
