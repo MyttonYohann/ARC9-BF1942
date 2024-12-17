@@ -303,6 +303,7 @@ SWEP.Animations = {
         },
         EventTable = {
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	2 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt15.ogg" ,			t =	10 / 40},
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	42 / 40},
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	50 / 40},
         },
@@ -366,7 +367,7 @@ SWEP.Animations = {
         Source = "reload_loop_fail",
 		IKTimeLine = { { t = 0, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },  },
         EventTable = { 
-            {s =  "myt_bf1942/1918/Berdan_MagSG15.ogg" ,	t = 25 / 40},  
+            {s =  "myt_bf1942/dc/r870_reload_fail3.ogg" ,	t = 25 / 40},  
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	67 / 40},
         },
 		RefillProgress = 72 / 40,
@@ -418,8 +419,9 @@ SWEP.Animations = {
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_MagSG15.ogg" ,   t = 25 / 40},  
-            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 72 / 40},  
+            {s =  "myt_bf1942/dc/r870_reload_fail.ogg" ,	t = 25 / 40},  
+            {s =  "myt_bf1942/dc/r870_reload_fail2.ogg" ,	t = 47 / 40},  
+            {s =  "myt_bf1942/dc/r870_foley2.ogg",			t = 72 / 40},  
         },
         FireASAP = true,
         MinProgress = 0.9, 
@@ -601,7 +603,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
     if rng <= 10 + varextra  then	-- how the dnite be staring at me while my weavile miss all 3 triple axel
 		if	curanim == "reload_insert"	then 	return "reload_loop_fail"	end
 		if	curanim == "cycle"			and wep:Clip1() 	!= 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail, it doesnt cycle on last shot but keeping this in case i do slam fire
-	elseif rng <= wep.DementiaCounter + varextra and wep:Clip1() == wep.ClipSize + wep.ChamberSize then	-- the more you initially have to load the higher the chance of overloading
+	elseif rng <= wep.DementiaCounter + varextra and wep:Clip1() == wep:GetValue("ClipSize") + wep:GetValue("ChamberSize") then	-- the more you initially have to load the higher the chance of overloading
 		if	curanim == "reload_finish" 	then	return "reload_finish_fail"	end	-- overloading, doesnt work with cal_auto?
 	end
 end
