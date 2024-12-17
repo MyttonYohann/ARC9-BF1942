@@ -60,8 +60,21 @@ ATT.Category = "bf1942_dc_mp5_stock"
 ATT.ActivateElements = {"s_3"}
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0, -1, 0)
+	if 	wep:HasElement("s_32") then
+		return vec + Vector(0, -1, 0)
+	else
+		return vec + Vector(0, 0, 0)
+	end
 end
+
+ATT.CustomizePosHook = function(wep, vec)
+	if 	wep:HasElement("s_32") then
+		return vec + Vector(1, 0, 0)
+	else
+		return vec + Vector(0, 0, 0)
+	end
+end
+
 
 ATT.ToggleStats = {
     {
@@ -71,7 +84,6 @@ ATT.ToggleStats = {
     },
     {
         PrintName = "Folded",
-        CustomizePos = Vector(13, 28, 7),
         ActivateElements = {"s_32"}
     },
 }
@@ -150,7 +162,7 @@ ATT.Category = "bf1942_dc_mp5_hg"
 ATT.ActivateElements = {"hg_1", "gripped", "nofg"}
 
 ATT.CustomizePosHook = function(wep, vec)
-    return vec + Vector(2, 0, 0)
+    return vec + Vector(1, 0, 0)
 end
 
 ATT.LHIK = true
