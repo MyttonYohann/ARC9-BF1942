@@ -587,6 +587,7 @@ SWEP.Animations = {
     },  
 }
 
+SWEP.DementiaCounter = 0
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end		-- 	bodging for off hand weapon
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
@@ -601,26 +602,23 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	local varextra = 0		-- for att
 	local dementia		= 0
 	local dementia_end	= 0
+	
+	if wep:HasElement("cal_auto") then varextra = 15
+	end
 
-	if	wep:Clip1() == 5 then	dementia_end = 1 
-	end	
-
-	if curanim == "reload_start" then 
-		if 		wep:Clip1() == 7 then dementia = 500	-- Diancie rolls worst fucking luck, asked to miss diamond storm
-		elseif	wep:Clip1() == 6 then dementia = 30 	-- focus missed	
-		elseif	wep:Clip1() == 5 then dementia = 30 	-- focus missed	
-		elseif	wep:Clip1() == 4 then dementia = 30 	-- focus missed
-		elseif	wep:Clip1() == 3 then dementia = 30 	-- focus missed
-		elseif	wep:Clip1() == 2 then dementia = 50 	-- also focus missed
-		elseif	wep:Clip1() == 1 then dementia = 70 	-- focus blast
-		elseif	wep:Clip1() == 0 then dementia = 15
-		end
+	if	wep:Clip1() == 8 then	dementia_end = 1 end	
+	if curanim == "reload_insert" or curanim == "reload_emptoloop" or  curanim == "reload_start"  then
+		wep.DementiaCounter = wep.DementiaCounter + 10	-- gradual demetia
+	elseif curanim == "reload_insert_fail" then
+		wep.DementiaCounter = wep.DementiaCounter + 15
 	end
 	
-    if rng <= 28 + varextra  then	-- how the dnite be staring at me while my weavile miss all 3 triple axel
+	if wep.DementiaCounter > 10 then print "CUNT" end
+
+    if rng <= 10 + varextra  then	-- how the dnite be staring at me while my weavile miss all 3 triple axel
 		if	curanim == "reload_insert"	then 	return "reload_loop_fail"	end
 		if	curanim == "cycle"			and wep:Clip1() 	!= 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail, it doesnt cycle on last shot but keeping this just in case i do slam fire
-	elseif rng <= dementia then	-- the more you initially have to load the higher the chance of overloading
+	elseif rng <= wep.DementiaCounter then	-- the more you initially have to load the higher the chance of overloading
 		if	curanim == "reload_finish" and dementia_end == 1 	then	return "reload_finish_fail"	end	-- overloading an 8th(?) bullet
 	end
 end
