@@ -668,18 +668,16 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	end
 
 	-- sometimes you just kinda forgot about the iron fleet and euron forces
-	if	wep:Clip1() == 5 then	reload_bodge = 1 
-	else reload_bodge = 0
-	end		
+	if	wep:Clip1() == 5 then	reload_bodge = 1 end		
 
-	if curanim == "reload_insert" or curanim == "reload_emptoloop"  then
-		wep.DementiaCounter = wep.DementiaCounter + 15	-- gradual demetia
+	if curanim == "reload_insert" then
+		wep.DementiaCounter = wep.DementiaCounter + 20	-- gradual demetia
 	elseif curanim == "reload_insert_fail" then
-		wep.DementiaCounter = wep.DementiaCounter + 20
+		wep.DementiaCounter = wep.DementiaCounter + 25
 	elseif curanim == "reload_start_empty" then
-		wep.DementiaCounter = - 20
+		wep.DementiaCounter = -30
 	elseif curanim == "reload_start" then
-		wep.DementiaCounter = 10
+		wep.DementiaCounter = 5
 	end
 	
     if rng <= 25 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
