@@ -601,10 +601,10 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
     local rng = math.Truncate(util.SharedRandom("AV pex last soldier", 1,100))
 	local varextra = 0		-- for att
 	
-	if wep:HasElement("cal_auto") then varextra = 15
+	if wep:HasElement("cal_auto") then varextra = 35
 	end
 
-	if curanim == "reload_insert" or curanim == "reload_emptoloop" then
+	if curanim == "reload_insert" or curanim == "reload_emptoloop" or curanim == "reload_start_empty_auto" then
 		wep.DementiaCounter = wep.DementiaCounter + 10	-- gradual demetia
 	elseif curanim == "reload_insert_fail" then
 		wep.DementiaCounter = wep.DementiaCounter + 15
