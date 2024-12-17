@@ -658,8 +658,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	-- reload fuck up --
     local rng = math.Truncate(util.SharedRandom("vest pex best pex", 1,100))
 	local varextra = 0		-- for att
-	local reload_bodge = 0	-- accidental overloading only for the 5th to 6th bullet, ending at 4th or lower wont trigger
-	local dementia		 = 0
+	local dementia_end = 0	-- accidental overloading only for the 5th to 6th bullet, ending at 4th or lower wont trigger
 
 	if wep:HasElement("cal_sg") then varextra = 15		-- hypnosis
 	elseif wep:HasElement("cal_50") then varextra = 20	-- grass whistle
@@ -668,12 +667,12 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	end
 
 	-- sometimes you just kinda forgot about the iron fleet and euron forces
-	if	wep:Clip1() == 5 then	reload_bodge = 1 end		
+	if	wep:Clip1() == 5 then	dementia_end = 1 end		
 
 	if curanim == "reload_insert" then
-		wep.DementiaCounter = wep.DementiaCounter + 20	-- gradual demetia
+		wep.DementiaCounter = wep.DementiaCounter + 15	-- gradual demetia
 	elseif curanim == "reload_insert_fail" then
-		wep.DementiaCounter = wep.DementiaCounter + 25
+		wep.DementiaCounter = wep.DementiaCounter + 20
 	elseif curanim == "reload_start_empty" then
 		wep.DementiaCounter = -30
 	elseif curanim == "reload_start" then
@@ -685,9 +684,10 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 
 		if	curanim == "reload_insert"	then 	return "reload_insert_fail"	end
 		if	curanim == "cycle"			and wep:Clip1() 	!= 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail
-		if	curanim == "reload_finish"	and reload_bodge	== 0	then	return "reload_finish_fail"		end	-- regular reload fail
-	elseif rng <= wep.DementiaCounter then
-		if	curanim == "reload_finish"	and reload_bodge	== 1	then	return "reload_finish_overload"	end	-- overloading a 6th bullet
+		if	curanim == "reload_finish"	and dementia_end	== 0	then	return "reload_finish_fail"		end	-- regular reload fail
+	end
+	if rng <= wep.DementiaCounter then
+		if	curanim == "reload_finish"	and dementia_end	== 1	then	return "reload_finish_overload"	end	-- overloading a 6th bullet
 	end
 end
 

@@ -600,7 +600,6 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	-- reload fuck up --
     local rng = math.Truncate(util.SharedRandom("AV pex last soldier", 1,100))
 	local varextra = 0		-- for att
-	local dementia		= 0
 	local dementia_end	= 0
 	
 	if wep:HasElement("cal_auto") then varextra = 15
@@ -615,7 +614,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	elseif curanim == "reload_insert_fail" then
 		wep.DementiaCounter = wep.DementiaCounter + 15
 	elseif curanim == "reload_start_empty" then
-		wep.DementiaCounter = -20
+		wep.DementiaCounter = -30
 	elseif curanim == "reload_start" then
 		wep.DementiaCounter = 10
 	end
