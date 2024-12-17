@@ -415,7 +415,7 @@ SWEP.Animations = {
     ["reload_finish_fail"] = {
         Source = "reload_end_fail",
         IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0, lhik = 0, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
         EventTable = {
