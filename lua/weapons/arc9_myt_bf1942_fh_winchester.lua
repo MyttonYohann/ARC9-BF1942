@@ -596,14 +596,17 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if curanim == "reload_insert" 	then return "reload_emptoloop"	end	
 	end
 
-
 	-- reload fuck up --
-	local varextra = 0		-- for att
-	local dementia		 = 0
     local rng = math.Truncate(util.SharedRandom("AV pex last soldier", 1,100))
+	local varextra = 0		-- for att
+	local dementia		= 0
+	local dementia_end	= 0
+
+	if	wep:Clip1() == 5 then	dementia_end = 1 
+	end	
 
 	if curanim == "reload_start" then 
-		if 		wep:Clip1() == 7 then dementia = 500	-- Diancie rolls worst fucking luck, asked to missed diamond storm
+		if 		wep:Clip1() == 7 then dementia = 500	-- Diancie rolls worst fucking luck, asked to miss diamond storm
 		elseif	wep:Clip1() == 6 then dementia = 30 	-- focus missed	
 		elseif	wep:Clip1() == 5 then dementia = 30 	-- focus missed	
 		elseif	wep:Clip1() == 4 then dementia = 30 	-- focus missed
@@ -618,7 +621,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_insert"	then 	return "reload_loop_fail"	end
 		if	curanim == "cycle"			and wep:Clip1() 	!= 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail, it doesnt cycle on last shot but keeping this just in case i do slam fire
 	elseif rng <= dementia then	-- the more you initially have to load the higher the chance of overloading
-		if	curanim == "reload_finish"	then	return "reload_finish_fail"	end	-- overloading an 8th(?) bullet
+		if	curanim == "reload_finish" and dementia_end == 1 	then	return "reload_finish_fail"	end	-- overloading an 8th(?) bullet
 	end
 end
 

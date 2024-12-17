@@ -374,6 +374,9 @@ ATT.PenetrationUBGL = 7 -- Units of wood that can be penetrated by this gun.
 
 ATT.MuzzleParticleUBGL = "muzzleflash_3"
 
+ATT.PeekPos = Vector(-1.5, 3, -4.5)
+ATT.PeekAng = Angle(0, 0.4, -35)
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_smol_spotting")
 
 

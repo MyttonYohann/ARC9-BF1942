@@ -672,8 +672,8 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	else reload_bodge = 0
 	end		
 	-- the more you initially have to load the higher the chance of overloading
-	if curanim == "reload_start" then 
-		if 		wep:Clip1() == 4 then dementia = 5	-- Diancie rolls worst fucking luck, asked to missed diamond storm
+	if curanim == "reload_start" or curanim == "reload_start_empty"  then 
+		if 		wep:Clip1() == 4 then dementia = 5	-- Diancie rolls worst fucking luck, asked to miss diamond storm
 		elseif	wep:Clip1() == 3 then dementia = 30 	-- focus missed
 		elseif	wep:Clip1() == 2 then dementia = 50 	-- also focus missed
 		elseif	wep:Clip1() == 1 then dementia = 70 	-- focus blast
