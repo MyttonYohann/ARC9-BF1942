@@ -672,21 +672,23 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	else reload_bodge = 0
 	end		
 
-	if curanim == "reload_insert" or curanim == "reload_emptoloop" or  curanim == "reload_start"  then
+	if curanim == "reload_insert" or curanim == "reload_emptoloop"  then
 		wep.DementiaCounter = wep.DementiaCounter + 15	-- gradual demetia
 	elseif curanim == "reload_insert_fail" then
 		wep.DementiaCounter = wep.DementiaCounter + 20
 	elseif curanim == "reload_start_empty" then
-		wep.DementiaCounter = wep.DementiaCounter - 40
+		wep.DementiaCounter = - 20
+	elseif curanim == "reload_start" then
+		wep.DementiaCounter = 10
 	end
-
+	
     if rng <= 25 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
 		if	curanim == "reload_empty"	then 	return "reload_fail"		end	
 
 		if	curanim == "reload_insert"	then 	return "reload_insert_fail"	end
 		if	curanim == "cycle"			and wep:Clip1() 	!= 0	then	return "cycle_fail"				end	-- there's nothing in mag to fail
 		if	curanim == "reload_finish"	and reload_bodge	== 0	then	return "reload_finish_fail"		end	-- regular reload fail
-	elseif rng <= wep.DementiaCounter then	-- does this fucking work?
+	elseif rng <= wep.DementiaCounter then
 		if	curanim == "reload_finish"	and reload_bodge	== 1	then	return "reload_finish_overload"	end	-- overloading a 6th bullet
 	end
 end
