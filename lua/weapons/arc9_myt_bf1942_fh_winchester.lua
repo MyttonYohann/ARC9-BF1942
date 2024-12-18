@@ -755,6 +755,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	
 	if wep:HasElement("cal_auto") then varextra = 35 end	
 	if wep:HasElement("cal_breach") then varextra = -5 end
+	if wep:HasElement("cal_bullpup") then varextra = 10 end
 
 -- counter adds up with each insert anim
 -- manually reset when start, less chance when started empty
