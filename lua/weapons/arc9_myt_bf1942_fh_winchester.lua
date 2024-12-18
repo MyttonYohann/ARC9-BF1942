@@ -669,7 +669,7 @@ SWEP.Animations = {
         Source = "reload_start_empty",
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 1, },
-        { t = 0.3, lhik = 1, rhik = 1, }, { t = 0.8, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        { t = 0.45, lhik = 1, rhik = 1, }, { t = 0.8, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
         EventTable = {   
             {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 1 / 40},  

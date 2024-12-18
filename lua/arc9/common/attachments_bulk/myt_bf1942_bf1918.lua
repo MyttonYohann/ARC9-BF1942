@@ -608,7 +608,7 @@ end
 ATT.ClipSize = 10
 
 ATT.IronSights = {
-    Pos = Vector(-2.705, -6, -0.2),
+    Pos = Vector(-2.705, -6, -1),
     Ang = Angle(0,0,0),
     Midpoint = { -- Where the gun should be at the middle of it's irons
         Pos = Vector(0, 15, -4),
@@ -656,7 +656,7 @@ ATT.LHIK = true
 ATT.LHIK_Priority = 0.001
 
 ATT.Scale = 1
-ATT.ModelOffset = Vector(-20, -2.7, 3.5)
+ATT.ModelOffset = Vector(-20, -2.7, 4)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 ATT.Model = "models/weapons/myt_bf1942/1918/c_winchester_ik_bullpup.mdl"
 
