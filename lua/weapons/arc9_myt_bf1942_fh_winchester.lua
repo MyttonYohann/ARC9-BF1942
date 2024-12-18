@@ -296,9 +296,7 @@ SWEP.Animations = {
 
     ["cycle"] = {
         Source = {"pump","pump2"},
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
         EventTable = {
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	2 / 40},
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	10 / 40},
@@ -309,9 +307,7 @@ SWEP.Animations = {
     },  
     ["cycle_fail"] = {
         Source = {"pump_fail"},
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
         EventTable = {
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	2 / 40},
 			{s =  "myt_bf1942/dc/r870_bolt15.ogg" ,			t =	10 / 40},
@@ -324,7 +320,7 @@ SWEP.Animations = {
     },     
 	
 
-    ["reload_start_empty"] = {
+	["reload_start_empty"] = {
         Source = "reload_start_empty",
         IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
         EventTable = {   
@@ -466,7 +462,7 @@ SWEP.Animations = {
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
         FireASAP = true,
-		MinProgress = 10/40,
+		MinProgress = 0.5,
     },  
     ["reload_finish_fail"] = {
         Source = "reload_end_fail",
@@ -627,6 +623,120 @@ SWEP.Animations = {
         { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
     },  
+	
+--------------------------------------------------------
+-- Bullpup	
+--------------------------------------------------------
+    ["draw_bp"] = {
+        Source = "draw",
+        FireASAP = true,
+        MinProgress = 0.65,
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
+        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, },},
+    },
+    ["holster_bp"] = {  Source = "holster", IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, },}, },
+    ["idle_bp"] = { Source = "idle", IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, },}, }, 
+
+    ["fire_bp"] = { Source = {"fire"}, IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, }, }, }, 
+    ["cycle_bp"] = {
+        Source = {"pump"},
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, }, },
+        EventTable = {
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	2 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	10 / 40},
+        },
+        EjectAt = 6 / 40,
+        FireASAP = true,
+        MinProgress = 20/40,
+    },  
+    ["cycle_fail_bp"] = {
+        Source = {"pump_fail"},
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, }, },
+        EventTable = {
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	2 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt15.ogg" ,			t =	10 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	42 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	50 / 40},
+        },
+        EjectAt = 6 / 40,
+        FireASAP = true,
+        MinProgress = 0.8,
+    },     
+
+	["reload_start_empty_bp"] = {
+        Source = "reload_start_empty",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.3, lhik = 1, rhik = 1, }, { t = 0.8, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = {   
+            {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 1 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	14 / 40},
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 43 / 40},
+        },
+		RestoreAmmo = 1,
+        EjectAt = 18 / 40,
+		RefillProgress = 35/40,
+		MinProgress = 35/40,
+        MagSwapTime = 35/ 40,
+    },  
+	["reload_start_bp"] = {
+        Source = "reload_start_breach",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 1, }, { t = 0.3, lhik = 0, rhik = 1, },{ t = 1, lhik = 0, rhik = 1, },
+        },
+        EventTable = {   
+            {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 10 / 40},  
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 22 / 40},
+        },
+		RestoreAmmo = 1,
+		RefillProgress = 20/40,
+		MinProgress = 20/40,
+    },  
+	["reload_insert_bp"] = {
+        Source = "reload_loop_breach",
+		IKTimeLine = { { t = 0, lhik = 0, rhik = 1, },{ t = 1, lhik = 0, rhik = 1, },  },
+        EventTable = { 
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	21 / 40},
+        },
+		RefillProgress = 25 / 40,
+        MinProgress = 25/40,
+    }, 
+
+	["reload_emptoloop_bp"] = {
+        Source = "reload_emptoloop_breach",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.4, lhik = 1, rhik = 1, }, { t = 0.6, lhik = 0, rhik = 1, },{ t = 1, lhik = 0, rhik = 1, },
+        },
+        EventTable = { 
+            {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,  		t = 15 / 40},  
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 42 / 40},
+        },
+		RefillProgress = 40/40,
+        MinProgress = 40/40,
+    },
+    ["reload_end_bp"] = {
+        Source = "reload_end_breach",
+        IKTimeLine = {
+        { t = 0, lhik = 0, rhik = 1, },
+        { t = 0.1, lhik = 0, rhik = 1, }, { t = 0.8, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+        },
+        FireASAP = true,
+		MinProgress = 0.5,
+    },  
+    ["reload_end_empty_bp"] = {
+        Source = "reload_end_empty",
+        IKTimeLine = {  { t = 0, lhik = 1, rhik = 0, }, { t = 0.4, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, },},
+        EventTable = {
+            {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 20 / 40},  
+        },
+        FireASAP = true,
+        MinProgress = 32/40,
+    },  
 }
 
 SWEP.DementiaCounter = 0
@@ -675,7 +785,8 @@ SWEP.AttachmentElements = {
     ["cal_auto"] = 		{ Bodygroups = { {0, 2}, {2, 2} },},    
 	["cal_flux"] = 		{ Bodygroups = { {2, 6}, {4, 1}, {3, 1} },},  
 	["cal_monolith"] =	{ Bodygroups = { {1, 2}, {2, 3}, },},   
-	["cal_breach"] =	{ Bodygroups = { {2, 5}, {3, 1}, },},   
+	["cal_breach"] =	{ Bodygroups = { {2, 5}, {3, 1}, },},
+ 	["cal_bullpup"] =	{ Bodygroups = { {0, 5}, {2, 8}, {3, 4}, {4, 2}, },},   
 }
  
 SWEP.Attachments = {
@@ -687,6 +798,7 @@ SWEP.Attachments = {
         Bone = "W_Break",
         Pos = Vector(0, -2, 4),
         Ang = Angle(90, 0, -90),
+        MergeSlots = {7},
     },
     {
         PrintName = "Foregrip",
@@ -743,6 +855,28 @@ SWEP.Attachments = {
         Category = {"bfc_optic_dove"},
         Bone = "W_Main",
         Pos = Vector(0.8, -1.2, 2),
+        Ang = Angle(90, 0, -90),
+    }, 
+	{   --7 bullpup
+        PrintName = "",
+        DefaultName = "",
+        Hidden = true,
+
+        Category = {"bf1942_fh_winch_cal2"},
+        Bone = "W_Main",
+        Pos = Vector(0, -2, 4),
+        Ang = Angle(90, 0, -90),
+    },
+	{   --8 bullpup ik bodge, i am so sorry
+        PrintName = "",
+        DefaultName = "",
+        Hidden = true,
+        Integral = true,
+        Installed = "myt_bf1942_fh_winch61",
+
+        Category = {"fh_winch_bodge"},
+        Bone = "W_Break",
+        Pos = Vector(0, -2, 4),
         Ang = Angle(90, 0, -90),
     },
 }

@@ -572,3 +572,92 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch5")
 
 
 ----------------------------------------------------------------------------------
+
+ATT = {}
+
+ATT.PrintName = [[Bullpup Kit]]
+ATT.CompactName = [[K. Bullpup]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[ergonomic
+long barrel allow long tube allow long shell
+more shell
+]]
+
+ATT.SortOrder = 1000000
+ATT.Category = "bf1942_fh_winch_cal2"
+ATT.ActivateElements = {"cal_bullpup"}
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_finish" 		then	return "reload_end_bp"			end
+	if	curanim == "reload_finish_fail"	then	return "reload_end_bp"			end
+	if	curanim == "reload_insert" 		then	return "reload_insert_bp"		end
+	if	curanim == "reload_loop_fail"	then	return "reload_insert_bp"		end
+	if	curanim == "reload_emptoloop"	then	return "reload_emptoloop_bp"	end
+	if	curanim == "reload_start"		then	return "reload_start_bp"		end	
+
+	if	curanim == "draw"				then	return "draw_bp"				end
+	if	curanim == "idle"				then	return "idle_bp"				end
+	if	curanim == "holster"			then	return "holster_bp"				end	
+	if	curanim == "fire"				then	return "fire_bp"				end
+	if	curanim == "cycle"				then	return "cycle_bp"				end	
+	if	curanim == "cycle_fail"			then	return "cycle_fail_bp"			end	
+	if	curanim == "reload_start_empty"	then	return "reload_start_empty_bp"	end	
+	if	curanim == "reload_end_empty"	then	return "reload_end_empty_bp"	end	
+	
+end
+ATT.ClipSize = 10
+
+
+ATT.CustomizePosHook = function(wep, vec)
+    return vec + Vector(6, 0, 0)
+end
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0.5, -5, -1)
+end
+
+ATT.RHIK = true
+ATT.RHIK_Priority = 0.01
+ 
+ATT.Scale = 1
+ATT.ModelOffset = Vector(-11, -2.8, 3.8)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+ATT.Model = "models/weapons/myt_bf1942/1918/c_winchester_ik_bullpup.mdl"
+--ATT.ModelBodygroups = "43740"
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch6")
+
+
+----------------------------------------------------------------------------------
+
+---winchester ik bodge
+
+ATT = {}
+
+ATT.PrintName = ""
+ATT.CompactName = ""
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[]]
+ATT.SortOrder = 10000
+ATT.Free = true
+
+ATT.LHIK = true 
+ATT.LHIK_Priority = 0.001
+
+ATT.Scale = 1
+ATT.ModelOffset = Vector(-20, -2.7, 3.5)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+ATT.Model = "models/weapons/myt_bf1942/1918/c_winchester_ik_bullpup.mdl"
+
+
+ATT.DrawFunc = function(swep, model) 
+	if swep:GetElements()["bf1942_fh_winch_cal2"] then
+		model:SetModel("models/weapons/myt_bf1942/1918/c_winchester_ik_bullpup.mdl")
+	else
+		model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl")
+	end
+end
+
+ATT.Category = {"fh_winch_bodge"}
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch61")
