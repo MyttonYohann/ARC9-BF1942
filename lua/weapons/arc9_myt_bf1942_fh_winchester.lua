@@ -277,6 +277,17 @@ SWEP.Animations = {
         EjectAt = 1/ 40,
         IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
     },
+	["jam"] = {
+        Source = {"fire_auto_fail"},
+        EjectAt = 1/ 40,
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+        FireASAP = true,
+        MinProgress = 0.8,
+        EventTable = {
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	28 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	33 / 40},
+        },
+    },
 	["fire_auto_last"] = {
         Source = {"fire_auto_last"},
         EjectAt = 1/ 40,

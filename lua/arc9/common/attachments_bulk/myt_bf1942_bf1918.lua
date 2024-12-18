@@ -494,6 +494,11 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 ATT.Model = "models/weapons/myt_bf1942/1918/c_winchester.mdl"
 ATT.ModelBodygroups = "43740"
 
+ATT.MalfunctionWait = -1
+ATT.Malfunction = true
+ATT.MalfunctionMeanShotsToFail = 10
+ATT.MalfunctionJam = false
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch2")
 
 
