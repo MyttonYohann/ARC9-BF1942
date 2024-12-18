@@ -1,8 +1,8 @@
 local ATT = {}
 local shared = {
-	RHIK = true
-	RHIK_Priority = 10
-	ActivateElements = {"off_hand"}
+	RHIK = true,
+	RHIK_Priority = 10,
+	ActivateElements = {"off_hand"},
 
 	IKGunMotionQCA = 2,
 	MuzzleDeviceUBGL = true,
@@ -19,7 +19,7 @@ local shared = {
 	IKGunMotionAngleMult = 0.5,
 
 	CustomCrosshairUBGL = false,
-	PushBackForce = 0
+	PushBackForce = 0,
 }
 ----------------------------------------------------------
 
@@ -29,7 +29,7 @@ local shared = {
 
 
 ATT = {}
-table.Merge(ATT, shared)
+table.Merge(ATT, shared) 
 ATT.PrintName = [[PSS]]
 ATT.CompactName = [[PSS]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
