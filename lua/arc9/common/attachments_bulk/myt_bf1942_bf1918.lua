@@ -607,6 +607,17 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 end
 ATT.ClipSize = 10
 
+ATT.IronSights = {
+    Pos = Vector(-2.705, -6, -0.2),
+    Ang = Angle(0,0,0),
+    Midpoint = { -- Where the gun should be at the middle of it's irons
+        Pos = Vector(0, 15, -4),
+        Ang = Angle(0, 0, -45),
+    },
+    Magnification = 1.1,
+    CrosshairInSights = false
+}
+
 
 ATT.CustomizePosHook = function(wep, vec)
     return vec + Vector(6, 0, 0)
