@@ -536,3 +536,39 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch3")
 
 
 ----------------------------------------------------------------------------------
+
+ATT = {}
+
+ATT.PrintName = [[Assault Barrel]]
+ATT.CompactName = [[B. Breach]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[they've got urban door breaching back in the first world war?
+]]
+
+ATT.SortOrder = 1
+ATT.Category = "bf1942_fh_winch_cal"
+ATT.ActivateElements = {"cal_breach"}
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_finish" 		then	return "reload_end_breach"			end
+	if	curanim == "reload_finish_fail"	then	return "reload_end_breach"			end
+	if	curanim == "reload_insert" 		then	return "reload_insert_breach"		end
+	if	curanim == "reload_loop_fail"	then	return "reload_insert_breach"		end
+	if	curanim == "reload_emptoloop"	then	return "reload_emptoloop_breach"	end
+	if	curanim == "reload_start"		then	return "reload_start_breach"		end	
+	
+end
+ATT.ClipSize = 3
+
+ATT.LHIK = true
+ATT.LHIK_Priority = 0.01
+ 
+ATT.Scale = 1
+ATT.ModelOffset = Vector(-8.5, 0.5, -4)
+ATT.ModelAngleOffset = Angle(0, 5, 0)
+ATT.Model = "models/weapons/myt_bf1942/dc/c_mp5_ik_ii.mdl"
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch5")
+
+
+----------------------------------------------------------------------------------

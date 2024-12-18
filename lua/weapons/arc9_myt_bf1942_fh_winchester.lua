@@ -364,6 +364,20 @@ SWEP.Animations = {
 		RestoreAmmo = 1,
 		RefillProgress = 35/40,
 		MinProgress = 35/40,
+    },   
+	["reload_start_breach"] = {
+        Source = "reload_start_breach",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 1, rhik = 0, }, { t = 0.3, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },
+        },
+        EventTable = {   
+            {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 10 / 40},  
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 22 / 40},
+        },
+		RestoreAmmo = 1,
+		RefillProgress = 20/40,
+		MinProgress = 20/40,
     },  
     ["reload_insert"] = {
         Source = "reload_loop",
@@ -373,6 +387,15 @@ SWEP.Animations = {
         },
 		RefillProgress = 32 / 40,
         MinProgress = 32/40,
+    },  
+	["reload_insert_breach"] = {
+        Source = "reload_loop_breach",
+		IKTimeLine = { { t = 0, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },  },
+        EventTable = { 
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	21 / 40},
+        },
+		RefillProgress = 25 / 40,
+        MinProgress = 25/40,
     }, 
     ["reload_loop_fail"] = {
         Source = "reload_loop_fail",
@@ -396,6 +419,19 @@ SWEP.Animations = {
         },
 		RefillProgress = 60/40,
         MinProgress = 60/40,
+    },
+	["reload_emptoloop_breach"] = {
+        Source = "reload_emptoloop_breach",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.4, lhik = 1, rhik = 0, }, { t = 0.6, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },
+        },
+        EventTable = { 
+            {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,  		t = 15 / 40},  
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 42 / 40},
+        },
+		RefillProgress = 40/40,
+        MinProgress = 40/40,
     },
 	["reload_emptoloop_auto"] = {
         Source = "reload_emptoloop_auto",
@@ -422,6 +458,15 @@ SWEP.Animations = {
         FireASAP = true,
         MinProgress = 24/40, 
 		RefillProgress = 24/40,
+    },  
+    ["reload_end_breach"] = {
+        Source = "reload_end_breach",
+        IKTimeLine = {
+        { t = 0, lhik = 0, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
+        FireASAP = true,
+		MinProgress = 10/40,
     },  
     ["reload_finish_fail"] = {
         Source = "reload_end_fail",
@@ -598,8 +643,8 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
     local rng = math.Truncate(util.SharedRandom("AV pex last soldier", 1,100))
 	local varextra = 0		-- for att
 	
-	if wep:HasElement("cal_auto") then varextra = 35
-	end
+	if wep:HasElement("cal_auto") then varextra = 35 end	
+	if wep:HasElement("cal_breach") then varextra = -5 end
 
 -- counter adds up with each insert anim
 -- manually reset when start, less chance when started empty
@@ -630,6 +675,7 @@ SWEP.AttachmentElements = {
     ["cal_auto"] = 		{ Bodygroups = { {0, 2}, {2, 2} },},    
 	["cal_flux"] = 		{ Bodygroups = { {2, 6}, {4, 1}, {3, 1} },},  
 	["cal_monolith"] =	{ Bodygroups = { {1, 2}, {2, 3}, },},   
+	["cal_breach"] =	{ Bodygroups = { {2, 5}, {3, 1}, },},   
 }
  
 SWEP.Attachments = {
