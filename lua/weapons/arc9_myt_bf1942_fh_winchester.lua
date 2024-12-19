@@ -420,7 +420,7 @@ SWEP.Animations = {
         Source = "reload_emptoloop_breach",
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.4, lhik = 1, rhik = 0, }, { t = 0.6, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },
+        { t = 0.45, lhik = 1, rhik = 0, }, { t = 0.7, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },
         },
         EventTable = { 
             {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,  		t = 15 / 40},  

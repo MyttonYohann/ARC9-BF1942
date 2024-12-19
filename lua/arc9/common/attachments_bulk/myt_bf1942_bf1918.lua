@@ -564,7 +564,7 @@ ATT.LHIK = true
 ATT.LHIK_Priority = 0.01
  
 ATT.Scale = 1
-ATT.ModelOffset = Vector(-8.5, 0.5, -4)
+ATT.ModelOffset = Vector(-8.5, 0.5, -4.5)
 ATT.ModelAngleOffset = Angle(0, 5, 0)
 ATT.Model = "models/weapons/myt_bf1942/dc/c_mp5_ik_ii.mdl"
 
