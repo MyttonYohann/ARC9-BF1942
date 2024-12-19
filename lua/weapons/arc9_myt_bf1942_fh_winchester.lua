@@ -852,7 +852,8 @@ SWEP.Attachments = {
         DefaultName = "",
         Hidden = true,
         InstalledElements = {"blank_toprail", "dovemount"},
-
+        ExcludeElements = {"no_dovetail"},
+		
         Category = {"bfc_optic_dove"},
         Bone = "W_Main",
         Pos = Vector(0.8, -1.2, 2),

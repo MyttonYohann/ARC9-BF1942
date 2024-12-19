@@ -547,7 +547,7 @@ ATT.Description = [[they've got urban door breaching back in the first world war
 
 ATT.SortOrder = 1
 ATT.Category = "bf1942_fh_winch_cal"
-ATT.ActivateElements = {"cal_breach"}
+ATT.ActivateElements = {"cal_breach", "nofg"}
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_finish" 		then	return "reload_end_breach"			end
@@ -585,7 +585,7 @@ more shell
 
 ATT.SortOrder = 1000000
 ATT.Category = "bf1942_fh_winch_cal2"
-ATT.ActivateElements = {"cal_bullpup"}
+ATT.ActivateElements = {"cal_bullpup", "no_dovetail", "nooh"}
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_finish" 		then	return "reload_end_bp"			end
