@@ -517,6 +517,9 @@ ATT.SortOrder = 2
 ATT.Category = "bf1942_fh_winch_cal"
 ATT.ActivateElements = {"cal_flux"}
 
+ATT.PeekPos = Vector(2, -1, -2)
+ATT.PeekAng = Angle(0, 0, -10)
+
 ATT.Firemodes = {
     {
         Mode = 1,
@@ -562,7 +565,7 @@ ATT.ClipSize = 3
 
 ATT.LHIK = true
 ATT.LHIK_Priority = 0.01
- 
+
 ATT.Scale = 1
 ATT.ModelOffset = Vector(-8.5, 0.5, -4.5)
 ATT.ModelAngleOffset = Angle(0, 5, 0)

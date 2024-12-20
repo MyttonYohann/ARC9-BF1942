@@ -12,7 +12,7 @@ SWEP.TrueName = "Axe"
 SWEP.Class = "Melee"
 SWEP.Trivia = {
 	["Country of Origin"] = [[Earth]],
-	["Caliber"] = "Newtonian Force",
+	["Calibre"] = "Newtonian Force",
 }
 
 SWEP.Credits = {
@@ -42,6 +42,7 @@ SWEP.ImpactForce = 1
 -------------------------- MAGAZINE
 
 SWEP.Ammo = "xbowbolt" -- What ammo type this gun uses.
+SWEP.Disposable = true
 
 SWEP.ChamberSize = 0 -- The amount of rounds this gun can chamber.
 SWEP.ClipSize = 1 -- Self-explanatory.
@@ -240,7 +241,7 @@ SWEP.Animations = {
         { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
     },   
-	["enter_ubgl_bodge"] = {		-- bodging
+	["enter_ubgl"] = {		-- bodging
         Source = "axe_to_ubgl",
         MinProgress = 0.7,
 		FireASAP = true,
@@ -257,12 +258,11 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
 
-	if wep:GetUBGL(true) then
-	if	curanim == "idle" then return "idle_bodge"	end	
-	end
 end
 
-
+SWEP.HookP_BlockFire = function(wep)
+    return !wep:GetInSights()
+end
 
 -------------------------- ATTACHMENTS
 

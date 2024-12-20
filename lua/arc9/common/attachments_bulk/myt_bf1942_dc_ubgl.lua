@@ -273,7 +273,7 @@ ATT.PeekAngUBGL = Angle(0, 0, -10)
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
-        Source = "fire_full",
+        Source = "fire_full2",
         EventTable = {
             {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 29 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 39 / 40}, 
@@ -351,7 +351,8 @@ ATT.IKAnimationProxy = {
         { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
         },
     },
-    ["idle_ubgl"] = { Source = "ubgl", }, 
+    ["idle_ubgl"] = { Source = "ubgl", },  
+	["idle"] = { Source = "idle_default", }, 
     ["exit_ubgl"] = {
         Source = "from_ubgl",
         MinProgress = 0.8,
@@ -373,13 +374,15 @@ ATT.AimDownSightsTimeMult = 1.1
 ATT.SprintToFireTimeMult = 1.1
 
 ATT.UBGL = true
+
+ATT.ShotgunReloadUBGL = true
 ATT.UBGLAmmo = "buckshot"
 ATT.UBGLClipSize = 5
 ATT.UBGLFiremode = 1
 ATT.UBGLFiremodeName = "R870"
 ATT.UBGLChamberSize = 0
 ATT.ShootVolumeUBGL = 110
-ATT.RPMUBGL = 44
+ATT.RPMUBGL = 54
 
 -- I LOVE BODGING
 ATT.Hook_Think = function(wep)	-- reset RPM [FOR UGBL ONLY] cuz the bloody MANUAL ACTION DOESNT FUCKING WORK
