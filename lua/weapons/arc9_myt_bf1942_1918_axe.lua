@@ -82,7 +82,7 @@ SWEP.BashWhileSprint = true
 -------------------------- MELEE
 
 SWEP.Bash = true
-SWEP.PrimaryBash = true
+SWEP.SecondaryBash = true
 
 SWEP.BashDamage = 90
 SWEP.BashLungeRange = 0
@@ -253,15 +253,10 @@ SWEP.Animations = {
     },  
 }
 
-
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
 
-end
-
-SWEP.HookP_BlockFire = function(wep)
-    return !wep:GetInSights()
 end
 
 -------------------------- ATTACHMENTS

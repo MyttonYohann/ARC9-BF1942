@@ -256,6 +256,7 @@ SWEP.ShootSoundSilenced = "gekolt_css/m4a1-1.wav"
 SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 
 SWEP.FiremodeSound = "arc9/firemode.ogg"
+SWEP.BarrelLength = 40
 
 SWEP.Animations = {
     ["fire"] = {

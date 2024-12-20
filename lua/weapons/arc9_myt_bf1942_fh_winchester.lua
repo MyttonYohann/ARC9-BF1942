@@ -697,13 +697,12 @@ SWEP.Animations = {
 		MinProgress = 20/40,
     },  
 	["reload_insert_bp"] = {
-        Source = "reload_loop_breach",
+        Source = "reload_loop_bullpup",
 		IKTimeLine = { { t = 0, lhik = 0, rhik = 1, },{ t = 1, lhik = 0, rhik = 1, },  },
         EventTable = { 
-			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	21 / 40},
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	23 / 40},
         },
-		RefillProgress = 25 / 40,
-        MinProgress = 25/40,
+		RefillProgress = 29 / 40,
     }, 
 
 	["reload_emptoloop_bp"] = {

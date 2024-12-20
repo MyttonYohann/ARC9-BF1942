@@ -327,8 +327,8 @@ ATT.Model = "models/weapons/myt_bf1942/dc/c_ak47_ik_bullpup.mdl"
 
 ATT.SpreadMultHipFire = 0.75
 ATT.SwayMultSights = 1.5
-ATT.AimDownSightsTimeMult = 0.75
-ATT.SprintToFireTimeMult = 0.75
+ATT.AimDownSightsTimeMult = 0.5
+ATT.SprintToFireTimeMult = 0.5
 
 ATT.CustomizePosHook = function(wep, vec)
     return vec + Vector(5, 0, 0)
@@ -338,7 +338,7 @@ ATT.ActivePosHook = function(wep, vec)
     return vec + Vector(-0.5, -3, -0.5)
 end
 
-ATT.BarrelLengthAdd = -10
+ATT.BarrelLengthAdd = -8
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip8")
 

@@ -218,7 +218,7 @@ SWEP.CustomizePos = Vector(13, 28, 7)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
 
-SWEP.BarrelLength = 36
+SWEP.BarrelLength = 48
 
 SWEP.NearWallPos = Vector(2, 0, -10)
 SWEP.NearWallAng = Angle(45, 30, 0)

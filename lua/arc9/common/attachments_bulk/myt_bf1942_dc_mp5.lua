@@ -112,12 +112,13 @@ ATT.CustomizePosHook = function(wep, vec)
 end
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0, -3, 0)
+    return vec + Vector(-0.5, -5, -0.5)
 end
 
 ATT.SprintPosHook = function(wep, vec)
     return vec + Vector(2, 0, 0)
 end
+ATT.BarrelLengthAdd = -8
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	wep:HasElement("has_optic") and curanim == "reload_empty"		then	return "dry_bullpup_optic"			end	
