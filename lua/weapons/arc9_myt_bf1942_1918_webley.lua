@@ -38,8 +38,8 @@ SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
 
-SWEP.DamageMax = 62 -- Damage done at point blank range
-SWEP.DamageMin = 38 -- Damage done at maximum range
+SWEP.DamageMax = 84 -- Damage done at point blank range
+SWEP.DamageMin = 46 -- Damage done at maximum range
 
 SWEP.DamageRand = 0.5
 
@@ -111,7 +111,7 @@ SWEP.Recoil = 1
 
 -- These multipliers affect the predictible recoil by making the pattern taller, shorter, wider, or thinner.
 SWEP.RecoilUp = 0.75 -- Multiplier for vertical recoil
-SWEP.RecoilSide = 0.425 -- Multiplier for vertical recoil
+SWEP.RecoilSide = 0.2 -- Multiplier for vertical recoil
 
 -- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
 -- This type of recoil CANNOT be predicted.
