@@ -82,7 +82,8 @@ SWEP.BashWhileSprint = true
 -------------------------- MELEE
 
 SWEP.Bash = true
-SWEP.SecondaryBash = true
+SWEP.PrimaryBashSights = false
+SWEP.PrimaryBash = true
 
 SWEP.BashDamage = 90
 SWEP.BashLungeRange = 0

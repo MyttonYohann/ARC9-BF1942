@@ -622,13 +622,9 @@ ATT.IronSights = {
 }
 
 
-ATT.CustomizePosHook = function(wep, vec)
-    return vec + Vector(6, 0, 0)
-end
-
-ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0.5, -5, -1)
-end
+ATT.CustomizePosHook =	function(wep, vec)	return vec + Vector(6, 0, 0) end
+ATT.ActivePosHook = 	function(wep, vec)	return vec + Vector(0.5, -5, -1) end
+ATT.ReloadPos = Vector(0, -0.5, 0)
 
 ATT.RHIK = true
 ATT.RHIK_Priority = 0.01

@@ -330,13 +330,11 @@ ATT.SwayMultSights = 1.5
 ATT.AimDownSightsTimeMult = 0.5
 ATT.SprintToFireTimeMult = 0.5
 
-ATT.CustomizePosHook = function(wep, vec)
-    return vec + Vector(5, 0, 0)
-end
-
-ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(-0.5, -3, -0.5)
-end
+ATT.CustomizePosHook = function(wep, vec)	return vec + Vector(5, 0, 0) end
+ATT.ActivePosHook = 	function(wep, vec)	return vec + Vector(-0.5, -4.5, -0.5) end
+--ATT.ReloadPosHook = 	function(wep, vec)	return vec + Vector(0, 5, 0) end
+ATT.ReloadPos = Vector(0, -4, 0)	-- looks kinda ugly ngl, should have less easing
+ATT.ReloadAng = Angle(0, 0, 0)
 
 ATT.BarrelLengthAdd = -8
 
