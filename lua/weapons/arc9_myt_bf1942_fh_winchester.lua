@@ -631,9 +631,14 @@ SWEP.Animations = {
         Source = "draw",
         FireASAP = true,
         MinProgress = 0.65,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
-        },
+        EventTable = { {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40}, },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, },},
+    },
+    ["ready_bp"] = {
+        Source = "draw",
+        FireASAP = true,
+        MinProgress = 0.65,
+        EventTable = { {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},  },
         IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, },},
     },
     ["holster_bp"] = {  Source = "holster", IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, },}, },
