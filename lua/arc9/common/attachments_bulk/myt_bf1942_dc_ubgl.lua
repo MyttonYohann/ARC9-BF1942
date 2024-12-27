@@ -352,7 +352,7 @@ ATT.IKAnimationProxy = {
         },
     },
     ["idle_ubgl"] = { Source = "ubgl", },  
-	["idle"] = { Source = "idle_default", }, 
+	--["idle"] = { Source = "idle_default", }, 
     ["exit_ubgl"] = {
         Source = "from_ubgl",
         MinProgress = 0.8,
