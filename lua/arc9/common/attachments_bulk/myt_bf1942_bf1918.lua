@@ -336,8 +336,6 @@ end
 
 ATT.NumOverride = 2
 ATT.AmmoPerShot = 2
-ATT.DamageMaxMult = 1.2
-ATT.DamageMinMult = 1.2
 ATT.PhysBulletMuzzleVelocityAdd = -100 * 12
 
 ATT.TriggerDelayTime = 0.2
