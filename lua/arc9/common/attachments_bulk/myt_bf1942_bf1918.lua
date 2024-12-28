@@ -345,6 +345,15 @@ ATT.SpreadMultSights = 0.0125/0.0025
 ATT.RecoilMult = 2
 ATT.RecoilPatternDriftMult = 2
 
+ATT.BulletBones = { 
+    [1] = "W_Ammo2",
+    [3] = "W_Ammo3", 
+	[5] = "W_Ammo4",  
+	[2] = "W_Ammo5",  
+	[4] = "W_Ammo6",
+	[6] = "W_Ammo1",
+}
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley3")
 
 
