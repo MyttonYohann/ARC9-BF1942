@@ -209,6 +209,8 @@ SWEP.IronSights = {
     Magnification = 1.1,
     CrosshairInSights = false
 }
+SWEP.PeekPos = Vector(1.5, -1, -1.5)
+SWEP.PeekAng = Angle(0, 0, -10)
 
 SWEP.Crosshair = true
 
