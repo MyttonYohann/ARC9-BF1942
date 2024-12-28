@@ -342,6 +342,7 @@ ATT.PhysBulletMuzzleVelocityAdd = -100 * 12
 
 ATT.TriggerDelayTime = 0.2
 ATT.MalfunctionMeanShotsToFailAdd = -2
+ATT.SpreadMultSights = 0.0125/0.0025
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley3")
 
