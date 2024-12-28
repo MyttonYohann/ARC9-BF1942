@@ -470,6 +470,72 @@ SWEP.Animations = {
         { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
     },  
+	["reload_hydra"] = {
+        Source = "wet_hydra",
+        FireASAP = true,
+        MagSwapTime = 65 / 40,	
+        MinProgress = 0.93,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,   t = 16 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,   t = 35 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,   t = 47 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 99 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 132 / 40}, 
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1	, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    },   
+	["reload_empty_hydra"] = {
+        Source = "dry_hydra",
+        FireASAP = true,
+        MagSwapTime = 65 / 40,	
+        MinProgress = 0.93,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,   t = 16 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,   t = 35 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,   t = 47 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 99 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 132 / 40}, 
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    }, 
+	["reload_hydra_fail"] = {
+        Source = "wet_hydra_fail",
+        FireASAP = true,
+        MagSwapTime = 65 / 40,	
+        MinProgress = 0.95,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,	t = 16 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,	t = 35 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,	t = 47 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,	t = 99 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_ReloadF1.ogg",	t = 132 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,	t = 166 / 40}, 
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1	, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    },   
+	["reload_empty_hydra_fail"] = {
+        Source = "dry_hydra_fail",
+        FireASAP = true,
+        MagSwapTime = 65 / 40,	
+        MinProgress = 0.95,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,	t = 16 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,	t = 35 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,	t = 47 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,	t = 99 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_ReloadF1.ogg",	t = 132 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,	t = 166 / 40}, 
+        },
+	},
 --------------------------------------------------------
     ["draw"] = {
         Source = "draw",
@@ -530,6 +596,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
     local rng = math.Truncate(util.SharedRandom("vest pex best pex", 1,100))
 	local varextra = 0
 	if wep:HasElement("b_2") then varextra = 15
+	elseif wep:HasElement("b_3") then varextra = 10
 	end
 
     if rng <= 15 + varextra  then	-- fire blast
@@ -544,7 +611,8 @@ SWEP.DefaultBodygroups = "00000000000000000"
 
 SWEP.AttachmentElements = {
     ["b_1"] = 	{ Bodygroups = { {0, 1}, },}, 
-    ["b_2"] = 	{ Bodygroups = { {0, 2}, },}, 
+    ["b_2"] = 	{ Bodygroups = { {0, 2}, },},   
+	["b_3"] = 	{ Bodygroups = { {0, 3}, },}, 
 }
  
 SWEP.Attachments = {

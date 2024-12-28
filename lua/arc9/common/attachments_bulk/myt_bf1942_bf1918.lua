@@ -298,7 +298,7 @@ ATT.Category = "bf1942_1918_webley_barrel"
 ATT.ActivateElements = {"b_2"}
 
 ATT.TriggerDelay = false
-ATT.MalfunctionMeanShotsToFail = 6
+ATT.MalfunctionMeanShotsToFailAdd = -4
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"		then	return "reload_empty_auto"		end
@@ -310,6 +310,40 @@ end
 
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley2")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Hydra Barrel]]
+ATT.CompactName = [[B. Hydra]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[may cry
+]]
+
+ATT.SortOrder = 2
+ATT.Category = "bf1942_1918_webley_barrel"
+ATT.ActivateElements = {"b_3"}
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"		then	return "reload_empty_hydra"		end
+	if	curanim == "reload"				then	return "reload_hydra"			end	
+	if	curanim == "reload_empty_fail"	then 	return "reload_empty_hydra_fail"	end	
+	if	curanim == "reload_fail"		then 	return "reload_hydra_fail"		end	
+end
+
+ATT.NumOverride = 2
+ATT.AmmoPerShot = 2
+ATT.DamageMaxMult = 1.2
+ATT.DamageMinMult = 1.2
+ATT.PhysBulletMuzzleVelocityAdd = -100 * 12
+
+ATT.TriggerDelayTime = 0.2
+ATT.MalfunctionMeanShotsToFailAdd = -2
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley3")
 
 
 ----------------------------------------------------------------------------------
