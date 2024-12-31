@@ -38,8 +38,8 @@ SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
 
-SWEP.DamageMax = 24 -- Damage done at point blank range
-SWEP.DamageMin = 12 -- Damage done at maximum range
+SWEP.DamageMax = 16 -- Damage done at point blank range
+SWEP.DamageMin = 8 -- Damage done at maximum range
 
 SWEP.DamageRand = 0.3
 
