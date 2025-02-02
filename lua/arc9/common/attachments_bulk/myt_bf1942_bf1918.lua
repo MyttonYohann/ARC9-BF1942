@@ -423,6 +423,67 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley3")
 
 
 ----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Carabiner Barrel]]
+ATT.CompactName = [[B. Carbine]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[long shlong
+]]
+
+ATT.SortOrder = 3
+ATT.Category = "bf1942_1918_webley_barrel"
+ATT.ActivateElements = {"b_4"}
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"		then	return "reload_empty_rifle"		end
+	if	curanim == "reload"				then	return "reload_rifle"			end	
+	if	curanim == "reload_empty_fail"	then 	return "reload_empty_rifle"		end	
+	if	curanim == "reload_fail"		then 	return "reload_rifle"			end	
+
+	if	curanim == "idle"				then 	return "idle_rifle"				end	
+	if	curanim == "draw"				then 	return "draw_rifle"				end	
+	if	curanim == "ready"				then 	return "draw_rifle"				end	
+	if	curanim == "holster"			then 	return "holster_rifle"			end	
+	if	curanim == "fire"				then 	return "fire_rifle"				end	
+	if	curanim == "trigger"			then 	return "trigger_rifle"			end	
+	if	curanim == "untrigger"			then 	return "untrigger_rifle"		end	
+end
+
+ATT.ActivePosHook = 	function(wep, vec)	return vec + Vector(0, -1, -0.5) end
+
+ATT.TriggerDelayTime = 0.2
+ATT.Malfunction = false
+ATT.SpreadMultSightsMult = 0.5
+ATT.SpreadMult = 0.5
+
+ATT.RecoilMult = 0.8
+ATT.RecoilPatternDriftMult = 0.5
+
+ATT.AimDownSightsTimeMult = 1.5
+ATT.SprintToFireTimeMult = 1.5
+ATT.BarrelLengthAdd = 24
+
+ATT.SprintPos = Vector(2, 5, -2)
+ATT.SprintAng = Angle(40, -15, -15)
+
+ATT.IronSights = {
+    Pos = Vector(-2.705, 5, 0.875),
+    Ang = Angle(0,0,0),
+    Midpoint = { -- Where the gun should be at the middle of it's irons
+        Pos = Vector(0, 15, -4),
+        Ang = Angle(0, 0, -45),
+    },
+    Magnification = 1.1,
+    CrosshairInSights = false
+}
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley4")
+
+
+----------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------
 
 --- Winchester ---

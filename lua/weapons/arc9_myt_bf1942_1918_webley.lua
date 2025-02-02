@@ -268,14 +268,12 @@ SWEP.ShootSound = "myt_bf1942/1918/Webley.wav"
 SWEP.ShootSoundSilenced = "gekolt_css/m4a1-1.wav"
 SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 
-SWEP.FiremodeSound = "arc9/firemode.wav"
+SWEP.FiremodeSound = "arc9/firemode.ogg"
 
 SWEP.Animations = {
-    ["fire"] = {
-        Source = {"fire"},
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
+	["fire"] = {
+		Source = {"fire"},
+		IKTimeLine = {	{ t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },	},
 		Time = 23/40,
     },  
    ["jam"] = {
@@ -573,6 +571,80 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     }, 
+--------------------------------------------------------
+	["fire_rifle"] = {
+		Source = {"fire_rifle"},
+		IKTimeLine = {	{ t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },	},
+		Time = 23/40,
+    },  
+    ["trigger_rifle"] = {
+        Source = {"fire_prep_rifle"},
+        IKTimeLine = {  { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 1 / 40},  
+        },
+		Mult = 1,
+    },
+	["untrigger_rifle"] = {
+        Source = "fire_prep_rifle",
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Trigger2.ogg" ,   t = 1 / 40},  
+        },
+		Reverse = true,
+		Mult = 1,
+    },
+    ["reload_rifle"] = {
+        Source = "wet_rifle",
+        FireASAP = true,
+        MagSwapTime = 65 / 40,	
+        MinProgress = 0.93,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,   t = 13 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,   t = 32 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,   t = 44 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 97 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 125 / 40}, 
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1	, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    },   
+	["reload_empty_rifle"] = {
+        Source = "dry_rifle",
+        FireASAP = true,
+        MagSwapTime = 65 / 40,	
+        MinProgress = 0.93,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,   t = 13 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,   t = 32 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,   t = 44 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 97 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 125 / 40}, 
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    }, 
+    ["draw_rifle"] = {
+        Source = "draw_rifle",
+        FireASAP = true,
+        MinProgress = 0.65,
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
+        },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },  },
+    },
+    ["holster_rifle"] = {
+        Source = "holster_rifle",
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+    },
+    ["idle_rifle"] = {
+        Source = "idle_rifle",
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+    }, 
     ["exit_ubgl"] = {		-- bodging
         Source = "idle",
         MinProgress = 0.7,
@@ -615,6 +687,7 @@ SWEP.AttachmentElements = {
     ["b_1"] = 	{ Bodygroups = { {0, 1}, },}, 
     ["b_2"] = 	{ Bodygroups = { {0, 2}, },},   
 	["b_3"] = 	{ Bodygroups = { {0, 3}, },}, 
+	["b_4"] = 	{ Bodygroups = { {0, 4}, },}, 
 }
  
 SWEP.Attachments = {
