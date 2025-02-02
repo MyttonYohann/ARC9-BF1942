@@ -65,6 +65,69 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan1")
 
 ATT = {}
 
+ATT.PrintName = [[Raider Kit]]
+ATT.CompactName = [[K. Obrez]] 
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[pistole
+]]
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"	then	return "reload_obrez"		end
+	if	curanim == "reload_fail"	then 	return "reload_obrez"		end
+	if	curanim == "fire"			then 	return "fire_obrez"			end	
+	if	curanim == "idle"			then 	return "idle_obrez"			end	
+	if	curanim == "idle_sprint"			then 	return "idle_obrez"			end
+	if	curanim == "draw"			then 	return "draw_obrez"			end	
+	if	curanim == "ready"			then 	return "draw_obrez"			end	
+	if	curanim == "holster"		then 	return "holster_obrez"		end	
+end
+
+ATT.CustomizePosHook = function(wep, vec)
+    return vec + Vector(-11, 0, 0)
+end
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0, 8, 0)
+end
+
+ATT.IronSights = {
+    Pos = Vector(-2.705, 8, 3.15),
+    Ang = Angle(0,0,0),
+    Midpoint = { -- Where the gun should be at the middle of it's irons
+        Pos = Vector(0, 15, -4),
+        Ang = Angle(0, 0, -45),
+    },
+    Magnification = 1.1,
+    CrosshairInSights = false
+}
+
+ATT.SprintPos = Vector(4, 8, -8)
+ATT.SprintAng = Angle(0, 60, 0)
+
+ATT.PeekPos = Vector(1, 0, -2)
+ATT.PeekAng = Angle(0, 0, -10)
+ATT.ReloadPos = Vector(0, 2, 0)
+
+ATT.BarrelLengthAdd = -40
+
+ATT.SortOrder = -1000
+ATT.Category = "bf1942_1918_berdan_cal"
+ATT.ActivateElements = {"cal_obrez", "norsight"}
+ATT.ExcludeElements = {"rsight"}
+
+ATT.SpreadAdd = 0.005
+ATT.SpreadSights = 0.005
+
+ATT.RecoilMult = 4
+ATT.RecoilPatternDriftMult = 5
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan7")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
 ATT.PrintName = [[Anti-Tank Bore]]
 ATT.CompactName = [[B. AT]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
@@ -145,7 +208,7 @@ end
 
 ATT.SortOrder = 1
 ATT.Category = "bf1942_1918_berdan_cal"
-ATT.ActivateElements = {"cal_gl"}
+ATT.ActivateElements = {"cal_gl", "norsight"}
 ATT.ExcludeElements = {"rsight"}
 
 ATT.SpreadAdd = 0.0075
@@ -248,7 +311,7 @@ whoops wrong era
 ATT.SortOrder = 100
 ATT.Category = "bf1942_1918_berdan_sight"
 ATT.ActivateElements = {"rsight"}
-ATT.ExcludeElements = {"cal_gl"}
+ATT.ExcludeElements = {"norsight"}
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan3")
 

@@ -633,6 +633,55 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     }, 
+--------------------------------------------------------
+--------------------------------------------------------
+    ["draw_obrez"] = {
+        Source = "draw_obrez",
+        FireASAP = true,
+        MinProgress = 0.65,
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 0 / 40},
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 0, rhik = 0, }, { t = 0.5, lhik = 0, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["holster_obrez"] = {
+        Source = "holster_obrez",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["idle_obrez"] = {
+        Source = "idle_obrez",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    }, 
+	["fire_obrez"] = {
+        Source = {"fire_obrez"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    }, 
+
+    ["reload_obrez"] = {
+        Source = "dry_obrez",
+        FireASAP = true,
+        MinProgress = 0.9,
+        MagSwapTime = 5 / 40,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EjectAt = 20 / 40,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 12 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 33 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 50 / 40},
+        },
+    }, 
+--------------------------------------------------------
     ["idle_sprint"] = {
         Source = "idle",
         IKTimeLine = {
@@ -697,7 +746,8 @@ end
 SWEP.DefaultBodygroups = "00000000000000"
 
 SWEP.AttachmentElements = {
-    ["cal_sg"] = 	{ Bodygroups = { {1, 1}, {2, 1} },},   
+    ["cal_obrez"] = 	{ Bodygroups = { {0, 1}, {2, 3}, {3, 3} },},    
+	["cal_sg"] = 	{ Bodygroups = { {1, 1}, {2, 1} },},   
 	["cal_mag"] = 	{ Bodygroups = { {5, 1} },},  
 	["cal_gl"] = 	{ 
 		Bodygroups = { {1, 2}, {2, 2}, {3, 2} },
