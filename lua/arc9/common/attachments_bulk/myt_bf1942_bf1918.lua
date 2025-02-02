@@ -115,7 +115,7 @@ ATT.ActivateElements = {"cal_obrez", "norsight"}
 ATT.ExcludeElements = {"rsight"}
 
 ATT.SpreadAdd = 0.005
-ATT.SpreadSights = 0.005
+ATT.SpreadSights = 0.01
 
 ATT.RecoilMult = 4
 ATT.RecoilPatternDriftMult = 5
