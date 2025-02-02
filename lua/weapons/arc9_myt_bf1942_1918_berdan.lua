@@ -127,7 +127,7 @@ SWEP.RecoilMultSights = 1
 
 -------------------------- SPREAD
 
-SWEP.Spread = 0.0025
+SWEP.Spread = 0.00125*2
 
 SWEP.SpreadAddRecoil = 0.005 -- Applied per unit of recoil.
 SWEP.RecoilModifierCap = 10
@@ -137,7 +137,7 @@ SWEP.SpreadAddMidAir = 0.0075
 SWEP.SpreadMultHipFire = 5
 SWEP.SpreadMultCrouch = 0.5
 
-SWEP.SpreadMultSights = 0.0025/0.005
+SWEP.SpreadMultSights = 0.00125/SWEP.Spread
 SWEP.RecoilModifierCapSights = 2.5
 SWEP.RecoilModifierCapCrouch = 5
 
@@ -671,7 +671,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	wep:Clip1() == 5 then	dementia_end = 1 end		
 
 	if curanim == "reload_insert" then
-		wep.DementiaCounter = wep.DementiaCounter + 15	-- gradual demetia
+		wep.DementiaCounter = wep.DementiaCounter + 20	-- gradual demetia
 	elseif curanim == "reload_insert_fail" then
 		wep.DementiaCounter = wep.DementiaCounter + 20
 	elseif curanim == "reload_start_empty" then

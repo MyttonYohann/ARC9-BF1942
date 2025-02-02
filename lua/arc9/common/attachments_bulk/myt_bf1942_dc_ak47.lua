@@ -623,7 +623,7 @@ ATT.Penetration = 20
 ATT.SpreadMult = 1.5
 ATT.SpreadSights = 0.001
 ATT.DamageMaxMult = 0.75
-ATT.DamageMinMult = 4
+ATT.DamageMinMult = 5
 
 ATT.Firemodes = {
     {

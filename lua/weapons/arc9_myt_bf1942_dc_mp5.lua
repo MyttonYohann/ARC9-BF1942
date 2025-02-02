@@ -140,7 +140,7 @@ SWEP.SpreadAddMidAir = 0.0075
 SWEP.SpreadMultHipFire = 5
 SWEP.SpreadMultCrouch = 0.75
 
-SWEP.SpreadMultSights = 0.005/0.005
+SWEP.SpreadMultSights = 0.01/SWEP.Spread
 SWEP.RecoilModifierCapSights = 1.5
 SWEP.RecoilModifierCapCrouch = 5
 

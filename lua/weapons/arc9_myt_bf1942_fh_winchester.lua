@@ -6,8 +6,8 @@ SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"	-- it's from Forgotten Hope but im not putting 1 gun in a whole category
 SWEP.SubCategory = "1918"
 
-SWEP.PrintName = "M1912"
-SWEP.TrueName = "M1912"
+SWEP.PrintName = "W1300"
+SWEP.TrueName = "W1300"
 
 SWEP.Class = "Shotgun"
 SWEP.Trivia = {
@@ -708,6 +708,14 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	23 / 40},
         },
 		RefillProgress = 29 / 40,
+    },
+ 	["reload_insert_fail_bp"] = {
+        Source = "reload_loop_bullpup_fail",
+		IKTimeLine = { { t = 0, lhik = 0, rhik = 1, },{ t = 1, lhik = 0, rhik = 1, },  },
+        EventTable = { 
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	30 / 40},
+        },
+		RefillProgress = 30 / 40,
     }, 
 
 	["reload_emptoloop_bp"] = {
@@ -731,6 +739,20 @@ SWEP.Animations = {
         },
         FireASAP = true,
 		MinProgress = 0.5,
+    },  
+    ["reload_end_fail_bp"] = {
+        Source = "reload_end_breach_fail",
+        IKTimeLine = {
+        { t = 0, lhik = 0, rhik = 1, },
+        { t = 0.8, lhik = 0, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+        },
+        FireASAP = true,
+        EventTable = {
+            {s =  "myt_bf1942/dc/r870_reload_fail.ogg" ,	t = 23 / 40},  
+            {s =  "myt_bf1942/dc/r870_reload_fail2.ogg" ,	t = 40 / 40},  
+            {s =  "myt_bf1942/dc/r870_foley2.ogg",			t = 55 / 40},  
+        },
+		MinProgress = 0.9,
     },  
     ["reload_end_empty_bp"] = {
         Source = "reload_end_empty",

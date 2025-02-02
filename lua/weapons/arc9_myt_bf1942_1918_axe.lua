@@ -93,6 +93,20 @@ SWEP.PostBashTime = 0.275
 
 SWEP.BashThirdArmAnimation = false
 
+-------------------------- UGBL
+SWEP.UBGL = true
+SWEP.UBGLAmmo = "smg1_grenade"
+SWEP.UBGLClipSize = 1
+SWEP.UBGLFiremode = 1
+SWEP.UBGLFiremodeName = "UBGL"
+SWEP.UBGLChamberSize = 0
+SWEP.UBGLInsteadOfSights = true -- Right clicking fires UBGL instead of going into irons.
+SWEP.UBGLToggleTime = nil -- In seconds, how long of a delay between being able to toggle the UBGL.
+
+SWEP.TriggerDelayUBGL = true
+SWEP.TriggerDelayTimeUBGL = 0.5
+SWEP.TriggerDelayReleaseToFireUBGL = true
+
 -------------------------- TRACERS
 
 SWEP.TracerNum = 1 -- Tracer every X
@@ -268,15 +282,4 @@ SWEP.AttachmentElements = {
 }
  
 SWEP.Attachments = {
-    {
-        PrintName = "Off Hand",
-        DefaultName = "None",
-
-        DefaultIcon = Material("arc9/def_att_icons/grip.png"),
-        ExcludeElements = {"nooh", "rh_occupied"},
-        Category = {"bf1942_dc_offhand"},
-        Bone = "W_Main",
-        Pos = Vector(0, 0, -12),
-        Ang = Angle(90, 0, -90),
-    },
 }

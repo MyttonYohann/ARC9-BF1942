@@ -637,9 +637,7 @@ ATT.ActivateElements = {"cal_bullpup", "no_dovetail", "nooh"}
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_finish" 		then	return "reload_end_bp"			end
-	if	curanim == "reload_finish_fail"	then	return "reload_end_bp"			end
 	if	curanim == "reload_insert" 		then	return "reload_insert_bp"		end
-	if	curanim == "reload_loop_fail"	then	return "reload_insert_bp"		end
 	if	curanim == "reload_emptoloop"	then	return "reload_emptoloop_bp"	end
 	if	curanim == "reload_start"		then	return "reload_start_bp"		end	
 
@@ -652,6 +650,8 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "cycle_fail"			then	return "cycle_fail_bp"			end	
 	if	curanim == "reload_start_empty"	then	return "reload_start_empty_bp"	end	
 	if	curanim == "reload_end_empty"	then	return "reload_end_empty_bp"	end	
+	if	curanim == "reload_loop_fail"	then	return "reload_insert_fail_bp"	end	
+	if	curanim == "reload_finish_fail"	then	return "reload_end_fail_bp"	end	
 	
 end
 ATT.ClipSize = 10

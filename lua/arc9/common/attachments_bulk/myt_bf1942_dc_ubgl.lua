@@ -392,7 +392,7 @@ ATT.Hook_Think = function(wep)	-- reset RPM [FOR UGBL ONLY] cuz the bloody MANUA
 end
 
 ATT.SpreadUBGL = 0.02
-ATT.SpreadSightsUBGL = 0.1
+ATT.SpreadMultSightsUBGL = 0
 
 ATT.FirstShootSoundUBGL = false
 ATT.ShootSoundUBGL = "myt_bf1942/dc/R870.wav"
