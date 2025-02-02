@@ -273,7 +273,7 @@ end
 ATT.AimDownSightsTimeMult = 0.6
 ATT.SprintToFireTimeMult = 0.6
 
-ATT.SprintPos = Vector(4, 8, -4)
+ATT.SprintPos = Vector(4, 8, -10)
 ATT.SprintAng = Angle(0, 60, 0)
 
 
