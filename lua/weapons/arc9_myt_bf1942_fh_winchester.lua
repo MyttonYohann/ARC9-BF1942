@@ -374,6 +374,7 @@ SWEP.Animations = {
 		RestoreAmmo = 1,
 		RefillProgress = 20/40,
 		MinProgress = 20/40,
+		Mult = 0.9,
     },  
     ["reload_insert"] = {
         Source = "reload_loop",
@@ -392,6 +393,7 @@ SWEP.Animations = {
         },
 		RefillProgress = 25 / 40,
         MinProgress = 25/40,
+		Mult = 0.9,
     }, 
     ["reload_loop_fail"] = {
         Source = "reload_loop_fail",
@@ -428,6 +430,7 @@ SWEP.Animations = {
         },
 		RefillProgress = 40/40,
         MinProgress = 40/40,
+		Mult = 0.9,
     },
 	["reload_emptoloop_auto"] = {
         Source = "reload_emptoloop_auto",
