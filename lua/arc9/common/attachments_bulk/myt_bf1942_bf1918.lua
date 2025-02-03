@@ -165,8 +165,8 @@ ATT.IronSights = {
     CrosshairInSights = false
 }
 
-ATT.SprintPos = Vector(5, -8, -18)
-ATT.SprintAng = Angle(-4, 40, -5)
+ATT.SprintPos = Vector(6, 3, 1)
+ATT.SprintAng = Angle(40, -15, -15)
 
 ATT.PeekPos = Vector(1, 0, -2)
 ATT.PeekAng = Angle(0, 0, -10)
