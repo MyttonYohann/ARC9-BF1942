@@ -165,27 +165,24 @@ ATT.IronSights = {
     CrosshairInSights = false
 }
 
-ATT.SprintPos = Vector(4, 8, -8)
-ATT.SprintAng = Angle(0, 60, 0)
+ATT.SprintPos = Vector(5, -8, -18)
+ATT.SprintAng = Angle(-4, 40, -5)
 
 ATT.PeekPos = Vector(1, 0, -2)
 ATT.PeekAng = Angle(0, 0, -10)
-ATT.ReloadPos = Vector(0, 2, 0)
 
-ATT.BarrelLengthAdd = -45
+ATT.BarrelLengthAdd = 8
 
 ATT.SortOrder = -1000
 ATT.Category = "bf1942_1918_berdan_cal"
 ATT.ActivateElements = {"cal_bullpup", "norsight"}
 ATT.ExcludeElements = {"rsight"}
 
-ATT.SpreadAdd = 0.005
-ATT.SpreadSights = 0.01
+--ATT.SpreadAdd = -0.00125
+--ATT.SpreadSights = 0.01
 
-ATT.RecoilMult = 4
-ATT.RecoilPatternDriftMult = 5
-ATT.AimDownSightsTimeMult = 0.4
-ATT.SprintToFireTimeMult = 0.4
+ATT.AimDownSightsTimeMult = 0.8
+ATT.SprintToFireTimeMult = 1.2
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan8")
 
