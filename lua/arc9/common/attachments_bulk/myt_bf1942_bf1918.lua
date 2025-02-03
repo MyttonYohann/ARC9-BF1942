@@ -130,6 +130,71 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan7")
 
 ATT = {}
 
+ATT.PrintName = [[Bullpup Kit]]
+ATT.CompactName = [[K. Bullpup]] 
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[ergonomic
+]]
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"	then	return "reload_bullpup"		end
+	if	curanim == "reload_fail"	then 	return "reload_bullpup"		end
+	if	curanim == "fire"			then 	return "fire_bullpup"		end	
+	if	curanim == "idle"			then 	return "idle_bullpup"		end	
+	if	curanim == "idle_sprint"	then 	return "idle_bullpup"		end
+	if	curanim == "draw"			then 	return "draw_bullpup"		end	
+	if	curanim == "ready"			then 	return "draw_bullpup"		end	
+	if	curanim == "holster"		then 	return "holster_bullpup"	end	
+end
+
+ATT.CustomizePosHook = function(wep, vec)
+    return vec + Vector(11, 0, 0)
+end
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0, -11, 0)
+end
+
+ATT.IronSights = {
+    Pos = Vector(-2.705, -8, 2.675),
+    Ang = Angle(0,0.4,0),
+    Midpoint = { -- Where the gun should be at the middle of it's irons
+        Pos = Vector(0, 15, -4),
+        Ang = Angle(0, 0, -45),
+    },
+    Magnification = 1.1,
+    CrosshairInSights = false
+}
+
+ATT.SprintPos = Vector(4, 8, -8)
+ATT.SprintAng = Angle(0, 60, 0)
+
+ATT.PeekPos = Vector(1, 0, -2)
+ATT.PeekAng = Angle(0, 0, -10)
+ATT.ReloadPos = Vector(0, 2, 0)
+
+ATT.BarrelLengthAdd = -45
+
+ATT.SortOrder = -1000
+ATT.Category = "bf1942_1918_berdan_cal"
+ATT.ActivateElements = {"cal_bullpup", "norsight"}
+ATT.ExcludeElements = {"rsight"}
+
+ATT.SpreadAdd = 0.005
+ATT.SpreadSights = 0.01
+
+ATT.RecoilMult = 4
+ATT.RecoilPatternDriftMult = 5
+ATT.AimDownSightsTimeMult = 0.4
+ATT.SprintToFireTimeMult = 0.4
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan8")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
 ATT.PrintName = [[Anti-Tank Bore]]
 ATT.CompactName = [[B. AT]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
