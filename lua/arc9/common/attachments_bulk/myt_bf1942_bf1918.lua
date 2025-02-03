@@ -151,7 +151,7 @@ ATT.CustomizePosHook = function(wep, vec)
 end
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0, -11, 0)
+    return vec + Vector(0, -12, 0)
 end
 
 ATT.IronSights = {
@@ -170,6 +170,7 @@ ATT.SprintAng = Angle(-4, 40, -5)
 
 ATT.PeekPos = Vector(1, 0, -2)
 ATT.PeekAng = Angle(0, 0, -10)
+ATT.ReloadPos = Vector(0, -1, 0)
 
 ATT.BarrelLengthAdd = 8
 
