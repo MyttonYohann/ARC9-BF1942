@@ -353,8 +353,10 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "bash"	then	return "bash_bayo"		end
 end
 
-ATT.SprintAng = Angle(2, -2, -30)
 ATT.SprintPos = Vector(0, 2, 1)
+ATT.SprintAng = Angle(2, -2, -30)
+ATT.NearWallPos = Vector(0, -5, -4)
+ATT.NearWallAng = Angle(0, 2, -15)
 ATT.BobSprintMult = 0.5
 
 
@@ -651,6 +653,9 @@ ATT.ChamberSize = 0
 
 
 ATT.Hook_PrimaryAttack = function(wep)
+
+	if !wep:GetUBGL(true) then
+
     local rng = math.Truncate(util.SharedRandom("fallout did NOT win best adaptation	lies all of them", 1,100))
 	if rng <= 1  then
         -- Stole from 8Z.
@@ -668,6 +673,8 @@ ATT.Hook_PrimaryAttack = function(wep)
                 wep:GetOwner():DropWeapon(wep, nil, wep:GetOwner():GetForward() * -200 + VectorRand() * 50 + Vector(0, 0, 150))
             end
         end)
+	end
+
 	end
 end
 

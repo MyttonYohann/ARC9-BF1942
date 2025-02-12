@@ -172,7 +172,7 @@ SWEP.PrimaryBash = false
 
 SWEP.BashDamage = 100
 SWEP.BashLungeRange = 0
-SWEP.BashRange = 128
+SWEP.BashRange = 96
 SWEP.PreBashTime = 0.15
 SWEP.PostBashTime = 0.8
 SWEP.BashWhileSprint = true
