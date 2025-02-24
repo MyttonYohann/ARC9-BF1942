@@ -30,7 +30,7 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_dshk.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-8, 2, -7),
+    TPIKPos = Vector(-15, 5, -10),
     TPIKAng = Angle(-5, 0, 180),
     Scale = 1
 }
@@ -38,8 +38,8 @@ SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
 
-SWEP.DamageMax = 142 -- Damage done at point blank range
-SWEP.DamageMin = 92 -- Damage done at maximum range
+SWEP.DamageMax = 108 -- Damage done at point blank range
+SWEP.DamageMin = 72 -- Damage done at maximum range
 
 SWEP.DamageRand = 0.4
 
@@ -216,7 +216,7 @@ SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
 SWEP.CrouchAng = Angle(0, 0, -7)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(13, 28, 7)
+SWEP.CustomizePos = Vector(18, 40, 7)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
 
@@ -353,70 +353,9 @@ end
  
 SWEP.Attachments = {
     {
-        PrintName = "Receiver",
-        DefaultName = "Standard Receiver",
-
-        Category = "bf1942_dc_ak47_cal",
-        Bone = "W_Main",
-        Pos = Vector(0, 2, 7.5),
-        Ang = Angle(90, 0, -90),
-    },
-
-    {
-        PrintName = "Handguard",
-        DefaultName = "Standard Handguard",
-
-        ExcludeElements = {"noguard"},
-        Category = "bf1942_dc_ak47_hg",
-        Bone = "W_Main",
-        Pos = Vector(0, -3, 15),
-        Ang = Angle(90, 0, -90),
-    },
-
-    {
-        PrintName = "Stock",
-        DefaultName = "No Stock",
-        ExcludeElements = {"nostock"},
-        Installed = "myt_bf1942_dc_ak47_stock1",
-
-        DefaultIcon = Material("arc9/def_att_icons/stock_ak.png"),
-		Category = "bf1942_dc_ak47_stock",
-        Bone = "W_Main",
-        Pos = Vector(0, -1, -5),
-        Ang = Angle(0, 0, 0),
-    },
-
-    {
-        PrintName = "Grip",
-        DefaultName = "Standard Grip",
-
-        DefaultIcon = Material("arc9/def_att_icons/grip_ar.png"),
-        ExcludeElements = {"nogrip"},
-        Category = "bf1942_dc_ak47_grip",
-        Bone = "W_Main",
-        Pos = Vector(0, 2.5, -3),
-        Ang = Angle(0, 0, 0),
-    },
-
-    {
-        PrintName = "Foregrip",
-        DefaultName = "None",
-        InstalledElements = {"fg_def"},
-
-        DefaultIcon = Material("arc9/def_att_icons/grip.png"),
-        ExcludeElements = {"nofg"},
-        Category = {"grip_css"},
-        Bone = "W_Main",
-        Pos = Vector(0, 0, 14),
-        Ang = Angle(90, 0, -90),
-        MergeSlots = {9},
-    },
-	
-    {
         PrintName = "Off Hand",
         DefaultName = "None",
 
-        DefaultIcon = Material("arc9/def_att_icons/grip.png"),
         ExcludeElements = {"nooh", "rh_occupied"},
         Category = {"bf1942_dc_offhand"},
         Bone = "W_Main",
@@ -434,33 +373,10 @@ SWEP.Attachments = {
         Bone = "W_Main",
         Pos = Vector(0, -4.8, 3),
         Ang = Angle(90, 0, -90),
-        MergeSlots = {10},
+        MergeSlots = {3},
     },
 
-    {
-        PrintName = "Muzzle",
-        DefaultName = "None",
-
-        DefaultIcon = Material("arc9/def_att_icons/barrel.png"),
-        ExcludeElements = {"pre_muzzed"},
-        Category = {"muzzle_css"},
-        Bone = "W_Main",
-        Pos = Vector(0, -2.25, 28.5),
-        Ang = Angle(90, 0, -90),
-    },
-
-    {   --9 permanent ubgl, affected separately from the changes of the above attachment
-        PrintName = "",
-        DefaultName = "",
-        Hidden = true,
-        InstalledElements = {"nooh"},
-        ExcludeElements = {"nogrip", "u_disk", "u_919x", "u_566"},
-        Category = {"css_ubgl"},
-        Bone = "W_Main",
-        Pos = Vector(0, 1, 12),
-        Ang = Angle(90, 0, -90),
-    },
-    {   --10 dovetail
+    {   --3 dovetail
         PrintName = "",
         DefaultName = "",
         Hidden = true,
@@ -473,11 +389,18 @@ SWEP.Attachments = {
     },
 }
 
+SWEP.DamageType = DMG_BULLET + DMG_AIRBOAT
 SWEP.Bipod = true
 SWEP.HookP_BlockFire = function(self)
 	if !self:GetBipod() then
     return true
 	end
+end
+
+SWEP.Hook_TranslateAnimation = function(wep, curanim)
+	if wep:GetCustomize() then
+	if	curanim == "idle" then return "idle_bipod"	end	
+	end	
 end
 
 SWEP.Hook_Think = function(self)
