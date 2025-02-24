@@ -204,8 +204,8 @@ SWEP.Crosshair = true
 SWEP.BipodPos = Vector(0, 28, -6)
 SWEP.BipodAng = Angle(0, 0, 0)
 
-SWEP.SprintPos = Vector(-3, 32, -12)
-SWEP.SprintAng = Angle(10, 0, 5)
+SWEP.SprintPos = Vector(-5, 32, -12)
+SWEP.SprintAng = Angle(10, 0, -5)
 
 SWEP.ViewModelFOVBase = 70
 SWEP.ActivePos = Vector(0, 32, -8)
@@ -260,6 +260,16 @@ SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 
 SWEP.FiremodeSound = "arc9/firemode.ogg"
 
+SWEP.BulletBones = {
+    [1] = "W_Bullet",
+    [2] = "W_Bullet1",
+    [3] = "W_Bullet2",
+    [4] = "W_Bullet3",
+    [5] = "W_Bullet4",
+    [6] = "W_Bullet5",
+    [7] = "W_Bullet6",
+}
+
 SWEP.Animations = {
     ["fire"] = {
         Source = {"fire"},
@@ -269,7 +279,7 @@ SWEP.Animations = {
     },
 
     ["reload"] = {
-        Source = "wet",
+        Source = "dry_bipod",
         FireASAP = true,
         MinProgress = 0.93,
         IKTimeLine = {
@@ -286,22 +296,16 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 114 / 40},
         },
     },  
-    ["reload_empty"] = {
-        Source = "dry",
+    ["reload_bipod"] = {
+        Source = "dry_bipod",
         FireASAP = true,
         MinProgress = 0.95,
+        MagSwapTime = 120 / 40,	
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 1, },
         { t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
         },
         EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
-			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
-			{s =  "myt_bf1942/dc/ak_bolt2.ogg" ,   t = 27 / 40},
-            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 54 / 40},
-            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 84 / 40},
-            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 131 / 40},
-            {s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 150 / 40},
         },
     }, 
 --------------------------------------------------------
@@ -352,30 +356,19 @@ end
  
 SWEP.Attachments = {
     {
-        PrintName = "Off Hand",
-        DefaultName = "None",
-
-        ExcludeElements = {"nooh", "rh_occupied"},
-        Category = {"bf1942_dc_offhand"},
-        Bone = "W_Main",
-        Pos = Vector(0, 0, -10),
-        Ang = Angle(90, 0, -90),
-    },
-
-    {
         PrintName = "Optic",
         DefaultName = "None",
         InstalledElements = {"rail_def"},
 
         DefaultIcon = Material("arc9/def_att_icons/optic.png"),
-        Category = {"optic_css", "optic_css_free"},
+        Category = {"optic_css"},
         Bone = "W_Main",
         Pos = Vector(0, -4.8, 3),
         Ang = Angle(90, 0, -90),
-        MergeSlots = {3},
+        MergeSlots = {2},
     },
 
-    {   --3 dovetail
+    {   --2 dovetail
         PrintName = "",
         DefaultName = "",
         Hidden = true,
