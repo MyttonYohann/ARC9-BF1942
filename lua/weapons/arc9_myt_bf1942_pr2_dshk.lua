@@ -103,10 +103,10 @@ SWEP.Firemodes = {
 SWEP.RecoilPatternDrift = 15
 
 -- General recoil multiplier
-SWEP.Recoil = 2
+SWEP.Recoil = 1
 
 -- These multipliers affect the predictible recoil by making the pattern taller, shorter, wider, or thinner.
-SWEP.RecoilUp = 1.8 -- Multiplier for vertical recoil
+SWEP.RecoilUp = 2.5 -- Multiplier for vertical recoil
 SWEP.RecoilSide = 1.4 -- Multiplier for vertical recoil
 
 -- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
@@ -162,7 +162,7 @@ SWEP.AimDownSightsTime = 0.5
 SWEP.SprintToFireTime = 0.6
 
 SWEP.SpeedMult = 0.75
-SWEP.SpeedMultSights = 0.75
+SWEP.SpeedMultSights = 0.5
 SWEP.SpeedMultShooting = 0.2
 SWEP.SpeedMultMelee = 0.75
 SWEP.SpeedMultCrouch = 0.5
@@ -186,6 +186,17 @@ SWEP.TracerColor = Color(255, 225, 200) -- Color of tracers. Only works if trace
 -------------------------- POSITIONS
 
 SWEP.IronSights = {
+    Pos = Vector(-2.7, 30,-6.75),
+    Ang = Angle(0,0,0),
+    Midpoint = { -- Where the gun should be at the middle of it's irons
+        Pos = Vector(0, 15, -4),
+        Ang = Angle(0, 0, -45),
+    },
+    Magnification = 1.1,
+    CrosshairInSights = false
+}
+
+SWEP.IronSightsBipod = {
     Pos = Vector(-2.7, 30,-6.75),
     Ang = Angle(0,0,0),
     Midpoint = { -- Where the gun should be at the middle of it's irons
