@@ -257,7 +257,7 @@ SWEP.AnimDraw = false
 
 -------------------------- EFFECTS
 
-SWEP.MuzzleParticle = "muzzleflash_5"
+SWEP.MuzzleParticle = "muzzleflash_m82"
 SWEP.MuzzleEffectQCA = 1
 
 SWEP.ShellModel = "models/shells/shell_338mag.mdl"
@@ -339,9 +339,7 @@ SWEP.Animations = {
     ["holster"] = {
         Source = "holster",
     },
-    ["idle"] = {
-        Source = "idle",
-    }, 
+    ["idle"] = { Source = "idle", }, 
 
 	["idle_bipod"] = { Source = "idle_bipod", },
 	["enter_bipod"] = { Source = "enter_bipod", },	
@@ -356,7 +354,7 @@ SWEP.Animations = {
 
 -------------------------- ATTACHMENTS
 
-SWEP.DefaultBodygroups = "00600000000000000000"
+SWEP.DefaultBodygroups = "0000000000000000000"
 
 SWEP.AttachmentElements = {
 }
@@ -398,7 +396,6 @@ SWEP.Bipod = true
 SWEP.NoFireDuringSighting = true
 SWEP.TriggerDelay = true
 SWEP.TriggerDelayTime = 0.1
-SWEP.TriggerDownSound = "gekolt_css/weaponclick.wav"
 SWEP.HookP_BlockFire = function(self)
 	local canfire = self:GetBipod() or self:GetInSights()
     return !canfire

@@ -11,6 +11,7 @@ local shared = {
 	PrimaryBashUBGL = false,
 	BottomlessClipUBGL = false,
 	NoShellEjectUBGL = true,
+	TriggerDelay = false,
 
 -- what the actual heck do these do
 	IKGunMotionOffset = Vector(0, 0, 0),
