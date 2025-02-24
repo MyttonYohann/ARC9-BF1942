@@ -78,7 +78,8 @@ SWEP.ReloadInSights = false -- This weapon can aim down sights while reloading.
 
 -------------------------- FIREMODES
 
-SWEP.RPM = 600
+SWEP.RPM = 400
+SWEP.RPMBipod = 600
 
 -- Works different to ArcCW
 
@@ -186,8 +187,8 @@ SWEP.TracerColor = Color(255, 225, 200) -- Color of tracers. Only works if trace
 -------------------------- POSITIONS
 
 SWEP.IronSights = {
-    Pos = Vector(-2.7, 30,-6.75),
-    Ang = Angle(0,0,0),
+    Pos = Vector(-0.25, 21.5,-7.25),
+    Ang = Angle(0,0,-20),
     Midpoint = { -- Where the gun should be at the middle of it's irons
         Pos = Vector(0, 15, -4),
         Ang = Angle(0, 0, -45),
@@ -197,7 +198,7 @@ SWEP.IronSights = {
 }
 
 SWEP.IronSightsBipod = {
-    Pos = Vector(-2.7, 30,-6.75),
+    Pos = Vector(-2.5, 30,-6.75),
     Ang = Angle(0,0,0),
     Midpoint = { -- Where the gun should be at the middle of it's irons
         Pos = Vector(0, 15, -4),
@@ -207,10 +208,11 @@ SWEP.IronSightsBipod = {
     CrosshairInSights = false
 }
 
-SWEP.Crosshair = true
+SWEP.Crosshair = false
 
---SWEP.BipodPos = Vector(2, 30, -7)
---SWEP.BipodAng = Angle(0, 0, 0)
+SWEP.PeekPos = Vector(3, -5, -2)
+SWEP.PeekAng = Angle(0, 0, 5)
+SWEP.NoPeekCrosshair = true -- Not displays peek crosshair even if its enabled
 
 SWEP.BipodPos = Vector(0, 28, -6)
 SWEP.BipodAng = Angle(0, 0, 0)
@@ -282,12 +284,10 @@ SWEP.BulletBones = {
 }
 
 SWEP.Animations = {
-    ["fire"] = {
-        Source = {"fire"},
-    },
-    ["fire_bipod"] = {
-        Source = {"fire_bipod"},
-    },
+	["fire"] = { Source = {"fire"}, },
+	["fire_bipod"] = { Source = {"fire_bipod"}, }, 
+	["fire_sights"] = { Source = {"fire_sights"}, },
+	["fire_sights_bipod"] = { Source = {"fire_bipod"}, },
 
     ["reload"] = {
         Source = "dry_bipod",
@@ -342,15 +342,16 @@ SWEP.Animations = {
     ["idle"] = {
         Source = "idle",
     }, 
-	["idle_bipod"] = {
-        Source = "idle_bipod",
-    },
-	["enter_bipod"] = {
-        Source = "enter_bipod",
-    },	
-	["exit_bipod"] = {
-        Source = "exit_bipod",
-    },
+
+	["idle_bipod"] = { Source = "idle_bipod", },
+	["enter_bipod"] = { Source = "enter_bipod", },	
+	["exit_bipod"] = { Source = "exit_bipod", },
+	["idle_sights_bipod"] = { Source = "idle_bipod", },
+	["enter_sights_bipod"] = { Source = "idle_bipod", },	
+	["exit_sights_bipod"] = { Source = "idle_bipod", },
+	["idle_sights"] = { Source = "idle_sights", },
+	["enter_sights"] = { Source = "enter_sights", Time = 70/40, },	
+	["exit_sights"] = { Source = "exit_sights", Time = 80/40, },
 }
 
 -------------------------- ATTACHMENTS
@@ -360,10 +361,10 @@ SWEP.DefaultBodygroups = "00600000000000000000"
 SWEP.AttachmentElements = {
 }
 
-SWEP.Hook_ModifyBodygroups = function(wep, data)
+--[[SWEP.Hook_ModifyBodygroups = function(wep, data)
     local model = data.model
 	---if wep:HasElement("barrel_sg") and wep:HasElement("hg_2") 	then model:SetBodygroup(1,10) end
-end
+end]]
  
 SWEP.Attachments = {
     {
@@ -373,7 +374,7 @@ SWEP.Attachments = {
 
         DefaultIcon = Material("arc9/def_att_icons/optic.png"),
         Category = {"optic_css"},
-        Bone = "W_Main",
+        Bone = "W_Main2",
         Pos = Vector(0, -4.8, 3),
         Ang = Angle(90, 0, -90),
         MergeSlots = {2},
@@ -386,20 +387,22 @@ SWEP.Attachments = {
         InstalledElements = {"blank_toprail"},
 
         Category = {"bfc_optic_dove"},
-        Bone = "W_Main",
-        Pos = Vector(0.9, -2.5, 3),
+        Bone = "W_Open",
+        Pos = Vector(2, -2.5, -11),
         Ang = Angle(90, 0, -90),
     },
 }
 
 SWEP.DamageType = DMG_BULLET + DMG_AIRBOAT
 SWEP.Bipod = true
+SWEP.NoFireDuringSighting = true
+SWEP.TriggerDelay = true
+SWEP.TriggerDelayTime = 0.1
+SWEP.TriggerDownSound = "gekolt_css/weaponclick.wav"
 SWEP.HookP_BlockFire = function(self)
-	if !self:GetBipod() then
-    return true
-	end
+	local canfire = self:GetBipod() or self:GetInSights()
+    return !canfire
 end
-
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if wep:GetCustomize() then
 	if	curanim == "idle" then return "idle_bipod"	end	
@@ -411,7 +414,15 @@ SWEP.Hook_Think = function(self)
 
 	if self:GetBipod() then
 	owner:AddEFlags( EFL_NO_DAMAGE_FORCES ) 
+	self.NoFireDuringSighting = false
 	else
 	owner:RemoveEFlags( EFL_NO_DAMAGE_FORCES ) 	
+	self.NoFireDuringSighting = true
+	end
+
+	if self:GetInSights() and !self:GetBipod() then
+		self.TriggerDelayTime = 0.3
+	else
+		self.TriggerDelayTime = 0.1
 	end
 end
