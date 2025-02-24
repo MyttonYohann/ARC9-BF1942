@@ -46,17 +46,17 @@ SWEP.DamageRand = 0.4
 SWEP.RangeMin = 300 -- How far bullets retain their maximum damage for.
 SWEP.RangeMax = 7000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
 
-SWEP.Penetration = 40 -- Units of wood that can be penetrated by this gun.
+SWEP.Penetration = 42 -- Units of wood that can be penetrated by this gun.
 
-SWEP.ImpactForce = 8
+SWEP.ImpactForce = 10
 
 SWEP.BodyDamageMults = {
-    [HITGROUP_HEAD] = 2.5,
+    [HITGROUP_HEAD] = 1.5,
     [HITGROUP_CHEST] = 1,
     [HITGROUP_LEFTARM] = 0.9,
     [HITGROUP_RIGHTARM] = 0.9,
-    [HITGROUP_LEFTLEG] = 0.75,
-    [HITGROUP_RIGHTLEG] = 0.75,
+    [HITGROUP_LEFTLEG] = 0.6,
+    [HITGROUP_RIGHTLEG] = 0.6,
 }
 
 -------------------------- PHYS BULLET BALLISTICS
@@ -70,7 +70,7 @@ SWEP.PhysBulletDrag = 1.15
 SWEP.Ammo = "ar2" -- What ammo type this gun uses.
 
 SWEP.ChamberSize = 1 -- The amount of rounds this gun can chamber.
-SWEP.ClipSize = 120 -- Self-explanatory.
+SWEP.ClipSize = 80 -- Self-explanatory.
 SWEP.SupplyLimit = 2 -- Amount of magazines of ammo this gun can take from an ARC9 supply crate.
 SWEP.SecondarySupplyLimit = 2 -- Amount of reserve UBGL magazines you can take.
 
@@ -103,16 +103,16 @@ SWEP.Firemodes = {
 SWEP.RecoilPatternDrift = 15
 
 -- General recoil multiplier
-SWEP.Recoil = 1
+SWEP.Recoil = 2
 
 -- These multipliers affect the predictible recoil by making the pattern taller, shorter, wider, or thinner.
-SWEP.RecoilUp = 1.2 -- Multiplier for vertical recoil
-SWEP.RecoilSide = 0.425 -- Multiplier for vertical recoil
+SWEP.RecoilUp = 1.8 -- Multiplier for vertical recoil
+SWEP.RecoilSide = 1.4 -- Multiplier for vertical recoil
 
 -- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
 -- This type of recoil CANNOT be predicted.
 SWEP.RecoilRandomUp = 0.5
-SWEP.RecoilRandomSide = 0.5
+SWEP.RecoilRandomSide = 2
 
 SWEP.RecoilDissipationRate = 7 -- How much recoil dissipates per second.
 SWEP.RecoilResetTime = 0 -- How long the gun must go before the recoil pattern starts to reset.
@@ -124,25 +124,24 @@ SWEP.RecoilKick = 1.5
 SWEP.RecoilPerShot = 1
 SWEP.RecoilKickDamping = 50
 
-SWEP.RecoilMultCrouch = 0.7
+SWEP.RecoilMultCrouch = 1
 SWEP.RecoilMultHipFire = 1
 SWEP.RecoilMultSights = 1
 
 -------------------------- SPREAD
 
-SWEP.Spread = 0.005
+SWEP.Spread = 0.01
 
 SWEP.SpreadAddRecoil = 0.005 -- Applied per unit of recoil.
-SWEP.RecoilModifierCap = 10
+SWEP.RecoilModifierCap = 15
 
 SWEP.SpreadAddMove = 0.04
 SWEP.SpreadAddMidAir = 0.0075
 SWEP.SpreadMultHipFire = 5
-SWEP.SpreadMultCrouch = 0.5
+SWEP.SpreadMultCrouch = 1
 
 SWEP.SpreadMultSights = 0.0025/0.005
-SWEP.RecoilModifierCapSights = 2.5
-SWEP.RecoilModifierCapCrouch = 5
+SWEP.RecoilModifierCapSights = 5
 
 -------------------------- HANDLING
 
@@ -408,5 +407,7 @@ SWEP.Hook_Think = function(self)
 
 	if self:GetBipod() then
 	owner:AddEFlags( EFL_NO_DAMAGE_FORCES ) 
+	else
+	owner:RemoveEFlags( EFL_NO_DAMAGE_FORCES ) 	
 	end
 end
