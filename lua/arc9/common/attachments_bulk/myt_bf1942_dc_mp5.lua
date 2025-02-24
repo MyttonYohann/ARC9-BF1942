@@ -108,7 +108,7 @@ ATT.Category = "bf1942_dc_mp5_stock"
 ATT.ActivateElements = {"s_4", "no_animbodge", "nofg"}
 
 ATT.CustomizePosHook = function(wep, vec)
-    return vec + Vector(4, 0, 0)
+    return vec + Vector(6, 0, 0)
 end
 
 ATT.ActivePosHook = function(wep, vec)
