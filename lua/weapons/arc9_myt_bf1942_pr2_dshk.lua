@@ -12,7 +12,7 @@ SWEP.TrueName = "DShK"
 SWEP.Class = "Assault Rifle"
 SWEP.Trivia = {
     ["Country of Origin"] = [[[Soviet] Russia]],
-    ["Caliber"] = "7.62x39mm",
+    ["Caliber"] = "12.7×108mm",
 }
 
 SWEP.Credits = {
@@ -46,7 +46,7 @@ SWEP.DamageRand = 0.4
 SWEP.RangeMin = 300 -- How far bullets retain their maximum damage for.
 SWEP.RangeMax = 7000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
 
-SWEP.Penetration = 32 -- Units of wood that can be penetrated by this gun.
+SWEP.Penetration = 40 -- Units of wood that can be penetrated by this gun.
 
 SWEP.ImpactForce = 8
 
@@ -481,15 +481,9 @@ SWEP.HookP_BlockFire = function(self)
 end
 
 SWEP.Hook_Think = function(self)
-	--[[if !self:GetBipod() then
-    self.HasSights = false
-	elseif self:GetBipod() then
-	self.HasSights = true
-	end]]
+    local owner = self:GetOwner()
 
-
-    --if CLIENT then return end
-	local dmg = DamageInfo()
-	local dmgforce = dmg:GetDamageForce()
-	dmg:SetDamageForce(dmgforce*0)
+	if self:GetBipod() then
+	owner:AddEFlags( EFL_NO_DAMAGE_FORCES ) 
+	end
 end
