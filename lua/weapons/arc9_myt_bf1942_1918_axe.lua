@@ -82,7 +82,6 @@ SWEP.BashWhileSprint = true
 -------------------------- MELEE
 
 SWEP.Bash = true
-SWEP.PrimaryBashSights = false
 SWEP.PrimaryBash = true
 
 SWEP.BashDamage = 90
@@ -92,20 +91,6 @@ SWEP.PreBashTime = 0.2
 SWEP.PostBashTime = 0.275
 
 SWEP.BashThirdArmAnimation = false
-
--------------------------- UGBL
-SWEP.UBGL = true
-SWEP.UBGLAmmo = "smg1_grenade"
-SWEP.UBGLClipSize = 1
-SWEP.UBGLFiremode = 1
-SWEP.UBGLFiremodeName = "UBGL"
-SWEP.UBGLChamberSize = 0
-SWEP.UBGLInsteadOfSights = true -- Right clicking fires UBGL instead of going into irons.
-SWEP.UBGLToggleTime = nil -- In seconds, how long of a delay between being able to toggle the UBGL.
-
-SWEP.TriggerDelayUBGL = true
-SWEP.TriggerDelayTimeUBGL = 0.5
-SWEP.TriggerDelayReleaseToFireUBGL = true
 
 -------------------------- TRACERS
 
