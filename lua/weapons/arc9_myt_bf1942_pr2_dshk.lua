@@ -38,7 +38,7 @@ SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
 
-SWEP.DamageMax = 108 -- Damage done at point blank range
+SWEP.DamageMax = 148 -- Damage done at point blank range
 SWEP.DamageMin = 72 -- Damage done at maximum range
 
 SWEP.DamageRand = 0.4
@@ -69,7 +69,7 @@ SWEP.PhysBulletDrag = 1.15
 
 SWEP.Ammo = "ar2" -- What ammo type this gun uses.
 
-SWEP.ChamberSize = 1 -- The amount of rounds this gun can chamber.
+SWEP.ChamberSize = 0 -- The amount of rounds this gun can chamber.
 SWEP.ClipSize = 80 -- Self-explanatory.
 SWEP.SupplyLimit = 2 -- Amount of magazines of ammo this gun can take from an ARC9 supply crate.
 SWEP.SecondarySupplyLimit = 2 -- Amount of reserve UBGL magazines you can take.
@@ -107,13 +107,13 @@ SWEP.RecoilPatternDrift = 15
 SWEP.Recoil = 1
 
 -- These multipliers affect the predictible recoil by making the pattern taller, shorter, wider, or thinner.
-SWEP.RecoilUp = 2.5 -- Multiplier for vertical recoil
-SWEP.RecoilSide = 1.4 -- Multiplier for vertical recoil
+SWEP.RecoilUp = 1.5 -- Multiplier for vertical recoil
+SWEP.RecoilSide = 0.7 -- Multiplier for vertical recoil
 
 -- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
 -- This type of recoil CANNOT be predicted.
-SWEP.RecoilRandomUp = 0.5
-SWEP.RecoilRandomSide = 2
+SWEP.RecoilRandomUp = 0.3
+SWEP.RecoilRandomSide = 1.5
 
 SWEP.RecoilDissipationRate = 7 -- How much recoil dissipates per second.
 SWEP.RecoilResetTime = 0 -- How long the gun must go before the recoil pattern starts to reset.
@@ -393,6 +393,7 @@ SWEP.Attachments = {
 
 SWEP.DamageType = DMG_BULLET + DMG_AIRBOAT
 SWEP.Bipod = true
+SWEP.RecoilMultBipod = 0.2
 SWEP.NoFireDuringSighting = true
 SWEP.TriggerDelay = true
 SWEP.TriggerDelayTime = 0.1
