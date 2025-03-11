@@ -23,7 +23,7 @@ SWEP.Description = [[big boy, need deploy to properly use]]
 SWEP.ViewModel = "models/weapons/myt_bf1942/dc/c_dshk.mdl"
 SWEP.WorldModel = "models/weapons/myt_bf1942/dc/c_dshk.mdl"
 
-SWEP.Slot = 2
+SWEP.Slot = 3
 
 SWEP.MirrorVMWM = true
 SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_dshk.mdl"
@@ -244,7 +244,7 @@ SWEP.StandardPresets = {
 
 -------------------------- HoldTypes
 
-SWEP.HoldType = "ar2"
+SWEP.HoldType = "rpg"
 SWEP.HoldTypeSprint = "passive"
 SWEP.HoldTypeHolstered = "passive"
 SWEP.HoldTypeSights = "ar2"
@@ -372,10 +372,11 @@ SWEP.Attachments = {
 
         DefaultIcon = Material("arc9/def_att_icons/optic.png"),
         Category = {"optic_css"},
-        Bone = "W_Main2",
-        Pos = Vector(0, -4.8, 3),
+        Bone = "W_Open",
+        Pos = Vector(0, -3, -11),
         Ang = Angle(90, 0, -90),
         MergeSlots = {2},
+		ExtraSightDistance = 4,
     },
 
     {   --2 dovetail

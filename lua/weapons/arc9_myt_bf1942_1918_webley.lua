@@ -218,7 +218,7 @@ SWEP.BipodPos = Vector(1, 7, 1)
 SWEP.BipodAng = Angle(0, 0, 0)
 
 SWEP.SprintAng = Angle(0, 50, 0)
-SWEP.SprintPos = Vector(3, 6, -2)
+SWEP.SprintPos = Vector(2, 9, -9)
 
 SWEP.ViewModelFOVBase = 70
 SWEP.ActivePos = Vector(0.5, 10, 0)

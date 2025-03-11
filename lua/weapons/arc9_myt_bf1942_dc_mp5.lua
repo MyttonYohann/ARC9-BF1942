@@ -265,6 +265,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	elseif wep:HasElement("hg_1") then varextra = -10
 	elseif wep:HasElement("hg_3") then varextra = 5
 	end
+	if wep:Clip1() == 0 then varextra = varextra - 30 end
 	
     local rng = math.Truncate(util.SharedRandom("i lost 400 elo with red card mimikyu", 1,100))
     if rng <= 60 + varextra then	-- i fucking hate mp5	
