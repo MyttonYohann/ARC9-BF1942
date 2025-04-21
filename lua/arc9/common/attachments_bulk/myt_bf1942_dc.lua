@@ -117,9 +117,8 @@ end]]
 ATT.Hook_EndReload = function(wep)
 	wep:SetReloading(false)
 	wep:PlayAnimation("reload_knife_end")
-	timer.Create("Bodge2", 0.05, 1, function()
-	wep:PlayAnimation("idle_knife") -- force snap to idle
-	end)
+	timer.Simple(.01, function() wep:PlayAnimation("idle_knife") end)
+	 -- force snap to idle
 end]]
 
 --fuck me in the ass SORRY SORRY SORRY
@@ -158,13 +157,6 @@ ATT.PreBashTime = 0.2
 ATT.PostBashTime = 0.4
 
 ATT.ModelOffset = Vector(-5, -1, -2)
---[[ATT.ModelAngleOffset = Angle(0, 0, 0)
-
---ATT.ActivePosUBGL = Vector(4, 3, 0)
---ATT.ActiveAngUBGL = Angle(5, 0, 20)
-
---ATT.SprintAngUBGL = Angle(0, -10, 10)
---ATT.SprintPosUBGL = Vector(2, 3, -1)]]
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_uh_knife")
 
@@ -562,3 +554,52 @@ ATT.AimDownSightsTimeAdd = 0.12
 ATT.SprintToFireTimeAdd = 0.05
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_optic_smaw")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Hydra Barrel]]
+ATT.CompactName = [[B. Hydra]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[two of them
+]]
+
+ATT.SortOrder = 2
+ATT.Category = "bf1942_dc_hpb_frame"
+ATT.ActivateElements = {"b_1"}
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"		then	return "reload_empty_hydra"		end
+	if	curanim == "reload"				then	return "reload_hydra"			end	
+	if	curanim == "reload_empty_fail"	then 	return "reload_empty_hydra_fail"	end	
+	if	curanim == "reload_fail"		then 	return "reload_hydra_fail"		end	
+end
+
+ATT.ClipSizeMult = 2
+ATT.NumOverride = 2
+ATT.AmmoPerShot = 2
+ATT.ChamberSize = 2
+ATT.RPMMult = 0.75
+ATT.PhysBulletMuzzleVelocityAdd = -100 * 12
+
+ATT.TriggerDelayTime = 0.2
+--ATT.MalfunctionMeanShotsToFailAdd = -2
+ATT.SpreadMultSights = 0.0125/0.0025
+
+ATT.RecoilMult = 2
+ATT.RecoilPatternDriftMult = 2
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"		then	return "reload_empty_hydra"		end
+	if	curanim == "reload"				then	return "reload_hydra"			end	
+	if	curanim == "reload_empty_fail"	then 	return "reload_empty_hydra"		end	
+	if	curanim == "reload_fail"		then 	return "reload_hydra"			end	
+end
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_hpb1")
+
+
+----------------------------------------------------------------------------------

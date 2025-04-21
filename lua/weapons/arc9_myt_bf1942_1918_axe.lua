@@ -4,7 +4,7 @@ SWEP.Base = "arc9_base"
 
 SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
-SWEP.SubCategory = "1918"
+SWEP.SubCategory = "11918"
 
 SWEP.PrintName = "Axe"
 SWEP.TrueName = "Axe"

@@ -732,3 +732,63 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal5")
 
 
 ----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Dragunov Calibre]]
+ATT.CompactName = [[Cal. Dragunov]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[ khyber
+]]
+-- has to do it manually otherwise it would stack
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"		then	return "reload_empty_bolt"		end
+	if	curanim == "reload"				then	return "reload_bolt"			end
+	if	curanim == "reload_fail"		then	return "reload_bolt"			end	
+	if	curanim == "fire"				then	return "fire_sg"				end	
+	if	curanim == "fire_iron"			then	return "fire"					end
+end
+
+--ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
+
+ATT.SortOrder = 1000
+ATT.Category = "bf1942_dc_ak47_cal"
+ATT.ActivateElements = {"cal_6",}
+
+ATT.ClipSizeOverride = 6
+
+ATT.RPMMult = 300 / 600
+
+ATT.SpreadAdd = -0.01
+ATT.SpreadSights = 0.1
+ATT.DamageMaxMult = 0.4
+ATT.DamageMinMult = 0.4
+
+ATT.RecoilMult = 3
+ATT.RecoilPatternDriftMult = 5
+ATT.Penetration = 32
+ATT.ManualAction = true
+ATT.NoShellEjectManualAction = true
+ATT.ManualActionNoLastCycle = false
+
+
+--ATT.Ammo = "buckshot"
+--ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
+ATT.ShellScale = 1.25
+
+ATT.Attachments = {
+    {
+        PrintName = "Ammo Type",
+        DefaultName = "Default Type",
+        Category = {"css_ammo_sg"},
+        Pos = Vector(1, 0, -3.5),
+        Ang = Angle(0, 0, 0),
+    },
+}
+
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal6")
+
+
+----------------------------------------------------------------------------------

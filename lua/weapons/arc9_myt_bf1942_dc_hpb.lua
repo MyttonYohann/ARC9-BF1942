@@ -4,7 +4,7 @@ SWEP.Base = "arc9_base"
 
 SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
-SWEP.SubCategory = "Desert Combat"
+SWEP.SubCategory = "5Desert Combat"
 
 SWEP.PrintName = "HP Browning"
 SWEP.TrueName = "HP Browning"
@@ -314,6 +314,34 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 61 / 40},
 			{s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 91 / 40},
         },
+    },  
+
+	["reload_hydra"] = {
+        Source = "wet_hydra",
+        FireASAP = true,
+        MinProgress = 0.93,
+        EventTable = {
+            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 4 / 40},  
+			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 78 / 40},
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    },  
+    ["reload_empty_hydra"] = {
+        Source = "dry_hydra",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.85, lhik = 0, rhik = 0, },{ t = 0.975, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 4 / 40},  
+			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 78 / 40},
+			{s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 111 / 40},
+        },
     }, 
 --------------------------------------------------------
     ["draw"] = {
@@ -404,6 +432,7 @@ end
 SWEP.DefaultBodygroups = "00000000000000000"
 
 SWEP.AttachmentElements = {
+    ["b_1"] = 	{ Bodygroups = { {0, 1} }, },
     ["f_draco"] = 	{ 
 	Bodygroups = { {1, 1}, {2, 1} },
 	IronSights = {
@@ -447,7 +476,7 @@ SWEP.Attachments = {
         DefaultName = "None",
         InstalledElements = {"rail_def"},
 
-        Category = {"bf1942_dc_pistol_frame"},
+        Category = {"bf1942_dc_pistol_frame", "bf1942_dc_hpb_frame"},
         Bone = "W_Main",
         Pos = Vector(0, -3, 4),
         Ang = Angle(90, 0, -90),

@@ -4,7 +4,7 @@ SWEP.Base = "arc9_base"
 
 SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
-SWEP.SubCategory = "Desert Combat"	-- its from project real but im not making a category for one gun
+SWEP.SubCategory = "5Desert Combat"	-- its from project real but im not making a category for one gun
 
 SWEP.PrintName = "DShK"
 SWEP.TrueName = "DShK"

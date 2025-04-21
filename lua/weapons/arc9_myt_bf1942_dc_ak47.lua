@@ -4,7 +4,7 @@ SWEP.Base = "arc9_base"
 
 SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
-SWEP.SubCategory = "Desert Combat"
+SWEP.SubCategory = "5Desert Combat"
 
 SWEP.PrintName = "AK47"
 SWEP.TrueName = "AK47"
@@ -271,6 +271,14 @@ SWEP.Animations = {
     ["fire"] = {
         Source = {"fire"},
     },
+    ["cycle"] = {
+        Source = {"bolt"},
+		EjectAt = 20/ 40,
+    },
+    ["cycle_empty"] = {
+        Source = {"bolt_last"},
+		EjectAt = 20/ 40,
+    },
     ["fire_smg"] = {
         Source = {"fire_smg"},
     }, 
@@ -319,6 +327,43 @@ SWEP.Animations = {
     },
     ["reload_empty"] = {
         Source = "dry",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt2.ogg" ,   t = 27 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 54 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 84 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 131 / 40},
+            {s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 150 / 40},
+        },
+    }, 
+--------------------------------------------------------
+    ["reload_bolt"] = {
+        Source = "wet_bolt",
+        FireASAP = true,
+        MinProgress = 0.93,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.125, lhik = 1, rhik = 0, },{ t = 0.75, lhik = 1, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt4.ogg" ,   t = 30 / 40},
+            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 32 / 40},
+            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 62 / 40},
+            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 101 / 40},
+            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 114 / 40},
+        },
+    },  
+    ["reload_empty_bolt"] = {
+        Source = "dry_bolt",
         FireASAP = true,
         MinProgress = 0.95,
         IKTimeLine = {
@@ -659,6 +704,7 @@ SWEP.AttachmentElements = {
 	["cal_3"] =	{ Bodygroups = { {0, 8} },},
 	["cal_4"] =	{ Bodygroups = { {0, 6}, {5, 2} },},
 	["cal_5"] =	{ Bodygroups = { {0, 9}, {5, 1}, {1, 8} },},
+	["cal_6"] =	{ Bodygroups = { {0, 13}, {4, 1}, },},
 
     ["rail_def"] = { Bodygroups = { {6, 1} },},
     --["fg_def"] = { Bodygroups = { {8, 1} },},

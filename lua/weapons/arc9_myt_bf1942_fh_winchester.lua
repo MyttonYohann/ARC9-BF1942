@@ -4,7 +4,7 @@ SWEP.Base = "arc9_base"
 
 SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"	-- it's from Forgotten Hope but im not putting 1 gun in a whole category
-SWEP.SubCategory = "1918"
+SWEP.SubCategory = "11918"
 
 SWEP.PrintName = "W1300"
 SWEP.TrueName = "W1300"
