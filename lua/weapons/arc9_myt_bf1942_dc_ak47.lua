@@ -704,7 +704,7 @@ SWEP.AttachmentElements = {
 	["cal_3"] =	{ Bodygroups = { {0, 8} },},
 	["cal_4"] =	{ Bodygroups = { {0, 6}, {5, 2} },},
 	["cal_5"] =	{ Bodygroups = { {0, 9}, {5, 1}, {1, 8} },},
-	["cal_6"] =	{ Bodygroups = { {0, 13}, {4, 1}, },},
+	["cal_6"] =	{ Bodygroups = { {0, 13},{5, 3}, {4, 1}, },},
 
     ["rail_def"] = { Bodygroups = { {6, 1} },},
     --["fg_def"] = { Bodygroups = { {8, 1} },},
