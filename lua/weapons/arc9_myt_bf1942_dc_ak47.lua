@@ -274,16 +274,35 @@ SWEP.Animations = {
     ["cycle"] = {
         Source = {"bolt"},
 		EjectAt = 20/ 40,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },       { t = 0.05, lhik = 1, rhik = 1, }, 
+        { t = 0.15, lhik = 1, rhik = 0, },{ t = 0.6, lhik = 1, rhik = 0, },{ t = 0.7, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 8 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 18 / 40},
+        },
     },
     ["cycle_empty"] = {
         Source = {"bolt_last"},
 		EjectAt = 20/ 40,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },       { t = 0.05, lhik = 1, rhik = 1, }, 
+        { t = 0.15, lhik = 1, rhik = 0, },{ t = 0.6, lhik = 1, rhik = 0, },{ t = 0.7, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 8 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 18 / 40},
+        },
     },
     ["fire_smg"] = {
         Source = {"fire_smg"},
     }, 
 	["fire_sg"] = {
         Source = {"fire_sg"},
+    },
+	["fire_bolt"] = {
+        Source = {"fire_bolt"},
     },
     ["fire_iron"] = {
         Source = {"fire_ads"},

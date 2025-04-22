@@ -746,8 +746,8 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"		then	return "reload_empty_bolt"		end
 	if	curanim == "reload"				then	return "reload_bolt"			end
 	if	curanim == "reload_fail"		then	return "reload_bolt"			end	
-	if	curanim == "fire"				then	return "fire_sg"				end	
-	if	curanim == "fire_iron"			then	return "fire"					end
+	if	curanim == "fire"				then	return "fire_bolt"				end	
+	if	curanim == "fire_iron"			then	return "fire_bolt"				end
 end
 
 --ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
@@ -760,10 +760,10 @@ ATT.ClipSizeOverride = 6
 
 ATT.RPMMult = 300 / 600
 
-ATT.SpreadAdd = -0.01
-ATT.SpreadSights = 0.1
-ATT.DamageMaxMult = 0.4
-ATT.DamageMinMult = 0.4
+ATT.SpreadAdd = -0.0025
+ATT.SpreadSights = 0.001
+ATT.DamageMaxMult = 3
+ATT.DamageMinMult = 4.5
 
 ATT.RecoilMult = 3
 ATT.RecoilPatternDriftMult = 5

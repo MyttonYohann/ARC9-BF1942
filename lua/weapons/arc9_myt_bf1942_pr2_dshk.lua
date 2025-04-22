@@ -214,7 +214,7 @@ SWEP.PeekPos = Vector(3, -5, -2)
 SWEP.PeekAng = Angle(0, 0, 5)
 SWEP.NoPeekCrosshair = true -- Not displays peek crosshair even if its enabled
 
-SWEP.BipodPos = Vector(0, 28, -6)
+SWEP.BipodPos = Vector(0, 28, -7)
 SWEP.BipodAng = Angle(0, 0, 0)
 
 SWEP.SprintPos = Vector(-5, 32, -12)
@@ -297,15 +297,6 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 1, },
         { t = 0.125, lhik = 1, rhik = 0, },{ t = 0.75, lhik = 1, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 1, },
         },
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
-			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 14 / 40},
-			{s =  "myt_bf1942/dc/ak_bolt4.ogg" ,   t = 30 / 40},
-            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 32 / 40},
-            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 62 / 40},
-            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 101 / 40},
-            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 114 / 40},
-        },
     },  
     ["reload_bipod"] = {
         Source = "dry_bipod",
@@ -317,6 +308,7 @@ SWEP.Animations = {
         { t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
         },
         EventTable = {
+            {s =  "myt_bf1942/pr/dshk_reload.ogg" ,    t = 0},
         },
     }, 
 --------------------------------------------------------
@@ -412,10 +404,10 @@ SWEP.Hook_Think = function(self)
     local owner = self:GetOwner()
 
 	if self:GetBipod() then
-	owner:AddEFlags( EFL_NO_DAMAGE_FORCES ) 
+	--owner:AddEFlags( EFL_NO_DAMAGE_FORCES ) 
 	self.NoFireDuringSighting = false
 	else
-	owner:RemoveEFlags( EFL_NO_DAMAGE_FORCES ) 	
+	--owner:RemoveEFlags( EFL_NO_DAMAGE_FORCES ) 	
 	self.NoFireDuringSighting = true
 	end
 
@@ -424,4 +416,30 @@ SWEP.Hook_Think = function(self)
 	else
 		self.TriggerDelayTime = 0.1
 	end
+end
+
+
+
+function SWEP:CanReload()
+	-- base code --
+    if self:GetOwner():KeyDown(IN_WALK) then return false end
+    if self:StillWaiting() then return end
+    if self:GetCapacity(self:GetUBGL()) <= 0 then return end
+    -- if self:GetTraversalSprintAmount() >= 0 then return end
+    local ammo = self:Ammo1()
+    if self:GetUBGL() then
+        ammo = self:Ammo2()
+    end
+    if ammo <= 0 and !self:GetInfiniteAmmo() then return end
+    if !self:GetProcessedValue("ReloadWhileSprint", true) and self:GetSprintAmount() > 0 then
+        return
+    end
+    if self:GetJammed() then return end
+    if self:GetCustomize() then
+        return
+    end
+	-- separate check --
+    if !self:GetBipod() then return end
+
+    return true
 end
