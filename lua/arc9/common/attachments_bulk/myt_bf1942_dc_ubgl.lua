@@ -597,7 +597,7 @@ ATT.AimDownSightsTimeMult = 1.1
 ATT.SprintToFireTimeMult = 1.1
 
 ATT.UBGL = true
-ATT.UBGLAmmo = "RPG_rocket"
+ATT.UBGLAmmo = "RPG_Round"
 ATT.UBGLClipSize = 1
 ATT.UBGLFiremode = 1
 ATT.UBGLFiremodeName = "RPG"

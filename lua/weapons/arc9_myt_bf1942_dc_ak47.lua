@@ -723,10 +723,16 @@ SWEP.AttachmentElements = {
 	["cal_3"] =	{ Bodygroups = { {0, 8} },},
 	["cal_4"] =	{ Bodygroups = { {0, 6}, {5, 2} },},
 	["cal_5"] =	{ Bodygroups = { {0, 9}, {5, 1}, {1, 8} },},
-	["cal_6"] =	{ Bodygroups = { {0, 13},{5, 3}, {4, 1}, },},
+	["cal_6"] = 	{ 
+	Bodygroups = { {0, 13},{5, 3}, {4, 1}, },
+	AttPosMods = { 
+		[7] = { Pos = Vector(0, -5.2, 5), } 
+		},	
+	},	
 
     ["rail_def"] = { Bodygroups = { {6, 1} },},
     --["fg_def"] = { Bodygroups = { {8, 1} },},
+
 }
 
 SWEP.Hook_ModifyBodygroups = function(wep, data)
@@ -737,6 +743,7 @@ SWEP.Hook_ModifyBodygroups = function(wep, data)
 	if wep:HasElement("barrel_sg") and wep:HasElement("hg_5") 	then model:SetBodygroup(1,11) end
 	-- force top rail
 	if wep:HasElement("rail_def") then model:SetBodygroup(6,1) end
+	if wep:HasElement("rail_def") and wep:HasElement("cal_6") then model:SetBodygroup(6,3) end
 end
  
 SWEP.Attachments = {
