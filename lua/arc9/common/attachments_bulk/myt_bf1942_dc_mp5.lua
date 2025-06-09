@@ -97,7 +97,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_mp5_stock3")
 
 ATT = {}
 
-ATT.PrintName = [[Bullpup Kit]]
+ATT.PrintName = [[Heretic Kit]]
 ATT.CompactName = [[5PM]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Commisar said you need to shorten mp5 even more, you have until 5 PM to complete.]]
@@ -280,8 +280,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_mp5_hg4")
 
 ATT = {}
 -- never fucking make a bullpup again
-ATT.PrintName = [[5/10 Reciever]]
-ATT.CompactName = [[Cal. Warden]]
+ATT.PrintName = [[Warden Conversion]]
+ATT.CompactName = [[Cal. 5/10]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Polizei with a bolt hold thing
 ]]

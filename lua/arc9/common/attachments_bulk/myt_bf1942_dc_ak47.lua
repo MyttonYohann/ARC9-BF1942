@@ -303,7 +303,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip6")
 
 ATT = {}
 
-ATT.PrintName = [[Bullpup Kit]]
+ATT.PrintName = [[Heretic Kit]]
 ATT.CompactName = [[G. Bullpup]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ (!) Disable Stock Attachments
@@ -331,10 +331,23 @@ ATT.AimDownSightsTimeMult = 0.5
 ATT.SprintToFireTimeMult = 0.5
 
 ATT.CustomizePosHook = function(wep, vec)	return vec + Vector(5, 0, 0) end
-ATT.ActivePosHook = 	function(wep, vec)	return vec + Vector(-0.5, -4.5, -0.5) end
---ATT.ReloadPosHook = 	function(wep, vec)	return vec + Vector(0, 5, 0) end
-ATT.ReloadPos = Vector(0, -4, 0)	-- looks kinda ugly ngl, should have less easing
-ATT.ReloadAng = Angle(0, 0, 0)
+ATT.ActivePosHook = function(wep, vec)
+	--[[if wep:GetReloading() then -- nope doesnt work like that
+		return vec + Vector(-0.5, -2.5, -0.5)	
+	else]]
+		return vec + Vector(-0.5, -3, -0.5)
+	--end
+end
+--ATT.ReloadPos = Vector(0, -2, 0)
+-- doesnt work
+--[[ATT.ReloadPosHook = function(wep, vec)	
+	if wep:GetElements()["cal_6"] then
+		return vec + Vector(0, -4, 0)
+	else
+		return vec + Vector(0, 0, 0)
+	end
+end]]
+
 
 ATT.BarrelLengthAdd = -8
 
@@ -550,7 +563,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg8")
 
 ATT = {}
 
-ATT.PrintName = [[VSS Calibre]]
+ATT.PrintName = [[Nightshade Calibre]]
 ATT.CompactName = [[Cal. VSS]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[
@@ -576,7 +589,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal1")
 
 ATT = {}
 
-ATT.PrintName = [[AKS74U Calibre]]
+ATT.PrintName = [[Frontliner Conversion]]
 ATT.CompactName = [[Cal. AKS74U]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ 5.45 Calibre
@@ -600,7 +613,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal2")
 
 ATT = {}
 
-ATT.PrintName = [[Tabuk Calibre]]
+ATT.PrintName = [[Interceptor Conversion]]
 ATT.CompactName = [[Cal. Tabuk]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ .338 Calibre
@@ -639,7 +652,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal3")
 
 ATT = {}
 
-ATT.PrintName = [[Scorpion Calibre]]
+ATT.PrintName = [[Stinger Conversion]]
 ATT.CompactName = [[Cal. Scor]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ 9mm (?) Calibre
@@ -677,7 +690,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal4")
 
 ATT = {}
 
-ATT.PrintName = [[Saiga Calibre]]
+ATT.PrintName = [[Outlaw Conversion]]
 ATT.CompactName = [[Cal. Saiga]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ 12ga Calibre
@@ -736,10 +749,11 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal5")
 
 ATT = {}
 
-ATT.PrintName = [[Dragunov Calibre]]
+ATT.PrintName = [[Thundercharge Conversion]]
 ATT.CompactName = [[Cal. Dragunov]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[ khyber
+ATT.Description = [[khyber
+bolt action
 ]]
 -- has to do it manually otherwise it would stack
 ATT.Hook_TranslateAnimation = function(wep, curanim)

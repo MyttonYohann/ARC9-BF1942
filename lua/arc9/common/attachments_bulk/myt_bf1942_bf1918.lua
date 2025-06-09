@@ -11,7 +11,7 @@ local ATT = {}
 
 ATT = {}
 
-ATT.PrintName = [[Shotgun Bore]]
+ATT.PrintName = [[Outlaw Conversion]]
 ATT.CompactName = [[B. Shotgun]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[idk i skimmed through wikipedia and saw shotgun mentioned somewhere
@@ -65,7 +65,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan1")
 
 ATT = {}
 
-ATT.PrintName = [[Raider Kit]]
+ATT.PrintName = [[Tunnerler Conversion]]
 ATT.CompactName = [[K. Obrez]] 
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[pistole
@@ -130,7 +130,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan7")
 
 ATT = {}
 
-ATT.PrintName = [[Bullpup Kit]]
+ATT.PrintName = [[Heretic Kit]]
 ATT.CompactName = [[K. Bullpup]] 
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ergonomic
@@ -193,7 +193,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan8")
 
 ATT = {}
 
-ATT.PrintName = [[Anti-Tank Bore]]
+ATT.PrintName = [[Anti-Tank Conversion]]
 ATT.CompactName = [[B. AT]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Not a 50bmg fitted in a 12ga bore.
@@ -259,7 +259,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan4")
 
 ATT = {}
 
-ATT.PrintName = [[Grenade Launcher Bore]]
+ATT.PrintName = [[Katyusha Conversion]]
 ATT.CompactName = [[B. GL]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Awesome grenade firing mortar mount from famous video game franchise Pocket Mortar™]]
@@ -819,7 +819,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch5")
 
 ATT = {}
 
-ATT.PrintName = [[Bullpup Kit]]
+ATT.PrintName = [[Heretic Kit]]
 ATT.CompactName = [[K. Bullpup]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ergonomic
