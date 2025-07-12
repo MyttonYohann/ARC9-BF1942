@@ -30,7 +30,7 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_dshk.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-15, 5, -10),
+    TPIKPos = Vector(-10, 7, -10),
     TPIKAng = Angle(-5, 0, 180),
     Scale = 1
 }
@@ -38,7 +38,7 @@ SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
 
-SWEP.DamageMax = 148 -- Damage done at point blank range
+SWEP.DamageMax = 180 -- Damage done at point blank range
 SWEP.DamageMin = 72 -- Damage done at maximum range
 
 SWEP.DamageRand = 0.4

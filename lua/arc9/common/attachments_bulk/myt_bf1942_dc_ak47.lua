@@ -791,16 +791,6 @@ ATT.ManualActionNoLastCycle = false
 --ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
 ATT.ShellScale = 1.25
 
-ATT.Attachments = {
-    {
-        PrintName = "Ammo Type",
-        DefaultName = "Default Type",
-        Category = {"css_ammo_sg"},
-        Pos = Vector(1, 0, -3.5),
-        Ang = Angle(0, 0, 0),
-    },
-}
-
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal6")
 

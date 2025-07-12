@@ -38,8 +38,8 @@ SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
 
-SWEP.DamageMax = 13 -- Damage done at point blank range
-SWEP.DamageMin = 5 -- Damage done at maximum range
+SWEP.DamageMax = 14	-- Damage done at point blank range
+SWEP.DamageMin = 7	-- Damage done at maximum range
 
 SWEP.DamageRand = 0.5
 
@@ -241,7 +241,7 @@ SWEP.HoldTypeBlindfire = "pistol"
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2
 SWEP.AnimReload = false
 SWEP.AnimDraw = false
-
+SWEP.BarrelLength = 52
 -------------------------- EFFECTS
 
 SWEP.MuzzleParticle = "muzzleflash_shotgun"

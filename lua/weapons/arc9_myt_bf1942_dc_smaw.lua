@@ -405,7 +405,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl"		then	return "ugbl_switch"	end
 	if	curanim == "reload_ubgl"	then	return "spot_wet"		end	
 	if	curanim == "reload_ubgl_empty" and wep:Clip1() == 0 and wep:Clip2() != 0	then	return "spot_wet"		end	-- this base has a terrible suffix system	
-	
+
 	end
 	if bodge2 then
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
@@ -429,7 +429,7 @@ SWEP.Hook_ModifyBodygroups = function(wep, data)
     local model = data.model
     if wep:HasElement("has_optic") 	then model:SetBodygroup(2,0) end
 end
- 
+
 SWEP.Attachments = {
     {
         PrintName = "Side Mount | Off Hand",

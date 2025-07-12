@@ -30,7 +30,7 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_hpbrown.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-16, 3, -5),
+    TPIKPos = Vector(-15, 6, -5),
     TPIKAng = Angle(-5, 0, 180),
     Scale = 1
 }
@@ -38,8 +38,8 @@ SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
 
-SWEP.DamageMax = 16 -- Damage done at point blank range
-SWEP.DamageMin = 8 -- Damage done at maximum range
+SWEP.DamageMax = 18 -- Damage done at point blank range
+SWEP.DamageMin = 10 -- Damage done at maximum range
 
 SWEP.DamageRand = 0.1
 
@@ -78,7 +78,7 @@ SWEP.ReloadInSights = false -- This weapon can aim down sights while reloading.
 
 -------------------------- FIREMODES
 
-SWEP.RPM = 400
+SWEP.RPM = 500
 
 -- Works different to ArcCW
 
@@ -240,6 +240,7 @@ SWEP.HoldTypeBlindfire = "pistol"
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2
 SWEP.AnimReload = false
 SWEP.AnimDraw = false
+SWEP.BarrelLength = 28
 
 -------------------------- EFFECTS
 

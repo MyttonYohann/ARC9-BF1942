@@ -278,6 +278,7 @@ ATT.ExcludeElements = {"rsight"}
 
 ATT.SpreadAdd = 0.0075
 ATT.SpreadSights = 0.025
+ATT.SupplyLimit = 6
 
 ATT.Ammo = "smg1_grenade"
 ATT.ShootEnt = "myt_bf1942_1918_gl_launcher"
@@ -321,6 +322,7 @@ ATT.ManualAction = true
 ATT.ManualActionNoLastCycle = false
 ATT.CanReloadWhileUnCycled = false
 ATT.ClipSize = 5
+ATT.SupplyLimit = 4
 
 ATT.DamageMaxMultMult = 0.8
 ATT.DamageMinMultMult = 0.8
@@ -348,10 +350,19 @@ ATT.ActivateElements = {"bayonet"} -- worst fucking base ever made
 
 ATT.Bash = true
 
-ATT.Hook_TranslateAnimation = function(wep, curanim)
+--[[ATT.Hook_TranslateAnimation = function(wep, curanim)
 	--if	curanim == "idle_sprint"	then	return "idle_sprint_bayo"		end
 	if	curanim == "bash"	then	return "bash_bayo"		end
-end
+	if	wep:GetIsSprintingCheck() and	curanim == "bash"	then	return "bash_bayo_sprint"		end
+end]]
+
+--[[ATT.Hook_Think = function(wep)
+	if wep:GetIsSprintingCheck() then
+	--wep:PreBashTime(0.05)
+	--wep:PostBashTime(0.6)
+	end
+end]]
+
 
 ATT.SprintPos = Vector(0, 2, 1)
 ATT.SprintAng = Angle(2, -2, -30)
@@ -533,6 +544,8 @@ ATT.BarrelLengthAdd = 24
 
 ATT.SprintPos = Vector(2, 5, -2)
 ATT.SprintAng = Angle(40, -15, -15)
+ATT.HoldType = "ar2"
+ATT.HoldTypeSights = "ar2"
 
 ATT.IronSights = {
     Pos = Vector(-2.705, 5, 0.875),
@@ -581,8 +594,8 @@ ATT.Category = "bf1942_fh_winch_cal"
 ATT.ActivateElements = {"cal_hydra"}
 
 ATT.NumOverride = 14
-ATT.DamageMaxMult = 1.2
-ATT.DamageMinMult = 1.2
+ATT.DamageMaxMult = 1.3
+ATT.DamageMinMult = 1.3
 
 ATT.PhysBulletMuzzleVelocityAdd = 400 * 12
 ATT.ImpactForce = 6
@@ -634,8 +647,8 @@ ATT.Firemodes = {
 }
 
 ATT.NumOverride = 1
-ATT.DamageMaxMult = 12
-ATT.DamageMinMult = 8
+ATT.DamageMaxMult = 14
+ATT.DamageMinMult = 12
 ATT.DamageType = DMG_BLAST + DMG_BULLET + DMG_AIRBOAT
 ATT.RecoilMult = 2
 ATT.RecoilPatternDriftMult = 2
@@ -811,6 +824,7 @@ ATT.Scale = 1
 ATT.ModelOffset = Vector(-8.5, 0.5, -4.5)
 ATT.ModelAngleOffset = Angle(0, 5, 0)
 ATT.Model = "models/weapons/myt_bf1942/dc/c_mp5_ik_ii.mdl"
+ATT.BarrelLengthAdd = -20
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch5")
 
@@ -823,8 +837,8 @@ ATT.PrintName = [[Heretic Kit]]
 ATT.CompactName = [[K. Bullpup]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ergonomic
-long barrel allow long tube allow long shell
-more shell
+long barrel allows long tube allows long shell
+whoops, more shell
 ]]
 
 ATT.SortOrder = 1000000

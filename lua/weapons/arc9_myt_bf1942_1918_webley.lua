@@ -30,7 +30,7 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/1918/c_webley.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-8, 2, -7),
+    TPIKPos = Vector(-13, 7, -7),
     TPIKAng = Angle(-5, 0, 180),
     Scale = 1
 }
@@ -239,7 +239,7 @@ SWEP.StandardPresets = {
 
 -------------------------- HoldTypes
 
-SWEP.HoldType = "pistol"
+SWEP.HoldType = "revolver"
 SWEP.HoldTypeSprint = "passive"
 SWEP.HoldTypeHolstered = "passive"
 SWEP.HoldTypeSights = "revolver"
@@ -251,6 +251,7 @@ SWEP.AnimReload = false
 SWEP.AnimDraw = false
 SWEP.NoShellEject = true
 SWEP.NoShellEjectManualAction = true
+SWEP.BarrelLength = 26
 
 -------------------------- EFFECTS
 
