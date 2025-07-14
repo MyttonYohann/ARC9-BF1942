@@ -6,7 +6,7 @@ SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
 SWEP.SubCategory = "5Desert Combat"
 
-SWEP.PrintName = "Mk153 SMAW"
+SWEP.PrintName = "Skrimisher AW-53"
 SWEP.TrueName = "Mk153 SMAW"
 
 SWEP.Class = "Launcher"

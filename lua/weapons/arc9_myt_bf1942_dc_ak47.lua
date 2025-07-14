@@ -6,7 +6,7 @@ SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
 SWEP.SubCategory = "5Desert Combat"
 
-SWEP.PrintName = "AK47"
+SWEP.PrintName = "Kovazh-47"
 SWEP.TrueName = "AK47"
 
 SWEP.Class = "Assault Rifle"

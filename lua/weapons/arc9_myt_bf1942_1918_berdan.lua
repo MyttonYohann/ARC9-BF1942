@@ -6,7 +6,7 @@ SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
 SWEP.SubCategory = "11918"
 
-SWEP.PrintName = "Berdan No.2"
+SWEP.PrintName = "Cossack"
 SWEP.TrueName = "Berdan No.2"
 
 SWEP.Class = "Rifle"

@@ -6,12 +6,12 @@ SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
 SWEP.SubCategory = "5Desert Combat"
 
-SWEP.PrintName = "HP Browning"
+SWEP.PrintName = "HP Custodian"
 SWEP.TrueName = "HP Browning"
 
 SWEP.Class = "Pistol"
 SWEP.Trivia = {
-	["Country of Origin"] = [[Belgium]],
+	["Country of Origin"] = [[Belgium, i think?]],
 	["Caliber"] = [[9x19mm, probably]],
 }
 

@@ -6,7 +6,7 @@ SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
 SWEP.SubCategory = "5Desert Combat"
 
-SWEP.PrintName = "MP5"
+SWEP.PrintName = "Mareschann-5"
 SWEP.TrueName = "MP5"
 
 SWEP.Class = "Submachine Gun"

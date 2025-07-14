@@ -6,7 +6,7 @@ SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
 SWEP.SubCategory = "5Desert Combat"	-- its from project real but im not making a category for one gun
 
-SWEP.PrintName = "DShK"
+SWEP.PrintName = "Druzhinnik"
 SWEP.TrueName = "DShK"
 
 SWEP.Class = "Heavy Machine Gun"
@@ -18,7 +18,7 @@ SWEP.Trivia = {
 SWEP.Credits = {
 }
 
-SWEP.Description = [[big boy, need deploy to properly use]]
+SWEP.Description = [[big boy, need deploy to 'properly' use]]
 
 SWEP.ViewModel = "models/weapons/myt_bf1942/dc/c_dshk.mdl"
 SWEP.WorldModel = "models/weapons/myt_bf1942/dc/c_dshk.mdl"
