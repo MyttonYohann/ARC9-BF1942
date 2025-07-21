@@ -544,6 +544,7 @@ ATT.BarrelLengthAdd = 24
 
 ATT.SprintPos = Vector(2, 5, -2)
 ATT.SprintAng = Angle(40, -15, -15)
+
 ATT.HoldType = "ar2"
 ATT.HoldTypeSights = "ar2"
 
@@ -560,6 +561,46 @@ ATT.IronSights = {
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley4")
 
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Duel Barrel]]
+ATT.CompactName = [[B. Duel]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[Single shot, long bullet
+]]
+
+ATT.SortOrder = 1
+ATT.Category = "bf1942_1918_webley_barrel"
+ATT.ActivateElements = {"b_5"}
+
+ATT.TriggerDelayTime = 0.3
+ATT.Malfunction = false
+ATT.BarrelLengthAdd = 6
+ATT.ClipSize = 1
+ATT.DamageMaxMult = 1.3
+ATT.DamageMinMult = 1.25
+ATT.Penetration = 16
+
+ATT.BulletBones = { 
+    [1] = "W_Ammo1",
+}
+
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"		then	return "reload_single"			end
+	if	curanim == "reload"				then	return "reload_single"			end
+	if	curanim == "reload_empty_fail"	then 	return "reload_empty_single"	end
+	if	curanim == "reload_fail"		then 	return "reload_single"			end
+	if	curanim == "fire"				then 	return "fire_single"			end
+	if	curanim == "trigger"			then 	return "trigger_single"			end
+	if	curanim == "untrigger"			then 	return "untrigger_single"		end
+end
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley5")
 
 ----------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------

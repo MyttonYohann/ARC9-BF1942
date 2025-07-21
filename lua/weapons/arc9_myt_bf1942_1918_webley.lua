@@ -46,7 +46,7 @@ SWEP.DamageRand = 0.5
 SWEP.RangeMin = 700 -- How far bullets retain their maximum damage for.
 SWEP.RangeMax = 6000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
 
-SWEP.Penetration = 10 -- Units of wood that can be penetrated by this gun.
+SWEP.Penetration = 8 -- Units of wood that can be penetrated by this gun.
 
 SWEP.ImpactForce = 2
 
@@ -217,8 +217,8 @@ SWEP.Crosshair = true
 SWEP.BipodPos = Vector(1, 7, 1)
 SWEP.BipodAng = Angle(0, 0, 0)
 
+SWEP.SprintPos = Vector(1.5, 7, -8.5)
 SWEP.SprintAng = Angle(0, 50, 0)
-SWEP.SprintPos = Vector(2, 9, -9)
 
 SWEP.ViewModelFOVBase = 70
 SWEP.ActivePos = Vector(0.5, 10, 0)
@@ -342,6 +342,23 @@ SWEP.Animations = {
     },   
 	["reload_empty"] = {
         Source = "dry",
+        FireASAP = true,
+        MagSwapTime = 65 / 40,	
+        MinProgress = 0.93,
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,   t = 16 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,   t = 35 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,   t = 47 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 99 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 132 / 40}, 
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    }, 
+	["reload_single"] = {
+        Source = "dry_single",
         FireASAP = true,
         MagSwapTime = 65 / 40,	
         MinProgress = 0.93,
@@ -573,6 +590,19 @@ SWEP.Animations = {
         },
     }, 
 --------------------------------------------------------
+	["fire_single"] = {
+		Source = {"fire_single"},
+		IKTimeLine = {	{ t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },	},
+		Time = 23/40,
+    },  
+    ["trigger_single"] = {
+        Source = {"fire_prep_single"},
+        IKTimeLine = {  { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 1 / 40},  
+        },
+		Mult = 1,
+    },
 	["fire_rifle"] = {
 		Source = {"fire_rifle"},
 		IKTimeLine = {	{ t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },	},
@@ -689,6 +719,7 @@ SWEP.AttachmentElements = {
     ["b_2"] = 	{ Bodygroups = { {0, 2}, },},   
 	["b_3"] = 	{ Bodygroups = { {0, 3}, },}, 
 	["b_4"] = 	{ Bodygroups = { {0, 4}, },}, 
+	["b_5"] = 	{ Bodygroups = { {0, 5},{1, 1},{2, 1}, },}, 
 }
  
 SWEP.Attachments = {
