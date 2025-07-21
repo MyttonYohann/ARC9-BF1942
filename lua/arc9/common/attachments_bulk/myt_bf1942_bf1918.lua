@@ -593,7 +593,7 @@ ATT.BulletBones = {
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"		then	return "reload_single"			end
 	if	curanim == "reload"				then	return "reload_single"			end
-	if	curanim == "reload_empty_fail"	then 	return "reload_empty_single"	end
+	if	curanim == "reload_empty_fail"	then 	return "reload_single"			end
 	if	curanim == "reload_fail"		then 	return "reload_single"			end
 	if	curanim == "fire"				then 	return "fire_single"			end
 	if	curanim == "trigger"			then 	return "trigger_single"			end
