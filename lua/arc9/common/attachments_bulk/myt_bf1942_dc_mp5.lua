@@ -118,7 +118,10 @@ end
 ATT.SprintPosHook = function(wep, vec)
     return vec + Vector(2, 0, 0)
 end
-ATT.BarrelLengthAdd = -8
+ATT.NearWallPos = Vector(4, -3, -18)
+ATT.NearWallAng = Angle(0, 50, -10)
+
+ATT.BarrelLengthAdd = -10
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	wep:HasElement("has_optic") and curanim == "reload_empty"		then	return "dry_bullpup_optic"			end	

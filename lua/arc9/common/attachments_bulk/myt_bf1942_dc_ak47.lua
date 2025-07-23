@@ -330,6 +330,9 @@ ATT.SwayMultSights = 1.5
 ATT.AimDownSightsTimeMult = 0.5
 ATT.SprintToFireTimeMult = 0.5
 
+ATT.NearWallPos = Vector(3, -3, -20)
+ATT.NearWallAng = Angle(0, 50, -5)
+
 ATT.CustomizePosHook = function(wep, vec)	return vec + Vector(5, 0, 0) end
 ATT.ActivePosHook = function(wep, vec)
 	--[[if wep:GetReloading() then -- nope doesnt work like that
@@ -349,7 +352,7 @@ end
 end]]
 
 
-ATT.BarrelLengthAdd = -8
+ATT.BarrelLengthAdd = -12
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip8")
 
