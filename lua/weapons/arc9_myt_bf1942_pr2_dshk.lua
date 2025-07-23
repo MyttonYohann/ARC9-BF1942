@@ -165,19 +165,19 @@ SWEP.SprintToFireTime = 0.6
 SWEP.SpeedMult = 0.75
 SWEP.SpeedMultSights = 0.5
 SWEP.SpeedMultShooting = 0.2
-SWEP.SpeedMultMelee = 0.75
+SWEP.SpeedMultMelee = 5 -- how the fuck does this even work
 SWEP.SpeedMultCrouch = 0.5
 
 -------------------------- MELEE
 
-SWEP.Bash = false
+SWEP.Bash = true
 SWEP.PrimaryBash = false
 
-SWEP.BashDamage = 50
-SWEP.BashLungeRange = 128
-SWEP.BashRange = 64
+SWEP.BashDamage = 20
+SWEP.BashLungeRange = 0
+SWEP.BashRange = 38
 SWEP.PreBashTime = 0.25
-SWEP.PostBashTime = 0.5
+SWEP.PostBashTime = 0.3
 
 -------------------------- TRACERS
 
@@ -284,6 +284,13 @@ SWEP.BulletBones = {
 }
 
 SWEP.Animations = {
+	["bash"] = {
+        Source = {"melee"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },	
+
 	["fire"] = { Source = {"fire"}, },
 	["fire_bipod"] = { Source = {"fire_bipod"}, }, 
 	["fire_sights"] = { Source = {"fire_sights"}, },
@@ -391,7 +398,8 @@ SWEP.NoFireDuringSighting = true
 SWEP.TriggerDelay = true
 SWEP.TriggerDelayTime = 0.1
 SWEP.HookP_BlockFire = function(self)
-	local canfire = self:GetBipod() or self:GetInSights()
+    local owner = self:GetOwner()
+	local canfire = self:GetBipod() or self:GetInSights() or owner:KeyDown(IN_USE)
     return !canfire
 end
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
@@ -404,8 +412,8 @@ SWEP.Hook_Think = function(self)
     local owner = self:GetOwner()
 
 	if self:GetBipod() then
-	--owner:AddEFlags( EFL_NO_DAMAGE_FORCES ) 
-	self.NoFireDuringSighting = false
+	--owner:AddEFlags( EFL_NO_DAMAGE_FORCES ) -- this is native now, it wasnt when i first did it, legacy code
+	self.NoFireDuringSighting = false -- genueinly forgor what this does
 	else
 	--owner:RemoveEFlags( EFL_NO_DAMAGE_FORCES ) 	
 	self.NoFireDuringSighting = true
