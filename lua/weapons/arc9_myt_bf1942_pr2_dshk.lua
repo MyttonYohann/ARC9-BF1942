@@ -165,7 +165,7 @@ SWEP.SprintToFireTime = 0.6
 SWEP.SpeedMult = 0.75
 SWEP.SpeedMultSights = 0.5
 SWEP.SpeedMultShooting = 0.2
-SWEP.SpeedMultMelee = 5 -- how the fuck does this even work
+SWEP.SpeedMultMelee = 30 -- how the fuck does this even work
 SWEP.SpeedMultCrouch = 0.5
 
 -------------------------- MELEE
@@ -175,7 +175,7 @@ SWEP.PrimaryBash = false
 
 SWEP.BashDamage = 20
 SWEP.BashLungeRange = 0
-SWEP.BashRange = 38
+SWEP.BashRange = 70
 SWEP.PreBashTime = 0.25
 SWEP.PostBashTime = 0.3
 

@@ -301,7 +301,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	2 / 40},
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	10 / 40},
         },
-        EjectAt = 6 / 40,
+        EjectAt = 8 / 40,
         FireASAP = true,
         MinProgress = 20/40,
     },  
