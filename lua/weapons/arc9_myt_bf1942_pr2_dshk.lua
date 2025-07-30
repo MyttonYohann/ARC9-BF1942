@@ -12,7 +12,7 @@ SWEP.TrueName = "DShK"
 SWEP.Class = "Heavy Machine Gun"
 SWEP.Trivia = {
     ["Country of Origin"] = [[[Soviet] Russia]],
-    ["Caliber"] = "12.7×108mm",
+    ["Calibre"] = "12.7×108mm",
 }
 
 SWEP.Credits = {

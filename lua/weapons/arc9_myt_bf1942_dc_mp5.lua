@@ -12,7 +12,7 @@ SWEP.TrueName = "MP5"
 SWEP.Class = "Submachine Gun"
 SWEP.Trivia = {
     ["Country of Origin"] = [[Germany]],
-    ["Caliber"] = "9x19mm",
+    ["Calibre"] = "9x19mm",
 }
 
 SWEP.Credits = {

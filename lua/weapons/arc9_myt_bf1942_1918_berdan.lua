@@ -12,7 +12,7 @@ SWEP.TrueName = "Berdan No.2"
 SWEP.Class = "Rifle"
 SWEP.Trivia = {
 	["Country of Origin"] = [[[Empire of] Russia]],
-	["Caliber"] = "10.7×58mmR",
+	["Calibre"] = "10.7×58mmR",
 }
 
 SWEP.Credits = {

@@ -12,7 +12,7 @@ SWEP.TrueName = "AK47"
 SWEP.Class = "Assault Rifle"
 SWEP.Trivia = {
     ["Country of Origin"] = [[[Soviet] Russia]],
-    ["Caliber"] = "7.62x39mm",
+    ["Calibre"] = "7.62x39mm",
 }
 
 SWEP.Credits = {

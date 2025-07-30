@@ -12,7 +12,7 @@ SWEP.TrueName = "Musket"
 SWEP.Class = "Rifle"
 SWEP.Trivia = {
 	["Country of Origin"] = [[idfk]],
-	["Caliber"] = "balls",
+	["Calibre"] = "balls",
 }
 
 SWEP.Credits = {

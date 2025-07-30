@@ -12,7 +12,7 @@ SWEP.TrueName = "Mk153 SMAW"
 SWEP.Class = "Launcher"
 SWEP.Trivia = {
 	["Country of Origin"] = [[idfk]],
-	["Caliber"] = [[big]],
+	["Calibre"] = [[big]],
 }
 
 SWEP.Credits = {

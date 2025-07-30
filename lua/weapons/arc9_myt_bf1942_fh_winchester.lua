@@ -12,7 +12,7 @@ SWEP.TrueName = "W1300"
 SWEP.Class = "Shotgun"
 SWEP.Trivia = {
 	["Country of Origin"] = [[Amerika]],
-	["Caliber"] = "12 Gauge",
+	["Calibre"] = "12 Gauge",
 }
 
 SWEP.Credits = {

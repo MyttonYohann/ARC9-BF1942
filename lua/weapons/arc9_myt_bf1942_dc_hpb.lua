@@ -12,7 +12,7 @@ SWEP.TrueName = "HP Browning"
 SWEP.Class = "Pistol"
 SWEP.Trivia = {
 	["Country of Origin"] = [[Belgium, i think?]],
-	["Caliber"] = [[9x19mm, probably]],
+	["Calibre"] = [[9x19mm, probably]],
 }
 
 SWEP.Credits = {
