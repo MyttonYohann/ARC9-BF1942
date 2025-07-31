@@ -11,6 +11,7 @@ local shared = {
 	PrimaryBashUBGL = false,
 	BottomlessClipUBGL = false,
 	NoShellEjectUBGL = true,
+	SpeedMultReloadUBGL = 1,
 	TriggerDelay = false,
 
 -- what the actual heck do these do
