@@ -30,7 +30,7 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/1918/c_musket.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-6, 3, -7),
+    TPIKPos = Vector(-10, 6, -5),
     TPIKAng = Angle(-5, 0, 180),
     Scale = 1
 }
@@ -164,7 +164,7 @@ SWEP.SpeedMultSights = 0.75
 SWEP.SpeedMultShooting = 0.9
 SWEP.SpeedMultMelee = 2
 SWEP.SpeedMultCrouch = 1
-SWEP.NoSprintWhenLocked = true
+--SWEP.NoSprintWhenLocked = true
 
 -------------------------- MELEE
 
@@ -252,14 +252,13 @@ SWEP.NoShellEjectManualAction = true
 
 -------------------------- SOUNDS
 
-SWEP.ShootSound = "myt_bf1942/1918/Berdan.wav"
+SWEP.ShootSound = "myt_bf1942/1918/musket.wav"
 SWEP.ShootSoundSilenced = "gekolt_css/m4a1-1.wav"
 SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 SWEP.DistantShootSound = "myt_bf1942/1918/BerdanDis.wav"
 
 SWEP.FiremodeSound = "arc9/firemode.ogg"
 
-SWEP.BarrelLength = 98
 
 SWEP.Animations = {
     ["fire"] = {
@@ -269,10 +268,11 @@ SWEP.Animations = {
         },
     },  
     ["reload_empty"] = {
-        Source = "dry",
-        FireASAP = true,
-        MinProgress = 0.95,
-        IKTimeLine = {
+		Source = "dry",
+		FireASAP = true,
+		MinProgress = 0.95,
+		EventTable = { {s =  "myt_bf1942/1918/musket_reload.ogg" ,   t = 0 / 40},},
+		IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
@@ -353,17 +353,23 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
 end
 --SWEP.SpeedMultReload = 0.01
-SWEP.Hook_Think = function(wep) -- this doesnt FUCKING WORK for some reason
+--[[SWEP.Hook_Think = function(wep) -- this doesnt FUCKING WORK for some reason
 	if wep:GetUBGL(true)	then
 	wep.SpeedMultReload = 1
 	else
 	end
-end
---[[SWEP.Hook_PostReload = function(wep)
+end]]
+SWEP.Hook_PostReload = function(wep) -- i am convinced this hook doesnt do anything
+	wep.BarrelLength = 0
 	--wep.SpeedMultReload = 0.001
 	timer.Simple(160/40, function() wep.SpeedMultReload = 0.001 end)
 	timer.Simple(445/40, function() wep.SpeedMultReload = 1 end)
-end]]
+end
+SWEP.Hook_EndReload = function(wep)
+	wep.BarrelLength = 86
+end
+SWEP.BarrelLength = 86
+
 
 -------------------------- ATTACHMENTS
 
@@ -378,7 +384,7 @@ end
 
 SWEP.AttachmentElements = {
 }
- 
+
 SWEP.Attachments = {
     {
         PrintName = "Barrel",

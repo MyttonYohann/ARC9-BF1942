@@ -12,7 +12,7 @@ local shared = {
 	BottomlessClipUBGL = false,
 	NoShellEjectUBGL = true,
 	SpeedMultReloadUBGL = 1,
-	TriggerDelay = false,
+	TriggerDelayUBGL = false,
 
 -- what the actual heck do these do
 	IKGunMotionOffset = Vector(0, 0, 0),
@@ -21,7 +21,7 @@ local shared = {
 	IKGunMotionAngleMult = 0.5,
 
 	CustomCrosshairUBGL = false,
-	PushBackForce = 0,
+	PushBackForceUBGL = 0,
 }
 ----------------------------------------------------------
 

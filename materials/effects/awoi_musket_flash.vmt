@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture"		"effects\awoi_musket_flash"
+	"$additive"		"1"
+	"$vertexcolor"	"1"
+	$nocull 1
+}
