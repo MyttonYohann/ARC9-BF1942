@@ -6,8 +6,8 @@ SWEP.Spawnable = true
 SWEP.Category = "ARC9 - BF1942"
 SWEP.SubCategory = "11918"
 
-SWEP.PrintName = "Jezail"
-SWEP.TrueName = "Musket"
+SWEP.PrintName = "Jannisaar"
+SWEP.TrueName = "Jezail Musket"
 
 SWEP.Class = "Rifle"
 SWEP.Trivia = {
@@ -368,6 +368,13 @@ end]]
 -------------------------- ATTACHMENTS
 
 SWEP.DefaultBodygroups = "00000000000000"
+
+SWEP.CustomPoseParamsHandler = function(swep, ent, iswm)
+    local owner = swep:GetOwner()
+    local viewOffsetZ = owner:GetViewOffset().z
+    local crouchdelta = math.Clamp((viewOffsetZ - owner:GetCurrentViewOffset().z) / (viewOffsetZ - owner:GetViewOffsetDucked().z), 0, 1)
+    ent:SetPoseParameter("crouched", crouchdelta)
+end
 
 SWEP.AttachmentElements = {
 }
