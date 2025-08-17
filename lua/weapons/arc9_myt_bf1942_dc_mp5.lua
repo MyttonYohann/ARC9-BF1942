@@ -28,11 +28,14 @@ SWEP.Slot = 2
 SWEP.MirrorVMWM = true
 SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_mp5.mdl"
 SWEP.WorldModelOffset = {
-    Pos = Vector(-1, 2, -7),
-    Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-10, 3, -5),
-    TPIKAng = Angle(-5, 0, 180),
-    Scale = 1
+    Pos = Vector(0, 0, 0),
+    Ang = Angle(0, 0, 0),
+    TPIKPos = Vector(-5, 5, -8),
+    TPIKAng = Angle(0, 0, 180),
+	TPIKPosSightOffset = Vector(-3, 2, -2),
+	TPIKPosReloadOffset = Vector(2, 0, 0),
+	TPIKAngReloadOffset = Angle(0, 0, 0),
+    Scale = 1,
 }
 SWEP.MirrorVMWMHeldOnly = false
 
@@ -803,6 +806,16 @@ SWEP.Animations = {
     },
 
     ["exit_ubgl"] = {		-- bodging
+        Source = "idle",
+        MinProgress = 0.7,
+		FireASAP = true,
+		Time = 0.5,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, }, { t = 0.2, lhik = 1, rhik = 1, },
+        { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
+    }, 
+    ["exit_ubgl_glempty"] = {		-- bodging
         Source = "idle",
         MinProgress = 0.7,
 		FireASAP = true,

@@ -379,7 +379,7 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
         EventTable = {
-            {s =  "myt_bf1942/dc/smol_switch.ogg" ,   t = 9 / 40},
+            {s =  "myt_bf1942/dc/smol_switch.ogg" ,   t = 9 / 40},			
         },
     }, 
 
@@ -428,6 +428,12 @@ SWEP.AttachmentElements = {
 SWEP.Hook_ModifyBodygroups = function(wep, data)
     local model = data.model
     if wep:HasElement("has_optic") 	then model:SetBodygroup(2,0) end
+
+	if wep:GetUBGL() and wep:HasElement("has_integral_ubgl")	then
+		model:SetBodygroup(4,1)
+	else
+		model:SetBodygroup(4,0)
+	end
 end
 
 SWEP.Attachments = {

@@ -310,7 +310,7 @@ ATT.NoShellEjectUBGL = false
 ATT.CaseEffectQCAUBGL = 2
 
 ATT.Category = {"bf1942_dc_smol"}
-
+ATT.ActivateElements = {"has_integral_ubgl"}
 ATT.AimDownSightsTimeMult = 1.1
 ATT.SprintToFireTimeMult = 1.1
 

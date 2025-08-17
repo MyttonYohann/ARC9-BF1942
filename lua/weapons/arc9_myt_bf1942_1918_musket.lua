@@ -345,6 +345,16 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 1, }, { t = 0.2, lhik = 1, rhik = 1, },
         { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
+    },    
+	["exit_ubgl_glempty"] = {
+        Source = "idle",
+        MinProgress = 0.7,
+		FireASAP = true,
+		Time = 0.5,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, }, { t = 0.2, lhik = 1, rhik = 1, },
+        { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
     },  
 }
 

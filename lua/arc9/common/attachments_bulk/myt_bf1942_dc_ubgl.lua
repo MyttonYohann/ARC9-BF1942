@@ -146,6 +146,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "fire_ubgl_sights" 		then	return "fire_ubgl_sights_nope"		end
 		if	curanim == "enter_sights_ubgl" 		then	return "enter_sights_ubgl_nope"		end	
 		if	curanim == "idle_ubgl_sights" 		then	return "idle_ubgl_sights_nope"		end	
+		if	curanim == "exit_ubgl" 				then	return "exit_ubgl_glempty"			end
 	end
 
 	-- i forgor why i did this and im too afraid to delete this
@@ -591,6 +592,14 @@ ATT.IKAnimationProxy = {
         Source = "ubgl_holster_last"
     },
 } -- When an animation event plays, override it with one based on this LHIK model.
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)	
+	if wep:Clip2() == 0 then
+		if	curanim == "enter_sights_ubgl" 		then	return "enter_ubgl_glempty"		end	
+		if	curanim == "exit_ubgl" 		then	return "exit_ubgl_glempty"		end
+	end
+end
+
 
 ATT.Category = {"bf1942_dc_offhand"}
 

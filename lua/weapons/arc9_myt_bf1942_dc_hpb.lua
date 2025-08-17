@@ -30,12 +30,14 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_hpbrown.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-15, 6, -5),
-    TPIKAng = Angle(-5, 0, 180),
-    Scale = 1
+    TPIKPos = Vector(-15, 4, -5),
+    TPIKAng = Angle(0, 0, 180),
+	TPIKPosSightOffset = Vector(3, 5, -1),
+	TPIKPosReloadOffset = Vector(-2, 0, 0),
+	TPIKAngReloadOffset = Angle(0, 0, 0),
+    Scale = 1,
 }
-SWEP.MirrorVMWMHeldOnly = false
-
+SWEP.MirrorVMWMHeldOnly = true
 -------------------------- DAMAGE PROFILE
 
 SWEP.DamageMax = 18 -- Damage done at point blank range
@@ -412,13 +414,23 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 1, }, { t = 0.2, lhik = 1, rhik = 1, },
         { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
+    },   
+	["exit_ubgl_glempty"] = {		-- bodging
+        Source = "idle",
+        MinProgress = 0.7,
+		FireASAP = true,
+		Time = 0.5,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, }, { t = 0.2, lhik = 1, rhik = 1, },
+        { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
     }, 
 }
 
 
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
-	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
+	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl_gl"	end	
 
 	if wep:HasElement("has_grip") then
 		if	curanim == "fire" 				then return "fire_grip"			end	

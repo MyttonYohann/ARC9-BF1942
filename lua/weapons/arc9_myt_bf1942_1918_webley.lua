@@ -28,14 +28,16 @@ SWEP.Slot = 1
 SWEP.MirrorVMWM = true
 SWEP.WorldModelMirror = "models/weapons/myt_bf1942/1918/c_webley.mdl"
 SWEP.WorldModelOffset = {
-    Pos = Vector(-1, 2, -7),
-    Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-13, 7, -7),
-    TPIKAng = Angle(-5, 0, 180),
-    Scale = 1
+    Pos = Vector(0, 0, 0),
+    Ang = Angle(0, 0, 0),
+    TPIKPos = Vector(-13, 4, -7),
+    TPIKAng = Angle(0, 0, 180),
+	TPIKPosSightOffset = Vector(3, 4.5, 1),
+	TPIKPosReloadOffset = Vector(-2, 0, 0),
+	TPIKAngReloadOffset = Angle(0, 0, 0),
+    Scale = 1,
 }
 SWEP.MirrorVMWMHeldOnly = false
-
 -------------------------- DAMAGE PROFILE
 
 SWEP.DamageMax = 84 -- Damage done at point blank range
@@ -677,6 +679,16 @@ SWEP.Animations = {
         IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
     }, 
     ["exit_ubgl"] = {		-- bodging
+        Source = "idle",
+        MinProgress = 0.7,
+		FireASAP = true,
+		Time = 0.5,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, }, { t = 0.2, lhik = 1, rhik = 1, },
+        { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
+    }, 
+	["exit_ubgl_glempty"] = {	
         Source = "idle",
         MinProgress = 0.7,
 		FireASAP = true,
