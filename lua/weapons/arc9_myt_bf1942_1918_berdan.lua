@@ -170,13 +170,6 @@ SWEP.SpeedMultCrouch = 1
 SWEP.Bash = false
 SWEP.PrimaryBash = false
 
-SWEP.BashDamage = 100
-SWEP.BashLungeRange = 0
-SWEP.BashRange = 104
-SWEP.PreBashTime = 0.15
-SWEP.PostBashTime = 0.8
-SWEP.BashWhileSprint = true
-
 -------------------------- TRACERS
 
 SWEP.TracerNum = 1 -- Tracer every X
@@ -316,7 +309,7 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },	
-	["bash_bayo_sprint"] = {
+	["bash_bayo_jank"] = {
         Source = {"melee_sprint"},
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },

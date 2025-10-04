@@ -349,27 +349,47 @@ ATT.ActivateElements = {"bayonet"} -- worst fucking base ever made
 --ATT.ExcludeElements = {"is_melee"}
 
 ATT.Bash = true
+ATT.BashDamageType = DMG_SLASH
+ATT.BashDamage = 100
+ATT.BashLungeRange = 0
+ATT.BashRange = 104
+ATT.PreBashTime = 0.135
+ATT.PostBashTime = 0.8
 
+
+-- there would have been a faster animation when sprint bash but i cant figure out how to change prebash and postbash whilst sprinting
 --[[ATT.Hook_TranslateAnimation = function(wep, curanim)
 	--if	curanim == "idle_sprint"	then	return "idle_sprint_bayo"		end
 	if	curanim == "bash"	then	return "bash_bayo"		end
-	if	wep:GetIsSprintingCheck() and	curanim == "bash"	then	return "bash_bayo_sprint"		end
+	if	self:GetOwner():KeyDown(IN_SPEED) and	curanim == "bash"	then	return "bash_bayo_jank"		end
 end]]
 
---[[ATT.Hook_Think = function(wep)
-	if wep:GetIsSprintingCheck() then
-	--wep:PreBashTime(0.05)
-	--wep:PostBashTime(0.6)
+-- this doesnt fucking work
+--[[ATT.Hook_Think = function(self)
+	if self:GetOwner():IsSprinting() then
+	self.PreBashTime = 0.01	
+	self.PostBashTime = 0.5
 	end
 end]]
 
+
+-- you cant fucking use bashwhilespring WITHOUT shootwhilesprint
+ATT.BashWhileSprint = true
+ATT.ShootWhileSprint = true
+ATT.HookP_BlockFire = function(self)
+    local owner = self:GetOwner() 
+	local canfire = owner:KeyDown(IN_SPEED) and !owner:KeyDown(IN_USE)
+	
+	if owner:KeyDown(IN_FORWARD + IN_BACK + IN_MOVELEFT + IN_MOVERIGHT) then
+    return canfire
+	end
+end
 
 ATT.SprintPos = Vector(0, 2, 1)
 ATT.SprintAng = Angle(2, -2, -30)
 ATT.NearWallPos = Vector(0, -5, -4)
 ATT.NearWallAng = Angle(0, 2, -15)
 ATT.BobSprintMult = 0.5
-
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan2")
 
