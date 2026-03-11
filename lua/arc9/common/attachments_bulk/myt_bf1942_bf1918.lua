@@ -202,7 +202,7 @@ Sometimes the gun will wack you when firing.
 ATT.CustomCons = { Malfunction = "+20%" }
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_50bmg"	end
-	if	curanim == "reload_fail"	then 	return "reload_50bmg_fail"	end	
+	if	curanim == "reload_fail"	then 	return "reload_empty_50bmg"	end	
 	if	curanim == "fire"			then 	return "fire_bmg"			end	
 end
 
@@ -214,7 +214,7 @@ ATT.ActivateElements = {"cal_50"}
 
 ATT.SpreadAdd = 0.006
 ATT.SpreadSights = 0.025
-ATT.DamageMaxMult = 2.75
+ATT.DamageMaxMult = 3.5
 ATT.DamageMinMult = 1.5
 
 ATT.RecoilMult = 6
@@ -226,7 +226,7 @@ ATT.Penetration = 24
 
 --ATT.Ammo = "buckshot"
 --ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
-ATT.ShellScale = 2
+ATT.ShellScale = 3
 
 ATT.DamageType = DMG_BLAST + DMG_BULLET + DMG_AIRBOAT
 
@@ -708,7 +708,7 @@ ATT.Firemodes = {
 }
 
 ATT.NumOverride = 1
-ATT.DamageMaxMult = 14
+ATT.DamageMaxMult = 20
 ATT.DamageMinMult = 12
 ATT.DamageType = DMG_BLAST + DMG_BULLET + DMG_AIRBOAT
 ATT.RecoilMult = 2

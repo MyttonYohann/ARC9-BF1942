@@ -34,7 +34,7 @@ SWEP.WorldModelOffset = {
     TPIKAng = Angle(-5, 0, 180),
     Scale = 1
 }
-SWEP.MirrorVMWMHeldOnly = false
+SWEP.MirrorVMWMHeldOnly = true
 
 -------------------------- DAMAGE PROFILE
 
@@ -492,7 +492,7 @@ SWEP.Animations = {
         },
     }, 
     ["reload_empty_50bmg"] = {
-        Source = "dry_50bmg",
+        Source = "dry_50bmg2",
         FireASAP = true,
         MinProgress = 0.9,
         MagSwapTime = 5 / 40,
@@ -500,11 +500,11 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
         },
-        EjectAt = 32 / 40,
+        EjectAt = 25 / 40,
         EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 26 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 47 / 40},
-			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 77 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 15 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,   t = 58 / 40},
+            {s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,	t = 105 / 40},
         },
     }, 
     ["reload_empty_sg"] = {
