@@ -35,7 +35,7 @@ ATT.SpreadSights = 0.1
 ATT.DamageMaxMult = 0.4
 ATT.DamageMinMult = 0.4
 
-ATT.RecoilMult = 4
+ATT.RecoilMult = 3
 ATT.RecoilPatternDriftMult = 5
 
 ATT.PhysBulletMuzzleVelocity = 1240 * 12
@@ -215,10 +215,10 @@ ATT.ActivateElements = {"cal_50"}
 ATT.SpreadAdd = 0.006
 ATT.SpreadSights = 0.025
 ATT.DamageMaxMult = 3.5
-ATT.DamageMinMult = 1.5
+ATT.DamageMinMult = 4
 
-ATT.RecoilMult = 6
-ATT.RecoilPatternDriftMult = 7
+ATT.RecoilMult = 5
+ATT.RecoilPatternDriftMult = 4
 
 ATT.PhysBulletMuzzleVelocity = 1540 * 12
 ATT.ImpactForce = 12
@@ -711,14 +711,13 @@ ATT.NumOverride = 1
 ATT.DamageMaxMult = 20
 ATT.DamageMinMult = 12
 ATT.DamageType = DMG_BLAST + DMG_BULLET + DMG_AIRBOAT
-ATT.RecoilMult = 2
+ATT.RecoilMult = 2.5
 ATT.RecoilPatternDriftMult = 2
 ATT.SpreadMultSights = 0.0005/0.0025
 
 ATT.PhysBulletMuzzleVelocityAdd = 800 * 12
 ATT.ImpactForce = 12
-
-ATT.Penetration = 20
+ATT.Penetration = 24
 
 ATT.ShotgunReload = false
 ATT.ManualAction = false
@@ -897,9 +896,7 @@ ATT = {}
 ATT.PrintName = [[Heretic Kit]]
 ATT.CompactName = [[K. Bullpup]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[ergonomic
-long barrel allows long tube allows long shell
-whoops, more shell
+ATT.Description = [[Increases barrel length and ammo capacity without becoming too unwieldy
 ]]
 
 ATT.SortOrder = 1000000
