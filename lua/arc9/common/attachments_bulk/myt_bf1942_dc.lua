@@ -1326,6 +1326,7 @@ ATT.Description = [[Doctrin
 ATT.Pros = {}
 ATT.Cons = {}
 ATT.SortOrder = 0
+ATT.ExcludeElements = {"has_grip"}
 
 ATT.LHIK = true
 ATT.LHIK_Priority = 10

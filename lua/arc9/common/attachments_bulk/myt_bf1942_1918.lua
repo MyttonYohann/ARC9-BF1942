@@ -459,7 +459,7 @@ ATT.Category = "bf1942_1918_webley_barrel"
 ATT.ActivateElements = {"b_2"}
 
 ATT.TriggerDelay = false
-ATT.MalfunctionMeanShotsToFailAdd = -4
+ATT.MalfunctionMeanShotsToFailAdd = -6
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"		then	return "reload_empty_auto"		end
@@ -604,6 +604,7 @@ ATT.ClipSize = 1
 ATT.DamageMaxMult = 1.3
 ATT.DamageMinMult = 1.25
 ATT.Penetration = 16
+ATT.TriggerDelayReleaseToFire = true
 
 ATT.BulletBones = { 
     [1] = "W_Ammo1",

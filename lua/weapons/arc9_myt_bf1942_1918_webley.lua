@@ -83,10 +83,10 @@ SWEP.ReloadInSights = false -- This weapon can aim down sights while reloading.
 SWEP.RPM = 300
 
 SWEP.TriggerDelay = true -- Add a delay before the weapon fires.
-SWEP.TriggerDelayTime = 0.1 -- Time until weapon fires.
+SWEP.TriggerDelayTime = 0.125 -- Time until weapon fires.
 SWEP.TriggerDelayRepeat = false -- Whether to do it for every shot on automatics.
 SWEP.TriggerDelayCancellable = true -- Whether it is possible to cancel trigger delay by releasing the trigger before it is done.
-SWEP.TriggerDelayReleaseToFire = true -- Release the trigger to fire instead of firing as soon as the delay is over.
+SWEP.TriggerDelayReleaseToFire = false -- Release the trigger to fire instead of firing as soon as the delay is over.
 SWEP.TriggerStartFireAnim = false -- Whether trigger begins the firing animation
 
 -- Works different to ArcCW
