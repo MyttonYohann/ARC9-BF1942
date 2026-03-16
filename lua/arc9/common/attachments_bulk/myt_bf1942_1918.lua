@@ -202,7 +202,7 @@ Sometimes the gun will wack you when firing.
 ATT.CustomCons = { Malfunction = "+20%" }
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_empty_50bmg"	end
-	if	curanim == "reload_fail"	then 	return "reload_empty_50bmg"	end	
+	if	curanim == "reload_fail"	then 	return "reload_50bmg_fail"	end	
 	if	curanim == "fire"			then 	return "fire_bmg"			end	
 end
 

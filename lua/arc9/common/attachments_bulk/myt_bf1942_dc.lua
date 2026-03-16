@@ -1608,6 +1608,7 @@ ATT.SortOrder = 6
 
 ATT.Model = "models/weapons/myt_bf1942/atts/scope_tabek.mdl"
 ATT.ModelBodygroups = "000"
+ATT.ModelOffset = Vector(0, -0.2, -0.5)
 
 ATT.Category = {"bfc_optic_dove"}
 ATT.Folder = "Dove Mount"
@@ -1615,7 +1616,7 @@ ATT.Folder = "Dove Mount"
 -- Allows a custom sight position to be defined
 ATT.Sights = {
     {
-        Pos = Vector(-0.07, 14, -3.9),
+        Pos = Vector(-0.07, 16, -3.9),
         Ang = Angle(0, 0, 0),
         Magnification = 1.5,
         ViewModelFOV = 40
@@ -1667,14 +1668,14 @@ ATT.SortOrder = 2.5
 
 ATT.Model = "models/weapons/myt_bf1942/atts/scope_smaw.mdl"
 ATT.ModelBodygroups = "000"
-
+ATT.ModelOffset = Vector(0, 0, -0.2)
 ATT.Category = {"bfc_optic_dove"}
 ATT.Folder = "Dove Mount"
 
 -- Allows a custom sight position to be defined
 ATT.Sights = {
     {
-        Pos = Vector(0.9375, 12, -2.605),
+        Pos = Vector(0.9375, 11, -2.605),
         Ang = Angle(0, 0, 0),
         Magnification = 1.5,
         ViewModelFOV = 40
@@ -1707,6 +1708,65 @@ ATT.AimDownSightsTimeAdd = 0.12
 ATT.SprintToFireTimeAdd = 0.05
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_optic_smaw")
+
+
+----------------------------------------------------------
+---- RPG ----
+----------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[RPG Scope]]
+ATT.CompactName = [[RPG]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[2.5x
+Rocket
+]]
+ATT.SortOrder = 2
+
+ATT.Model = "models/weapons/myt_bf1942/atts/scope_rpg.mdl"
+ATT.ModelBodygroups = "000"
+
+ATT.Category = {"bfc_optic_dove"}
+ATT.Folder = "Dove Mount"
+
+-- Allows a custom sight position to be defined
+ATT.Sights = {
+    {
+        Pos = Vector(0.665, 9, -2.53),
+        Ang = Angle(0, 0, 0),
+        Magnification = 1.5,
+        ViewModelFOV = 40
+    },
+}
+
+ATT.ActivePosHook = function(wep, vec)
+    return vec + Vector(0.5, 0, -1)
+end
+
+ATT.SprintPosHook = function(wep, vec)
+    return vec + Vector(0, 0, -1)
+end
+
+ATT.PeekPos = Vector(-1.2, 2, -1.2)
+ATT.PeekAng = Angle(0, 0, 0)
+
+ATT.RTScope = true
+ATT.RTScopeSubmatIndex = 3
+ATT.RTScopeMagnification = 2
+ATT.ScopeScreenRatio = 375/1080
+ATT.RTScopeReticle = Material("myt_bfc_reticle/smaw.png", "mips smooth")
+ATT.RTScopeReticleScale = 0.98
+ATT.RTScopeColorable = true
+ATT.RTScopeShadowIntensity = 7
+
+ATT.SwayAdd = 0.05
+ATT.FreeAimRadiusMultSights = 0.1
+ATT.AimDownSightsTimeAdd = 0.12
+ATT.SprintToFireTimeAdd = 0.05
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_optic_rpg")
 
 
 ----------------------------------------------------------------------------------
