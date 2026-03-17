@@ -856,7 +856,6 @@ SWEP.Attachments = {
         PrintName = "Off Hand",
         DefaultName = "None",
 
-        DefaultIcon = Material("arc9/def_att_icons/grip.png"),
         ExcludeElements = {"nooh", "rh_occupied"},
         Category = {"bf1942_dc_offhand"},
         Bone = "W_Main",

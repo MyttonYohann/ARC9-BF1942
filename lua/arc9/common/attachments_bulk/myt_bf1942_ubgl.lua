@@ -758,7 +758,7 @@ ATT.IKAnimationProxy = {
 
 ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate arc9
 	if wep:GetUBGL(true)	then
-		if	curanim == "bash" 		then	return "bash_ubgl"		end
+		if	curanim == "bash" 		then	return "bash_bayo"		end
 	else
 	end
 end

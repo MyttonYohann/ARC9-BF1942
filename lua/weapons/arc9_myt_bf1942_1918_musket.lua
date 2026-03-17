@@ -171,13 +171,6 @@ SWEP.SpeedMultCrouch = 1
 SWEP.Bash = false
 SWEP.PrimaryBash = false
 
-SWEP.BashDamage = 100
-SWEP.BashLungeRange = 0
-SWEP.BashRange = 104
-SWEP.PreBashTime = 0.15
-SWEP.PostBashTime = 0.8
-SWEP.BashWhileSprint = true
-
 -------------------------- TRACERS
 
 SWEP.TracerNum = 1 -- Tracer every X
@@ -260,13 +253,30 @@ SWEP.DistantShootSound = "myt_bf1942/1918/BerdanDis.wav"
 SWEP.FiremodeSound = "arc9/firemode.ogg"
 
 
+SWEP.TriggerDelay = true -- Add a delay before the weapon fires.
+SWEP.TriggerDelayTime = 0.125 -- Time until weapon fires.
+SWEP.TriggerDelayRepeat = false -- Whether to do it for every shot on automatics.
+SWEP.TriggerDelayCancellable = false -- Whether it is possible to cancel trigger delay by releasing the trigger before it is done.
+SWEP.TriggerDelayReleaseToFire = false -- Release the trigger to fire instead of firing as soon as the delay is over.
+SWEP.TriggerStartFireAnim = false -- Whether trigger begins the firing animation
+
 SWEP.Animations = {
     ["fire"] = {
-        Source = {"fire"},
+        Source = {"fire2"},
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },  
+    ["trigger"] = {
+        Source = {"fire_prep"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 1 / 40},  
+        },
+		Mult = 1,
+    },
     ["reload_empty"] = {
 		Source = "dry",
 		FireASAP = true,
@@ -336,6 +346,42 @@ SWEP.Animations = {
         },
     }, 
 --------------------------------------------------------
+    ["in_bayo"] = {
+        Source = "in_bayo",
+        FireASAP = true,
+        MinProgress = 0.9,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/smol_switch.ogg" ,   t = 9 / 40},			
+        },
+    }, 
+	["bash_bayo"] = {
+        Source = {"bayo_stab"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },	
+	["bash"] = {
+        Source = {"bayo_stab"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },	
+	["bash_ublg"] = {
+        Source = {"bayo_stab"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },	
+    ["bayo_idle"] = {
+        Source = "bayo_idle",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },  
+	
     ["exit_ubgl"] = {		-- bodging
         Source = "idle",
         MinProgress = 0.7,
@@ -359,9 +405,25 @@ SWEP.Animations = {
 }
 
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
-	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end		-- 	bodging for off hand weapon
+	local bodge = wep:HasElement("bayo_bodge")
+	local bodge2 = wep:HasElement("oh_bodge")
+
+	if bodge and !bodge2 then
+	if	curanim == "enter_ubgl"		then	return "in_bayo"	end
+	if	curanim == "bash" 			then	return "bash_bayo"		end
+	if	curanim == "bash_ubgl" 		then	return "bash_bayo"		end
+	if	curanim == "exit_ubgl"		then	return "bash_bayo"	end
+	if	curanim == "idle_ubgl" 		then	return "bayo_idle"		end
+	if	curanim == "idle_ubgl_empty" 		then	return "bayo_idle"		end
+	if	curanim == "idle_ubgl_glempty" 		then	return "bayo_idle"		end
+	end
+
+	if bodge2 then
+	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
+	end
 end
+
 --SWEP.SpeedMultReload = 0.01
 --[[SWEP.Hook_Think = function(wep) -- this doesnt FUCKING WORK for some reason
 	if wep:GetUBGL(true)	then
@@ -371,7 +433,7 @@ end
 end]]
 SWEP.Hook_PostReload = function(wep) -- i am convinced this hook doesnt do anything
 	wep.BarrelLength = 0
-	--wep.SpeedMultReload = 0.001
+	 --wep.SpeedMultReload = 0.001
 	timer.Simple(160/40, function() wep.SpeedMultReload = 0.001 end)
 	timer.Simple(445/40, function() wep.SpeedMultReload = 1 end)
 end
@@ -419,15 +481,18 @@ SWEP.Attachments = {
     },
 	
     {
-        PrintName = "Off Hand",
+        PrintName = "Muzzle | Off Hand",
         DefaultName = "None",
-
+		Integral = true,
+		Installed = "myt_bf1942_1918_musket_bayonet",
+        InstalledElements = {"bayo_bodge"},
+	
         DefaultIcon = Material("arc9/def_att_icons/grip.png"),
-        ExcludeElements = {"nooh", "rh_occupied"},
-        Category = {"bf1942_dc_offhand"},
+        Category = {"bf1942_1918_musketbayonet"},
         Bone = "W_Main",
         Pos = Vector(-1, 0, -10),
         Ang = Angle(90, 0, -90),
+        MergeSlots = {6},
     },
 
     {
@@ -451,6 +516,18 @@ SWEP.Attachments = {
         Category = {"bfc_optic_dove"},
         Bone = "W_Main",
         Pos = Vector(1, -1.1, 5),
+        Ang = Angle(90, 0, -90),
+    },
+    {
+        PrintName = "",		-- 6, off hand
+        DefaultName = "",
+        Hidden = true,
+
+        InstalledElements = {"oh_bodge"},
+        ExcludeElements = {"nooh", "rh_occupied"},
+        Category = {"bf1942_dc_offhand"},
+        Bone = "W_Main",
+        Pos = Vector(-1, 0, -10),
         Ang = Angle(90, 0, -90),
     },
 }

@@ -986,3 +986,73 @@ end
 ATT.Category = {"fh_winch_bodge"}
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch61")
+
+----------------------------------------------------------
+---- Musket Bayonet ----
+----------------------------------------------------------
+
+
+ATT = {}
+ATT.PrintName = [[Mountable Bayonet]]
+ATT.CompactName = [[Bayonet]]
+ATT.Icon = Material("entities/gekolt_css_blank.png")
+ATT.Description = [[]] 
+ATT.Pros = {}
+ATT.Cons = {}
+ATT.SortOrder = 0
+
+ATT.ActivateElements = {"bayo_bodge"}
+ATT.Category = {"bf1942_1918_musketbayonet"}
+
+ATT.UBGL = true
+ATT.UBGLAmmo = ""
+ATT.UBGLClipSize = 0
+ATT.UBGLFiremode = 1
+ATT.UBGLFiremodeName = "Bayonet"
+ATT.UBGLChamberSize = 0
+ATT.ShootVolumeUBGL = 110
+
+--ATT.UBGLIntegralReload = true
+--ATT.DoFireAnimationUBGL = true
+
+ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate arc9
+	if wep:GetUBGL(true)	then
+		if	curanim == "idle" 		then	return "bayo_idle"		end
+		if	curanim == "idle_empty" 		then	return "bayo_idle"		end
+	else
+	end
+end
+
+ATT.BashUBGL = true
+ATT.PrimaryBashUBGL = true
+ATT.BashDamageUBGL = 100
+ATT.BashLungeRangeUBGL = 0
+ATT.BashRangeUBGL = 196
+ATT.PreBashTimeUBGL = 0.15
+ATT.PostBashTimeUBGL = 0.4
+ATT.BashWhileSprintUBGL = true
+
+ATT.HasSightsUBGL = false
+ATT.CrosshairUBGL = false
+ATT.CanLeanUBGL = false
+
+--[[ refer bodge on berdan bayonet
+ATT.BashWhileSprint = true
+ATT.ShootWhileSprint = true
+ATT.HookP_BlockFire = function(self)
+    local owner = self:GetOwner() 
+	local b_ugbl 	= wep:GetUBGL(true)	
+	local canfire = owner:KeyDown(IN_SPEED) and !owner:KeyDown(IN_USE)
+	
+	if owner:KeyDown(IN_FORWARD + IN_BACK + IN_MOVELEFT + IN_MOVERIGHT) then
+    return canfire
+	end
+end]]
+
+ATT.SprintPosUBGL = Vector(0, 0.5, 3)
+ATT.SprintAngUBGL = Angle(2, -2, -20)
+ATT.NearWallPosUBGL = Vector(0, -5, -4)
+ATT.NearWallAngUBGL = Angle(0, 2, -15)
+--ATT.BobSprintMultUBGL = 0.5
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_musket_bayonet")

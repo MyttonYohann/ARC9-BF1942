@@ -801,7 +801,7 @@ SWEP.Attachments = {
 
         Category = {"bfc_optic_dove"},
         Bone = "W_Bolt2",
-        Pos = Vector(0.9, -1.6, 3.2),
+        Pos = Vector(0.5, -1.6, 3.2),
         Ang = Angle(90, 0, -90),
     },
 }
