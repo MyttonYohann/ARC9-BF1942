@@ -874,6 +874,8 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_loop_fail"	then	return "reload_insert_breach"		end
 	if	curanim == "reload_emptoloop"	then	return "reload_emptoloop_breach"	end
 	if	curanim == "reload_start"		then	return "reload_start_breach"		end	
+	if	curanim == "cycle"				then	return "cycle_fast"					end
+	if	curanim == "cycle_fail"			then	return "cycle_fail_fast"			end	
 	
 end
 ATT.ClipSize = 3

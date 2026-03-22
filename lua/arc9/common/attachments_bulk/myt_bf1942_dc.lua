@@ -1617,7 +1617,7 @@ ATT.Folder = "Dove Mount"
 -- Allows a custom sight position to be defined
 ATT.Sights = {
     {
-        Pos = Vector(-0.07, 16, -3.9),
+        Pos = Vector(-0.07, 15, -3.9),
         Ang = Angle(0, 0, 0),
         Magnification = 1.5,
         ViewModelFOV = 40

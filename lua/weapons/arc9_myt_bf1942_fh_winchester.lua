@@ -295,7 +295,32 @@ SWEP.Animations = {
     },  
 
     ["cycle"] = {
-        Source = {"pump","pump2"},
+        Source = {"pump01", "pump02", "pump03"},
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+        EventTable = {
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	6 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	16 / 40},
+        },
+        EjectAt = 8 / 40,
+        FireASAP = true,
+        MinProgress = 24/40,
+    },  
+    ["cycle_fail"] = {
+        Source = {"pump_fail01"},
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+        EventTable = {
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	6 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt15.ogg" ,			t =	16 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	42 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	50 / 40},
+        },
+        EjectAt = 6 / 40,
+        FireASAP = true,
+        MinProgress = 0.8,
+    },     
+
+    ["cycle_fast"] = {
+        Source = {"pump"},
         IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
         EventTable = {
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	2 / 40},
@@ -303,9 +328,9 @@ SWEP.Animations = {
         },
         EjectAt = 8 / 40,
         FireASAP = true,
-        MinProgress = 20/40,
+        MinProgress = 24/40,
     },  
-    ["cycle_fail"] = {
+    ["cycle_fail_fast"] = {
         Source = {"pump_fail"},
         IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
         EventTable = {
@@ -659,22 +684,22 @@ SWEP.Animations = {
 
     ["fire_bp"] = { Source = {"fire"}, IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, }, }, }, 
     ["cycle_bp"] = {
-        Source = {"pump"},
+        Source = {"pump03"},
         IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, }, },
         EventTable = {
-			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	2 / 40},
-			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	10 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	6 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	16 / 40},
         },
         EjectAt = 6 / 40,
         FireASAP = true,
         MinProgress = 20/40,
     },  
     ["cycle_fail_bp"] = {
-        Source = {"pump_fail"},
+        Source = {"pump_fail01"},
         IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, }, },
         EventTable = {
-			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	2 / 40},
-			{s =  "myt_bf1942/dc/r870_bolt15.ogg" ,			t =	10 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	6 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt15.ogg" ,			t =	16 / 40},
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	42 / 40},
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	50 / 40},
         },

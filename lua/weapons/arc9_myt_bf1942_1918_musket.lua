@@ -424,13 +424,6 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	end
 end
 
---SWEP.SpeedMultReload = 0.01
---[[SWEP.Hook_Think = function(wep) -- this doesnt FUCKING WORK for some reason
-	if wep:GetUBGL(true)	then
-	wep.SpeedMultReload = 1
-	else
-	end
-end]]
 SWEP.Hook_PostReload = function(wep) -- i am convinced this hook doesnt do anything
 	wep.BarrelLength = 0
 	 --wep.SpeedMultReload = 0.001
