@@ -212,7 +212,6 @@ SWEP.Crosshair = false
 
 SWEP.PeekPos = Vector(3, -5, -2)
 SWEP.PeekAng = Angle(0, 0, 5)
-SWEP.NoPeekCrosshair = true -- Not displays peek crosshair even if its enabled
 
 SWEP.BipodPos = Vector(0, 28, -7)
 SWEP.BipodAng = Angle(0, 0, 0)
@@ -221,7 +220,7 @@ SWEP.SprintPos = Vector(-5, 32, -12)
 SWEP.SprintAng = Angle(10, 0, -5)
 
 SWEP.ViewModelFOVBase = 70
-SWEP.ActivePos = Vector(0, 32, -8)
+SWEP.ActivePos = Vector(0, 36, -8)
 SWEP.ActiveAng = Angle(0, 0, 0)
 
 SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
@@ -297,12 +296,15 @@ SWEP.Animations = {
 	["fire_sights_bipod"] = { Source = {"fire_bipod"}, },
 
     ["reload"] = {
-        Source = "dry_bipod",
+        Source = "dry",
         FireASAP = true,
         MinProgress = 0.93,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 1, },
         { t = 0.125, lhik = 1, rhik = 0, },{ t = 0.75, lhik = 1, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/pr/dshk_reload.ogg" ,    t = 0},
         },
     },  
     ["reload_bipod"] = {
@@ -413,7 +415,7 @@ SWEP.Hook_Think = function(self)
 
 	if self:GetBipod() then
 	--owner:AddEFlags( EFL_NO_DAMAGE_FORCES ) -- this is native now, it wasnt when i first did it, legacy code
-	self.NoFireDuringSighting = false -- genueinly forgor what this does
+	self.NoFireDuringSighting = false -- genuinely forgor what this does
 	else
 	--owner:RemoveEFlags( EFL_NO_DAMAGE_FORCES ) 	
 	self.NoFireDuringSighting = true
@@ -421,8 +423,10 @@ SWEP.Hook_Think = function(self)
 
 	if self:GetInSights() and !self:GetBipod() then
 		self.TriggerDelayTime = 0.3
+		self.BarrelLength = 80
 	else
 		self.TriggerDelayTime = 0.1
+		self.BarrelLength = 20
 	end
 end
 
@@ -447,7 +451,8 @@ function SWEP:CanReload()
         return
     end
 	-- separate check --
-    if !self:GetBipod() then return end
+	--if !self:GetBipod() then return end
+	if !self:GetBipod() and self:GetInSights() then return end
 
     return true
 end

@@ -189,11 +189,9 @@ SWEP.IronSights = {
 }
 
 SWEP.Crosshair = true
---[[
-SWEP.PeekPos = Vector(2, 4, -2)
+SWEP.PeekPos = Vector(1.75, 2, -1.75)
 SWEP.PeekAng = Angle(0, 0, -10)
-SWEP.NoPeekCrosshair = false -- Not displays peek crosshair even if its enabled
-]]
+
 SWEP.BipodPos = Vector(-2.58, 0, 1)
 SWEP.BipodAng = Angle(0, 0, -5)
 

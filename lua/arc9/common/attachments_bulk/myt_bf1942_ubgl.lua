@@ -279,8 +279,8 @@ ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
         Source = "fire_full2",
         EventTable = {
-            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 29 / 40},  
-			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 39 / 40}, 
+            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 37	 / 40}, 
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 46 / 40},  			
         },
         MinProgress = 0.6,

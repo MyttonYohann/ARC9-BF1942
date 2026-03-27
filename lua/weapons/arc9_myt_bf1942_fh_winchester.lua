@@ -201,11 +201,9 @@ SWEP.IronSights = {
 }
 
 SWEP.Crosshair = true
---[[
-SWEP.PeekPos = Vector(2, 4, -2)
+SWEP.PeekPos = Vector(1.5, -1, -1.5)
 SWEP.PeekAng = Angle(0, 0, -10)
-SWEP.NoPeekCrosshair = false -- Not displays peek crosshair even if its enabled
-]]
+
 SWEP.BipodPos = Vector(-2.58, 0, 1)
 SWEP.BipodAng = Angle(0, 0, -5)
 
@@ -295,7 +293,7 @@ SWEP.Animations = {
     },  
 
     ["cycle"] = {
-        Source = {"pump01", "pump02", "pump03"},
+        Source = {"pump01", "pump02", "pump03", "pump04", "pump05"},
         IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
         EventTable = {
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	6 / 40},
@@ -684,7 +682,7 @@ SWEP.Animations = {
 
     ["fire_bp"] = { Source = {"fire"}, IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, }, }, }, 
     ["cycle_bp"] = {
-        Source = {"pump03"},
+        Source = {"pump03", "pump05"},
         IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, }, },
         EventTable = {
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	6 / 40},
@@ -751,7 +749,7 @@ SWEP.Animations = {
         Source = "reload_loop_bullpup_fail",
 		IKTimeLine = { { t = 0, lhik = 0, rhik = 1, },{ t = 1, lhik = 0, rhik = 1, },  },
         EventTable = { 
-			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	30 / 40},
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	33 / 40},
         },
 		RefillProgress = 30 / 40,
     }, 
