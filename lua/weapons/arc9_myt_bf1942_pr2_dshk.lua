@@ -78,8 +78,9 @@ SWEP.ReloadInSights = false -- This weapon can aim down sights while reloading.
 
 -------------------------- FIREMODES
 
-SWEP.RPM = 400
-SWEP.RPMBipod = 600
+--SWEP.RPM = 400
+--SWEP.RPMBipod = 600
+SWEP.RPM = 600
 
 -- Works different to ArcCW
 
@@ -298,7 +299,8 @@ SWEP.Animations = {
     ["reload"] = {
         Source = "dry",
         FireASAP = true,
-        MinProgress = 0.93,
+        MinProgress = 0.95,
+        MagSwapTime = 120 / 40,	
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 1, },
         { t = 0.125, lhik = 1, rhik = 0, },{ t = 0.75, lhik = 1, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 1, },

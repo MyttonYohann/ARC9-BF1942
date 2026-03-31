@@ -798,9 +798,14 @@ end
 
 SWEP.DefaultBodygroups = "00000000000000"
 
+SWEP.Hook_ModifyBodygroups = function(wep, data)
+    local model = data.model
+	if wep:HasElement("blank_toprail") then model:SetBodygroup(3,0) end
+end
+
 SWEP.AttachmentElements = {
-    ["cal_obrez"] = 	{ Bodygroups = { {0, 1}, {2, 3}, {3, 3} },},    
-    ["cal_bullpup"] = 	{ Bodygroups = { {0, 2}, {2, 3}, {3, 1} },},    
+	["cal_obrez"] = 	{ Bodygroups = { {0, 1}, {2, 3}, {3, 3} },},    
+	["cal_bullpup"] = 	{ Bodygroups = { {0, 2}, {2, 3}, {3, 1} },	AttPosMods = { [6] = { Pos = Vector(1, -1.1, 18), } }		}, 
 	["cal_sg"] = 	{ Bodygroups = { {1, 1}, {2, 1} },},   
 	["cal_mag"] = 	{ Bodygroups = { {5, 1} },},  
 	["cal_gl"] = 	{ 
@@ -831,6 +836,9 @@ SWEP.AttachmentElements = {
     CrosshairInSights = false,
 						}
 	},
+
+	["rail_def"] = 	{ Bodygroups = { {3, 3} },}, 
+	
 }
  
 SWEP.Attachments = {

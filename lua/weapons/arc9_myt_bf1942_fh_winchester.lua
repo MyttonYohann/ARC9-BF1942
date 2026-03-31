@@ -30,7 +30,7 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/1918/c_winchester.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-8, 3, -6),
+    TPIKPos = Vector(-8, 6, -5),
     TPIKAng = Angle(-5, 0, 180),
     Scale = 1
 }
