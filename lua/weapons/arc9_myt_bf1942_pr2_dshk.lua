@@ -30,9 +30,10 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_dshk.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-10, 7, -10),
-    TPIKAng = Angle(-5, 0, 180),
-    Scale = 1
+    TPIKPos = Vector(-14, 7, -8),
+    TPIKAng = Angle(-10, 0, 180),
+	TPIKPosSightOffset = Vector(-10, 6, -12),
+    Scale = 0.8
 }
 SWEP.MirrorVMWMHeldOnly = false
 

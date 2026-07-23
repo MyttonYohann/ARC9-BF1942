@@ -30,9 +30,10 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/1918/c_musket.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-10, 6, -5),
-    TPIKAng = Angle(-5, 0, 180),
-    Scale = 1
+    TPIKPos = Vector(-16, 4, -5),
+    TPIKAng = Angle(-10, 0, 180),
+	TPIKPosSightOffset = Vector(6, 3, 1),
+    Scale = 0.9
 }
 SWEP.MirrorVMWMHeldOnly = false
 
@@ -198,8 +199,8 @@ SWEP.NoPeekCrosshair = false -- Not displays peek crosshair even if its enabled
 SWEP.BipodPos = Vector(-2.58, 0, 1)
 SWEP.BipodAng = Angle(0, 0, -5)
 
-SWEP.SprintAng = Angle(40, -15, -15)
-SWEP.SprintPos = Vector(3, 2, 0)
+SWEP.SprintAng = Angle(5, 70, 3)
+SWEP.SprintPos = Vector(4, 4, -18)
 
 SWEP.ViewModelFOVBase = 70
 SWEP.ActivePos = Vector(0, 7, 2)
@@ -209,11 +210,11 @@ SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
 SWEP.CrouchAng = Angle(0, 0, -7)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(20, 32, 10)
+SWEP.CustomizePos = Vector(28, 62, 10)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
 
-SWEP.CustomizeRotateAnchor = Vector(10.5, -2.55, -2.23)
+SWEP.CustomizeRotateAnchor = Vector(25, -2.55, -2.23)
 
 SWEP.StandardPresets = {
 }

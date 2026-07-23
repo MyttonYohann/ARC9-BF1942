@@ -242,10 +242,227 @@ ATT.SprintAngUBGL = Angle(0, -20, 10)
 ATT.SprintPosUBGL = Vector(2, 3, 0)
 
 ATT.CustomizeAngUBGL  = Angle(-90, 40, -5)
-ATT.CustomizePosUBGL  = Vector(-12, 28, 7)
+ATT.CustomizePosUBGL  = Vector(-12, 32, 4)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_pss")
+
+----------------------------------------------------------
+-- Scorpion --
+----------------------------------------------------------
+
+
+ATT = {}
+table.Merge(ATT, shared) 
+ATT.PrintName = [[Scorpion]]
+ATT.CompactName = [[Scor]]
+ATT.Icon = Material("entities/gekolt_css_blank.png")
+ATT.Description = [[
+Switching sidearm is faster reload.
+]] 
+ATT.SortOrder = 0
+
+ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_scor_uc.mdl"
+
+ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
+	if wep:GetReloading() and !wep:GetUBGL(true) then 
+	model:SetBodygroup(0,1)	
+	model:SetBodygroup(1,2)
+	else
+	model:SetBodygroup(0,0)
+	model:SetBodygroup(1,0)
+	end
+end
+
+ATT.PeekPosUBGL = Vector(1.5, -5, -1.5)
+ATT.PeekAngUBGL = Angle(0, 0, -10)
+
+ATT.IKAnimationProxy = {
+	["fire_ubgl"] = { Source = "fire", },	
+    ["idle_ubgl"] = { Source = "ubgl", }, 
+	["fire_ubgl_sights"] = { Source = "fire_ads", },
+	["fire_ubgl_sights_last"] = { Source = "fire_ads_last", },
+
+	["fire_ubgl_glempty"] = { Source = "fire_last",  },		
+	["fire_ubgl_empty"] = {Source = "fire_last", },
+    ["reload_ubgl"] = {
+        Source = "ubgl_wet",
+        MinProgress = 0.825,
+		FireASAP = true,
+        EventTable = {		
+            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
+            {s =  "myt_bf1942/dc/pss_mag2.ogg" ,    t = 75 / 40},			
+        },
+    },  
+	["reload_ubgl_empty"] = {
+        Source = "ubgl_dry",
+        MinProgress = 0.925,
+		FireASAP = true,
+        EventTable = {		
+            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
+            {s =  "myt_bf1942/dc/pss_mag2.ogg" ,    t = 75 / 40},	
+            {s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 101 / 40},			
+        },
+    },
+    ["enter_ubgl"] = {
+        Source = "to_ubgl",
+        MinProgress = 0.65,
+		FireASAP = true,
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+        },
+    },
+    ["exit_ubgl"] = {
+        Source = "from_ubgl",
+        MinProgress = 0.7,
+		FireASAP = true,
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+
+    ["enter_ubgl_glempty"] = {
+        Source = "to_ubgl_last",
+        MinProgress = 0.7,
+		FireASAP = true,
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+        },
+    },
+    ["exit_ubgl_glempty"] = {
+        Source = "from_ubgl_last",
+        MinProgress = 0.7,
+		FireASAP = true,
+        EventTable = {
+            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["idle_ubgl_glempty"] = { Source = "ubgl_last" },  
+	["idle_ubgl_empty"] = { Source = "ubgl_last" },	
+	["holster_ubgl"] = { Source = "ubgl_holster"  },
+	["holster_ubgl_empty"] = { Source = "ubgl_holster_last"},
+
+} -- When an animation event plays, override it with one based on this LHIK model.
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)	
+	if wep:Clip2() == 0 then
+		if	curanim == "fire_ubgl_sights" 		then	return "fire_ubgl_sights_last"		end
+		if	curanim == "exit_ubgl" 				then	return "exit_ubgl_glempty"			end
+	end
+
+	-- i forgor why i did this and im too afraid to delete this
+	if wep:Clip1() == 0 and wep:Clip2() != 0	then	-- well realistically need only check for if clip2 not empty
+		if	curanim == "idle_ubgl_empty" 		then	return "idle_ubgl"		end
+		if	curanim == "fire_ubgl_empty" 		then	return "fire_ubgl"		end	
+		if	curanim == "fire_ubgl_iron_empty" 	then	return "fire_ubgl_iron"	end	
+		if	curanim == "reload_ubgl_empty" 		then	return "reload_ubgl"	end	
+		if	curanim == "holster_ubgl_empty"		then	return "holster_ubgl"	end
+	else	
+		return 
+	end
+end
+
+ATT.Category = {"bf1942_dc_offhand"}
+
+ATT.AimDownSightsTimeMult = 1.1
+ATT.SprintToFireTimeMult = 1.1
+
+ATT.UBGL = true
+ATT.UBGLAmmo = "pistol"
+ATT.UBGLClipSize = 20
+ATT.UBGLFiremode = -1
+ATT.SecondarySupplyLimit = 4
+ATT.UBGLFiremodeName = "Scor"
+ATT.UBGLChamberSize = 1
+ATT.ShootVolumeUBGL = 110
+ATT.RPMUBGL = 900
+
+ATT.SpreadUBGL = 0.0075
+ATT.SpreadMultHipFiredUBGL = 1
+ATT.FreeAimRadiusUGBL = 10
+
+ATT.FirstShootSoundUBGL = false
+ATT.ShootSoundUBGL = "myt_bf1942/dc/scorpion.wav"
+ATT.DistantShootSoundUBGL = false
+ATT.HasSightsUBGL = true
+
+
+ATT.NumUBGL = 1
+-- General recoil multiplier
+ATT.RecoilUBGL = 1
+
+-- These multipliers affect the predictible recoil by making the pattern taller, shorter, wider, or thinner.
+ATT.RecoilUpUBGL = 0.7 -- Multiplier for vertical recoil
+ATT.RecoilSideUBGL = 0.7 -- Multiplier for vertical recoil
+
+-- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
+-- This type of recoil CANNOT be predicted.
+ATT.RecoilRandomUpUBGL = 0.5
+ATT.RecoilRandomSideUBGL = 0.5
+
+ATT.RecoilDissipationRateUBGL = 50 -- How much recoil dissipates per second.
+ATT.RecoilResetTimeUBGL = 0 -- How long the gun must go before the recoil pattern starts to reset.
+
+ATT.RecoilAutoControlUBGL = 0 -- Multiplier for automatic recoil control.
+
+ATT.RecoilKickUBGL = 1
+
+ATT.DamageTypeUBGL = DMG_BULLET
+ATT.DamageMaxUBGL = 26 -- Damage done at point blank range
+ATT.DamageMinUBGL = 14 -- Damage done at maximum range
+
+ATT.DamageRandUBGL = 0.3 -- Damage varies randomly per shot by this fraction. 0.1 = +- 10% damage per shot.
+
+ATT.RangeMinUBGL = 300 -- How far bullets retain their maximum damage for.
+ATT.RangeMaxUBGL = 8000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
+
+ATT.PenetrationUBGL = 3 -- Units of wood that can be penetrated by this gun.
+
+ATT.MuzzleParticleUBGL = "muzzleflash_pistol"
+
+ATT.ModelOffset = Vector(10, 0, -1)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.Sights = {
+    {
+        Pos = Vector(5.1, 10, -5.3),
+        Ang = Angle(7.8, -3.3, -35),
+        Magnification = 1.05,
+        ViewModelFOV = 60,
+        CrosshairInSights = false,
+        Blur = false,
+        UBGLOnly = true,
+        Disassociate = true,
+    },
+}
+
+ATT.ActivePosUBGL = Vector(4, 3, 0)
+ATT.ActiveAngUBGL = Angle(5, 0, 20)
+
+ATT.SprintAngUBGL = Angle(0, -20, 10)
+ATT.SprintPosUBGL = Vector(2, 3, 0)
+
+ATT.CustomizeAngUBGL  = Angle(-90, 40, -5)
+ATT.CustomizePosUBGL  = Vector(-12, 32, 4)
+ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_scor")
 
 
 ----------------------------------------------------------
@@ -394,13 +611,17 @@ ATT.Hook_Think = function(wep)	-- reset RPM [FOR UGBL ONLY] cuz the bloody MANUA
 	if wep:GetUBGL(true) then
 	if wep:Clip2() == 0 then wep:SetNextPrimaryFire(1) end
 	end
+
+	--[[if wep:GetInSights() then
+		wep.SpreadUBGL = 0.02
+	else
+		wep.SpreadUBGL = 0.02 * ( wep.SpreadMultSights / wep.Spread)/10
+	end	]]
 end
-
 ATT.SpreadUBGL = 0.02
-ATT.SpreadMultSightsUBGL = 0
-
+ATT.SpreadMultSightsUBGL = 0.02 -- doesnt fucking work
 ATT.FirstShootSoundUBGL = false
-ATT.ShootSoundUBGL = "myt_bf1942/dc/R870.wav"
+ATT.ShootSoundUBGL = "myt_bf1942/dc/r870.ogg"
 ATT.DistantShootSoundUBGL = false
 ATT.HasSightsUBGL = true
 
@@ -459,7 +680,7 @@ ATT.SprintAngUBGL = Angle(5, -5, 10)
 ATT.SprintPosUBGL = Vector(3, 3, -3)
 
 ATT.CustomizeAngUBGL  = Angle(-90, 40, -6)
-ATT.CustomizePosUBGL  = Vector(-20, 28, 7)
+ATT.CustomizePosUBGL  = Vector(-22, 42, 5)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, 0, -10)
 
 ATT.CustomCrosshairUBGL = false
@@ -680,7 +901,7 @@ ATT.SprintAngUBGL = Angle(0, -25, 10)
 ATT.SprintPosUBGL = Vector(2, 3, -0.5)
 
 ATT.CustomizeAngUBGL  = Angle(-90, 40, -6)
-ATT.CustomizePosUBGL  = Vector(-8, 35, 7)
+ATT.CustomizePosUBGL  = Vector(-8, 60, 7)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
 ATT.CustomCrosshairUBGL = false
 

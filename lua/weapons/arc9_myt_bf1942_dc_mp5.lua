@@ -30,12 +30,12 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_mp5.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(0, 0, 0),
     Ang = Angle(0, 0, 0),
-    TPIKPos = Vector(-5, 5, -8),
-    TPIKAng = Angle(0, 0, 180),
-	TPIKPosSightOffset = Vector(-3, 2, -2),
-	TPIKPosReloadOffset = Vector(2, 0, 0),
-	TPIKAngReloadOffset = Angle(0, 0, 0),
-    Scale = 1,
+    TPIKPos = Vector(-10, 5, -6),
+    TPIKAng = Angle(-10, 0, 180),
+	TPIKPosSightOffset = Vector(1, 0, -5),
+
+	TPIKPosAlternative = Vector(-20, 5, -4),
+    Scale = 0.9,
 }
 SWEP.MirrorVMWMHeldOnly = false
 
@@ -201,6 +201,8 @@ SWEP.IronSights = {
 }
 
 SWEP.Crosshair = true
+SWEP.PeekPos = Vector(3, 0, -1.75)
+SWEP.PeekAng = Angle(0, 0, -5)
 
 SWEP.BipodPos = Vector(-2.58, 0, 1)
 SWEP.BipodAng = Angle(0, 0, -5)
@@ -216,7 +218,7 @@ SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
 SWEP.CrouchAng = Angle(0, 0, -7)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(9, 28, 7)
+SWEP.CustomizePos = Vector(9, 42, 6.3)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
 
@@ -617,7 +619,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 66 / 40},
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
-			{s =  "myt_bf1942/dc/mp5_bolt3.ogg" ,	t = 156 / 40},
+			{s =  "myt_bf1942/dc/mp5_bolt3.ogg" ,	t = 153 / 40},
             {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 174 / 40},
         },
     },  
@@ -635,7 +637,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 66 / 40},
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
-			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 156 / 40},	
+			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 153 / 40},	
 			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 183 / 40},
             {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
         },
@@ -723,7 +725,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 66 / 40},
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
-			{s =  "myt_bf1942/dc/mp5_bolt3.ogg" ,	t = 156 / 40},
+			{s =  "myt_bf1942/dc/mp5_bolt3.ogg" ,	t = 153 / 40},
             {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 174 / 40},
         },
     },  
@@ -741,7 +743,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/mp5_mag1.ogg" ,	t = 66 / 40},
             {s =  "myt_bf1942/dc/mp5_foley1.ogg" ,	t = 94 / 40},
             {s =  "myt_bf1942/dc/mp5_mag2.ogg" ,	t = 130 / 40}, 
-			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 156 / 40},	
+			{s =  "myt_bf1942/dc/mp5_bolt35.ogg" ,	t = 153 / 40},	
 			{s =  "myt_bf1942/dc/mp5_bolt4.ogg" ,	t = 183 / 40},
             {s =  "myt_bf1942/dc/mp5_foley2.ogg" ,	t = 194 / 40},
         },

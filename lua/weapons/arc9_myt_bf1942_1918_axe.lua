@@ -258,7 +258,6 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
 
 end
-
 -------------------------- ATTACHMENTS
 
 SWEP.DefaultBodygroups = "00000000000000000"

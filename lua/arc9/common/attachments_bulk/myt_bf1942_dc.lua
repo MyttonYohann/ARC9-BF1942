@@ -114,7 +114,7 @@ ATT.CustomPros = { Malfunction = "-5%" }
 ATT.SortOrder = 10
 ATT.Category = "bf1942_dc_mp5_stock"
 ATT.ActivateElements = {"s_4", "no_animbodge", "nofg"}
-
+ATT.TPIKAlternativePos = true
 ATT.CustomizePosHook = function(wep, vec)
     return vec + Vector(6, 0, 0)
 end
@@ -1170,6 +1170,7 @@ like a
 ATT.SortOrder = -0.1
 ATT.Category = "bf1942_dc_pistol_frame"
 ATT.ActivateElements = {"f_draco"}
+ATT.ExcludeElements = {"b_1", "b_3"}
 
 
 ATT.Attachments = {
@@ -1557,7 +1558,7 @@ ATT.Folder = "Dove Mount"
 -- Allows a custom sight position to be defined
 ATT.Sights = {
     {
-        Pos = Vector(-0.255, 11, -3.445),
+        Pos = Vector(-0.255, 12, -3.445),
         Ang = Angle(0, 0, 0),
         Magnification = 1.5,
         ViewModelFOV = 40
@@ -1578,8 +1579,8 @@ ATT.PeekAng = Angle(0, 0, 0)
 ATT.RTScope = true
 ATT.RTScopeSubmatIndex = 3
 ATT.RTScopeMagnification = 4
-ATT.ScopeScreenRatio = 375/1080
-ATT.RTScopeReticle = Material("myt_bfc_reticle/pso1.png", "mips smooth")
+ATT.ScopeScreenRatio = 500/1080
+ATT.RTScopeReticle = Material("myt_bfc_reticle/pso1.png")--, "mips smooth")
 ATT.RTScopeReticleScale = 0.98
 ATT.RTScopeColorable = true
 ATT.RTScopeShadowIntensity = 7
@@ -1638,9 +1639,9 @@ ATT.PeekAng = Angle(0, 0, 0)
 ATT.RTScope = true
 ATT.RTScopeSubmatIndex = 3
 ATT.RTScopeMagnification = 6
-ATT.ScopeScreenRatio = 375/1080
-ATT.RTScopeReticle = Material("myt_bfc_reticle/tabuk.png", "mips smooth")
-ATT.RTScopeReticleScale = 0.98
+ATT.ScopeScreenRatio = 512/1080
+ATT.RTScopeReticle = Material("myt_bfc_reticle/tabuk.png")--, "mips smooth")
+ATT.RTScopeReticleScale = 1
 ATT.RTScopeColorable = true
 ATT.RTScopeShadowIntensity = 7
 
@@ -1697,9 +1698,9 @@ ATT.PeekAng = Angle(0, 0, 0)
 ATT.RTScope = true
 ATT.RTScopeSubmatIndex = 3
 ATT.RTScopeMagnification = 2.5
-ATT.ScopeScreenRatio = 375/1080
-ATT.RTScopeReticle = Material("myt_bfc_reticle/smaw.png", "mips smooth")
-ATT.RTScopeReticleScale = 0.98
+ATT.ScopeScreenRatio = 420/1080
+ATT.RTScopeReticle = Material("myt_bfc_reticle/smaw.png")--, "mips smooth")
+ATT.RTScopeReticleScale = 1
 ATT.RTScopeColorable = true
 ATT.RTScopeShadowIntensity = 7
 
@@ -1756,9 +1757,9 @@ ATT.PeekAng = Angle(0, 0, 0)
 ATT.RTScope = true
 ATT.RTScopeSubmatIndex = 3
 ATT.RTScopeMagnification = 2
-ATT.ScopeScreenRatio = 375/1080
-ATT.RTScopeReticle = Material("myt_bfc_reticle/smaw.png", "mips smooth")
-ATT.RTScopeReticleScale = 0.98
+ATT.ScopeScreenRatio = 420/1080
+ATT.RTScopeReticle = Material("myt_bfc_reticle/rpg.png")--, "mips smooth")
+ATT.RTScopeReticleScale = 1
 ATT.RTScopeColorable = true
 ATT.RTScopeShadowIntensity = 7
 
@@ -1788,8 +1789,8 @@ ATT.ActivateElements = {"b_1"}
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"		then	return "reload_empty_hydra"		end
 	if	curanim == "reload"				then	return "reload_hydra"			end	
-	if	curanim == "reload_empty_fail"	then 	return "reload_empty_hydra_fail"	end	
-	if	curanim == "reload_fail"		then 	return "reload_hydra_fail"		end	
+	--if	curanim == "reload_empty_fail"	then 	return "reload_empty_hydra_fail"	end	
+	--if	curanim == "reload_fail"		then 	return "reload_hydra_fail"		end	
 end
 
 ATT.ClipSizeMult = 2
@@ -1806,14 +1807,120 @@ ATT.SpreadMultSights = 0.0125/0.0025
 ATT.RecoilMult = 2
 ATT.RecoilPatternDriftMult = 2
 
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_hpb1")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Cyclone Barrel]]
+ATT.CompactName = [[B. Cyclone]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[Full Auto
+]]
+
+ATT.SortOrder = 2
+ATT.Category = "bf1942_dc_hpb_frame"
+ATT.ActivateElements = {"b_2"}
+
+ATT.RPMMult = 2
+
+ATT.RecoilMult = 1.2
+ATT.RecoilPatternDriftMult = 2
+
+ATT.Firemodes = {
+    {
+        Mode = -1,
+    },
+}
+
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_hpb2")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Ranger Barrel]]
+ATT.CompactName = [[B. Ranger]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[Long
+]]
+
+ATT.SortOrder = 2
+ATT.Category = "bf1942_dc_hpb_frame"
+ATT.ActivateElements = {"b_3"}
+
+ATT.RecoilMult = 0.8
+ATT.RecoilPatternDriftMult = 1.5
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_hpb3")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Extended Mag]]
+ATT.CompactName = [[M. Ext]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[Boolets
+]]
+
+ATT.SortOrder = 2
+ATT.Category = "bf1942_dc_hpb_mag"
+ATT.ActivateElements = {"m_1"}
+
+ATT.ClipSize = 28
+
+ATT.RecoilMult = 0.8
+ATT.RecoilPatternDriftMult = 1.5
+
 ATT.Hook_TranslateAnimation = function(wep, curanim)
-	if	curanim == "reload_empty"		then	return "reload_empty_hydra"		end
-	if	curanim == "reload"				then	return "reload_hydra"			end	
-	if	curanim == "reload_empty_fail"	then 	return "reload_empty_hydra"		end	
-	if	curanim == "reload_fail"		then 	return "reload_hydra"			end	
+	if	curanim == "reload_empty"		then	return "reload_empty_x"		end
+	if	curanim == "reload"				then	return "reload_x"			end	
 end
 
-ARC9.LoadAttachment(ATT, "myt_bf1942_dc_hpb1")
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_hpb4")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Ranger Stock]]
+ATT.CompactName = [[S. Ranger]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[Long
+]]
+
+ATT.SortOrder = 2
+ATT.Category = "bf1942_dc_hpb_stock"
+ATT.ActivateElements = {"s_1"}
+
+ATT.RecoilMult = 0.4
+ATT.RecoilPatternDriftMult = 0.5
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"		then	return "reload_empty_stock"		end
+	if	curanim == "reload"				then	return "reload_stock"			end	
+
+	if wep:HasElement("m_1") then
+	if	curanim == "reload_empty_x"		then	return "reload_empty_x_stock"		end
+	if	curanim == "reload_x"				then	return "reload_x_stock"			end		
+	end
+
+		if	curanim == "fire" 				then return "fire_stock"		end	
+		if	curanim == "fire_empty" 		then return "fire_stock_last"	end		
+end
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_hpb5")
 
 
 ----------------------------------------------------------------------------------

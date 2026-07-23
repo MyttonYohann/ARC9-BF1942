@@ -199,6 +199,8 @@ SWEP.IronSights = {
 }
 
 SWEP.Crosshair = true
+SWEP.PeekPos = Vector(1.75, 3, -1)
+SWEP.PeekAng = Angle(0, 0, -10)
 
 SWEP.BipodPos = Vector(-2.58, 0, 1)
 SWEP.BipodAng = Angle(0, 0, -5)
@@ -214,7 +216,7 @@ SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
 SWEP.CrouchAng = Angle(0, 0, -7)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(13, 28, 7)
+SWEP.CustomizePos = Vector(13, 42, 7.5)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
 
@@ -273,26 +275,54 @@ SWEP.Animations = {
     },
     ["cycle"] = {
         Source = {"bolt"},
+		MinProgress = 27/40,
 		EjectAt = 20/ 40,
         IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },       { t = 0.05, lhik = 1, rhik = 1, }, 
+        { t = 0, lhik = 1, rhik = 1, }, { t = 0.05, lhik = 1, rhik = 1, }, 
         { t = 0.15, lhik = 1, rhik = 0, },{ t = 0.6, lhik = 1, rhik = 0, },{ t = 0.7, lhik = 1, rhik = 1, },
         },
         EventTable = {
             {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 8 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 18 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 15 / 40},
         },
     },
     ["cycle_empty"] = {
-        Source = {"bolt_last"},
+		Source = {"bolt_last"},
+		MinProgress = 27/40,
 		EjectAt = 20/ 40,
         IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, }, { t = 0.05, lhik = 1, rhik = 1, }, 
+        { t = 0.15, lhik = 1, rhik = 0, },{ t = 0.6, lhik = 1, rhik = 0, },{ t = 0.7, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 8 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 15 / 40},
+        },
+    },
+    ["cycle_iron"] = {
+		Source = {"bolt_iron"},
+		EjectAt = 20/ 40,
+		MinProgress = 27/40,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, }, { t = 0.05, lhik = 1, rhik = 1, }, 
+        { t = 0.15, lhik = 1, rhik = 0, },{ t = 0.6, lhik = 1, rhik = 0, },{ t = 0.7, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 8 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 15 / 40},
+        },
+    },
+    ["cycle_empty_iron"] = {
+		Source = {"bolt_last_iron"},
+		EjectAt = 20/ 40,
+		MinProgress = 27/40,
+		IKTimeLine = {
         { t = 0, lhik = 1, rhik = 1, },       { t = 0.05, lhik = 1, rhik = 1, }, 
         { t = 0.15, lhik = 1, rhik = 0, },{ t = 0.6, lhik = 1, rhik = 0, },{ t = 0.7, lhik = 1, rhik = 1, },
         },
         EventTable = {
             {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 8 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 18 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 15 / 40},
         },
     },
     ["fire_smg"] = {

@@ -317,6 +317,16 @@ ATT.SortOrder = 0.1
 ATT.Category = "bf1942_1918_berdan_cal"
 ATT.ActivateElements = {"cal_mag"}
 
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if wep:GetInSights()	then
+		--if	curanim == "fire" 			then 	return "fire_bolt_iron"			end	
+		if	curanim == "cycle" 			then 	return "cycle_bolt_iron"		end	
+		if	curanim == "cycle_fail" 	then 	return "cycle_bolt_iron_fail"	end	
+	end
+end
+
+
 ATT.ShotgunReload = true
 ATT.ManualAction = true
 ATT.ManualActionNoLastCycle = false
@@ -459,7 +469,7 @@ ATT.Category = "bf1942_1918_webley_barrel"
 ATT.ActivateElements = {"b_2"}
 
 ATT.TriggerDelay = false
-ATT.MalfunctionMeanShotsToFailAdd = -6
+ATT.MalfunctionMeanShotsToFailAdd = -3
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"		then	return "reload_empty_auto"		end
@@ -497,7 +507,7 @@ end
 
 ATT.NumOverride = 2
 ATT.AmmoPerShot = 2
-ATT.PhysBulletMuzzleVelocityAdd = -100 * 12
+ATT.PhysBulletMuzzleVelocityAdd = -600
 
 ATT.TriggerDelayTime = 0.2
 ATT.MalfunctionMeanShotsToFailAdd = -2
@@ -527,6 +537,7 @@ ATT.PrintName = [[Carabiner Barrel]]
 ATT.CompactName = [[B. Carbine]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[long shlong
+single action only
 ]]
 
 ATT.SortOrder = 3
@@ -543,20 +554,28 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "draw"				then 	return "draw_rifle"				end	
 	if	curanim == "ready"				then 	return "draw_rifle"				end	
 	if	curanim == "holster"			then 	return "holster_rifle"			end	
+	if	curanim == "fire" and wep:GetInSights()	
+		then 	return "fire_rifle_iron"		
+	end
 	if	curanim == "fire"				then 	return "fire_rifle"				end	
+	if	curanim == "dryfire"			then 	return "dryfire_rifle"			end	
 	if	curanim == "trigger"			then 	return "trigger_rifle"			end	
 	if	curanim == "untrigger"			then 	return "untrigger_rifle"		end	
 end
 
 ATT.ActivePosHook = 	function(wep, vec)	return vec + Vector(0, -1, -0.5) end
 
-ATT.TriggerDelayTime = 0.2
+ATT.TriggerDelay = false
+ATT.RPM = 80
 ATT.Malfunction = false
 ATT.SpreadMultSightsMult = 0.5
 ATT.SpreadMult = 0.5
 
 ATT.RecoilMult = 0.8
 ATT.RecoilPatternDriftMult = 0.5
+
+ATT.RangeMaxMult = 3
+ATT.DistanceMult = 3
 
 ATT.AimDownSightsTimeMult = 1.5
 ATT.SprintToFireTimeMult = 1.5
@@ -617,6 +636,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty_fail"	then 	return "reload_single"			end
 	if	curanim == "reload_fail"		then 	return "reload_single"			end
 	if	curanim == "fire"				then 	return "fire_single"			end
+	if	curanim == "dryfire"			then 	return "dryfire_single"			end
 	if	curanim == "trigger"			then 	return "trigger_single"			end
 	if	curanim == "untrigger"			then 	return "untrigger_single"		end
 end
@@ -655,11 +675,11 @@ ATT.SortOrder = 120
 ATT.Category = "bf1942_fh_winch_cal"
 ATT.ActivateElements = {"cal_hydra"}
 
-ATT.NumOverride = 14
-ATT.DamageMaxMult = 1.3
-ATT.DamageMinMult = 1.3
+ATT.NumOverride = 16
+ATT.DamageMaxMult = 1.5
+ATT.DamageMinMult = 0.8
 
-ATT.PhysBulletMuzzleVelocityAdd = 400 * 12
+ATT.PhysBulletMuzzleVelocityAdd = -600
 ATT.ImpactForce = 6
 
 ATT.Penetration = 2
@@ -679,6 +699,65 @@ ATT.Model = "models/weapons/myt_bf1942/1918/c_winchester.mdl"
 ATT.ModelBodygroups = "43740"
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch1")
+
+
+----------------------------------------------------------------------------------
+
+ATT = {}
+
+ATT.PrintName = [[Hydraling Barrel]]
+ATT.CompactName = [[B. HydraS]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[shortstack olimpa
+]]
+--ATT.CustomCons = { Malfunction = "+15%" }
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload" and wep:Clip1() == 0			then	return "dry_hydra_short"	end
+	if	curanim == "reload"	and wep:HasElement("dovemount")	then	return "wet_hydra_optic"	end
+	if	curanim == "reload"									then	return "wet_hydra"			end
+end
+
+ATT.Firemodes = {
+    {
+        Mode = 1,
+		PrintName = "SINGLE",
+    },
+    {
+        Mode = 1,
+		PrintName = "DOUBLE",
+		AmmoPerShot = 2,
+		NumOverride = 24,
+    },
+}
+
+ATT.SortOrder = 1.5
+ATT.Category = "bf1942_fh_winch_cal"
+ATT.ActivateElements = {"cal_hydra_s", "nofg"}
+
+ATT.NumOverride = 12
+ATT.DamageMaxMult = 1.4
+ATT.DamageMinMult = 1.4
+
+ATT.PhysBulletMuzzleVelocityAdd = 400 * 12
+ATT.ImpactForce = 6
+
+ATT.Penetration = 2
+
+ATT.ShotgunReload = false
+ATT.ManualAction = false
+ATT.ClipSize = 2
+ATT.ChamberSize = 0
+
+ATT.LHIK = true
+ATT.LHIK_Priority = 0.01
+
+ATT.Scale = 1
+ATT.ModelOffset = Vector(-8.5, 0.5, -3.25)
+ATT.ModelAngleOffset = Angle(0, 5, 0)
+ATT.Model = "models/weapons/myt_bf1942/dc/c_mp5_ik_ii.mdl"
+ATT.BarrelLengthAdd = -20
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch7")
 
 
 ----------------------------------------------------------------------------------
@@ -712,13 +791,13 @@ ATT.NumOverride = 1
 ATT.DamageMaxMult = 20
 ATT.DamageMinMult = 12
 ATT.DamageType = DMG_BLAST + DMG_BULLET + DMG_AIRBOAT
-ATT.RecoilMult = 2.5
+ATT.RecoilMult = 3
 ATT.RecoilPatternDriftMult = 2
 ATT.SpreadMultSights = 0.0005/0.0025
 
-ATT.PhysBulletMuzzleVelocityAdd = 800 * 12
+ATT.PhysBulletMuzzleVelocityMult = 2.5
 ATT.ImpactForce = 12
-ATT.Penetration = 24
+ATT.Penetration = 32
 
 ATT.ShotgunReload = false
 ATT.ManualAction = false
@@ -764,7 +843,7 @@ ATT.CompactName = [[B. Cyclone]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[autofive
 ]]
---ATT.CustomCons = { Malfunction = "+15%" }
+--ATT.CustomCons = { Malfunction = "+20%" }
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_end_empty" 	then	return "reload_end_empty_auto"	end
 	if	curanim == "reload_emptoloop"	then	return "reload_emptoloop_auto"	end
@@ -884,7 +963,7 @@ ATT.LHIK = true
 ATT.LHIK_Priority = 0.01
 
 ATT.Scale = 1
-ATT.ModelOffset = Vector(-8.5, 0.5, -4.5)
+ATT.ModelOffset = Vector(-8.5, 0.5, -3.25)
 ATT.ModelAngleOffset = Angle(0, 5, 0)
 ATT.Model = "models/weapons/myt_bf1942/dc/c_mp5_ik_ii.mdl"
 ATT.BarrelLengthAdd = -20
@@ -951,6 +1030,7 @@ ATT.ModelOffset = Vector(-11, -2.8, 3.8)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 ATT.Model = "models/weapons/myt_bf1942/1918/c_winchester_ik_bullpup.mdl"
 --ATT.ModelBodygroups = "43740"
+ATT.TPIKAlternativePos = true
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch6")
 

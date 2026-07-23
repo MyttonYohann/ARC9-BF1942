@@ -28,12 +28,12 @@ SWEP.Slot = 1
 SWEP.MirrorVMWM = true
 SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_hpbrown.mdl"
 SWEP.WorldModelOffset = {
-    Pos = Vector(-1, 2, -7),
-    Ang = Angle(-5, 0, 180),
+    Pos = Vector(0, 0, 0),
+    Ang = Angle(0, 0, 0),
     TPIKPos = Vector(-15, 4, -5),
-    TPIKAng = Angle(0, 0, 180),
+    TPIKAng = Angle(-10, 0, 180),
 	TPIKPosSightOffset = Vector(3, 5, -1),
-	TPIKPosReloadOffset = Vector(-2, 0, 0),
+	TPIKPosReloadOffset = Vector(-5, 0, 5),
 	TPIKAngReloadOffset = Angle(0, 0, 0),
     Scale = 1,
 }
@@ -214,7 +214,7 @@ SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
 SWEP.CrouchAng = Angle(0, 0, -7)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(10, 28, 7)
+SWEP.CustomizePos = Vector(10, 37, 7)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
 
@@ -276,6 +276,20 @@ SWEP.Animations = {
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
+    },   
+	["fire_stock"] = {
+        Source = {"fire_stock"},
+		Mult = 0.8,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },
+    ["fire_stock_empty"] = {
+        Source = {"fire_stock_last"},
+		Mult = 0.8,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
     },  
 	["fire_grip"] = {
         Source = {"fire_grip"},
@@ -319,9 +333,93 @@ SWEP.Animations = {
         },
     },  
 
+    ["reload_stock"] = {
+        Source = "wet_stock",
+        FireASAP = true,
+        MinProgress = 0.93,
+        EventTable = {
+            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 4 / 40},  
+			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 67 / 40},
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    },  
+    ["reload_empty_stock"] = {
+        Source = "dry_stock",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 4 / 40},  
+			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 61 / 40},
+			{s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 91 / 40},
+        },
+    },  
+
+    ["reload_x"] = {
+        Source = "wet_x",
+        FireASAP = true,
+        MinProgress = 0.9,
+        EventTable = {
+            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 4 / 40},  
+			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 70 / 40},
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    },  
+    ["reload_empty_x"] = {
+        Source = "dry_x",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 12 / 40},  
+			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 90 / 40},
+			{s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 118 / 40},
+        },
+    }, 
+
+    ["reload_x_stock"] = {
+        Source = "wet_x_stock",
+        FireASAP = true,
+        MinProgress = 0.9,
+        EventTable = {
+            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 4 / 40},  
+			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 70 / 40},
+        },
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.2, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+    },  
+    ["reload_empty_x_stock"] = {
+        Source = "dry_x_stock",
+        FireASAP = true,
+        MinProgress = 0.95,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 12 / 40},  
+			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,   t = 90 / 40},
+			{s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 118 / 40},
+        },
+    },  
+
 	["reload_hydra"] = {
         Source = "wet_hydra",
-        FireASAP = true,
+		FireASAP = true,
         MinProgress = 0.93,
         EventTable = {
             {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 4 / 40},  
@@ -432,7 +530,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl_gl"	end	
 
-	if wep:HasElement("has_grip") then
+	if wep:HasElement("has_grip") and not wep:HasElement("s_1") then
 		if	curanim == "fire" 				then return "fire_grip"			end	
 		if	curanim == "fire_empty" 		then return "fire_grip_last"	end				
 	end
@@ -445,7 +543,12 @@ end
 SWEP.DefaultBodygroups = "00000000000000000"
 
 SWEP.AttachmentElements = {
-    ["b_1"] = 	{ Bodygroups = { {0, 1} }, },
+	["b_1"] = 	{ Bodygroups = { {0, 1}, {4, 2} }, },
+	["b_2"] = 	{ Bodygroups = { {0, 2} }, },
+	["b_3"] = 	{ Bodygroups = { {0, 3} }, },
+
+	["m_1"] = 	{ Bodygroups = { {4, 1} }, },
+	["s_1"] = 	{ Bodygroups = { {3, 1} }, },
     ["f_draco"] = 	{ 
 	Bodygroups = { {1, 1}, {2, 1} },
 	IronSights = {
@@ -468,6 +571,7 @@ SWEP.AttachmentElements = {
 SWEP.Hook_ModifyBodygroups = function(wep, data)
     local model = data.model
     if wep:HasElement("has_optic") 	then model:SetBodygroup(2,0) end
+    if wep:HasElement("b_1") and wep:HasElement("m_1")	then model:SetBodygroup(4,3) end
 end
  
 SWEP.Attachments = {
@@ -475,13 +579,13 @@ SWEP.Attachments = {
         PrintName = "Off Hand",
         DefaultName = "None",
 
-        DefaultIcon = Material("arc9/def_att_icons/grip.png"),
+        --DefaultIcon = Material("arc9/def_att_icons/grip.png"),
         ExcludeElements = {"nooh", "rh_occupied"},
         Category = {"bf1942_dc_offhand"},
         Bone = "W_Main",
         Pos = Vector(-1, 0, -10),
         Ang = Angle(90, 0, -90),
-        MergeSlots = {4},
+        MergeSlots = {7},
     },
 
     {
@@ -489,9 +593,19 @@ SWEP.Attachments = {
         DefaultName = "None",
         InstalledElements = {"rail_def"},
 
-        Category = {"bf1942_dc_pistol_frame", "bf1942_dc_hpb_frame"},
+        Category = {"bf1942_dc_pistol_frame"},
         Bone = "W_Main",
         Pos = Vector(0, -3, 4),
+        Ang = Angle(90, 0, -90),
+    },
+
+    {
+        PrintName = "Frame",
+        DefaultName = "None",
+
+        Category = {"bf1942_dc_hpb_frame"},
+        Bone = "W_Main",
+        Pos = Vector(0, -3, 0.5),
         Ang = Angle(90, 0, -90),
     },
 
@@ -508,7 +622,27 @@ SWEP.Attachments = {
     },
 
     {
-        PrintName = "",		-- 4, underhand
+        PrintName = "Magazine",
+        DefaultName = "None",
+
+        Category = {"bf1942_dc_hpb_mag"},
+        Bone = "W_Main",
+        Pos = Vector(0, 0, -0.5),
+        Ang = Angle(90, 0, -90),
+    },
+
+    {
+        PrintName = "Stock",
+        DefaultName = "None",
+
+        Category = {"bf1942_dc_hpb_stock"},
+        Bone = "W_Main",
+        Pos = Vector(0, 3, -3),
+        Ang = Angle(90, 0, -90),
+    },
+
+    {
+        PrintName = "",		-- 7, underhand
         DefaultName = "",
         Hidden = true,
 

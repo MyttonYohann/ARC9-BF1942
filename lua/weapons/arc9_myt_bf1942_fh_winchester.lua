@@ -28,10 +28,15 @@ SWEP.Slot = 2
 SWEP.MirrorVMWM = true
 SWEP.WorldModelMirror = "models/weapons/myt_bf1942/1918/c_winchester.mdl"
 SWEP.WorldModelOffset = {
-    Pos = Vector(-1, 2, -7),
-    Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-8, 6, -5),
-    TPIKAng = Angle(-5, 0, 180),
+    Pos = Vector(0, 0, 0),
+    Ang = Angle(0, 0, 0),
+    TPIKPos = Vector(-7, 4, -2),
+    TPIKAng = Angle(-10, 0, 180),
+	TPIKPosSightOffset = Vector(1, 1, -2),
+	TPIKPosReloadOffset = Vector(5, 0, 0),
+	TPIKAngReloadOffset = Angle(0, 0, 0),
+
+	TPIKPosAlternative = Vector(-16, 4, 1.5),
     Scale = 1
 }
 SWEP.MirrorVMWMHeldOnly = false
@@ -41,12 +46,12 @@ SWEP.MirrorVMWMHeldOnly = false
 SWEP.DamageMax = 14	-- Damage done at point blank range
 SWEP.DamageMin = 7	-- Damage done at maximum range
 
-SWEP.DamageRand = 0.5
+SWEP.DamageRand = 0.8
 
 SWEP.RangeMin = 400 -- How far bullets retain their maximum damage for.
 SWEP.RangeMax = 8000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
 
-SWEP.Penetration = 0 -- Units of wood that can be penetrated by this gun.
+SWEP.Penetration = 1 -- Units of wood that can be penetrated by this gun.
 
 SWEP.ImpactForce = 4
 
@@ -218,7 +223,7 @@ SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
 SWEP.CrouchAng = Angle(0, 0, -7)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(14, 28, 8)
+SWEP.CustomizePos = Vector(14, 45, 8)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
 
@@ -254,7 +259,7 @@ SWEP.NoShellEjectManualAction = true
 
 -------------------------- SOUNDS
 
-SWEP.ShootSound = "myt_bf1942/dc/R870.wav"
+SWEP.ShootSound = "myt_bf1942/dc/r870.ogg"
 SWEP.ShootSoundSilenced = "gekolt_css/m4a1-1.wav"
 SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 SWEP.DistantShootSound = "myt_bf1942/1918/BerdanDis.wav"
@@ -294,6 +299,17 @@ SWEP.Animations = {
 
     ["cycle"] = {
         Source = {"pump01", "pump02", "pump03", "pump04", "pump05"},
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+        EventTable = {
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	6 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	16 / 40},
+        },
+        EjectAt = 8 / 40,
+        FireASAP = true,
+        MinProgress = 24/40,
+    },  
+    ["cycle_scope"] = {
+        Source = {"pump03",},
         IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
         EventTable = {
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	6 / 40},
@@ -354,8 +370,6 @@ SWEP.Animations = {
 		RestoreAmmo = 1,
         EjectAt = 18 / 40,
 		RefillProgress = 35/40,
-		MinProgress = 35/40,
-        MagSwapTime = 35/ 40,
     },  
 
     ["reload_start_empty_auto"] = {
@@ -406,7 +420,6 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	25 / 40},
         },
 		RefillProgress = 32 / 40,
-        MinProgress = 32/40,
     },  
 	["reload_insert_breach"] = {
         Source = "reload_loop_breach",
@@ -415,7 +428,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	21 / 40},
         },
 		RefillProgress = 25 / 40,
-        MinProgress = 25/40,
+		MinProgress = 25/40,
 		Mult = 0.9,
     }, 
     ["reload_loop_fail"] = {
@@ -426,10 +439,10 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	67 / 40},
         },
 		RefillProgress = 72 / 40,
-        MinProgress = 72/40,
+		MinProgress = 72/40,
     }, 
 	["reload_emptoloop"] = {
-        Source = "reload_emptoloop",
+        Source = {"reload_emptoloop","reload_emptoloop2"},
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.4, lhik = 1, rhik = 0, }, { t = 0.6, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },
@@ -438,11 +451,11 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,  		t = 15 / 40},  
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 55 / 40},
         },
+		RestoreAmmo = 0, -- WHO FUCKING BROKE THIS, insert is now consider 1 + RestoreAmmo
 		RefillProgress = 60/40,
-        MinProgress = 60/40,
     },
 	["reload_emptoloop_breach"] = {
-        Source = "reload_emptoloop_breach",
+        Source = "reload_emptoloop_bullpup",
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.45, lhik = 1, rhik = 0, }, { t = 0.7, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },
@@ -451,8 +464,8 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,  		t = 15 / 40},  
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 42 / 40},
         },
+		RestoreAmmo = 0, -- WHO FUCKING BROKE THIS
 		RefillProgress = 40/40,
-        MinProgress = 40/40,
 		Mult = 0.9,
     },
 	["reload_emptoloop_auto"] = {
@@ -466,7 +479,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 50 / 40},
         },
 		RefillProgress = 52/40,
-        MinProgress = 52/40,
+		RestoreAmmo = 0, -- WHO FUCKING BROKE THIS
     },
     ["reload_finish"] = {
         Source = "reload_end",
@@ -533,7 +546,7 @@ SWEP.Animations = {
         MagSwapTime = 70 / 40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 0.1, lhik = 1, rhik = 0, },
-        { t = 0.25, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        { t = 0.25, lhik = 0, rhik = 0, }, { t = 0.7, lhik = 0, rhik = 0, },{ t = 0.8, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/1918/Winch_Hydra_Open.ogg" ,  t = 5 / 40},  
@@ -574,6 +587,22 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/1918/Winch_Hydra_Close.ogg" ,	t = 106 / 40},
         },
     },  
+    ["dry_hydra_short"] = {
+        Source = "dry_hydra_short",
+        FireASAP = true,
+        MinProgress = 0.9,
+        MagSwapTime = 80 / 40,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },        { t = 0.1, lhik = 0, rhik = 0, },
+        { t = 0.3, lhik = 1, rhik = 0, }, { t = 0.8, lhik = 1, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Winch_Hydra_Open.ogg" ,  t = 10 / 40},  
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 40 / 40}, 
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 66 / 40},
+			{s =  "myt_bf1942/1918/Winch_Hydra_Close.ogg" ,	t = 93 / 40},
+        },
+    },  
 	["dry_monolith"] = {
         Source = "dry_monolith",
         FireASAP = true,
@@ -581,7 +610,7 @@ SWEP.Animations = {
         MagSwapTime = 83 / 40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+		{ t = 1, lhik = 1, rhik = 0, },
         },
         EventTable = {
             {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 1 / 40},  
@@ -692,6 +721,17 @@ SWEP.Animations = {
         FireASAP = true,
         MinProgress = 20/40,
     },  
+    ["cycle_scope_bp"] = {
+        Source = {"pump03"},
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, }, },
+        EventTable = {
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	6 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	16 / 40},
+        },
+        EjectAt = 6 / 40,
+        FireASAP = true,
+        MinProgress = 20/40,
+    },  
     ["cycle_fail_bp"] = {
         Source = {"pump_fail01"},
         IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, }, },
@@ -707,7 +747,7 @@ SWEP.Animations = {
     },     
 
 	["reload_start_empty_bp"] = {
-        Source = "reload_start_empty",
+        Source = "reload_start_empty_bullpup",
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 1, },
         { t = 0.45, lhik = 1, rhik = 1, }, { t = 0.8, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
@@ -755,7 +795,7 @@ SWEP.Animations = {
     }, 
 
 	["reload_emptoloop_bp"] = {
-        Source = "reload_emptoloop_breach",
+        Source = "reload_emptoloop_bullpup",
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
         { t = 0.4, lhik = 1, rhik = 1, }, { t = 0.6, lhik = 0, rhik = 1, },{ t = 1, lhik = 0, rhik = 1, },
@@ -765,7 +805,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 42 / 40},
         },
 		RefillProgress = 40/40,
-        MinProgress = 40/40,
+		RestoreAmmo = 0, -- WHO FUCKING BROKE THIS
     },
     ["reload_end_bp"] = {
         Source = "reload_end_breach",
@@ -805,6 +845,10 @@ SWEP.DementiaCounter = 0
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end		-- 	bodging for off hand weapon
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
+	
+	--[[if wep:GetInSights() and wep:HasElement("has_optic")	and not wep.Peeking	 then	-- bodging for cycle with sight attachment
+		if	curanim == "cycle" 			then 	return "cycle_scope"		end	
+	end]]
 
 	if	wep:Clip1() == 1 then
 		if curanim == "reload_finish"	then return "reload_end_empty"	end	
@@ -815,7 +859,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
     local rng = math.Truncate(util.SharedRandom("AV pex last soldier", 1,100))
 	local varextra = 0		-- for att
 	
-	if wep:HasElement("cal_auto") then varextra = 35 end	
+	if wep:HasElement("cal_auto") then varextra = 20 end	
 	if wep:HasElement("cal_breach") then varextra = -5 end
 	if wep:HasElement("cal_bullpup") then varextra = 10 end
 
@@ -844,6 +888,7 @@ end
 SWEP.DefaultBodygroups = "00000000000000"
 
 SWEP.AttachmentElements = {
+    ["cal_hydra_s"] = 	{ Bodygroups = { {0, 1}, {1, 1}, {2, 9}, {3, 1} },},   
     ["cal_hydra"] = 	{ Bodygroups = { {0, 1}, {1, 1}, {2, 1} },},   
     ["cal_auto"] = 		{ Bodygroups = { {0, 2}, {2, 2} },},    
 	["cal_flux"] = 		{ Bodygroups = { {2, 6}, {4, 1}, {3, 1} },},  
@@ -888,12 +933,12 @@ SWEP.Attachments = {
     {
         PrintName = "Optic",
         DefaultName = "None",
-        InstalledElements = {"rail_def"},
+        InstalledElements = {"rail_def", "has_optic"},
 
         DefaultIcon = Material("arc9/def_att_icons/optic.png"),
-        Category = {"optic_css", "bf1942_1918_berdan_sight"},
+        Category = {"optic_css"},
         Bone = "W_Main",
-        Pos = Vector(0, -4.5, 3),
+        Pos = Vector(0, -3.5, 2.5),
         Ang = Angle(90, 0, -90),
         MergeSlots = {6},
     },

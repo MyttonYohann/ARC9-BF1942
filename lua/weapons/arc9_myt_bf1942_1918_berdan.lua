@@ -137,7 +137,7 @@ SWEP.SpreadAddMidAir = 0.0075
 SWEP.SpreadMultHipFire = 5
 SWEP.SpreadMultCrouch = 0.5
 
-SWEP.SpreadMultSights = 0.00125/SWEP.Spread
+SWEP.SpreadMultSights = 0.2
 SWEP.RecoilModifierCapSights = 2.5
 SWEP.RecoilModifierCapCrouch = 5
 
@@ -206,7 +206,7 @@ SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
 SWEP.CrouchAng = Angle(0, 0, -7)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(20, 32, 10)
+SWEP.CustomizePos = Vector(20, 56, 10)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
 
@@ -261,6 +261,12 @@ SWEP.Animations = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
     },  
+    ["fire_bolt_iron"] = {
+        Source = {"fire_bolt_iron"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+    },  
 	["fire_big"] = {
         Source = {"fire_big"},
         IKTimeLine = {
@@ -288,6 +294,34 @@ SWEP.Animations = {
     },     
 	["cycle_fail"] = {
         Source = {"bolt_fail"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = { 
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,	t = 10 / 40},  
+            {s =  "myt_bf1942/1918/Berdan_Bolt15.ogg" ,	t = 20 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Mag15.ogg" ,	t = 50 / 40},
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,	t = 68 / 40},
+        },
+        EjectAt = 18 / 40,
+        FireASAP = true,
+        MinProgress = 0.9,
+    }, 
+    ["cycle_bolt_iron"] = {
+        Source = {"bolt_iron"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 10 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 20 / 40},
+        },
+        EjectAt = 18 / 40,
+        FireASAP = true,
+        MinProgress = 0.8,
+    },     
+	["cycle_bolt_iron_fail"] = {
+        Source = {"bolt_fail_iron"},
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
@@ -773,16 +807,16 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	wep:Clip1() == 5 then	dementia_end = 1 end		
 
 	if curanim == "reload_insert" then
-		wep.DementiaCounter = wep.DementiaCounter + 20	-- gradual demetia
+		wep.DementiaCounter = wep.DementiaCounter + 15	-- gradual demetia
 	elseif curanim == "reload_insert_fail" then
-		wep.DementiaCounter = wep.DementiaCounter + 20
+		wep.DementiaCounter = wep.DementiaCounter + 15
 	elseif curanim == "reload_start_empty" then
-		wep.DementiaCounter = -30
+		wep.DementiaCounter = -20
 	elseif curanim == "reload_start" then
 		wep.DementiaCounter = 5
 	end
 	
-    if rng <= 25 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
+    if rng <= 20 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
 		if	curanim == "reload_empty"	then 	return "reload_fail"		end	
 
 		if	curanim == "reload_insert"	then 	return "reload_insert_fail"	end
@@ -854,7 +888,7 @@ SWEP.Attachments = {
     {
         PrintName = "Foregrip",
         DefaultName = "None",
-        InstalledElements = {"fg_def"},
+        --InstalledElements = {"fg_def"},
 
         DefaultIcon = Material("arc9/def_att_icons/grip.png"),
         ExcludeElements = {"nofg"},

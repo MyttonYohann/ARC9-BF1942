@@ -31,9 +31,9 @@ SWEP.WorldModelOffset = {
     Pos = Vector(0, 0, 0),
     Ang = Angle(0, 0, 0),
     TPIKPos = Vector(-13, 4, -7),
-    TPIKAng = Angle(0, 0, 180),
+    TPIKAng = Angle(-8, 0, 180),
 	TPIKPosSightOffset = Vector(3, 4.5, 1),
-	TPIKPosReloadOffset = Vector(-2, 0, 0),
+	TPIKPosReloadOffset = Vector(-6, 0, 6),
 	TPIKAngReloadOffset = Angle(0, 0, 0),
     Scale = 1,
 }
@@ -230,7 +230,7 @@ SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
 SWEP.CrouchAng = Angle(0, 0, -7)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(8, 25, 6)
+SWEP.CustomizePos = Vector(8, 37, 6)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
 
@@ -269,7 +269,7 @@ SWEP.ShellPhysBox = Vector(0.5, 0.5, 2)
 
 SWEP.ShootSound = "myt_bf1942/1918/Webley.wav"
 SWEP.ShootSoundSilenced = "gekolt_css/m4a1-1.wav"
-SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
+--SWEP.DryFireSound = "weapons/clipempty_rifle.wav"
 
 SWEP.FiremodeSound = "arc9/firemode.ogg"
 
@@ -311,6 +311,39 @@ SWEP.Animations = {
         },
         EventTable = {
             {s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 1 / 40},  
+        },
+		Mult = 1,
+    },  
+	["dryfire"] = {
+        Source = {"fire_dry"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 1 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Trigger2.ogg" ,   t = 5 / 40},  
+        },
+		Mult = 1,
+    },
+	["dryfire_single"] = {
+        Source = {"fire_dry_single"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 1 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Trigger2.ogg" ,   t = 5 / 40},  
+        },
+		Mult = 1,
+    },
+	["dryfire_rifle"] = {
+        Source = {"fire_dry_rifle"},
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+            {s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 1 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Trigger2.ogg" ,   t = 5 / 40},  
         },
 		Mult = 1,
     },
@@ -608,7 +641,18 @@ SWEP.Animations = {
 	["fire_rifle"] = {
 		Source = {"fire_rifle"},
 		IKTimeLine = {	{ t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },	},
-		Time = 23/40,
+        EventTable = {
+			{s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 18 / 40},   
+        },		
+		Mult = 1,
+    },  
+	["fire_rifle_iron"] = {
+		Source = {"fire_rifle_iron"},
+		IKTimeLine = {	{ t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },	},
+        EventTable = {
+			{s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 18 / 40},   
+        },		
+		Mult = 1,
     },  
     ["trigger_rifle"] = {
         Source = {"fire_prep_rifle"},
@@ -633,11 +677,13 @@ SWEP.Animations = {
         MagSwapTime = 65 / 40,	
         MinProgress = 0.93,
         EventTable = {
-            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,   t = 13 / 40},  
-            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,   t = 32 / 40},  
-			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,   t = 44 / 40},  
-            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 97 / 40}, 
-            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 125 / 40}, 
+			{s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 18 / 40},   
+            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,   t = 33 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,   t = 52 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,   t = 64 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 117 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 146 / 40},
+			{s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 170 / 40},   
         },
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
@@ -650,11 +696,13 @@ SWEP.Animations = {
         MagSwapTime = 65 / 40,	
         MinProgress = 0.93,
         EventTable = {
-            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,   t = 13 / 40},  
-            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,   t = 32 / 40},  
-			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,   t = 44 / 40},  
-            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 97 / 40}, 
-            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 125 / 40}, 
+			{s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 18 / 40},   
+            {s =  "myt_bf1942/1918/Webley_Reload1.ogg" ,   t = 33 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload2.ogg" ,   t = 52 / 40},  
+			{s =  "myt_bf1942/1918/Webley_Reload3.ogg" ,   t = 64 / 40},  
+            {s =  "myt_bf1942/1918/Webley_Reload4.ogg" ,   t = 117 / 40}, 
+            {s =  "myt_bf1942/1918/Webley_Reload5.ogg" ,   t = 146 / 40}, 
+			{s =  "myt_bf1942/1918/Webley_Trigger.ogg" ,   t = 170 / 40},   
         },
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, },
