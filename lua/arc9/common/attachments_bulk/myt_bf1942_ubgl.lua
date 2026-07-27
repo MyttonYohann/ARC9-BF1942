@@ -393,7 +393,7 @@ ATT.UBGLChamberSize = 1
 ATT.ShootVolumeUBGL = 110
 ATT.RPMUBGL = 900
 
-ATT.SpreadUBGL = 0.0075
+ATT.SpreadUBGL = 0.015
 ATT.SpreadMultHipFiredUBGL = 1
 ATT.FreeAimRadiusUGBL = 10
 
@@ -530,14 +530,16 @@ ATT.IKAnimationProxy = {
         EventTable = {		
             {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   t = 1 / 40}, 
 			{s =  "myt_bf1942/dc/ak_foley2.ogg" ,   t = 5 / 40},   
+            {s = "myt_bf1942/dc/r870_reload.ogg", t = 65 / 40},		
         },
-		Mult = 1,
+		RestoreAmmo = 1,
+		RefillProgress = 72/40,
     },
     ["reload_ubgl_finish_empty"] = {
         Source = "ubgl_reload3",
         EventTable = {		
-            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 16 / 40},  
-			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 28 / 40}, 
+            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 28 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 40 / 40}, 
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
         },
         MinProgress = 0.6,
@@ -554,10 +556,9 @@ ATT.IKAnimationProxy = {
     ["reload_ubgl_insert"] = {
         Source = "ubgl_reload2",
         EventTable = {		
-            {s = "myt_bf1942/dc/r870_reload.ogg", t = 20 / 40},		
+            {s = "myt_bf1942/dc/r870_reload.ogg", t = 31 / 40},		
         },
-        MinProgress = 0.5,
-		--Time = 0.8,
+		RefillProgress = 36/40,
     },
 
     ["enter_ubgl"] = {
