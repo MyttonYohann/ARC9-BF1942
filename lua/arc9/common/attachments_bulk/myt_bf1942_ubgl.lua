@@ -35,8 +35,7 @@ table.Merge(ATT, shared)
 ATT.PrintName = [[PSS]]
 ATT.CompactName = [[PSS]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
-ATT.Description = [[
-Switching sidearm is faster reload.
+ATT.Description = [[Backup single stack suppressed sidearm.
 ]] 
 ATT.SortOrder = 0
 
@@ -257,8 +256,8 @@ table.Merge(ATT, shared)
 ATT.PrintName = [[Scorpion]]
 ATT.CompactName = [[Scor]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
-ATT.Description = [[
-Switching sidearm is faster reload.
+ATT.Description = [[Backup submachine gun.
+This one was modified to use a pistol grip to reduce further length.
 ]] 
 ATT.SortOrder = 0
 
@@ -475,8 +474,7 @@ table.Merge(ATT, shared)
 ATT.PrintName = [[Sawnoff R870]]
 ATT.CompactName = [[R870]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
-ATT.Description = [[
-Switching primary is faster reload.
+ATT.Description = [[Backup sawnoff shotgun with incredible dexterity display.
 ]] 
 ATT.SortOrder = 0
 
@@ -718,10 +716,10 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_r870")
 
 ATT = {}
 
-ATT.PrintName = [[Lever Conversion]]
+ATT.PrintName = [[Windrider Conversion]]
 ATT.CompactName = [[Lever]] 
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[long elbow
+ATT.Description = [[Converts to lever action, faster cycling
 ]]
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "fire_ubgl"	then	return "fire_ubgl_lever"		end
@@ -744,8 +742,7 @@ table.Merge(ATT, shared)
 ATT.PrintName = [[RPG]]
 ATT.CompactName = [[RPG]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
-ATT.Description = [[
-Switching gadget is faster reload.
+ATT.Description = [[Back-mounted rocket launcher.
 ]] 
 ATT.SortOrder = 0
 
@@ -786,7 +783,8 @@ ATT.IKAnimationProxy = {
         MinProgress = 0.8,
 		FireASAP = true,
         EventTable = {		
-            {s =  "myt_bf1942/dc/rpg_reload_oh.ogg" ,   t = 1 / 40},		
+			{s =  "myt_bf1942/dc/rpg_reload_oh.ogg" ,   t = 1 / 40},	
+			{s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,   t = 118 / 40},     
         },
     },  
 	["reload_ubgl_empty"] = {
@@ -794,7 +792,8 @@ ATT.IKAnimationProxy = {
         MinProgress = 0.85,
 		FireASAP = true,
         EventTable = {		
-            {s =  "myt_bf1942/dc/rpg_reload_oh.ogg" ,   t = 1 / 40},	
+			{s =  "myt_bf1942/dc/rpg_reload_oh.ogg" ,   t = 1 / 40},	
+			{s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,   t = 118 / 40},   
         },
     },
 
@@ -963,8 +962,7 @@ table.Merge(ATT, shared)
 ATT.PrintName = [[Knife]]
 ATT.CompactName = [[Knife]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
-ATT.Description = [[
-You run faster.
+ATT.Description = [[You run faster.
 ]] 
 ATT.SortOrder = 0
 
