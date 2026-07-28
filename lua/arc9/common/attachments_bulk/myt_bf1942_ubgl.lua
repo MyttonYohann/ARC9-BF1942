@@ -1,5 +1,6 @@
 local ATT = {}
 local shared = {
+	--HoldType = "duel",
 	RHIK = true,
 	RHIK_Priority = 10,
 	ActivateElements = {"off_hand"},
@@ -257,7 +258,7 @@ ATT.PrintName = [[Scorpion]]
 ATT.CompactName = [[Scor]]
 ATT.Icon = Material("entities/gekolt_css_blank.png")
 ATT.Description = [[Backup submachine gun.
-This one was modified to use a pistol grip to reduce further length.
+This one was modified to use a pistol grip to further reduce length.
 ]] 
 ATT.SortOrder = 0
 
