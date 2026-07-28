@@ -1,3 +1,26 @@
+--- Naming convention, general guide ---
+
+--- By Ammo Type ---
+-- Outlaw			-- Shotgun
+-- Salvo			-- Grenade
+-- Monolith			-- Singleshot/50BMG
+-- Duelist			-- Singleshot/Sniper
+
+--- By Barrel ---
+-- Raider			-- Short Barrel
+-- Hydra			-- Double Barrel
+-- Cerberus			-- Triple Barrel
+
+--- By Firemode ---
+-- Cyclone			-- Full Auto
+-- Windrider		-- Lever Action
+-- Thundercharge	-- Bolt Action
+-- Vortex			-- Pump Action
+
+--- By ehhh general silhouette or something ---
+-- Heretic			-- Bullpup
+-- Zealot			-- Un-Bullpup
+
 local ATT = {}
 
 
@@ -193,7 +216,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan8")
 
 ATT = {}
 
-ATT.PrintName = [[Anti-Tank Conversion]]
+ATT.PrintName = [[Monolith Conversion]]
 ATT.CompactName = [[C. AT]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Not a 50bmg fitted in a 12ga bore.
