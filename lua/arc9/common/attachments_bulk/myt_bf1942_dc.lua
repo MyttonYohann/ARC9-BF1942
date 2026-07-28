@@ -239,7 +239,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_mp5_hg2")
 
 ATT = {}
 
-ATT.PrintName = [[SD Handguard]]
+ATT.PrintName = [[Nightshade Handguard]]
 ATT.CompactName = [[HG. SD]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[

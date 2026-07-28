@@ -7,9 +7,11 @@
 -- Duelist			-- Singleshot/Sniper
 
 --- By Barrel ---
--- Raider			-- Short Barrel
--- Hydra			-- Double Barrel
--- Cerberus			-- Triple Barrel
+-- Raider			-- Short
+-- Schiltron		-- Long
+-- Nightshade		-- Suppressed, I'd probably call one Mogged lmao
+-- Hydra			-- Double
+-- Cerberus			-- Triple
 
 --- By Firemode ---
 -- Cyclone			-- Full Auto
@@ -20,6 +22,8 @@
 --- By ehhh general silhouette or something ---
 -- Heretic			-- Bullpup
 -- Zealot			-- Un-Bullpup
+-- Gnostic			-- Magfed
+-- Hermetic			-- Beltfed
 
 local ATT = {}
 
@@ -134,7 +138,7 @@ ATT.BarrelLengthAdd = -45
 
 ATT.SortOrder = -1000
 ATT.Category = "bf1942_1918_berdan_cal"
-ATT.ActivateElements = {"cal_obrez", "norsight"}
+ATT.ActivateElements = {"cal_obrez", "norsight", "no_bayo"}
 ATT.ExcludeElements = {"rsight"}
 
 ATT.SpreadAdd = 0.005
@@ -156,7 +160,9 @@ ATT = {}
 ATT.PrintName = [[Heretic Kit]]
 ATT.CompactName = [[K. Bullpup]] 
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[ergonomic
+ATT.Description = [[ergonomics yo.
+can't fail reload because i am too lazy to animate.
+Unwieldy grip is unfit to mount or use bayonet.
 ]]
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_empty"	then	return "reload_bullpup"		end
@@ -199,7 +205,7 @@ ATT.BarrelLengthAdd = 8
 
 ATT.SortOrder = -1000
 ATT.Category = "bf1942_1918_berdan_cal"
-ATT.ActivateElements = {"cal_bullpup", "norsight"}
+ATT.ActivateElements = {"cal_bullpup", "norsight", "no_bayo"}
 ATT.ExcludeElements = {"rsight"}
 
 --ATT.SpreadAdd = -0.00125
@@ -220,7 +226,7 @@ ATT.PrintName = [[Monolith Conversion]]
 ATT.CompactName = [[C. AT]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Not a 50bmg fitted in a 12ga bore.
-Sometimes the gun will wack you when firing.
+Sometimes the gun wacks you when firing.
 ]]
 ATT.CustomCons = { Malfunction = "+20%" }
 ATT.Hook_TranslateAnimation = function(wep, curanim)
@@ -296,7 +302,7 @@ end
 
 ATT.SortOrder = 1
 ATT.Category = "bf1942_1918_berdan_cal"
-ATT.ActivateElements = {"cal_gl", "norsight"}
+ATT.ActivateElements = {"cal_gl", "norsight", "no_bayo"}
 ATT.ExcludeElements = {"rsight"}
 
 ATT.SpreadAdd = 0.0075
@@ -327,12 +333,12 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan5")
 
 ATT = {}
 
-ATT.PrintName = [[Internal Magazine]]
+ATT.PrintName = [[Gnostic Kit]]
 ATT.CompactName = [[K. Mag]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.CustomCons = { Malfunction = "+25%" }
 ATT.Description = [[This thing is basically a mosin innit.
-Sometimes the character develops dementia and overload a 6th round.
+Sometimes the character develops dementia and (attempt to) overload a 6th round.
 ]]
 
 
@@ -377,9 +383,9 @@ ATT.Description = [[This base has the worst melee function ever
 ]]
 
 ATT.SortOrder = 100
-ATT.Category = "bf1942_1918_berdan_cal"
+ATT.Category = "bf1942_1918_berdan_muz"
 ATT.ActivateElements = {"bayonet"} -- worst fucking base ever made
---ATT.ExcludeElements = {"is_melee"}
+ATT.ExcludeElements = {"no_bayo"}
 
 ATT.Bash = true
 ATT.BashDamageType = DMG_SLASH
@@ -458,8 +464,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan3")
 
 ATT = {}
 
-ATT.PrintName = [[Officer Barrel]]
-ATT.CompactName = [[B. Short]]
+ATT.PrintName = [[Raider Barrel]]
+ATT.CompactName = [[B. Raider]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Made for the short king market
 Aids with trigger press, somehow.
@@ -556,7 +562,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley3")
 
 ATT = {}
 
-ATT.PrintName = [[Carabiner Conversion]]
+ATT.PrintName = [[Schiltron Conversion]]
 ATT.CompactName = [[C. Carbine]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[long shlong
