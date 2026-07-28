@@ -481,10 +481,15 @@ Switching primary is faster reload.
 ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_r870.mdl"
-ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
+ATT.DrawFunc = function(wep, model, wm)
+-- hide gun during normal reload
 	if wep:GetReloading() and !wep:GetUBGL(true) then 
 	model:SetBodygroup(0,1)
+	model:SetBodygroup(1,0)	
 	else
+		if wep:HasElement("oh_r870_lever") then 
+		model:SetBodygroup(1,1)
+		end
 	model:SetBodygroup(0,0)
 	end
 end
@@ -498,7 +503,17 @@ ATT.IKAnimationProxy = {
         EventTable = {
             {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 37	 / 40}, 
-            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 46 / 40},  			
+            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 43 / 40},  			
+        },
+        MinProgress = 0.6,
+		FireASAP = true,
+		Mult = 0.95,
+    },
+	["fire_ubgl_lever"] = {
+        Source = "fire_lever",
+        EventTable = {
+            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 13 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 22	 / 40}, 		
         },
         MinProgress = 0.6,
 		FireASAP = true,
@@ -674,6 +689,15 @@ ATT.Sights = {
     },
 }
 
+ATT.Attachments = {
+    {
+        PrintName = "Conversion",
+        Category = {"oh_r870_lever"},
+        Pos = Vector(2, 0, 0),
+        Ang = Angle(0, 0, 0),
+    },
+}
+
 ATT.ActivePosUBGL = Vector(4, 3, 0)
 ATT.ActiveAngUBGL = Angle(5, 0, 20)
 
@@ -688,6 +712,26 @@ ATT.CustomCrosshairUBGL = false
 
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_r870")
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Lever Conversion]]
+ATT.CompactName = [[Lever]] 
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[long elbow
+]]
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "fire_ubgl"	then	return "fire_ubgl_lever"		end
+end
+
+ATT.Category = "oh_r870_lever"
+ATT.ActivateElements = {"oh_r870_lever"}
+ATT.RPMUBGL = 80
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_r870_lever")
 
 
 ----------------------------------------------------------
