@@ -106,7 +106,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_mp5_stock3")
 ATT = {}
 
 ATT.PrintName = [[Heretic Kit]]
-ATT.CompactName = [[5PM]]
+ATT.CompactName = [[K. Bullpup]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Commisar said you need to shorten mp5 even more, you have until 5 PM to complete.]]
 ATT.CustomPros = { Malfunction = "-5%" }
@@ -653,7 +653,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_grip6")
 ATT = {}
 
 ATT.PrintName = [[Heretic Kit]]
-ATT.CompactName = [[G. Bullpup]]
+ATT.CompactName = [[K. Bullpup]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ (!) Disable Stock Attachments
 Have you ever wanted gun but short?
@@ -915,8 +915,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak47_hg8")
 
 ATT = {}
 
-ATT.PrintName = [[Nightshade Calibre]]
-ATT.CompactName = [[Cal. VSS]]
+ATT.PrintName = [[Nightshade Conversion]]
+ATT.CompactName = [[C. VSS]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[
 ]]
@@ -942,7 +942,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal1")
 ATT = {}
 
 ATT.PrintName = [[Frontliner Conversion]]
-ATT.CompactName = [[Cal. AKS74U]]
+ATT.CompactName = [[C. AKS74U]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ 5.45 Calibre
 ]]
@@ -966,7 +966,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal2")
 ATT = {}
 
 ATT.PrintName = [[Interceptor Conversion]]
-ATT.CompactName = [[Cal. Tabuk]]
+ATT.CompactName = [[C. Tabuk]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ .338 Calibre
 ]]
@@ -1005,7 +1005,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal3")
 ATT = {}
 
 ATT.PrintName = [[Stinger Conversion]]
-ATT.CompactName = [[Cal. Scor]]
+ATT.CompactName = [[C. Scorpion]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ 9mm (?) Calibre
 ]]
@@ -1043,7 +1043,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal4")
 ATT = {}
 
 ATT.PrintName = [[Outlaw Conversion]]
-ATT.CompactName = [[Cal. Saiga]]
+ATT.CompactName = [[C. Saiga]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[ 12ga Calibre
 ]]
@@ -1102,7 +1102,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_ak_cal5")
 ATT = {}
 
 ATT.PrintName = [[Thundercharge Conversion]]
-ATT.CompactName = [[Cal. Dragunov]]
+ATT.CompactName = [[C. Dragunov]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[khyber
 bolt action
@@ -1776,8 +1776,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_dc_optic_rpg")
 
 ATT = {}
 
-ATT.PrintName = [[Hydra Barrel]]
-ATT.CompactName = [[B. Hydra]]
+ATT.PrintName = [[Hydra Conversion]]
+ATT.CompactName = [[C. Hydra]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[two of them
 ]]

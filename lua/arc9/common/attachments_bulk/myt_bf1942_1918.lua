@@ -12,7 +12,7 @@ local ATT = {}
 ATT = {}
 
 ATT.PrintName = [[Outlaw Conversion]]
-ATT.CompactName = [[B. Shotgun]]
+ATT.CompactName = [[C. Shotgun]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[idk i skimmed through wikipedia and saw shotgun mentioned somewhere
 ]]
@@ -65,8 +65,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan1")
 
 ATT = {}
 
-ATT.PrintName = [[Tunnerler Conversion]]
-ATT.CompactName = [[K. Obrez]] 
+ATT.PrintName = [[Raider Conversion]]
+ATT.CompactName = [[C. Obrez]] 
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[pistole
 ]]
@@ -194,7 +194,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan8")
 ATT = {}
 
 ATT.PrintName = [[Anti-Tank Conversion]]
-ATT.CompactName = [[B. AT]]
+ATT.CompactName = [[C. AT]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Not a 50bmg fitted in a 12ga bore.
 Sometimes the gun will wack you when firing.
@@ -260,7 +260,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan4")
 ATT = {}
 
 ATT.PrintName = [[Katyusha Conversion]]
-ATT.CompactName = [[B. GL]]
+ATT.CompactName = [[C. GL]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Awesome grenade firing mortar mount from famous video game franchise Pocket Mortar™]]
 ATT.CustomPros = { Malfunction = "-5%" }
@@ -305,7 +305,7 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan5")
 ATT = {}
 
 ATT.PrintName = [[Internal Magazine]]
-ATT.CompactName = [[B. Mag]]
+ATT.CompactName = [[K. Mag]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.CustomCons = { Malfunction = "+25%" }
 ATT.Description = [[This thing is basically a mosin innit.
@@ -456,8 +456,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley1")
 
 ATT = {}
 
-ATT.PrintName = [[Auto Barrel]]
-ATT.CompactName = [[B. Auto]]
+ATT.PrintName = [[Cyclone Conversion]]
+ATT.CompactName = [[C. Auto]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[How do you mean that's not what it does?
 Does not require a heavy trigger press, effectively an auto single action(?)
@@ -488,8 +488,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley2")
 
 ATT = {}
 
-ATT.PrintName = [[Hydra Barrel]]
-ATT.CompactName = [[B. Hydra]]
+ATT.PrintName = [[Hydra Conversion]]
+ATT.CompactName = [[C. Hydra]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[may cry
 ]]
@@ -533,8 +533,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley3")
 
 ATT = {}
 
-ATT.PrintName = [[Carabiner Barrel]]
-ATT.CompactName = [[B. Carbine]]
+ATT.PrintName = [[Carabiner Conversion]]
+ATT.CompactName = [[C. Carbine]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[long shlong
 single action only
@@ -606,8 +606,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley4")
 
 ATT = {}
 
-ATT.PrintName = [[Duel Barrel]]
-ATT.CompactName = [[B. Duel]]
+ATT.PrintName = [[Duelist Conversion]]
+ATT.CompactName = [[C. Duelist]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Single shot, long bullet
 ]]
@@ -653,8 +653,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley5")
 
 ATT = {}
 
-ATT.PrintName = [[Hydra Barrel]]
-ATT.CompactName = [[B. Hydra]]
+ATT.PrintName = [[Hydra Conversion]]
+ATT.CompactName = [[C. Hydra]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[olimpa
 ]]
@@ -705,8 +705,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch1")
 
 ATT = {}
 
-ATT.PrintName = [[Hydraling Barrel]]
-ATT.CompactName = [[B. HydraS]]
+ATT.PrintName = [[Hydraling Conversion]]
+ATT.CompactName = [[C. HydraS]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[shortstack olimpa
 ]]
@@ -764,8 +764,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch7")
 
 ATT = {}
 
-ATT.PrintName = [[Monolith Barrel]]
-ATT.CompactName = [[B. Monolith]]
+ATT.PrintName = [[Monolith Conversion]]
+ATT.CompactName = [[C. Monolith]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[same diameter
 ]]
@@ -838,8 +838,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch4")
 
 ATT = {}
 
-ATT.PrintName = [[Cyclone Barrel]]
-ATT.CompactName = [[B. Cyclone]]
+ATT.PrintName = [[Cyclone Conversion]]
+ATT.CompactName = [[C. Cyclone]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[autofive
 ]]
@@ -900,8 +900,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch2")
 
 ATT = {}
 
-ATT.PrintName = [[Fireflux Barrel]]
-ATT.CompactName = [[B. Flux]]
+ATT.PrintName = [[Fireflux Conversion]]
+ATT.CompactName = [[C. Flux]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[spasm
 dual firemode
@@ -936,8 +936,8 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch3")
 
 ATT = {}
 
-ATT.PrintName = [[Assault Barrel]]
-ATT.CompactName = [[B. Breach]]
+ATT.PrintName = [[Raider Conversion]]
+ATT.CompactName = [[C. Breach]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[they've got urban door breaching back in the first world war?
 ]]
