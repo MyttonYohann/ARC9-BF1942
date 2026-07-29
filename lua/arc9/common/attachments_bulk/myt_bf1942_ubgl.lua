@@ -511,8 +511,8 @@ ATT.IKAnimationProxy = {
 	["fire_ubgl_lever"] = {
         Source = "fire_lever",
         EventTable = {
-            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 13 / 40},  
-			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 22	 / 40}, 		
+            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 11 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 20	 / 40}, 		
         },
         MinProgress = 0.6,
 		FireASAP = true,
@@ -728,7 +728,7 @@ end
 
 ATT.Category = "oh_r870_lever"
 ATT.ActivateElements = {"oh_r870_lever"}
-ATT.RPMUBGL = 80
+ATT.RPMUBGL = 92
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_r870_lever")
 
