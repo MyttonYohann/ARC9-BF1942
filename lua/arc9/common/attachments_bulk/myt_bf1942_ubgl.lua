@@ -245,6 +245,9 @@ ATT.CustomizeAngUBGL  = Angle(-90, 40, -5)
 ATT.CustomizePosUBGL  = Vector(-12, 32, 4)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
 
+ATT.NearWallPosUBGL = Vector(5, -1, -6)
+ATT.NearWallAngUBGL = Angle(15, 20, 30)
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_pss")
 
 ----------------------------------------------------------
@@ -461,6 +464,9 @@ ATT.SprintPosUBGL = Vector(2, 3, 0)
 ATT.CustomizeAngUBGL  = Angle(-90, 40, -5)
 ATT.CustomizePosUBGL  = Vector(-12, 32, 4)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
+
+ATT.NearWallPosUBGL = Vector(7, -3, -6)
+ATT.NearWallAngUBGL = Angle(15, 20, 30)
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_scor")
 
@@ -707,6 +713,9 @@ ATT.CustomizeAngUBGL  = Angle(-90, 40, -6)
 ATT.CustomizePosUBGL  = Vector(-22, 42, 5)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, 0, -10)
 
+ATT.NearWallPosUBGL = Vector(7, -5, -10)
+ATT.NearWallAngUBGL = Angle(15, 20, 30)
+
 ATT.CustomCrosshairUBGL = false
 
 
@@ -950,6 +959,9 @@ ATT.CustomizePosUBGL  = Vector(-8, 60, 7)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
 ATT.CustomCrosshairUBGL = false
 
+ATT.NearWallPosUBGL = Vector(7, -5, -6)
+ATT.NearWallAngUBGL = Angle(15, 20, 30)
+
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_rpg")
 
 
@@ -1069,5 +1081,8 @@ ATT.CustomizePosUBGL  = Vector(-12, 28, 7)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
 ATT.CrosshairUBGL = false
 ATT.CanLeanUBGL = false
+
+ATT.NearWallPosUBGL = Vector(7, -5, -10)
+ATT.NearWallAngUBGL = Angle(15, 20, 30)
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_knife")
