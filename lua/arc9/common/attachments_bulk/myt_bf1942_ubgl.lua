@@ -552,11 +552,11 @@ ATT.IKAnimationProxy = {
     ["reload_ubgl_finish_empty"] = {
         Source = "ubgl_reload3",
         EventTable = {		
-            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 28 / 40},  
-			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 40 / 40}, 
+            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 34 / 40}, 
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
         },
-        MinProgress = 0.6,
+        MinProgress = 0.73,
 		FireASAP = true,
     },  
 	["reload_ubgl_finish"] = {
