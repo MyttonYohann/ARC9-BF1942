@@ -17,9 +17,8 @@ local shared = {
 
 -- what the actual heck do these do
 	IKGunMotionOffset = Vector(0, 0, 0),
-	IKGunMotionOffsetAngle = Angle(0, 0, 0),
-	IKGunMotionMult = 0.5,
-	IKGunMotionAngleMult = 0.5,
+	IKGunMotionOffsetAngle = Angle(0, -90, 0),
+	IKGunMotionAnchor = Vector(0, 0, 0),
 
 	CustomCrosshairUBGL = false,
 	PushBackForceUBGL = 0,
@@ -147,15 +146,24 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "enter_sights_ubgl" 		then	return "enter_sights_ubgl_nope"		end	
 		if	curanim == "idle_ubgl_sights" 		then	return "idle_ubgl_sights_nope"		end	
 		if	curanim == "exit_ubgl" 				then	return "exit_ubgl_glempty"			end
+		-- separete check 'cos the new ugbl ik update broke something
+		if	curanim == "reload_ubgl" 			then	return "reload_ubgl_empty"			end	
+		if	curanim == "idle_ubgl" 				then	return "idle_ubgl_empty"			end
+		if	curanim == "fire_ubgl" 				then	return "fire_ubgl_empty"			end	
+		if	curanim == "holster_ubgl"			then	return "holster_ubgl_empty"			end
+		if	curanim == "enter_ubgl" 			then	return "enter_ubgl_glempty"			end
 	end
 
 	-- i forgor why i did this and im too afraid to delete this
+	-- doesnt matter 'cos the new update fuck its whole arsehole
 	if wep:Clip1() == 0 and wep:Clip2() != 0	then	-- well realistically need only check for if clip2 not empty
 		if	curanim == "idle_ubgl_empty" 		then	return "idle_ubgl"		end
 		if	curanim == "fire_ubgl_empty" 		then	return "fire_ubgl"		end	
 		if	curanim == "fire_ubgl_iron_empty" 	then	return "fire_ubgl_iron"	end	
 		if	curanim == "reload_ubgl_empty" 		then	return "reload_ubgl"	end	
 		if	curanim == "holster_ubgl_empty"		then	return "holster_ubgl"	end
+	-- separate check
+		if	curanim == "enter_ubgl_glempty" 		then	return "enter_ubgl"		end
 	else	
 		return 
 	end
@@ -367,6 +375,12 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if wep:Clip2() == 0 then
 		if	curanim == "fire_ubgl_sights" 		then	return "fire_ubgl_sights_last"		end
 		if	curanim == "exit_ubgl" 				then	return "exit_ubgl_glempty"			end
+		-- separete check 'cos the new ugbl ik update broke something
+		if	curanim == "reload_ubgl" 			then	return "reload_ubgl_empty"			end	
+		if	curanim == "idle_ubgl" 				then	return "idle_ubgl_empty"			end
+		if	curanim == "fire_ubgl" 				then	return "fire_ubgl_empty"			end	
+		if	curanim == "holster_ubgl"			then	return "holster_ubgl_empty"			end
+		if	curanim == "enter_ubgl" 			then	return "enter_ubgl_glempty"			end
 	end
 
 	-- i forgor why i did this and im too afraid to delete this
@@ -376,7 +390,9 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "fire_ubgl_iron_empty" 	then	return "fire_ubgl_iron"	end	
 		if	curanim == "reload_ubgl_empty" 		then	return "reload_ubgl"	end	
 		if	curanim == "holster_ubgl_empty"		then	return "holster_ubgl"	end
-	else	
+	-- separate check
+		if	curanim == "enter_ubgl_glempty" 		then	return "enter_ubgl"		end
+	else
 		return 
 	end
 end
@@ -874,6 +890,24 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if wep:Clip2() == 0 then
 		if	curanim == "enter_sights_ubgl" 		then	return "enter_ubgl_glempty"		end	
 		if	curanim == "exit_ubgl" 		then	return "exit_ubgl_glempty"		end
+		-- separete check 'cos the new ugbl ik update broke something
+		if	curanim == "reload_ubgl" 			then	return "reload_ubgl_empty"			end	
+		if	curanim == "idle_ubgl" 				then	return "idle_ubgl_glempty"			end
+		if	curanim == "fire_ubgl" 				then	return "fire_ubgl_empty"			end	
+		if	curanim == "holster_ubgl"			then	return "holster_ubgl_empty"			end
+		if	curanim == "enter_ubgl" 			then	return "enter_ubgl_glempty"			end
+	end
+	-- new ubgl update bodge
+	if wep:Clip1() == 0 and wep:Clip2() != 0	then	-- well realistically need only check for if clip2 not empty
+		if	curanim == "idle_ubgl_glempty" 		then	return "idle_ubgl"		end
+		if	curanim == "fire_ubgl_empty" 		then	return "fire_ubgl"		end	
+		if	curanim == "fire_ubgl_iron_empty" 	then	return "fire_ubgl_iron"	end	
+		if	curanim == "reload_ubgl_empty" 		then	return "reload_ubgl"	end	
+		if	curanim == "holster_ubgl_empty"		then	return "holster_ubgl"	end
+	-- separate check
+		if	curanim == "enter_ubgl_glempty" 		then	return "enter_ubgl"		end
+	else
+		return 
 	end
 end
 

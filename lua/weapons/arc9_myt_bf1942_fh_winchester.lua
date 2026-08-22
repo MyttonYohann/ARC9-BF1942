@@ -7,7 +7,7 @@ SWEP.Category = "ARC9 - BF1942"	-- it's from Forgotten Hope but im not putting 1
 SWEP.SubCategory = "11918"
 
 SWEP.PrintName = "Gladiator-83"
-SWEP.TrueName = "W1300"
+SWEP.TrueName = "Winchester 1912"
 
 SWEP.Class = "Shotgun"
 SWEP.Trivia = {
