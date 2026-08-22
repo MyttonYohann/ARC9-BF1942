@@ -527,7 +527,6 @@ ATT.IKAnimationProxy = {
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 43 / 40},  			
         },
         MinProgress = 0.6,
-		FireASAP = true,
 		Mult = 0.95,
     },
 	["fire_ubgl_lever"] = {
@@ -537,30 +536,23 @@ ATT.IKAnimationProxy = {
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 20	 / 40}, 		
         },
         MinProgress = 0.6,
-		FireASAP = true,
 		Mult = 0.95,
     },
 	["fire_ubgl_glempty"] = {
-        Source = "fire",
-        EventTable = {
-        },		
-    },
-	["fire_empty_ubgl"] = {
         Source = "fire",	
         MinProgress = 0.05,
-		FireASAP = true,
     },
 
-	--[[["cycle_ubgl"] = { -- doesnt work
+	["cycle_ubgl"] = { -- doesnt work
         Source = "pump",
         MinProgress = 0.6,
-		FireASAP = true,
 	        EventTable = {
             {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 36 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 48 / 40}, 
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 45 / 40},  			
         },
-    },]]
+    },
+
     ["reload_ubgl_start"] = {
         Source = "ubgl_reload1",
         EventTable = {		
@@ -569,17 +561,18 @@ ATT.IKAnimationProxy = {
             {s = "myt_bf1942/dc/r870_reload.ogg", t = 65 / 40},		
         },
 		RestoreAmmo = 1,
-		RefillProgress = 72/40,
+		RefillProgress = 35/40,
+		MinProgress = 35/40,
+        MagSwapTime = 35/40,
     },
-    ["reload_ubgl_finish_empty"] = {
+    ["reload_ubgl_finish_glempty"] = {
         Source = "ubgl_reload3",
         EventTable = {		
             {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 34 / 40}, 
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
         },
-        MinProgress = 0.73,
-		FireASAP = true,
+        MinProgress = 0.9,
     },  
 	["reload_ubgl_finish"] = {
         Source = "ubgl_reload3_wet",
@@ -587,7 +580,6 @@ ATT.IKAnimationProxy = {
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 5 / 40},  
         },
         MinProgress = 0.6,
-		FireASAP = true,
     },
     ["reload_ubgl_insert"] = {
         Source = "ubgl_reload2",
@@ -654,6 +646,17 @@ ATT.Hook_Think = function(wep)	-- reset RPM [FOR UGBL ONLY] cuz the bloody MANUA
 	else
 		wep.SpreadUBGL = 0.02 * ( wep.SpreadMultSights / wep.Spread)/10
 	end	]]
+end
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)	
+	if wep:Clip2() == 0 then
+		if	curanim == "fire_ubgl" 		then	return "fire_ubgl_glempty"		end
+	end
+	-- shit yourself
+	if wep:Clip1() == 0 and wep:Clip2() != 0	then
+		if	curanim == "fire_ubgl_glempty" 			then	return "fire_ubgl"				end	
+		if	curanim == "reload_ubgl_finish_empty" 	then	return "reload_ubgl_finish"		end	
+	end
 end
 ATT.SpreadUBGL = 0.02
 ATT.SpreadMultSightsUBGL = 0.02 -- doesnt fucking work
