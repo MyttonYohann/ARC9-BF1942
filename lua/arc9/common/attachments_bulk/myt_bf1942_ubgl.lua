@@ -17,7 +17,7 @@ local shared = {
 
 -- what the actual heck do these do
 	IKGunMotionOffset = Vector(0, 0, 0),
-	IKGunMotionOffsetAngle = Angle(0, -90, 0),
+	IKGunMotionOffsetAngle = Angle(0, -90, 90),
 	IKGunMotionAnchor = Vector(0, 0, 0),
 
 	CustomCrosshairUBGL = false,
@@ -526,7 +526,6 @@ ATT.IKAnimationProxy = {
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 37	 / 40}, 
             {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 43 / 40},  			
         },
-        MinProgress = 0.6,
 		Mult = 0.95,
     },
 	["fire_ubgl_lever"] = {
@@ -535,12 +534,10 @@ ATT.IKAnimationProxy = {
             {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 11 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 20	 / 40}, 		
         },
-        MinProgress = 0.6,
 		Mult = 0.95,
     },
 	["fire_ubgl_glempty"] = {
         Source = "fire",	
-        MinProgress = 0.05,
     },
 
 	["cycle_ubgl"] = { -- doesnt work
@@ -565,6 +562,15 @@ ATT.IKAnimationProxy = {
 		MinProgress = 35/40,
         MagSwapTime = 35/40,
     },
+    ["reload_ubgl_finish_empty"] = {
+        Source = "ubgl_reload3",
+        EventTable = {		
+            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 34 / 40}, 
+            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
+        },
+        MinProgress = 0.9,
+    },  
     ["reload_ubgl_finish_glempty"] = {
         Source = "ubgl_reload3",
         EventTable = {		
@@ -587,6 +593,8 @@ ATT.IKAnimationProxy = {
             {s = "myt_bf1942/dc/r870_reload.ogg", t = 31 / 40},		
         },
 		RefillProgress = 36/40,
+		MinProgress = 36/40,
+        MagSwapTime = 36/40,
     },
 
     ["enter_ubgl"] = {
@@ -650,7 +658,7 @@ end
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)	
 	if wep:Clip2() == 0 then
-		if	curanim == "fire_ubgl" 		then	return "fire_ubgl_glempty"		end
+		if	curanim == "fire_ubgl" 					then	return "fire_ubgl_glempty"			end
 	end
 	-- shit yourself
 	if wep:Clip1() == 0 and wep:Clip2() != 0	then
