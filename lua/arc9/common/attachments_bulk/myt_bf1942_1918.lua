@@ -351,10 +351,12 @@ ATT.CanReloadWhileUnCycled = true
 ATT.Bodge_Cycle = 0
 ATT.Hook_PostReload = function(wep) 
 	wep.Bodge_Cycle = 1
+	--wep:SetNeedsCycle(false) -- this work but the gun immediate ends the reload
 end 
 ATT.Hook_PrimaryAttack  = function(wep) 
 	wep.Bodge_Cycle = 0
-end 
+	--wep:SetNeedsCycle(true)
+end
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if wep:GetInSights() and wep:HasElement("has_optic")	then
 		--if	curanim == "fire" 			then 	return "fire_bolt_iron"			end	

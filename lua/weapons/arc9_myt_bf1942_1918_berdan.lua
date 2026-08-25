@@ -391,9 +391,10 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,		t =	30 / 40},
         },
 		RestoreAmmo = 1,
-		RefillProgress = 10/40,
-		MinProgress = 0.1,
-        MagSwapTime = 1 / 40,
+        EjectAt = 18 / 40,
+		RefillProgress = 30/40,
+		MinProgress = 0.6,
+        MagSwapTime = 0.1,
     }, 
     ["reload_start_empty"] = {
         Source = "reload_start_empty",
@@ -820,22 +821,22 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	local dementia_end = 0	-- accidental overloading only for the 5th to 6th bullet, ending at 4th or lower wont trigger
 
 	if wep:HasElement("cal_sg") then varextra = 15		-- hypnosis
-	elseif wep:HasElement("cal_50") then varextra = 20	-- grass whistle
-	elseif wep:HasElement("cal_gl") then varextra = -5	-- hydro pump
-	elseif wep:HasElement("cal_mag") then varextra = 25	-- the blunder policy inferno chandelure in the back
+	elseif wep:HasElement("cal_50") then varextra = 17	-- grass whistle
+	elseif wep:HasElement("cal_gl") then varextra = -10	-- hydro pump
+	elseif wep:HasElement("cal_mag") then varextra = 20	-- the blunder policy inferno chandelure in the back
 	end
 
 	-- sometimes you just kinda forgot about the iron fleet and euron forces
-	if	wep:Clip1() == 5 then	dementia_end = 1 end		
+	if	wep:Clip1() == 5 then	dementia_end = 1 end
 
 	if curanim == "reload_insert" then
-		wep.DementiaCounter = wep.DementiaCounter + 15	-- gradual demetia
+		wep.DementiaCounter = wep.DementiaCounter + 12	-- gradual demetia
 	elseif curanim == "reload_insert_fail" then
 		wep.DementiaCounter = wep.DementiaCounter + 15
 	elseif curanim == "reload_start_empty" then
 		wep.DementiaCounter = -20
 	elseif curanim == "reload_start_fast" then
-		wep.DementiaCounter = -10
+		wep.DementiaCounter = -12
 	elseif curanim == "reload_start" then
 		wep.DementiaCounter = 5
 	end
