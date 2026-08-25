@@ -292,6 +292,13 @@ SWEP.Animations = {
         FireASAP = true,
         MinProgress = 0.8,
     },     
+    ["cycle_blank"] = {
+        Source = {"idle"},
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
+        Time = 1.5,
+        FireASAP = true,
+        MinProgress = 0.1,
+    },     
 	["cycle_fail"] = {
         Source = {"bolt_fail"},
         IKTimeLine = {
@@ -372,6 +379,21 @@ SWEP.Animations = {
         },
 		RestoreAmmo = 1,
         MagSwapTime = 5 / 40,
+    }, 
+    ["reload_start_fast"] = {
+        Source = "reload_start_fast",
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 0, },
+        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 0, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 0, },
+        },
+        EventTable = {
+			{s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,	t = 13 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Mag.ogg" ,		t =	30 / 40},
+        },
+		RestoreAmmo = 1,
+		RefillProgress = 10/40,
+		MinProgress = 0.1,
+        MagSwapTime = 1 / 40,
     }, 
     ["reload_start_empty"] = {
         Source = "reload_start_empty",
@@ -812,6 +834,8 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		wep.DementiaCounter = wep.DementiaCounter + 15
 	elseif curanim == "reload_start_empty" then
 		wep.DementiaCounter = -20
+	elseif curanim == "reload_start_fast" then
+		wep.DementiaCounter = -10
 	elseif curanim == "reload_start" then
 		wep.DementiaCounter = 5
 	end
@@ -888,7 +912,6 @@ SWEP.Attachments = {
     {
         PrintName = "Foregrip",
         DefaultName = "None",
-        --InstalledElements = {"fg_def"},
 
         DefaultIcon = Material("arc9/def_att_icons/grip.png"),
         ExcludeElements = {"nofg"},
@@ -913,7 +936,7 @@ SWEP.Attachments = {
     {
         PrintName = "Optic",
         DefaultName = "None",
-        InstalledElements = {"rail_def"},
+        InstalledElements = {"rail_def", "has_optic"},
 
         DefaultIcon = Material("arc9/def_att_icons/optic.png"),
         Category = {"optic_css", "bf1942_1918_berdan_sight"},
@@ -938,7 +961,7 @@ SWEP.Attachments = {
         PrintName = "",
         DefaultName = "",
         Hidden = true,
-        InstalledElements = {"blank_toprail"},
+        InstalledElements = {"blank_toprail", "has_optic"},
 
         Category = {"bfc_optic_dove"},
         Bone = "W_Main",

@@ -346,20 +346,35 @@ ATT.SortOrder = 0.1
 ATT.Category = "bf1942_1918_berdan_cal"
 ATT.ActivateElements = {"cal_mag"}
 
-
+ATT.CanReloadWhileUnCycled = true
+-- this stupid base kept the damn gun uncycled
+ATT.Bodge_Cycle = 0
+ATT.Hook_PostReload = function(wep) 
+	wep.Bodge_Cycle = 1
+end 
+ATT.Hook_PrimaryAttack  = function(wep) 
+	wep.Bodge_Cycle = 0
+end 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
-	if wep:GetInSights()	then
+	if wep:GetReloading() then 	local bodge_cycle = 1 end
+	if wep:GetInSights() and wep:HasElement("has_optic")	then
 		--if	curanim == "fire" 			then 	return "fire_bolt_iron"			end	
 		if	curanim == "cycle" 			then 	return "cycle_bolt_iron"		end	
 		if	curanim == "cycle_fail" 	then 	return "cycle_bolt_iron_fail"	end	
 	end
+	if wep:GetNeedsCycle()	then
+		if	curanim == "reload_start" 			then 	return "reload_start_fast"		end	
+		if	curanim == "reload_start_empty" 	then 	return "reload_start_fast"		end	
+	end	
+	if wep:GetNeedsCycle() and wep.Bodge_Cycle == 1	then
+		if	curanim == "cycle" 			then 	return "cycle_blank"		end	
+		if	curanim == "cycle_fail" 	then 	return "cycle_blank"		end	
+	end
 end
-
 
 ATT.ShotgunReload = true
 ATT.ManualAction = true
 ATT.ManualActionNoLastCycle = false
-ATT.CanReloadWhileUnCycled = false
 ATT.ClipSize = 5
 ATT.SupplyLimit = 4
 
