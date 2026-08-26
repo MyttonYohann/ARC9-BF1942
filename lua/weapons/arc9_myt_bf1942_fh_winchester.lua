@@ -373,6 +373,22 @@ SWEP.Animations = {
 		MinProgress = 35/40,
         MagSwapTime = 35/40,
     },  
+	["reload_start_fast"] = {
+        Source = "reload_start_fast",
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+        EventTable = {   
+            {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 1 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	12 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	22 / 40},
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 45 / 40},
+        },
+		RestoreAmmo = 1,
+        FireASAP = true,
+        EjectAt = 18 / 40,
+		RefillProgress = 35/40,
+		MinProgress = 0.9, -- doesnt work
+        MagSwapTime = 35/40,
+    },  
 
     ["reload_start_empty_auto"] = {
         Source = "reload_start_empty_auto",
@@ -490,7 +506,7 @@ SWEP.Animations = {
         { t = 0.3, lhik = 0, rhik = 0, }, { t = 0.9, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
         EventTable = {
-            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 10 / 40},  
+            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 2 / 40},  
         },
         FireASAP = true,
         MinProgress = 24/40, 
@@ -520,7 +536,7 @@ SWEP.Animations = {
 		MinProgress = 0.5,
     },  
 	["reload_end_breach_fast"] = {
-		Source = "reload_end_breach_fast",
+		Source = "reload_end_breach_fast2",
         IKTimeLine = {
         { t = 0, lhik = 0, rhik = 0, },
         { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
@@ -887,18 +903,14 @@ SWEP.Animations = {
 
 SWEP.DementiaCounter = 0
 SWEP.Bodge_Cycle = 0
-SWEP.Hook_Think = function(wep)
--- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
+SWEP.Bodge_Chamber = 0
+SWEP.Hook_Think = function(wep) -- lmao this only ckecks once
 	if wep.Bodge_Cycle == 1 then
+		-- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
 		if wep:GetOwner():KeyPressed(IN_ATTACK) then
 			wep:SetNeedsCycle(false)
 		end
-	end
-end
-
-SWEP.Hook_PostReload = function(wep)
--- caps cos the tube is full, currently only work if the starting clip is EXACTLY ammo - 1
-	if wep.Bodge_Cycle == 1 then
+		-- caps cos the tube is full, currently only work if the starting clip is EXACTLY ammo - 1
 		if  wep:Clip1() == wep:GetValue("ClipSize") - wep:GetValue("ChamberSize")  then
 			wep:SetNeedsCycle(false)
 		end	
@@ -906,17 +918,38 @@ SWEP.Hook_PostReload = function(wep)
 end
 
 SWEP.Hook_BlockAnimation = function(wep, curanim)
-	if wep.Bodge_Cycle == 1	then
+	if wep.Bodge_Cycle == 1 then
 	if	curanim == "cycle" 		then return true end
 	if	curanim == "cycle_fail" then return true end
+	if	curanim == "cycle_fast" then return true end
+	if	curanim == "cycle_fail" then return true end
+	end	
+	if wep.Bodge_Chamber == 1	then
+	if	curanim == "reload_finish" 		then return true end
+	if	curanim == "reload_finish_fail" then return true end	
+	if	curanim == "reload_end_breach" 		then return true end
+	if	curanim == "cycle" 		then return true end
+	if	curanim == "cycle_fail" then return true end
+	if	curanim == "cycle_fast" then return true end
 	end
 end
-
+--[[SWEP.Hook_EndReload = function(wep)
+	if wep:Clip1() != wep:GetValue("ClipSize") + wep:GetValue("ChamberSize") then
+	wep.Bodge_Cycle = 0
+	wep.Bodge_Chamber = 0 
+	end
+end]]
+-- separate check for at full capacity
+SWEP.Hook_PrimaryAttack = function(wep) -- technically i shouldnt use this cos melee also counts as primary attack
+	wep.Bodge_Cycle = 0
+	wep.Bodge_Chamber = 0 
+end
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "exit_ubgl_empty"		then return "exit_ubgl"			end		-- 	bodging for off hand weapon
 	if	curanim == "exit_ubgl_glempty"		then return "exit_ubgl"			end	
 
 	if wep:GetNeedsCycle()	then
+		if	curanim == "reload_start" and wep:Clip1() == wep:GetValue("ClipSize") then 	wep.Bodge_Chamber = 1 return "reload_start_fast"	end
 		if	curanim == "reload_start" 		then 	wep.Bodge_Cycle = 1 end
 	end	
 
@@ -924,7 +957,6 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_finish" 		then return "reload_end_fast"	end	
 		if	curanim == "reload_finish_fail" then return "reload_end_fast"	end	
 	end
-	if	curanim == "fire" 	then 	wep.Bodge_Cycle = 0	end
 	--[[if wep:GetInSights() and wep:HasElement("has_optic")	and not wep.Peeking	 then	-- bodging for cycle with sight attachment
 		if	curanim == "cycle" 			then 	return "cycle_scope"		end	
 	end]]
@@ -933,6 +965,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if curanim == "reload_finish"		then return "reload_end_empty"	end	
 		if curanim == "reload_insert" 		then return "reload_emptoloop"	end	
 	end
+	if	curanim == "idle" 					then 	wep.Bodge_Cycle = 0 wep.Bodge_Chamber = 0 end
 
 	-- reload fuck up --
     local rng = math.Truncate(util.SharedRandom("AV pex last soldier", 1,100))
@@ -961,6 +994,29 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_finish" 	then	return "reload_finish_fail"	end	-- overloading
 	end
 end
+-- please add a blockreload hook like blockfire
+--[[function SWEP:CanReload()
+	-- base code --
+    if self:GetOwner():KeyDown(IN_WALK) then return false end
+    if self:StillWaiting() then return end
+    if self:GetCapacity(self:GetUBGL()) <= 0 then return end
+    -- if self:GetTraversalSprintAmount() >= 0 then return end
+    local ammo = self:Ammo1()
+    if self:GetUBGL() then
+        ammo = self:Ammo2()
+    end
+    if ammo <= 0 and !self:GetInfiniteAmmo() then return end
+    if !self:GetProcessedValue("ReloadWhileSprint", true) and self:GetSprintAmount() > 0 then
+        return
+    end
+    if self:GetJammed() then return end
+    if self:GetCustomize() then
+        return
+    end
+	-- separate check --
+	if wep:GetNeedsCycle() and wep:Clip1() == wep:GetValue("ClipSize") then return end
+    return true
+end]]
 
 -------------------------- ATTACHMENTS
 
