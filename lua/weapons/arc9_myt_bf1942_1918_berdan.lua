@@ -293,14 +293,7 @@ SWEP.Animations = {
         EjectAt = 18 / 40,
         FireASAP = true,
         MinProgress = 0.8,
-	},
-	["cycle_blank"] = {
-		Source = {"idle"},
-		IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
-		Time = 0,
-		FireASAP = true,
-		MinProgress = 0.1,
-    },        
+	}, 
 	["cycle_fail"] = {
         Source = {"bolt_fail"},
         IKTimeLine = {

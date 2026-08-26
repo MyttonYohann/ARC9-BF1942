@@ -496,6 +496,20 @@ SWEP.Animations = {
         MinProgress = 24/40, 
 		RefillProgress = 24/40,
     },  
+	["reload_end_fast"] = {
+		Source = "reload_end_fast",
+		IKTimeLine = {
+		{ t = 0, lhik = 0, rhik = 0, },
+		{ t = 0.3, lhik = 0, rhik = 0, }, { t = 0.9, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+		},
+		EventTable = {
+			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,		t = 10 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,		t =	12 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,		t =	22 / 40},
+        },
+		FireASAP = true,
+		MinProgress = 0.95, 
+    },  
     ["reload_end_breach"] = {
         Source = "reload_end_breach",
         IKTimeLine = {
@@ -843,18 +857,36 @@ SWEP.Animations = {
     },  
 }
 
+SWEP.Bodge_Cycle = 0
 SWEP.DementiaCounter = 0
+--[[SWEP.Hook_PrimaryAttack  = function(wep)
+	if wep.Bodge_Cycle == 1 then
+	wep:SetNeedsCycle(true)
+	end
+end]]
+
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
-	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end		-- 	bodging for off hand weapon
-	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
-	
+	if	curanim == "exit_ubgl_empty"		then return "exit_ubgl"			end		-- 	bodging for off hand weapon
+	if	curanim == "exit_ubgl_glempty"		then return "exit_ubgl"			end	
+
+	if wep:GetNeedsCycle()	then
+		if	curanim == "reload_start" 		then 	wep.Bodge_Cycle = 1 end
+	end	
+
+	if wep:GetNeedsCycle() and wep.Bodge_Cycle == 1	then
+		if	curanim == "cycle" 				then return "idle"				end	
+		if	curanim == "cycle_fail" 		then return "idle"				end	
+		if	curanim == "reload_finish" 		then return "reload_end_fast"	end	
+		if	curanim == "reload_finish_fail" then return "reload_end_fast"	end	
+	end
+	if	curanim == "fire" 	then 	wep.Bodge_Cycle = 0	end
 	--[[if wep:GetInSights() and wep:HasElement("has_optic")	and not wep.Peeking	 then	-- bodging for cycle with sight attachment
 		if	curanim == "cycle" 			then 	return "cycle_scope"		end	
 	end]]
 
 	if	wep:Clip1() == 1 then
-		if curanim == "reload_finish"	then return "reload_end_empty"	end	
-		if curanim == "reload_insert" 	then return "reload_emptoloop"	end	
+		if curanim == "reload_finish"		then return "reload_end_empty"	end	
+		if curanim == "reload_insert" 		then return "reload_emptoloop"	end	
 	end
 
 	-- reload fuck up --
