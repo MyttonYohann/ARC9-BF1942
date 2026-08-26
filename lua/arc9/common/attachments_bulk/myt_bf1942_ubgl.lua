@@ -655,15 +655,23 @@ ATT.Hook_Think = function(wep)	-- reset RPM [FOR UGBL ONLY] cuz the bloody MANUA
 		wep.SpreadUBGL = 0.02 * ( wep.SpreadMultSights / wep.Spread)/10
 	end	]]
 end
-
+ATT.Bodge_Reload = 0
 ATT.Hook_TranslateAnimation = function(wep, curanim)	
 	if wep:Clip2() == 0 then
 		if	curanim == "fire_ubgl" 					then	return "fire_ubgl_glempty"			end
+		if	curanim == "reload_ubgl_start" 			then wep.Bodge_Reload = 1	end
 	end
+	if wep:Clip2() != 0 then
+		if	curanim == "reload_ubgl_start" 			then wep.Bodge_Reload = 0	end
+	end -- base broke ubgl reload, even the regular dry reload stops working
 	-- shit yourself
 	if wep:Clip1() == 0 and wep:Clip2() != 0	then
 		if	curanim == "fire_ubgl_glempty" 			then	return "fire_ubgl"				end	
 		if	curanim == "reload_ubgl_finish_empty" 	then	return "reload_ubgl_finish"		end	
+	end
+
+	if wep.Bodge_Reload == 1 then
+		if	curanim == "reload_ubgl_finish" 		then	return "reload_ubgl_finish_empty"	end
 	end
 end
 ATT.SpreadUBGL = 0.02

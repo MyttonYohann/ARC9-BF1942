@@ -349,27 +349,22 @@ ATT.ActivateElements = {"cal_mag"}
 ATT.CanReloadWhileUnCycled = true
 -- this stupid base keeps the damn gun uncycled so you cant even cancel reload
 ATT.Bodge_Cycle = 0
-ATT.Hook_PostReload = function(wep) 
-	wep.Bodge_Cycle = 1
-	--wep:SetNeedsCycle(false) -- this work but the gun immediate ends the reload
-end 
-ATT.Hook_PrimaryAttack  = function(wep) 
-	wep.Bodge_Cycle = 0
-	--wep:SetNeedsCycle(true)
-end
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if wep:GetInSights() and wep:HasElement("has_optic")	then
-		--if	curanim == "fire" 			then 	return "fire_bolt_iron"			end	
-		if	curanim == "cycle" 			then 	return "cycle_bolt_iron"		end	
-		if	curanim == "cycle_fail" 	then 	return "cycle_bolt_iron_fail"	end	
+		--if	curanim == "fire" 				then 	return "fire_bolt_iron"			end	
+		if	curanim == "cycle" 					then 	return "cycle_bolt_iron"		end	
+		if	curanim == "cycle_fail" 			then 	return "cycle_bolt_iron_fail"	end	
 	end
 	if wep:GetNeedsCycle()	then
-		if	curanim == "reload_start" 			then 	return "reload_start_fast"		end	
+		if	curanim == "reload_start" 			then 	wep.Bodge_Cycle = 1	 return "reload_start_fast"		end	
 		if	curanim == "reload_start_empty" 	then 	return "reload_start_fast"		end	
 	end	
+
+	if	curanim == "fire" 	then 	wep.Bodge_Cycle = 0	end
+
 	if wep:GetNeedsCycle() and wep.Bodge_Cycle == 1	then
-		if	curanim == "cycle" 						then 	return "cycle_blank"					end	
-		if	curanim == "cycle_fail" 				then 	return "cycle_blank"					end	
+		if	curanim == "cycle" 					then 	return "cycle_blank"			end	
+		if	curanim == "cycle_fail" 			then 	return "cycle_blank"			end	
 	end
 end
 

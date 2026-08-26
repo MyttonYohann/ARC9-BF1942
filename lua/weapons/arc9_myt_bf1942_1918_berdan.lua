@@ -818,10 +818,10 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	local varextra = 0		-- for att
 	local dementia_end = 0	-- accidental overloading only for the 5th to 6th bullet, ending at 4th or lower wont trigger
 
-	if wep:HasElement("cal_sg") then varextra = 5
-	elseif wep:HasElement("cal_50") then varextra = 5
-	elseif wep:HasElement("cal_gl") then varextra = -15
-	elseif wep:HasElement("cal_mag") then varextra = 10
+	if wep:HasElement("cal_sg") then varextra = 10
+	elseif wep:HasElement("cal_50") then varextra = 12
+	elseif wep:HasElement("cal_gl") then varextra = -10
+	elseif wep:HasElement("cal_mag") then varextra = 25
 	end
 
 	-- sometimes you just kinda forgot about the iron fleet and euron forces
@@ -838,8 +838,8 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	elseif curanim == "reload_start" then
 		wep.DementiaCounter = 5
 	end
-	
-    if rng <= 20 + varextra  then	-- how the blissey be staring at me while my heatran missed all 8 magma storm	
+
+    if rng <= 10 + varextra  then		-- base is 10 % failure
 		if	curanim == "reload_empty"	then 	return "reload_fail"		end	
 
 		if	curanim == "reload_insert"	then 	return "reload_insert_fail"	end
@@ -847,7 +847,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_finish"	and dementia_end	== 0	then	return "reload_finish_fail"		end	-- regular reload fail
 	end
 	if rng <= wep.DementiaCounter then
-		if	curanim == "reload_finish"	and dementia_end	== 1	then	return "reload_finish_overload"	end	-- overloading a 6th bullet
+		if	curanim == "reload_finish"	and dementia_end	== 1	then	return "	"	end	-- overloading a 6th bullet
 	end
 end
 
