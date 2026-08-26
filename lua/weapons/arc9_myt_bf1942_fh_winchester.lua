@@ -846,6 +846,20 @@ SWEP.Animations = {
         FireASAP = true,
 		MinProgress = 0.5,
     },  
+	["reload_end_bp_fast"] = {
+		Source = "reload_end_breach_fast",
+        IKTimeLine = {
+        { t = 0, lhik = 0, rhik = 1, },
+        { t = 0.1, lhik = 0, rhik = 1, }, { t = 0.8, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+        },
+		EventTable = {
+			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,		t = 10 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,		t =	12 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,		t =	22 / 40},
+        },
+		FireASAP = true,
+		MinProgress = 0.95, 
+    },  
     ["reload_end_fail_bp"] = {
         Source = "reload_end_breach_fail",
         IKTimeLine = {
