@@ -347,8 +347,16 @@ ATT.Category = "bf1942_1918_berdan_cal"
 ATT.ActivateElements = {"cal_mag"}
 
 ATT.CanReloadWhileUnCycled = true
--- this stupid base keeps the damn gun uncycled so you cant even cancel reload
+
 ATT.Bodge_Cycle = 0
+-- this stupid base keeps the damn gun uncycled so you cant even cancel reload
+ATT.Hook_Think  = function(wep)
+	if wep:GetOwner():KeyPressed(IN_ATTACK) then -- the whole primary attack function so i cant use Hook_PrimaryAttack
+		if wep.Bodge_Cycle == 1 then
+			wep:SetNeedsCycle(false)
+		end
+	end
+end
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if wep:GetInSights() and wep:HasElement("has_optic")	then
 		--if	curanim == "fire" 			then 	return "fire_bolt_iron"			end	
@@ -362,7 +370,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 
 	if	curanim == "fire" 	then 	wep.Bodge_Cycle = 0	end
 
-	if wep:GetNeedsCycle() and wep.Bodge_Cycle == 1	then
+	if wep.Bodge_Cycle == 1	then
 		if	curanim == "cycle" 				then 	return "idle"					end	
 		if	curanim == "cycle_fail" 		then 	return "idle"					end	
 	end

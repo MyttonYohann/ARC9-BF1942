@@ -857,13 +857,15 @@ SWEP.Animations = {
     },  
 }
 
-SWEP.Bodge_Cycle = 0
 SWEP.DementiaCounter = 0
---[[SWEP.Hook_PrimaryAttack  = function(wep)
-	if wep.Bodge_Cycle == 1 then
-	wep:SetNeedsCycle(true)
+SWEP.Bodge_Cycle = 0
+SWEP.Hook_Think  = function(wep)
+	if wep:GetOwner():KeyPressed(IN_ATTACK) then -- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
+		if wep.Bodge_Cycle == 1 then
+			wep:SetNeedsCycle(false)
+		end
 	end
-end]]
+end
 
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "exit_ubgl_empty"		then return "exit_ubgl"			end		-- 	bodging for off hand weapon
@@ -873,7 +875,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_start" 		then 	wep.Bodge_Cycle = 1 end
 	end	
 
-	if wep:GetNeedsCycle() and wep.Bodge_Cycle == 1	then
+	if wep.Bodge_Cycle == 1	then
 		if	curanim == "cycle" 				then return "idle"				end	
 		if	curanim == "cycle_fail" 		then return "idle"				end	
 		if	curanim == "reload_finish" 		then return "reload_end_fast"	end	
