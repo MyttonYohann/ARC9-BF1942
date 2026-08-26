@@ -821,7 +821,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if wep:HasElement("cal_sg") then varextra = 5
 	elseif wep:HasElement("cal_50") then varextra = 5
 	elseif wep:HasElement("cal_gl") then varextra = -15
-	elseif wep:HasElement("cal_mag") then varextra = 100
+	elseif wep:HasElement("cal_mag") then varextra = 10
 	end
 
 	-- sometimes you just kinda forgot about the iron fleet and euron forces
