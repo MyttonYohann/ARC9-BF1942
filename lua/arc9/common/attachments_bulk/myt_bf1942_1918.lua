@@ -351,10 +351,16 @@ ATT.CanReloadWhileUnCycled = true
 ATT.Bodge_Cycle = 0
 -- this stupid base keeps the damn gun uncycled so you cant even cancel reload
 ATT.Hook_Think  = function(wep)
-	if wep:GetOwner():KeyPressed(IN_ATTACK) then -- the whole primary attack function so i cant use Hook_PrimaryAttack
+	if wep:GetOwner():KeyPressed(IN_ATTACK) then -- the whole primary attack function is disabled when the gun is uncycled so i cant use Hook_PrimaryAttack
 		if wep.Bodge_Cycle == 1 then
-			wep:SetNeedsCycle(false)
+			wep:SetNeedsCycle(false) -- happy accident, turns out this forces the gun to stop reloading, i still have no idea why but i cant give a shit anymore
 		end
+	end
+end
+ATT.Hook_BlockAnimation = function(wep, curanim)
+	if wep.Bodge_Cycle == 1	then
+	if	curanim == "cycle" 		then return true end
+	if	curanim == "cycle_fail" then return true end
 	end
 end
 ATT.Hook_TranslateAnimation = function(wep, curanim)
@@ -369,11 +375,6 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	end	
 
 	if	curanim == "fire" 	then 	wep.Bodge_Cycle = 0	end
-
-	if wep.Bodge_Cycle == 1	then
-		if	curanim == "cycle" 				then 	return "idle"					end	
-		if	curanim == "cycle_fail" 		then 	return "idle"					end	
-	end
 end
 
 ATT.ShotgunReload = true

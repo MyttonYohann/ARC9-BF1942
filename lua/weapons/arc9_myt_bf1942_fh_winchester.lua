@@ -508,7 +508,7 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,		t =	22 / 40},
         },
 		FireASAP = true,
-		MinProgress = 0.95, 
+		MinProgress = 0.8, 
     },  
     ["reload_end_breach"] = {
         Source = "reload_end_breach",
@@ -887,11 +887,24 @@ SWEP.Animations = {
 
 SWEP.DementiaCounter = 0
 SWEP.Bodge_Cycle = 0
-SWEP.Hook_Think  = function(wep)
+SWEP.Hook_Think = function(wep)
 	if wep:GetOwner():KeyPressed(IN_ATTACK) then -- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
 		if wep.Bodge_Cycle == 1 then
 			wep:SetNeedsCycle(false)
 		end
+	end
+-- caps cos the tube is full, currently only work if the starting clip is EXACTLY ammo - 1
+	if  wep:Clip1() == wep:Ammo1() - 1  then
+		if wep.Bodge_Cycle == 1 then
+			wep:SetNeedsCycle(false)
+		end	
+	end
+end
+
+SWEP.Hook_BlockAnimation = function(wep, curanim)
+	if wep.Bodge_Cycle == 1	then
+	if	curanim == "cycle" 		then return true end
+	if	curanim == "cycle_fail" then return true end
 	end
 end
 
@@ -904,8 +917,8 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	end	
 
 	if wep.Bodge_Cycle == 1	then
-		if	curanim == "cycle" 				then return "idle"				end	
-		if	curanim == "cycle_fail" 		then return "idle"				end	
+		--if	curanim == "cycle" 				then return "idle"				end	
+		--if	curanim == "cycle_fail" 		then return "idle"				end	
 		if	curanim == "reload_finish" 		then return "reload_end_fast"	end	
 		if	curanim == "reload_finish_fail" then return "reload_end_fast"	end	
 	end

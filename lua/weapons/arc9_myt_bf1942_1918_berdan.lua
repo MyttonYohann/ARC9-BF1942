@@ -388,7 +388,6 @@ SWEP.Animations = {
 		RestoreAmmo = 1,
         EjectAt = 18 / 40,
 		RefillProgress = 30/40,
-		MinProgress = 0.6,
         MagSwapTime = 0.1,
     }, 
     ["reload_start_empty"] = {
