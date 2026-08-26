@@ -996,6 +996,7 @@ ATT.ActivateElements = {"cal_breach", "nofg"}
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_finish" 		then	return "reload_end_breach"			end
+	if	curanim == "reload_end_fast" 	then	return "reload_end_breach_fast"		end
 	if	curanim == "reload_finish_fail"	then	return "reload_end_breach"			end
 	if	curanim == "reload_insert" 		then	return "reload_insert_breach"		end
 	if	curanim == "reload_loop_fail"	then	return "reload_insert_breach"		end
@@ -1035,6 +1036,7 @@ ATT.ActivateElements = {"cal_bullpup", "no_dovetail", "nooh"}
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_finish" 		then	return "reload_end_bp"			end
+	if	curanim == "reload_end_fast" 	then	return "reload_end_bp_fast"		end
 	if	curanim == "reload_insert" 		then	return "reload_insert_bp"		end
 	if	curanim == "reload_emptoloop"	then	return "reload_emptoloop_bp"	end
 	if	curanim == "reload_start"		then	return "reload_start_bp"		end	
