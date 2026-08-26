@@ -888,14 +888,18 @@ SWEP.Animations = {
 SWEP.DementiaCounter = 0
 SWEP.Bodge_Cycle = 0
 SWEP.Hook_Think = function(wep)
-	if wep:GetOwner():KeyPressed(IN_ATTACK) then -- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
-		if wep.Bodge_Cycle == 1 then
+-- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
+	if wep.Bodge_Cycle == 1 then
+		if wep:GetOwner():KeyPressed(IN_ATTACK) then
 			wep:SetNeedsCycle(false)
 		end
 	end
+end
+
+SWEP.Hook_PostReload = function(wep)
 -- caps cos the tube is full, currently only work if the starting clip is EXACTLY ammo - 1
-	if  wep:Clip1() == wep:Ammo1() - 1  then
-		if wep.Bodge_Cycle == 1 then
+	if wep.Bodge_Cycle == 1 then
+		if  wep:Clip1() == wep:GetValue("ClipSize") - wep:GetValue("ChamberSize")  then
 			wep:SetNeedsCycle(false)
 		end	
 	end
@@ -917,8 +921,6 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	end	
 
 	if wep.Bodge_Cycle == 1	then
-		--if	curanim == "cycle" 				then return "idle"				end	
-		--if	curanim == "cycle_fail" 		then return "idle"				end	
 		if	curanim == "reload_finish" 		then return "reload_end_fast"	end	
 		if	curanim == "reload_finish_fail" then return "reload_end_fast"	end	
 	end
