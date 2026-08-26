@@ -84,7 +84,7 @@ SWEP.ReloadInSights = false -- This weapon can aim down sights while reloading.
 SWEP.ShotgunReload = true
 SWEP.ManualAction = true
 SWEP.ManualActionNoLastCycle = true
-SWEP.CanReloadWhileUnCycled = false
+SWEP.CanReloadWhileUnCycled = true
 
 -------------------------- FIREMODES
 SWEP.Num = 10

@@ -368,8 +368,8 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_start_empty" 	then 	return "reload_start_fast"		end	
 	end	
 	if wep:GetNeedsCycle() and wep.Bodge_Cycle == 1	then
-		if	curanim == "cycle" 			then 	return "cycle_blank"		end	
-		if	curanim == "cycle_fail" 	then 	return "cycle_blank"		end	
+		if	curanim == "cycle" 						then 	return "cycle_blank"					end	
+		if	curanim == "cycle_fail" 				then 	return "cycle_blank"					end	
 	end
 end
 

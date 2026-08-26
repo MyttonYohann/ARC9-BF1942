@@ -30,8 +30,10 @@ SWEP.WorldModelMirror = "models/weapons/myt_bf1942/1918/c_berdan.mdl"
 SWEP.WorldModelOffset = {
     Pos = Vector(-1, 2, -7),
     Ang = Angle(-5, 0, 180),
-    TPIKPos = Vector(-6, 3, -7),
-    TPIKAng = Angle(-5, 0, 180),
+    TPIKPos = Vector(-9, 3, -7),
+    TPIKAng = Angle(-10, 0, 180),
+	TPIKPosSightOffset = Vector(1, 2, 2),
+	TPIKAngSightOffset = Angle(0, 0, 0),
     Scale = 1
 }
 SWEP.MirrorVMWMHeldOnly = true
@@ -291,14 +293,14 @@ SWEP.Animations = {
         EjectAt = 18 / 40,
         FireASAP = true,
         MinProgress = 0.8,
-    },     
-    ["cycle_blank"] = {
-        Source = {"idle"},
-        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
-        Time = 1.5,
-        FireASAP = true,
-        MinProgress = 0.1,
-    },     
+	},
+	["cycle_blank"] = {
+		Source = {"idle"},
+		IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },},
+		Time = 0,
+		FireASAP = true,
+		MinProgress = 0.1,
+    },        
 	["cycle_fail"] = {
         Source = {"bolt_fail"},
         IKTimeLine = {
@@ -446,7 +448,6 @@ SWEP.Animations = {
         },
         FireASAP = true,
         MinProgress = 0.8,
-		MagSwapTime = 5 / 40,
     },  
 	["reload_finish_prof"] = {
         Source = "reload_end_prof",
@@ -476,10 +477,8 @@ SWEP.Animations = {
             {s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 66 / 40},  
         },
         FireASAP = true,
-        MinProgress = 0.8,
-		MagSwapTime = 5 / 40,
-		RestoreAmmo = 1,
-    },   	
+        MinProgress = 0.85,
+    },   		
 	["reload_finish_fail"] = {
         Source = "reload_end_fail",
         IKTimeLine = {
@@ -493,7 +492,6 @@ SWEP.Animations = {
         },
         FireASAP = true,
         MinProgress = 0.9,
-		MagSwapTime = 5 / 40,
     }, 
 
 
@@ -820,10 +818,10 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	local varextra = 0		-- for att
 	local dementia_end = 0	-- accidental overloading only for the 5th to 6th bullet, ending at 4th or lower wont trigger
 
-	if wep:HasElement("cal_sg") then varextra = 15		-- hypnosis
-	elseif wep:HasElement("cal_50") then varextra = 17	-- grass whistle
-	elseif wep:HasElement("cal_gl") then varextra = -10	-- hydro pump
-	elseif wep:HasElement("cal_mag") then varextra = 20	-- the blunder policy inferno chandelure in the back
+	if wep:HasElement("cal_sg") then varextra = 5
+	elseif wep:HasElement("cal_50") then varextra = 5
+	elseif wep:HasElement("cal_gl") then varextra = -15
+	elseif wep:HasElement("cal_mag") then varextra = 100
 	end
 
 	-- sometimes you just kinda forgot about the iron fleet and euron forces
