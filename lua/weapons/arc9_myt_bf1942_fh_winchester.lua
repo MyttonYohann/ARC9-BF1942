@@ -464,6 +464,29 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	43 / 40},
 		},
 		RefillProgress = 32 / 40,
+        EjectAt = 16/ 40,
+    },
+		["reload_chamber_loop_breach"] = {
+		Source = "reload_chamber_loop_breach",
+		IKTimeLine = { { t = 0, lhik = 0, rhik = 0, },{ t = 0.1, lhik = 0, rhik = 0, },{ t = 0.2, lhik = 1, rhik = 0, },{ t = 0.3, lhik = 1, rhik = 0, },{ t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },  },
+		EventTable = { 
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	12 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	22 / 40},
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	43 / 40},
+		},
+		RefillProgress = 32 / 40,
+        EjectAt = 16/ 40,
+    },
+		["reload_chamber_loop_bp"] = {
+		Source = "reload_chamber_loop_breach",
+		IKTimeLine = { { t = 0, lhik = 0, rhik = 1, },{ t = 0.1, lhik = 0, rhik = 1, },{ t = 0.2, lhik = 1, rhik = 1, },{ t = 0.3, lhik = 1, rhik = 1, },{ t = 0.4, lhik = 1, rhik = 1, },{ t = 1, lhik = 0, rhik = 1, },  },
+		EventTable = { 
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	12 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	22 / 40},
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	43 / 40},
+		},
+		RefillProgress = 32 / 40,
+        EjectAt = 16/ 40,
     },
 	["reload_insert_breach"] = {
         Source = "reload_loop_breach",
@@ -551,6 +574,7 @@ SWEP.Animations = {
         },
 		FireASAP = true,
 		MinProgress = 0.8, 
+        EjectAt = 16/ 40,
     },  
     ["reload_end_breach"] = {
         Source = "reload_end_breach",
@@ -574,6 +598,7 @@ SWEP.Animations = {
         },
 		FireASAP = true,
 		MinProgress = 0.95, 
+        EjectAt = 16/ 40,
     },  
     ["reload_finish_fail"] = {
         Source = "reload_end_fail",

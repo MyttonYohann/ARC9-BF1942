@@ -995,15 +995,16 @@ ATT.Category = "bf1942_fh_winch_cal"
 ATT.ActivateElements = {"cal_breach", "nofg"}
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
-	if	curanim == "reload_finish" 		then	return "reload_end_breach"			end
-	if	curanim == "reload_end_fast" 	then	return "reload_end_breach_fast"		end
-	if	curanim == "reload_finish_fail"	then	return "reload_end_breach"			end
-	if	curanim == "reload_insert" 		then	return "reload_insert_breach"		end
-	if	curanim == "reload_loop_fail"	then	return "reload_insert_breach"		end
-	if	curanim == "reload_emptoloop"	then	return "reload_emptoloop_breach"	end
-	if	curanim == "reload_start"		then	return "reload_start_breach"		end	
-	if	curanim == "cycle"				then	return "cycle_fast"					end
-	if	curanim == "cycle_fail"			then	return "cycle_fail_fast"			end	
+	if	curanim == "reload_finish" 			then	return "reload_end_breach"			end
+	if	curanim == "reload_end_fast" 		then	return "reload_end_breach_fast"		end
+	if	curanim == "reload_finish_fail"		then	return "reload_end_breach"			end
+	if	curanim == "reload_insert" 			then	return "reload_insert_breach"		end
+	if	curanim == "reload_chamber_loop"	then	return "reload_chamber_loop_breach"	end
+	if	curanim == "reload_loop_fail"		then	return "reload_insert_breach"		end
+	if	curanim == "reload_emptoloop"		then	return "reload_emptoloop_breach"	end
+	if	curanim == "reload_start"			then	return "reload_start_breach"		end	
+	if	curanim == "cycle"					then	return "cycle_fast"					end
+	if	curanim == "cycle_fail"				then	return "cycle_fail_fast"			end	
 	
 end
 ATT.ClipSize = 3
@@ -1035,24 +1036,25 @@ ATT.Category = "bf1942_fh_winch_cal2"
 ATT.ActivateElements = {"cal_bullpup", "no_dovetail", "nooh"}
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
-	if	curanim == "reload_finish" 		then	return "reload_end_bp"			end
-	if	curanim == "reload_end_fast" 	then	return "reload_end_bp_fast"		end
-	if	curanim == "reload_insert" 		then	return "reload_insert_bp"		end
-	if	curanim == "reload_emptoloop"	then	return "reload_emptoloop_bp"	end
-	if	curanim == "reload_start"		then	return "reload_start_bp"		end
-	if	curanim == "reload_start_fast"	then	return "reload_start_fast_bp"	end	
-
-	if	curanim == "draw"				then	return "draw_bp"				end
-	if	curanim == "ready"				then	return "ready_bp"				end
-	if	curanim == "idle"				then	return "idle_bp"				end
-	if	curanim == "holster"			then	return "holster_bp"				end	
-	if	curanim == "fire"				then	return "fire_bp"				end
-	if	curanim == "cycle"				then	return "cycle_bp"				end	
-	if	curanim == "cycle_fail"			then	return "cycle_fail_bp"			end	
-	if	curanim == "reload_start_empty"	then	return "reload_start_empty_bp"	end	
-	if	curanim == "reload_end_empty"	then	return "reload_end_empty_bp"	end	
-	if	curanim == "reload_loop_fail"	then	return "reload_insert_fail_bp"	end	
-	if	curanim == "reload_finish_fail"	then	return "reload_end_fail_bp"	end	
+	if	curanim == "reload_finish" 			then	return "reload_end_bp"			end
+	if	curanim == "reload_end_fast" 		then	return "reload_end_bp_fast"		end
+	if	curanim == "reload_insert" 			then	return "reload_insert_bp"		end
+	if	curanim == "reload_emptoloop"		then	return "reload_emptoloop_bp"	end
+	if	curanim == "reload_start"			then	return "reload_start_bp"		end
+	if	curanim == "reload_start_fast"		then	return "reload_start_fast_bp"	end	
+	if	curanim == "reload_chamber_loop"	then	return "reload_chamber_loop_bp"	end
+	
+	if	curanim == "draw"					then	return "draw_bp"				end
+	if	curanim == "ready"					then	return "ready_bp"				end
+	if	curanim == "idle"					then	return "idle_bp"				end
+	if	curanim == "holster"				then	return "holster_bp"				end	
+	if	curanim == "fire"					then	return "fire_bp"				end
+	if	curanim == "cycle"					then	return "cycle_bp"				end	
+	if	curanim == "cycle_fail"				then	return "cycle_fail_bp"			end	
+	if	curanim == "reload_start_empty"		then	return "reload_start_empty_bp"	end	
+	if	curanim == "reload_end_empty"		then	return "reload_end_empty_bp"	end	
+	if	curanim == "reload_loop_fail"		then	return "reload_insert_fail_bp"	end	
+	if	curanim == "reload_finish_fail"		then	return "reload_end_fail_bp"		end	
 	
 end
 ATT.ClipSize = 10
