@@ -375,7 +375,23 @@ SWEP.Animations = {
     },  
 	["reload_start_fast"] = {
         Source = "reload_start_fast",
-        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 0, }, { t = 0.3, lhik = 1, rhik = 0, }, { t = 0.5, lhik = 0, rhik = 0, }, { t = 0.75, lhik = 0, rhik = 0, },  { t = 0.9, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, }, },
+        EventTable = {   
+            {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 1 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	12 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	22 / 40},
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 45 / 40},
+        },
+		RestoreAmmo = 1,
+        FireASAP = true,
+        EjectAt = 18 / 40,
+		RefillProgress = 35/40,
+		MinProgress = 0.9, -- doesnt work
+        MagSwapTime = 35/40,
+    },  
+	["reload_start_fast_bp"] = {
+        Source = "reload_start_fast",
+        IKTimeLine = { { t = 0, lhik = 1, rhik = 1, }, { t = 0.3, lhik = 1, rhik = 1, }, { t = 0.5, lhik = 0, rhik = 1, }, { t = 0.75, lhik = 0, rhik = 1, },  { t = 0.95, lhik = 1, rhik = 1, }, { t = 1, lhik = 1, rhik = 1, }, },
         EventTable = {   
             {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   		t = 1 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	12 / 40},
@@ -539,7 +555,7 @@ SWEP.Animations = {
 		Source = "reload_end_breach_fast2",
         IKTimeLine = {
         { t = 0, lhik = 0, rhik = 0, },
-        { t = 0.1, lhik = 0, rhik = 0, }, { t = 0.8, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+        { t = 0.3, lhik = 1, rhik = 0, }, { t = 0.8, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
 		EventTable = {
 			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,		t = 10 / 40},  
@@ -863,10 +879,10 @@ SWEP.Animations = {
 		MinProgress = 0.5,
     },  
 	["reload_end_bp_fast"] = {
-		Source = "reload_end_breach_fast",
+		Source = "reload_end_breach_fast2",
         IKTimeLine = {
         { t = 0, lhik = 0, rhik = 1, },
-        { t = 0.1, lhik = 0, rhik = 1, }, { t = 0.8, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+        { t = 0.3, lhik = 1, rhik = 1, }, { t = 0.8, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
         },
 		EventTable = {
 			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,		t = 10 / 40},  
@@ -914,19 +930,21 @@ SWEP.Hook_Think = function(wep, curanim)
 end
 
 SWEP.Hook_BlockAnimation = function(wep, curanim)
-	if wep.Bodge_Cycle == 1 then
+	if wep.Bodge_Cycle == 1 or wep.Bodge_Chamber == 1 then
 	if	curanim == "cycle" 				then return true end
 	if	curanim == "cycle_fail" 		then return true end
 	if	curanim == "cycle_fast" 		then return true end
-	if	curanim == "cycle_fail" 		then return true end
+	if	curanim == "cycle_fail_fast" 	then return true end
+	if	curanim == "cycle_bp" 			then return true end
+	if	curanim == "cycle_fail_bp" 		then return true end
 	end	
 	if wep.Bodge_Chamber == 1	then
 	if	curanim == "reload_finish" 		then return true end
 	if	curanim == "reload_finish_fail" then return true end	
 	if	curanim == "reload_end_breach" 	then return true end
-	if	curanim == "cycle" 				then return true end
-	if	curanim == "cycle_fail" 		then return true end
-	if	curanim == "cycle_fast" 		then return true end 
+	if	curanim == "reload_end_breach" 	then return true end
+	if	curanim == "reload_end_bp" 		then return true end
+	if	curanim == "reload_end_fail_bp" then return true end
 	end
 end
 SWEP.Hook_TranslateAnimation = function(wep, curanim)

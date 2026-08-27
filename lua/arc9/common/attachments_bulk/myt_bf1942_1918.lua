@@ -1039,9 +1039,10 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "reload_end_fast" 	then	return "reload_end_bp_fast"		end
 	if	curanim == "reload_insert" 		then	return "reload_insert_bp"		end
 	if	curanim == "reload_emptoloop"	then	return "reload_emptoloop_bp"	end
-	if	curanim == "reload_start"		then	return "reload_start_bp"		end	
+	if	curanim == "reload_start"		then	return "reload_start_bp"		end
+	if	curanim == "reload_start_fast"	then	return "reload_start_fast_bp"	end	
 
-	if	curanim == "draw"				then	return "draw_bp"				end	
+	if	curanim == "draw"				then	return "draw_bp"				end
 	if	curanim == "ready"				then	return "ready_bp"				end
 	if	curanim == "idle"				then	return "idle_bp"				end
 	if	curanim == "holster"			then	return "holster_bp"				end	
