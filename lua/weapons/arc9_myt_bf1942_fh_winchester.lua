@@ -446,15 +446,25 @@ SWEP.Animations = {
 		RefillProgress = 20/40,
 		MinProgress = 20/40,
 		Mult = 0.9,
-    },  
-    ["reload_insert"] = {
-        Source = "reload_loop",
+    },
+		["reload_insert"] = {
+		Source = "reload_loop",
 		IKTimeLine = { { t = 0, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },  },
-        EventTable = { 
+		EventTable = { 
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	25 / 40},
-        },
+		},
 		RefillProgress = 32 / 40,
-    },  
+    },
+		["reload_chamber_loop"] = {
+		Source = "reload_chamber_loop",
+		IKTimeLine = { { t = 0, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },  },
+		EventTable = { 
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,			t =	12 / 40},
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,			t =	22 / 40},
+			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t =	43 / 40},
+		},
+		RefillProgress = 32 / 40,
+    },
 	["reload_insert_breach"] = {
         Source = "reload_loop_breach",
 		IKTimeLine = { { t = 0, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },  },
@@ -920,6 +930,7 @@ SWEP.Animations = {
 SWEP.DementiaCounter = 0
 SWEP.Bodge_Cycle = 0
 SWEP.Bodge_Chamber = 0
+SWEP.Bodge_Final = 0
 SWEP.Hook_Think = function(wep, curanim) 
 	if wep.Bodge_Cycle == 1 then
 		-- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
@@ -964,13 +975,15 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if !wep:GetNeedsCycle() and curanim == "reload_start" then
 		wep.Bodge_Cycle = 0
 		wep.Bodge_Chamber = 0 
+		wep.Bodge_Final = 0
 	end
 	if	curanim == "idle" or curanim == "fire" then
 		wep.Bodge_Cycle = 0
 		wep.Bodge_Chamber = 0
+		wep.Bodge_Final = 0
 	end	
 
-	if wep.Bodge_Cycle == 1	then
+	if wep.Bodge_Cycle == 1 and wep.Bodge_Final == 0	then
 		if	curanim == "reload_finish" 		then return "reload_end_fast"	end	
 		if	curanim == "reload_finish_fail" then return "reload_end_fast"	end	
 	end
@@ -982,7 +995,11 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if curanim == "reload_finish"		then return "reload_end_empty"	end	
 		if curanim == "reload_insert" 		then return "reload_emptoloop"	end	
 	end
-
+	if	wep:Clip1() == wep:GetValue("ClipSize") and  wep:GetNeedsCycle() then
+		wep.Bodge_Final = 1
+		if curanim == "reload_insert" 		then return "reload_chamber_loop"	end	
+		if curanim == "reload_insert_fail" 	then return "reload_chamber_loop"	end	
+	end
 
 	-- reload fuck up --
     local rng = math.Truncate(util.SharedRandom("AV pex last soldier", 1,100))
