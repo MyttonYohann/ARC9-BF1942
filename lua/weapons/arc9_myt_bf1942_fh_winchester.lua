@@ -904,7 +904,7 @@ SWEP.Animations = {
 SWEP.DementiaCounter = 0
 SWEP.Bodge_Cycle = 0
 SWEP.Bodge_Chamber = 0
-SWEP.Hook_Think = function(wep) -- lmao this only ckecks once
+SWEP.Hook_Think = function(wep, curanim) 
 	if wep.Bodge_Cycle == 1 then
 		-- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
 		if wep:GetOwner():KeyPressed(IN_ATTACK) then
@@ -915,42 +915,48 @@ SWEP.Hook_Think = function(wep) -- lmao this only ckecks once
 			wep:SetNeedsCycle(false)
 		end	
 	end
+	
+	local fulltube = 0
+	if curanim == "reload_insert" then fulltube = fulltube + 1 end
 end
 
 SWEP.Hook_BlockAnimation = function(wep, curanim)
 	if wep.Bodge_Cycle == 1 then
-	if	curanim == "cycle" 		then return true end
-	if	curanim == "cycle_fail" then return true end
-	if	curanim == "cycle_fast" then return true end
-	if	curanim == "cycle_fail" then return true end
+	if	curanim == "cycle" 				then return true end
+	if	curanim == "cycle_fail" 		then return true end
+	if	curanim == "cycle_fast" 		then return true end
+	if	curanim == "cycle_fail" 		then return true end
 	end	
 	if wep.Bodge_Chamber == 1	then
 	if	curanim == "reload_finish" 		then return true end
 	if	curanim == "reload_finish_fail" then return true end	
-	if	curanim == "reload_end_breach" 		then return true end
-	if	curanim == "cycle" 		then return true end
-	if	curanim == "cycle_fail" then return true end
-	if	curanim == "cycle_fast" then return true end
+	if	curanim == "reload_end_breach" 	then return true end
+	if	curanim == "cycle" 				then return true end
+	if	curanim == "cycle_fail" 		then return true end
+	if	curanim == "cycle_fast" 		then return true end 
 	end
-end
---[[SWEP.Hook_EndReload = function(wep)
-	if wep:Clip1() != wep:GetValue("ClipSize") + wep:GetValue("ChamberSize") then
-	wep.Bodge_Cycle = 0
-	wep.Bodge_Chamber = 0 
-	end
-end]]
--- separate check for at full capacity
-SWEP.Hook_PrimaryAttack = function(wep) -- technically i shouldnt use this cos melee also counts as primary attack
-	wep.Bodge_Cycle = 0
-	wep.Bodge_Chamber = 0 
 end
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "exit_ubgl_empty"		then return "exit_ubgl"			end		-- 	bodging for off hand weapon
 	if	curanim == "exit_ubgl_glempty"		then return "exit_ubgl"			end	
 
+	-- uncycled state
 	if wep:GetNeedsCycle()	then
-		if	curanim == "reload_start" and wep:Clip1() == wep:GetValue("ClipSize") then 	wep.Bodge_Chamber = 1 return "reload_start_fast"	end
-		if	curanim == "reload_start" 		then 	wep.Bodge_Cycle = 1 end
+		if	curanim == "reload_start" and wep:Clip1() == wep:GetValue("ClipSize") then 
+			wep.Bodge_Chamber = 1 return "reload_start_fast"	
+		end
+		if	curanim == "reload_start" 	then 
+			wep.Bodge_Cycle = 1
+		end
+	end
+	-- normal state
+	if !wep:GetNeedsCycle() and curanim == "reload_start" then
+		wep.Bodge_Cycle = 0
+		wep.Bodge_Chamber = 0 
+	end
+	if	curanim == "idle" then
+		wep.Bodge_Cycle = 0
+		wep.Bodge_Chamber = 0
 	end	
 
 	if wep.Bodge_Cycle == 1	then
@@ -965,7 +971,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if curanim == "reload_finish"		then return "reload_end_empty"	end	
 		if curanim == "reload_insert" 		then return "reload_emptoloop"	end	
 	end
-	if	curanim == "idle" 					then 	wep.Bodge_Cycle = 0 wep.Bodge_Chamber = 0 end
+
 
 	-- reload fuck up --
     local rng = math.Truncate(util.SharedRandom("AV pex last soldier", 1,100))
