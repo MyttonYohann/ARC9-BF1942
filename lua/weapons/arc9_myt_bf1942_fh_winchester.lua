@@ -910,14 +910,7 @@ SWEP.Hook_Think = function(wep, curanim)
 		if wep:GetOwner():KeyPressed(IN_ATTACK) then
 			wep:SetNeedsCycle(false)
 		end
-		-- caps cos the tube is full, currently only work if the starting clip is EXACTLY ammo - 1
-		if  wep:Clip1() == wep:GetValue("ClipSize") - wep:GetValue("ChamberSize")  then
-			wep:SetNeedsCycle(false)
-		end	
 	end
-	
-	local fulltube = 0
-	if curanim == "reload_insert" then fulltube = fulltube + 1 end
 end
 
 SWEP.Hook_BlockAnimation = function(wep, curanim)
@@ -954,7 +947,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		wep.Bodge_Cycle = 0
 		wep.Bodge_Chamber = 0 
 	end
-	if	curanim == "idle" then
+	if	curanim == "idle" or curanim == "fire" then
 		wep.Bodge_Cycle = 0
 		wep.Bodge_Chamber = 0
 	end	
