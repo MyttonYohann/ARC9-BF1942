@@ -696,13 +696,13 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley5")
 
 ATT = {}
 
-ATT.PrintName = [[Hydraling Conversion]]
-ATT.CompactName = [[C. HydraS]]
+ATT.PrintName = [[Monolith Conversion]]
+ATT.CompactName = [[C. Monolith]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[Double shot, many pellets
+ATT.Description = [[Single shot, many pellets
 ]]
 --i wanted to make this a double barrel like the hydra 
---but i dont have the anim source files or model editing skills to do that
+--but i dont have the anim source files or model editing skills to do that so this will have to do, also its a balancing mess LOL
 ATT.SortOrder = 1
 ATT.Category = "bf1942_1918_webley_barrel"
 ATT.ActivateElements = {"b_6"}
@@ -804,8 +804,7 @@ ATT.Firemodes = {
 }
 
 ATT.BulletBones = { 
-    [0] = "W_Ammo1",
-    [1] = "W_Ammo1", --look its jank and it works ok
+    [0] = "W_Ammo1", --look its jank and it works ok
 }
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley6")
