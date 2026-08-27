@@ -799,7 +799,6 @@ ATT.Firemodes = {
     {
         Mode = 1,
 		PrintName = "SINGLE",
-		NumOverride = 24,
     },
 }
 
