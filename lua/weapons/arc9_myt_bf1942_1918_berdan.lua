@@ -827,7 +827,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	elseif curanim == "reload_start_empty" then
 		wep.DementiaCounter = -20
 	elseif curanim == "reload_start_fast" then
-		wep.DementiaCounter = -12
+		wep.DementiaCounter = 10
 	elseif curanim == "reload_start" then
 		wep.DementiaCounter = 5
 	end
@@ -840,7 +840,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_finish"	and dementia_end	== 0	then	return "reload_finish_fail"		end	-- regular reload fail
 	end
 	if rng <= wep.DementiaCounter then
-		if	curanim == "reload_finish"	and dementia_end	== 1	then	return "	"	end	-- overloading a 6th bullet
+		if	curanim == "reload_finish"	and dementia_end	== 1	then	return "reload_finish_overload"	end	-- overloading a 6th bullet
 	end
 end
 

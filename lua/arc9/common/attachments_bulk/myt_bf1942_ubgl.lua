@@ -715,7 +715,8 @@ ATT.MuzzleParticleUBGL = "muzzleflash_shotgun"
 
 ATT.ModelOffset = Vector(10, 0, -1)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
-
+-- 47.1342 -38.4459 -19.38
+-- -45.9059 39.9387 -26.0967
 ATT.Sights = {
     {
         Pos = Vector(4.1, 10, -5.1),

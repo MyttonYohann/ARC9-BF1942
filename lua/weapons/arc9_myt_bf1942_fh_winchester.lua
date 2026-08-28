@@ -1053,29 +1053,6 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_finish" 	then	return "reload_finish_fail"	end	-- overloading
 	end
 end
--- please add a blockreload hook like blockfire
---[[function SWEP:CanReload()
-	-- base code --
-    if self:GetOwner():KeyDown(IN_WALK) then return false end
-    if self:StillWaiting() then return end
-    if self:GetCapacity(self:GetUBGL()) <= 0 then return end
-    -- if self:GetTraversalSprintAmount() >= 0 then return end
-    local ammo = self:Ammo1()
-    if self:GetUBGL() then
-        ammo = self:Ammo2()
-    end
-    if ammo <= 0 and !self:GetInfiniteAmmo() then return end
-    if !self:GetProcessedValue("ReloadWhileSprint", true) and self:GetSprintAmount() > 0 then
-        return
-    end
-    if self:GetJammed() then return end
-    if self:GetCustomize() then
-        return
-    end
-	-- separate check --
-	if wep:GetNeedsCycle() and wep:Clip1() == wep:GetValue("ClipSize") then return end
-    return true
-end]]
 
 -------------------------- ATTACHMENTS
 
