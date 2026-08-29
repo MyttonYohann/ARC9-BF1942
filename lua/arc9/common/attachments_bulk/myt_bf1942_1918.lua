@@ -25,6 +25,41 @@
 -- Gnostic			-- Magfed
 -- Hermetic			-- Beltfed
 
+
+--[[ for other modders making a PR/fork
+use bonemerge and bodygroup, everything always has a blank body group,
+so you dont need to modify the .mdl directly, i dont provide them for a reason but just know that the blank bodygroup will ALWAYS be at a fixed order even if i add more stuff in the future
+bonemerge is the exact same qc has a decompile model, with only the idle animation
+example for berdan
+
+---
+ATT.Model = "[your bonemerge model]"
+ATT.BoneMerge = true
+ATT.ActivateElements = {"--[your_element_name]--"}
+
+ATT.Hook_ModifyBodygroups = function(wep, data)
+    local model = data.model
+	if wep:HasElement("--[your_element_name]--") then
+	model:SetBodygroup(0,3) -- main
+	model:SetBodygroup(1,4) -- ammo type
+	model:SetBodygroup(2,3) -- handguard
+	model:SetBodygroup(3,3) -- sight
+	model:SetBodygroup(4,0) -- magazine
+	model:SetBodygroup(5,0) -- bayonet
+	end
+end
+
+ATT.DrawFunc = function(wep, model, wm)
+	if [other conditions like ironsight/foregrip rail and shit] then 
+	model:SetBodygroup(0,1)	-- modified state
+	else
+	model:SetBodygroup(0,0)	-- default state
+	end
+end
+---
+]]
+
+
 local ATT = {}
 
 
