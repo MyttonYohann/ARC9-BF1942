@@ -802,23 +802,23 @@ SWEP.Animations = {
 }
 
 SWEP.DementiaCounter = 0
+SWEP.DementiaVariation = 0
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end		-- 	bodging for off hand weapon
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
 	
 	-- reload fuck up --
     local rng = math.Truncate(util.SharedRandom("vest pex best pex", 1,100))
-	local varextra = 0		-- for att
 	local dementia_end = 0	-- accidental overloading only for the 5th to 6th bullet, ending at 4th or lower wont trigger
 
-	if wep:HasElement("cal_sg") then varextra = 10
-	elseif wep:HasElement("cal_50") then varextra = 12
-	elseif wep:HasElement("cal_gl") then varextra = -10
-	elseif wep:HasElement("cal_mag") then varextra = 25
+	if wep:HasElement("cal_sg") then wep.DementiaVariation = 10
+	elseif wep:HasElement("cal_50") then wep.DementiaVariation = 12
+	elseif wep:HasElement("cal_gl") then wep.DementiaVariation = -10
+	elseif wep:HasElement("cal_mag") then wep.DementiaVariation = 25
 	end
 
 	-- sometimes you just kinda forgot about the iron fleet and euron forces
-	if	wep:Clip1() == 5 then	dementia_end = 1 end
+	if	wep:Clip1() == wep:GetValue("ClipSize") then	dementia_end = 1 end
 
 	if curanim == "reload_insert" then
 		wep.DementiaCounter = wep.DementiaCounter + 12	-- gradual demetia
@@ -832,7 +832,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		wep.DementiaCounter = 5
 	end
 
-    if rng <= 10 + varextra  then		-- base is 10 % failure
+    if rng <= 10 + wep.DementiaVariation  then		-- base is 10 % failure
 		if	curanim == "reload_empty"	then 	return "reload_fail"		end	
 
 		if	curanim == "reload_insert"	then 	return "reload_insert_fail"	end
