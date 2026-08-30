@@ -1107,13 +1107,31 @@ ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[khyber
 bolt action
 ]]
+ATT.CanReloadWhileUnCycled = true
+-- refer to berdan mag convert for doc
+ATT.Bodge_Cycle = 0
+ATT.Hook_BlockAnimation = function(wep, curanim)
+	if wep.Bodge_Cycle == 1 then
+	if	curanim == "cycle" 				then return true end
+	if	curanim == "cycle_empty" 		then return true end
+	if	curanim == "cycle_iron" 		then return true end
+	if	curanim == "cycle_empty_iron" 	then return true end
+	end
+end
 -- has to do it manually otherwise it would stack
 ATT.Hook_TranslateAnimation = function(wep, curanim)
-	if	curanim == "reload_empty"		then	return "reload_empty_bolt"		end
-	if	curanim == "reload"				then	return "reload_bolt"			end
-	if	curanim == "reload_fail"		then	return "reload_bolt"			end	
-	if	curanim == "fire"				then	return "fire_bolt"				end	
-	if	curanim == "fire_iron"			then	return "fire_bolt"				end
+	if wep:GetNeedsCycle()	then
+		if	curanim == "reload" 			then 	wep.Bodge_Cycle = 1 return "reload_bolt_fast"		end	
+		if	curanim == "reload_fail" 		then 	wep.Bodge_Cycle = 1 return "reload_bolt_fast"		end	
+		if	curanim == "reload_empty" 		then 	wep.Bodge_Cycle = 1 return "reload_bolt_fast"		end	
+	else
+		if	curanim == "reload_empty"		then	return "reload_empty_bolt"		end
+		if	curanim == "reload"				then	return "reload_bolt"			end
+		if	curanim == "reload_fail"		then	return "reload_bolt"			end	
+	end
+		if	curanim == "fire"				then	wep.Bodge_Cycle = 0 return "fire_bolt"				end	
+		if	curanim == "fire_iron"			then	wep.Bodge_Cycle = 0 return "fire_bolt"				end	
+	if	curanim == "idle" 	then 	wep.Bodge_Cycle = 0	end
 end
 
 --ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}

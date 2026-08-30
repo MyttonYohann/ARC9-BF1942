@@ -199,8 +199,8 @@ SWEP.IronSights = {
 }
 
 SWEP.Crosshair = true
-SWEP.PeekPos = Vector(1.75, 3, -1)
-SWEP.PeekAng = Angle(0, 0, -10)
+SWEP.PeekPos = Vector(1.5, -1, -1)
+SWEP.PeekAng = Angle(0, 0, -5)
 
 SWEP.BipodPos = Vector(-2.58, 0, 1)
 SWEP.BipodAng = Angle(0, 0, -5)
@@ -402,13 +402,13 @@ SWEP.Animations = {
         { t = 0.125, lhik = 1, rhik = 0, },{ t = 0.75, lhik = 1, rhik = 0, },{ t = 0.95, lhik = 1, rhik = 1, },
         },
         EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
 			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 13 / 40},
 			{s =  "myt_bf1942/dc/ak_bolt4.ogg" ,   t = 32 / 40},
-            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 38 / 40},
-            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 62 / 40},
-            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 115 / 40},
-            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 114 / 40},
+			{s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 38 / 40},
+			{s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 62 / 40},
+			{s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 115 / 40},
+			{s =  "myt_bf1942/dc/ak_foley3.ogg" ,    t = 114 / 40},
         },
     },  
     ["reload_empty_bolt"] = {
@@ -420,13 +420,30 @@ SWEP.Animations = {
         { t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
         },
         EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
 			{s =  "myt_bf1942/dc/ak_bolt1.ogg" ,   t = 13 / 40},
 			{s =  "myt_bf1942/dc/ak_bolt2.ogg" ,   t = 25 / 40},
-            {s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 44 / 40},
-            {s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 84 / 40},
-            {s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 123 / 40},
-            {s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 145 / 40},
+			{s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 44 / 40},
+			{s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 84 / 40},
+			{s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 123 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 145 / 40},
+        },
+    }, 
+    ["reload_bolt_fast"] = {
+        Source = "dry_bolt_fast",
+        FireASAP = true,
+        MinProgress = 0.925,
+        IKTimeLine = {
+        { t = 0, lhik = 1, rhik = 1, },
+        { t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
+        },
+        EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 8 / 40},  
+			{s =  "myt_bf1942/dc/ak_mag1.ogg" ,    t = 27/ 40},
+			{s =  "myt_bf1942/dc/ak_foley2.ogg" ,    t = 67 / 40},
+			{s =  "myt_bf1942/dc/ak_mag2.ogg" ,    t = 106 / 40},
+			{s =  "myt_bf1942/dc/ak_bolt3.ogg" ,    t = 132 / 40},
         },
     }, 
 --------------------------------------------------------
