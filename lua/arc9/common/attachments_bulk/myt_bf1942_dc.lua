@@ -1113,9 +1113,7 @@ ATT.Bodge_Cycle = 0
 ATT.Hook_BlockAnimation = function(wep, curanim)
 	if wep.Bodge_Cycle == 1 then
 	if	curanim == "cycle" 				then return true end
-	if	curanim == "cycle_empty" 		then return true end
 	if	curanim == "cycle_iron" 		then return true end
-	if	curanim == "cycle_empty_iron" 	then return true end
 	end
 end
 -- has to do it manually otherwise it would stack
@@ -1142,7 +1140,7 @@ ATT.ActivateElements = {"cal_6",}
 
 ATT.ClipSizeOverride = 6
 
-ATT.RPMMult = 300 / 600
+--ATT.RPMMult = 300 / 600
 
 ATT.SpreadAdd = -0.0025
 ATT.SpreadSights = 0.001

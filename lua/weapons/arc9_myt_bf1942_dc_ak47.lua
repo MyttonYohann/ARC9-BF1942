@@ -267,7 +267,9 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim) -- numero random, uno per 
 		if	curanim == "reload" then return "reload_fail"	end	
 	end
 end
-
+SWEP.BulletBones = {
+    [1] = {"W_Bullet"}
+}
 
 SWEP.Animations = {
     ["fire"] = {
@@ -286,38 +288,12 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 15 / 40},
         },
     },
-    ["cycle_empty"] = {
-		Source = {"bolt_last"},
-		MinProgress = 27/40,
-		EjectAt = 20/ 40,
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, }, { t = 0.05, lhik = 1, rhik = 1, }, 
-        { t = 0.15, lhik = 1, rhik = 0, },{ t = 0.6, lhik = 1, rhik = 0, },{ t = 0.7, lhik = 1, rhik = 1, },
-        },
-        EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 8 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 15 / 40},
-        },
-    },
     ["cycle_iron"] = {
 		Source = {"bolt_iron"},
 		EjectAt = 20/ 40,
 		MinProgress = 27/40,
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 1, }, { t = 0.05, lhik = 1, rhik = 1, }, 
-        { t = 0.15, lhik = 1, rhik = 0, },{ t = 0.6, lhik = 1, rhik = 0, },{ t = 0.7, lhik = 1, rhik = 1, },
-        },
-        EventTable = {
-            {s =  "myt_bf1942/1918/Berdan_Bolt1.ogg" ,   t = 8 / 40},  
-			{s =  "myt_bf1942/1918/Berdan_Bolt2.ogg" ,   t = 15 / 40},
-        },
-    },
-    ["cycle_empty_iron"] = {
-		Source = {"bolt_last_iron"},
-		EjectAt = 20/ 40,
-		MinProgress = 27/40,
-		IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },       { t = 0.05, lhik = 1, rhik = 1, }, 
         { t = 0.15, lhik = 1, rhik = 0, },{ t = 0.6, lhik = 1, rhik = 0, },{ t = 0.7, lhik = 1, rhik = 1, },
         },
         EventTable = {
