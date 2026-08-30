@@ -430,6 +430,68 @@ ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan6")
 
 ATT = {}
 
+ATT.PrintName = [[Sport Kit]]
+ATT.CompactName = [[K. Sport]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.CustomCons = { Malfunction = "+25%" }
+ATT.Description = [[This thing is basically a shitty sporter conversion innit.
+Sometimes the character develops alzheimers and (attempt to) overload a (4)th round.
+]]
+
+
+ATT.SortOrder = 0.1
+ATT.Category = "bf1942_1918_berdan_cal"
+ATT.ActivateElements = {"cal_sport"}
+
+ATT.CanReloadWhileUnCycled = true
+
+ATT.Bodge_Cycle = 0
+-- this stupid base keeps the damn gun uncycled so you cant even cancel reload
+ATT.Hook_Think  = function(wep)
+	if wep:GetOwner():KeyPressed(IN_ATTACK) then -- the whole primary attack function is disabled when the gun is uncycled so i cant use Hook_PrimaryAttack
+		if wep.Bodge_Cycle == 1 then
+			wep:SetNeedsCycle(false) -- happy accident, turns out this forces the gun to stop reloading, i still have no idea why but i cant give a shit anymore
+		end
+	end
+end
+ATT.Hook_BlockAnimation = function(wep, curanim)
+	if wep.Bodge_Cycle == 1	then
+	if	curanim == "cycle" 		then return true end
+	if	curanim == "cycle_fail" then return true end
+	end
+end
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if wep:GetInSights() and wep:HasElement("has_optic")	then
+		--if	curanim == "fire" 			then 	return "fire_bolt_iron"			end	
+		if	curanim == "cycle" 				then 	return "cycle_bolt_iron"		end	
+		if	curanim == "cycle_fail" 		then 	return "cycle_bolt_iron_fail"	end	
+	end
+	if wep:GetNeedsCycle()	then
+		if	curanim == "reload_start" 		then 	wep.Bodge_Cycle = 1 return "reload_start_fast"		end	
+		if	curanim == "reload_start_empty" then 	wep.Bodge_Cycle = 1 return "reload_start_fast"		end	
+	end
+	if	curanim == "fire" 	then 	wep.Bodge_Cycle = 0	end -- not using Hook_PrimaryAttack cos it also calls when melee
+end
+
+ATT.ShotgunReload = true
+ATT.ManualAction = true
+ATT.ManualActionNoLastCycle = false
+ATT.ClipSize = 3
+ATT.SupplyLimit = 4
+
+ATT.DamageMaxMultMult = 0.8
+ATT.DamageMinMultMult = 0.8
+ATT.SpreadAdd = 0.0025
+ATT.SpreadSights = 0.0125
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan9")
+
+
+----------------------------------------------------------------------------------
+
+
+ATT = {}
+
 ATT.PrintName = [[Bayonet]]
 ATT.CompactName = [[Bayonet]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
