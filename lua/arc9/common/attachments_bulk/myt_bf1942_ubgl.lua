@@ -674,7 +674,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_ubgl_finish" 		then	return "reload_ubgl_finish_empty"	end
 	end
 end
---THEY BROKE THE FUCKING UBGL ANIM
+--THEY BROKE THE FUCKING UBGL FIRING FUNCTION
 ATT.HookP_BlockFire = function(wep, curanim)	
 	if	wep:GetReloading()	then return true end
 end

@@ -956,6 +956,7 @@ SWEP.DementiaCounter = 0
 SWEP.Bodge_Cycle = 0
 SWEP.Bodge_Chamber = 0
 SWEP.Bodge_Final = 0
+SWEP.Bodge_UBGL = 0
 SWEP.Hook_Think = function(wep, curanim) 
 	if wep.Bodge_Cycle == 1 then
 		-- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
@@ -963,6 +964,12 @@ SWEP.Hook_Think = function(wep, curanim)
 			wep:SetNeedsCycle(false)
 		end
 	end
+	
+	-- 'stores' the uncycled state when the gun is in ubgl, i swear this base is barely functional and they gunna break all of this in an 'attempt' to fix the base
+	if wep:GetNeedsCycle() and wep:GetUBGL(true) then
+		wep:SetNeedsCycle(false)
+		wep.Bodge_UBGL = 1
+	end	
 end
 
 SWEP.Hook_BlockAnimation = function(wep, curanim)
@@ -984,8 +991,14 @@ SWEP.Hook_BlockAnimation = function(wep, curanim)
 	end
 end
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
-	if	curanim == "exit_ubgl_empty"		then return "exit_ubgl"			end		-- 	bodging for off hand weapon
-	if	curanim == "exit_ubgl_glempty"		then return "exit_ubgl"			end	
+-- 	bodging for off hand weapon
+	if	curanim == "exit_ubgl_empty" or curanim == "exit_ubgl_glempty"	then
+		if wep.Bodge_UBGL == 1 then
+			wep:SetNeedsCycle(true) -- pretty sure this doesnt work
+			wep.Bodge_UBGL = 0 
+		end		
+		return "exit_ubgl"	
+	end		
 
 	-- uncycled state
 	if wep:GetNeedsCycle()	then

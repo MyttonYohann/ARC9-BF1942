@@ -1119,16 +1119,17 @@ end
 -- has to do it manually otherwise it would stack
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if wep:GetNeedsCycle()	then
-		if	curanim == "reload" 			then 	wep.Bodge_Cycle = 1 return "reload_bolt_fast"		end	
-		if	curanim == "reload_fail" 		then 	wep.Bodge_Cycle = 1 return "reload_bolt_fast"		end	
-		if	curanim == "reload_empty" 		then 	wep.Bodge_Cycle = 1 return "reload_bolt_fast"		end	
+		if	curanim == "reload" or curanim == "reload_fail" or curanim == "reload_empty"	then 
+		wep.Bodge_Cycle = 1 
+		return "reload_bolt_fast"		
+	end	
 	else
-		if	curanim == "reload_empty"		then	return "reload_empty_bolt"		end
-		if	curanim == "reload"				then	return "reload_bolt"			end
-		if	curanim == "reload_fail"		then	return "reload_bolt"			end	
+		if	curanim == "reload_empty"	then	return "reload_empty_bolt"		end
+		if	curanim == "reload"			then	return "reload_bolt"			end
+		if	curanim == "reload_fail"	then	return "reload_bolt"			end	
 	end
-		if	curanim == "fire"				then	wep.Bodge_Cycle = 0 return "fire_bolt"				end	
-		if	curanim == "fire_iron"			then	wep.Bodge_Cycle = 0 return "fire_bolt"				end	
+		if	curanim == "fire"			then	wep.Bodge_Cycle = 0 return "fire_bolt"				end	
+		if	curanim == "fire_iron"		then	wep.Bodge_Cycle = 0 return "fire_bolt"				end	
 	if	curanim == "idle" 	then 	wep.Bodge_Cycle = 0	end
 end
 
@@ -1268,35 +1269,39 @@ ATT.IKAnimationProxy = {
     },
 } -- When an animation event plays, override it with one based on this LHIK model.
 
-ATT.IKAnimationAlsoPlayBase = true	 ---?? does this fucking work
+-- ATT.IKAnimationAlsoPlayBase = true	 ---?? does this fucking work
 -- cant play both of them?
 -- possible bodge: play reload_knife_start and THEN play the actual reload anim
 
+
 --works, kind of, jitters a bit and reload stage gets undefined for some reason so you can still shoot and shit during reload
---[[ATT.Hook_PostReload = function(wep)
+ATT.Hook_PostReload = function(wep)
 	wep:PlayAnimation("reload_knife_start")
 
-	timer.Create("Bodge", 0.05, 1, function()
+	timer.Create("Bodge", 1/32, 1, function()
 	wep:PlayAnimation("reload")
 	end)
-end]]
+end
 
---[[ this works
 ATT.Hook_EndReload = function(wep)
 	wep:SetReloading(false)
 	wep:PlayAnimation("reload_knife_end")
-	timer.Simple(.01, function() wep:PlayAnimation("idle_knife") end)
+	timer.Simple(1/32, function() wep:PlayAnimation("idle_knife") end)
 	 -- force snap to idle
-end]]
+end
 
---fuck me in the ass SORRY SORRY SORRY
-ATT.DrawFunc = function(wep, model) 
+ATT.HookP_BlockFire = function(wep, curanim)	
+	if	wep:GetReloading()	then return true end
+end
+
+--backup
+--[[ATT.DrawFunc = function(wep, model) 
 	if wep:GetReloading() then
 		model:SetModel("models/weapons/myt_bf1942/atts/dc/c_knife_uhand2.mdl")
 	else
 		model:SetModel("models/weapons/myt_bf1942/atts/dc/c_knife_uhand.mdl")
 	end
-end
+end]]
 
 ATT.IKGunMotionQCA = 2
 ATT.MuzzleDeviceUBGL = false
