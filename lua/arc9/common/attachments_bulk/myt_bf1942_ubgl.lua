@@ -635,11 +635,11 @@ ATT.UBGL = true
 
 ATT.ShotgunReloadUBGL = true
 ATT.UBGLAmmo = "buckshot"
-ATT.UBGLClipSize = 5
+ATT.UBGLClipSize = 4
 ATT.UBGLFiremode = 1
 ATT.SecondarySupplyLimit = 6
 ATT.UBGLFiremodeName = "R870"
-ATT.UBGLChamberSize = 0
+ATT.UBGLChamberSize = 1
 ATT.ShootVolumeUBGL = 110
 ATT.RPMUBGL = 54
 
@@ -674,6 +674,11 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_ubgl_finish" 		then	return "reload_ubgl_finish_empty"	end
 	end
 end
+--THEY BROKE THE FUCKING UBGL ANIM
+ATT.HookP_BlockFire = function(wep, curanim)	
+	if	wep:GetReloading()	then return true end
+end
+ATT.ShotgunReloadIncludesChamber = false
 ATT.SpreadUBGL = 0.02
 ATT.SpreadMultSightsUBGL = 0.02 -- doesnt fucking work
 ATT.FirstShootSoundUBGL = false

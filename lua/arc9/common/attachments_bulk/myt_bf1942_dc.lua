@@ -1140,8 +1140,6 @@ ATT.ActivateElements = {"cal_6",}
 
 ATT.ClipSizeOverride = 6
 
---ATT.RPMMult = 300 / 600
-
 ATT.SpreadAdd = -0.0025
 ATT.SpreadSights = 0.001
 ATT.DamageMaxMult = 3
