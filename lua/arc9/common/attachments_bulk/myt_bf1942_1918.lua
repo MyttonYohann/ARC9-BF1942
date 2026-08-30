@@ -727,6 +727,123 @@ end
 ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley5")
 
 ----------------------------------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Monolith Conversion]]
+ATT.CompactName = [[C. Monolith]]
+ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
+ATT.Description = [[Single shot, many pellets
+]]
+--i wanted to make this a double barrel like the hydra 
+--but i dont have the anim source files or model editing skills to do that so this will have to do, also its a balancing mess LOL
+ATT.SortOrder = 1
+ATT.Category = "bf1942_1918_webley_barrel"
+ATT.ActivateElements = {"b_6"}
+
+ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if	curanim == "reload_empty"		then	return "reload_empty_riflesingle"	end
+	if	curanim == "reload"				then	return "reload_empty_riflesingle"				end	
+	if	curanim == "reload_empty_fail"	then 	return "reload_empty_riflesingle"	end	
+	if	curanim == "reload_fail"		then 	return "reload_empty_riflesingle"				end	
+
+	if	curanim == "idle"				then 	return "idle_rifle"					end	
+	if	curanim == "draw"				then 	return "draw_rifle"					end	
+	if	curanim == "ready"				then 	return "draw_rifle"					end	
+	if	curanim == "holster"			then 	return "holster_rifle"				end	
+	if	curanim == "fire" and wep:GetInSights()	
+		then 	return "fire_riflesingle_iron"		
+	end
+	if	curanim == "fire"				then 	return "fire_riflesingle"				end	
+	if	curanim == "dryfire"			then 	return "dryfire_riflesingle"			end	
+	if	curanim == "trigger"			then 	return "trigger_rifle"			end	
+	if	curanim == "untrigger"			then 	return "untrigger_rifle"		end	
+end
+
+ATT.ActivePosHook = 	function(wep, vec)	return vec + Vector(0, -1, -0.5) end
+
+ATT.TriggerDelay = false
+ATT.RPM = 70
+ATT.Malfunction = false
+ATT.SpreadMultSightsMult = 2
+ATT.SpreadMult = 4
+
+ATT.RecoilMult = 1.3
+ATT.RecoilPatternDriftMult = 0.5
+
+ATT.RangeMaxMult = 0.5
+ATT.DistanceMult = 3
+
+ATT.AimDownSightsTimeMult = 1.5
+ATT.SprintToFireTimeMult = 1.5
+ATT.BarrelLengthAdd = 24
+
+ATT.SprintPos = Vector(2, 5, -2)
+ATT.SprintAng = Angle(40, -15, -15)
+
+ATT.HoldType = "ar2"
+ATT.HoldTypeSights = "ar2"
+
+ATT.IronSights = {
+    Pos = Vector(-2.705, 5, 0.875),
+    Ang = Angle(0,0,0),
+    Midpoint = { -- Where the gun should be at the middle of it's irons
+        Pos = Vector(0, 15, -4),
+        Ang = Angle(0, 0, -45),
+    },
+    Magnification = 1.1,
+    CrosshairInSights = false
+}
+
+ATT.ClipSize = 1
+ATT.MuzzleParticle = "muzzleflash_pistol_rbull"
+
+
+ATT.NumOverride = 10
+ATT.SpreadAdd = 0.01
+ATT.SpreadSights = 0.1
+ATT.DamageMaxMult = 0.4
+ATT.DamageMinMult = 0.4
+
+ATT.RecoilMult = 3
+ATT.RecoilPatternDriftMult = 5
+
+ATT.PhysBulletMuzzleVelocity = 1240 * 12
+ATT.ImpactForce = 4
+
+ATT.Ammo = "buckshot"
+ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
+ATT.ShellScale = 0.5
+
+ATT.Attachments = {
+    {
+        PrintName = "Ammo Type",
+        DefaultName = "Default Type",
+        Category = {"css_ammo_sg"},
+        Pos = Vector(5, 0, 0),
+        Ang = Angle(0, 0, 0),
+    },
+}
+
+ATT.Penetration = 0
+
+ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
+
+ATT.Firemodes = {
+    {
+        Mode = 1,
+		PrintName = "SINGLE",
+    },
+}
+
+ATT.BulletBones = { 
+    [0] = "W_Ammo1", --look its jank and it works ok
+}
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley6")
+
+----------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------
 
 --- Winchester ---
