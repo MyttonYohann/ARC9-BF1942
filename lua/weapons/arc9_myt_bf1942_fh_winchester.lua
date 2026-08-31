@@ -1015,7 +1015,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		wep.Bodge_Chamber = 0 
 		wep.Bodge_Final = 0
 	end
-	if	curanim == "idle" or curanim == "fire" then
+	if	curanim == "fire" then
 		wep.Bodge_Cycle = 0
 		wep.Bodge_Chamber = 0
 		wep.Bodge_Final = 0
