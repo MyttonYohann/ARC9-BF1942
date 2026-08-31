@@ -1117,17 +1117,25 @@ ATT.Hook_BlockAnimation = function(wep, curanim)
 	end
 end
 ATT.Hook_PostReload = function(wep, curanim, ammoType)
-	if wep.Bodge_Cycle == 1 then
-		wep:GetOwner():GiveAmmo( wep:Clip1(), wep:GetPrimaryAmmoType(), true )	
-		wep:SetClip1(0)
+	if wep.Bodge_Cycle == 1 and wep:Clip1() != wep:GetValue("ClipSize") then -- very inelegant way of doing it
+		wep:GetOwner():GiveAmmo( wep:Clip1(), wep:GetPrimaryAmmoType(), true )	 -- give back boolets
+		wep:SetClip1(0) -- force ammo to zero to stop +1 in chamber
 	end
 end
 -- has to do it manually otherwise it would stack
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if wep:GetNeedsCycle() then
-		if	curanim == "reload" or curanim == "reload_fail" or curanim == "reload_empty" then 
+		if curanim == "reload" or curanim == "reload_fail" then 
 			wep.Bodge_Cycle = 1 
-			return "reload_bolt_fast"
+			if wep:Clip1() == wep:GetValue("ClipSize") then
+				return "reload_bolt_fast_single"
+			else
+				return "reload_bolt_fast"
+			end
+		end
+		if	curanim == "reload_empty" then 
+			wep.Bodge_Cycle = 1 
+			return "reload_bolt_fast_dry"
 		end	
 	else
 		if	curanim == "reload_empty"	then	return "reload_empty_bolt"		end
@@ -1147,6 +1155,7 @@ ATT.Category = "bf1942_dc_ak47_cal"
 ATT.ActivateElements = {"cal_6",}
 
 ATT.ClipSizeOverride = 6
+ATT.SupplyLimitOverride = 4
 
 ATT.SpreadAdd = -0.0025
 ATT.SpreadSights = 0.001
