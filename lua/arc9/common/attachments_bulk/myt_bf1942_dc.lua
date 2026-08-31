@@ -1116,8 +1116,11 @@ ATT.Hook_BlockAnimation = function(wep, curanim)
 	if	curanim == "cycle_iron" 		then return true end
 	end
 end
-ATT.Hook_PostReload = function(wep, curanim)
-	if wep.Bodge_Cycle == 1 then	wep:SetClip1(0)	end
+ATT.Hook_PostReload = function(wep, curanim, ammoType)
+	if wep.Bodge_Cycle == 1 then
+		wep:GetOwner():GiveAmmo( wep:Clip1(), wep:GetPrimaryAmmoType(), true )	
+		wep:SetClip1(0)
+	end
 end
 -- has to do it manually otherwise it would stack
 ATT.Hook_TranslateAnimation = function(wep, curanim)
