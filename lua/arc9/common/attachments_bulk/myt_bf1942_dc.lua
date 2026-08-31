@@ -1116,10 +1116,10 @@ ATT.Hook_BlockAnimation = function(wep, curanim)
 	if	curanim == "cycle_iron" 		then return true end
 	end
 end
-ATT.Hook_PostReload = function(wep, curanim, ammoType)
-	if wep.Bodge_Cycle == 1 and wep:Clip1() != wep:GetValue("ClipSize") then -- very inelegant way of doing it
-		wep:GetOwner():GiveAmmo( wep:Clip1(), wep:GetPrimaryAmmoType(), true )	 -- give back boolets
-		wep:SetClip1(0) -- force ammo to zero to stop +1 in chamber
+ATT.Hook_EndReload = function(wep, curanim, ammoType)
+	if wep.Bodge_Cycle == 1 and wep:Clip1() != wep:GetValue("ClipSize") and wep:Clip1() > 0 then -- very inelegant way of doing it
+		wep:GetOwner():GiveAmmo( wep:GetValue("ChamberSize"), wep:GetPrimaryAmmoType(), true )	 -- give back boolets
+		wep:SetClip1(wep:GetValue("ClipSize") ) -- force NOT +1 in chamber
 	end
 end
 -- has to do it manually otherwise it would stack

@@ -411,6 +411,7 @@ SWEP.Animations = {
 		EjectAt = 17/ 40,
 		MinProgress = 0.925,
 		MagSwapTime = 0.1,
+		RefillProgress = 110/40,
 		IKTimeLine = {
 		{ t = 0, lhik = 1, rhik = 1, },
 		{ t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
@@ -430,6 +431,7 @@ SWEP.Animations = {
 		EjectAt = 17/ 40,
 		MinProgress = 0.925,
 		MagSwapTime = 60/40,
+		RefillProgress = 110/40,
 		IKTimeLine = {
 		{ t = 0, lhik = 1, rhik = 1, },
 		{ t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
