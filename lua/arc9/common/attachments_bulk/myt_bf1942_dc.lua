@@ -1145,7 +1145,6 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 
 	if	curanim == "fire"		then	wep.Bodge_Cycle = 0 return "fire_bolt"	end	
 	if	curanim == "fire_iron"	then	wep.Bodge_Cycle = 0 return "fire_bolt"	end	
-	if	curanim == "idle" 		then 	wep.Bodge_Cycle = 0	end	
 end
 
 --ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}

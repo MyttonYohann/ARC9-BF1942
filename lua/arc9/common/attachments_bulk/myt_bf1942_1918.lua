@@ -408,7 +408,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_start" 		then 	wep.Bodge_Cycle = 1 return "reload_start_fast"		end	
 		if	curanim == "reload_start_empty" then 	wep.Bodge_Cycle = 1 return "reload_start_fast"		end	
 	end
-	if	curanim == "fire" 	then 	wep.Bodge_Cycle = 0	end -- not using Hook_PrimaryAttack cos it also calls when melee
+	if	curanim == "fire" then 	wep.Bodge_Cycle = 0	end -- not using Hook_PrimaryAttack cos it also calls when melee
 end
 
 ATT.ShotgunReload = true
