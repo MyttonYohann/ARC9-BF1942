@@ -278,7 +278,7 @@ SWEP.Animations = {
 	["cycle"] = {
 		Source = {"bolt"},
 		MinProgress = 27/40,
-		EjectAt = 20/ 40,
+		EjectAt = 17/ 40,
 		IKTimeLine = {
 		{ t = 0, lhik = 1, rhik = 1, }, { t = 0.05, lhik = 1, rhik = 1, }, 
 		{ t = 0.15, lhik = 1, rhik = 0, },{ t = 0.6, lhik = 1, rhik = 0, },{ t = 0.7, lhik = 1, rhik = 1, },
@@ -290,7 +290,7 @@ SWEP.Animations = {
 	},
 	["cycle_iron"] = {
 		Source = {"bolt_iron"},
-		EjectAt = 20/ 40,
+		EjectAt = 17/ 40,
 		MinProgress = 27/40,
 		IKTimeLine = {
 		{ t = 0, lhik = 1, rhik = 1, }, { t = 0.05, lhik = 1, rhik = 1, }, 
@@ -408,6 +408,7 @@ SWEP.Animations = {
 	["reload_bolt_fast"] = {
 		Source = "dry_bolt_fast",
 		FireASAP = true,
+		EjectAt = 17/ 40,
 		MinProgress = 0.925,
 		MagSwapTime = 60/40,
 		IKTimeLine = {

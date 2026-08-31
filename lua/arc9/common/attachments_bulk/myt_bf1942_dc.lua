@@ -1116,22 +1116,25 @@ ATT.Hook_BlockAnimation = function(wep, curanim)
 	if	curanim == "cycle_iron" 		then return true end
 	end
 end
+ATT.Hook_PostReload = function(wep, curanim)
+	if wep.Bodge_Cycle == 1 then	wep:SetClip1(0)	end
+end
 -- has to do it manually otherwise it would stack
 ATT.Hook_TranslateAnimation = function(wep, curanim)
-	if wep:GetNeedsCycle()	then
-		if	curanim == "reload" or curanim == "reload_fail" or curanim == "reload_empty"	then 
-		wep.Bodge_Cycle = 1 
-		wep:SetClip1(0)
-		return "reload_bolt_fast"		
-	end	
+	if wep:GetNeedsCycle() then
+		if	curanim == "reload" or curanim == "reload_fail" or curanim == "reload_empty" then 
+			wep.Bodge_Cycle = 1 
+			return "reload_bolt_fast"
+		end	
 	else
 		if	curanim == "reload_empty"	then	return "reload_empty_bolt"		end
 		if	curanim == "reload"			then	return "reload_bolt"			end
 		if	curanim == "reload_fail"	then	return "reload_bolt"			end	
 	end
-		if	curanim == "fire"			then	wep.Bodge_Cycle = 0 return "fire_bolt"				end	
-		if	curanim == "fire_iron"		then	wep.Bodge_Cycle = 0 return "fire_bolt"				end	
-	if	curanim == "idle" 	then 	wep.Bodge_Cycle = 0	end
+
+	if	curanim == "fire"		then	wep.Bodge_Cycle = 0 return "fire_bolt"	end	
+	if	curanim == "fire_iron"	then	wep.Bodge_Cycle = 0 return "fire_bolt"	end	
+	if	curanim == "idle" 		then 	wep.Bodge_Cycle = 0	end	
 end
 
 --ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
