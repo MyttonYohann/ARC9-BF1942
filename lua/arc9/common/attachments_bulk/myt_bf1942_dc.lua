@@ -1121,6 +1121,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if wep:GetNeedsCycle()	then
 		if	curanim == "reload" or curanim == "reload_fail" or curanim == "reload_empty"	then 
 		wep.Bodge_Cycle = 1 
+		wep:SetClip1(0)
 		return "reload_bolt_fast"		
 	end	
 	else
