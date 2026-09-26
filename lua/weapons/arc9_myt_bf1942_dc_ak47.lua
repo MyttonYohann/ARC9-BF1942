@@ -30,9 +30,9 @@ SWEP.MirrorVMWM = true
 SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_ak47.mdl"
 SWEP.WorldModelOffset = {
 	Pos = Vector(-1, 2, -7),
-	Ang = Angle(-5, 0, 180),
+	Ang = Angle(-10, 0, 180),
 	TPIKPos = Vector(-8, 2, -7),
-	TPIKAng = Angle(-5, 0, 180),
+	TPIKAng = Angle(-10, 0, 180),
 	Scale = 1
 }
 SWEP.MirrorVMWMHeldOnly = false
@@ -430,7 +430,7 @@ SWEP.Animations = {
 		EjectAt = 17/ 40,
 		MinProgress = 0.925,
 		MagSwapTime = 60/40,
-		RefillProgress = 20/40,
+		RefillProgress = 0.8,
 		IKTimeLine = {
 		{ t = 0, lhik = 1, rhik = 1, },
 		{ t = 0.1, lhik = 1, rhik = 0, }, { t = 0.85, lhik = 1, rhik = 0, },{ t = 0.925, lhik = 1, rhik = 1, },
@@ -900,7 +900,7 @@ SWEP.Attachments = {
 
 		DefaultIcon = Material("arc9/def_att_icons/barrel.png"),
 		ExcludeElements = {"pre_muzzed"},
-		Category = {"muzzle_css"},
+		Category = {"muzzle_css", "bf1942_dc_muzzle_ubgl"},
 		Bone = "W_Main",
 		Pos = Vector(0, -2.25, 28.5),
 		Ang = Angle(90, 0, -90),
@@ -911,7 +911,7 @@ SWEP.Attachments = {
 		DefaultName = "",
 		Hidden = true,
 		InstalledElements = {"nooh"},
-		ExcludeElements = {"nogrip", "u_disk", "u_919x", "u_566"},
+		ExcludeElements = {"nogrip"},
 		Category = {"css_ubgl"},
 		Bone = "W_Main",
 		Pos = Vector(0, 1, 12),

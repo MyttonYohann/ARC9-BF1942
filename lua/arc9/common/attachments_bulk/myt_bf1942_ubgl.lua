@@ -54,7 +54,7 @@ ATT.PeekAngUBGL = Angle(0, 0, -10)
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = { Source = "fire", },	
-    ["idle_ubgl"] = { Source = "ubgl", }, 
+	["idle_ubgl"] = { Source = "ubgl", }, 
 	["idle_ubgl_sights"] = { Source = "ubgl_sight", }, 
 	["idle_ubgl_glempty_sights"] = { Source = "ubgl_sight_last", },  
 	["idle_ubgl_sights_nope"] = { Source = "ubgl_sight_last", }, 
@@ -65,75 +65,75 @@ ATT.IKAnimationProxy = {
 	
 	["fire_ubgl_glempty"] = { Source = "fire_last",  },		
 	["fire_ubgl_empty"] = {Source = "fire_last", },
-    ["reload_ubgl"] = {
-        Source = "ubgl_wet",
-        MinProgress = 0.825,
+	["reload_ubgl"] = {
+		Source = "ubgl_wet",
+		MinProgress = 0.825,
 		FireASAP = true,
-        EventTable = {		
-            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
-            {s =  "myt_bf1942/dc/pss_mag2.ogg" ,    t = 75 / 40},			
-        },
-    },  
+		EventTable = {		
+			{s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
+			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,	t = 75 / 40},			
+		},
+	},  
 	["reload_ubgl_empty"] = {
-        Source = "ubgl_dry",
-        MinProgress = 0.85,
+		Source = "ubgl_dry",
+		MinProgress = 0.85,
 		FireASAP = true,
-        EventTable = {		
-            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
-            {s =  "myt_bf1942/dc/pss_mag2.ogg" ,    t = 75 / 40},	
-            {s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 91/ 40},			
-        },
-    },
-    ["enter_ubgl"] = {
-        Source = "to_ubgl",
-        MinProgress = 0.65,
+		EventTable = {		
+			{s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
+			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,	t = 75 / 40},	
+			{s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 91/ 40},			
+		},
+	},
+	["enter_ubgl"] = {
+		Source = "to_ubgl",
+		MinProgress = 0.65,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
-        },
-    },
-    ["exit_ubgl"] = {
-        Source = "from_ubgl",
-        MinProgress = 0.7,
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 0, },
+		{ t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+		},
+	},
+	["exit_ubgl"] = {
+		Source = "from_ubgl",
+		MinProgress = 0.7,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },
-        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
-        },
-    },
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 1, },
+		{ t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+		},
+	},
 
-    ["enter_ubgl_glempty"] = {
-        Source = "to_ubgl_last",
-        MinProgress = 0.7,
+	["enter_ubgl_glempty"] = {
+		Source = "to_ubgl_last",
+		MinProgress = 0.7,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
-        },
-    },
-    ["exit_ubgl_glempty"] = {
-        Source = "from_ubgl_last",
-        MinProgress = 0.7,
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 0, },
+		{ t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+		},
+	},
+	["exit_ubgl_glempty"] = {
+		Source = "from_ubgl_last",
+		MinProgress = 0.7,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },
-        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
-        },
-    },
-    ["idle_ubgl_glempty"] = { Source = "ubgl_last" },  
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 1, },
+		{ t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+		},
+	},
+	["idle_ubgl_glempty"] = { Source = "ubgl_last" },  
 	["idle_ubgl_empty"] = { Source = "ubgl_last" },	
 	["holster_ubgl"] = { Source = "ubgl_holster"  },
 	["holster_ubgl_empty"] = { Source = "ubgl_holster_last"},
@@ -231,16 +231,16 @@ ATT.ModelOffset = Vector(10, 0, -1)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.Sights = {
-    {
-        Pos = Vector(4.65, 15, -5.75),
-        Ang = Angle(8.5, -4.2, -35),
-        Magnification = 1.05,
-        ViewModelFOV = 60,
-        CrosshairInSights = false,
-        Blur = false,
-        UBGLOnly = true,
-        Disassociate = true,
-    },
+	{
+		Pos = Vector(4.65, 15, -5.75),
+		Ang = Angle(8.5, -4.2, -35),
+		Magnification = 1.05,
+		ViewModelFOV = 60,
+		CrosshairInSights = false,
+		Blur = false,
+		UBGLOnly = true,
+		Disassociate = true,
+	},
 }
 
 ATT.ActivePosUBGL = Vector(4, 3, 0)
@@ -290,81 +290,81 @@ ATT.PeekAngUBGL = Angle(0, 0, -10)
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = { Source = "fire", },	
-    ["idle_ubgl"] = { Source = "ubgl", }, 
+	["idle_ubgl"] = { Source = "ubgl", }, 
 	["fire_ubgl_sights"] = { Source = "fire_ads", },
 	["fire_ubgl_sights_last"] = { Source = "fire_ads_last", },
 
 	["fire_ubgl_glempty"] = { Source = "fire_last",  },		
 	["fire_ubgl_empty"] = {Source = "fire_last", },
-    ["reload_ubgl"] = {
-        Source = "ubgl_wet",
-        MinProgress = 0.825,
+	["reload_ubgl"] = {
+		Source = "ubgl_wet",
+		MinProgress = 0.825,
 		FireASAP = true,
-        EventTable = {		
-            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
-            {s =  "myt_bf1942/dc/pss_mag2.ogg" ,    t = 75 / 40},			
-        },
-    },  
+		EventTable = {		
+			{s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
+			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,	t = 75 / 40},			
+		},
+	},  
 	["reload_ubgl_empty"] = {
-        Source = "ubgl_dry",
-        MinProgress = 0.925,
+		Source = "ubgl_dry",
+		MinProgress = 0.925,
 		FireASAP = true,
-        EventTable = {		
-            {s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
-            {s =  "myt_bf1942/dc/pss_mag2.ogg" ,    t = 75 / 40},	
-            {s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 101 / 40},			
-        },
-    },
-    ["enter_ubgl"] = {
-        Source = "to_ubgl",
-        MinProgress = 0.65,
+		EventTable = {		
+			{s =  "myt_bf1942/dc/pss_mag1.ogg" ,   t = 1 / 40},
+			{s =  "myt_bf1942/dc/pss_mag2.ogg" ,	t = 75 / 40},	
+			{s =  "myt_bf1942/dc/pss_bolt.ogg" ,   t = 101 / 40},			
+		},
+	},
+	["enter_ubgl"] = {
+		Source = "to_ubgl",
+		MinProgress = 0.65,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
-        },
-    },
-    ["exit_ubgl"] = {
-        Source = "from_ubgl",
-        MinProgress = 0.7,
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 0, },
+		{ t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+		},
+	},
+	["exit_ubgl"] = {
+		Source = "from_ubgl",
+		MinProgress = 0.7,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },
-        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
-        },
-    },
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 1, },
+		{ t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+		},
+	},
 
-    ["enter_ubgl_glempty"] = {
-        Source = "to_ubgl_last",
-        MinProgress = 0.7,
+	["enter_ubgl_glempty"] = {
+		Source = "to_ubgl_last",
+		MinProgress = 0.7,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
-        },
-    },
-    ["exit_ubgl_glempty"] = {
-        Source = "from_ubgl_last",
-        MinProgress = 0.7,
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 0, },
+		{ t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+		},
+	},
+	["exit_ubgl_glempty"] = {
+		Source = "from_ubgl_last",
+		MinProgress = 0.7,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },
-        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
-        },
-    },
-    ["idle_ubgl_glempty"] = { Source = "ubgl_last" },  
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 1, },
+		{ t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+		},
+	},
+	["idle_ubgl_glempty"] = { Source = "ubgl_last" },  
 	["idle_ubgl_empty"] = { Source = "ubgl_last" },	
 	["holster_ubgl"] = { Source = "ubgl_holster"  },
 	["holster_ubgl_empty"] = { Source = "ubgl_holster_last"},
@@ -459,16 +459,16 @@ ATT.ModelOffset = Vector(10, 0, -1)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.Sights = {
-    {
-        Pos = Vector(5.1, 10, -5.3),
-        Ang = Angle(7.8, -3.3, -35),
-        Magnification = 1.05,
-        ViewModelFOV = 60,
-        CrosshairInSights = false,
-        Blur = false,
-        UBGLOnly = true,
-        Disassociate = true,
-    },
+	{
+		Pos = Vector(5.1, 10, -5.3),
+		Ang = Angle(7.8, -3.3, -35),
+		Magnification = 1.05,
+		ViewModelFOV = 60,
+		CrosshairInSights = false,
+		Blur = false,
+		UBGLOnly = true,
+		Disassociate = true,
+	},
 }
 
 ATT.ActivePosUBGL = Vector(4, 3, 0)
@@ -520,109 +520,109 @@ ATT.PeekAngUBGL = Angle(0, 0, -10)
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
-        Source = "fire_full2",
-        EventTable = {
-            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
+		Source = "fire_full2",
+		EventTable = {
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 37	 / 40}, 
-            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 43 / 40},  			
-        },
+			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 43 / 40},  			
+		},
 		Mult = 0.95,
-    },
+	},
 	["fire_ubgl_lever"] = {
-        Source = "fire_lever",
-        EventTable = {
-            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 11 / 40},  
+		Source = "fire_lever",
+		EventTable = {
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 11 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 20	 / 40}, 		
-        },
+		},
 		Mult = 0.95,
-    },
+	},
 	["fire_ubgl_glempty"] = {
-        Source = "fire",	
-    },
+		Source = "fire",	
+	},
 
 	["cycle_ubgl"] = { -- doesnt work
-        Source = "pump",
-        MinProgress = 0.6,
-	        EventTable = {
-            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 36 / 40},  
+		Source = "pump",
+		MinProgress = 0.6,
+			EventTable = {
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 36 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 48 / 40}, 
-            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 45 / 40},  			
-        },
-    },
+			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 45 / 40},  			
+		},
+	},
 
-    ["reload_ubgl_start"] = {
-        Source = "ubgl_reload1",
-        EventTable = {		
-            {s =  "myt_bf1942/dc/r870_foley1.ogg" ,   t = 1 / 40}, 
+	["reload_ubgl_start"] = {
+		Source = "ubgl_reload1",
+		EventTable = {		
+			{s =  "myt_bf1942/dc/r870_foley1.ogg" ,   t = 1 / 40}, 
 			{s =  "myt_bf1942/dc/ak_foley2.ogg" ,   t = 5 / 40},   
-            {s = "myt_bf1942/dc/r870_reload.ogg", t = 65 / 40},		
-        },
+			{s = "myt_bf1942/dc/r870_reload.ogg", t = 65 / 40},		
+		},
 		RestoreAmmo = 1,
 		RefillProgress = 35/40,
 		MinProgress = 35/40,
-        MagSwapTime = 35/40,
-    },
-    ["reload_ubgl_finish_empty"] = {
-        Source = "ubgl_reload3",
-        EventTable = {		
-            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
+		MagSwapTime = 35/40,
+	},
+	["reload_ubgl_finish_empty"] = {
+		Source = "ubgl_reload3",
+		EventTable = {		
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 34 / 40}, 
-            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
-        },
-        MinProgress = 0.9,
-    },  
-    ["reload_ubgl_finish_glempty"] = {
-        Source = "ubgl_reload3",
-        EventTable = {		
-            {s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
+			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
+		},
+		MinProgress = 0.9,
+	},  
+	["reload_ubgl_finish_glempty"] = {
+		Source = "ubgl_reload3",
+		EventTable = {		
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 34 / 40}, 
-            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
-        },
-        MinProgress = 0.9,
-    },  
+			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
+		},
+		MinProgress = 0.9,
+	},  
 	["reload_ubgl_finish"] = {
-        Source = "ubgl_reload3_wet",
-        EventTable = {		
-            {s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 5 / 40},  
-        },
-        MinProgress = 0.6,
-    },
-    ["reload_ubgl_insert"] = {
-        Source = "ubgl_reload2",
-        EventTable = {		
-            {s = "myt_bf1942/dc/r870_reload.ogg", t = 31 / 40},		
-        },
+		Source = "ubgl_reload3_wet",
+		EventTable = {		
+			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 5 / 40},  
+		},
+		MinProgress = 0.6,
+	},
+	["reload_ubgl_insert"] = {
+		Source = "ubgl_reload2",
+		EventTable = {		
+			{s = "myt_bf1942/dc/r870_reload.ogg", t = 31 / 40},		
+		},
 		RefillProgress = 36/40,
 		MinProgress = 36/40,
-        MagSwapTime = 36/40,
-    },
+		MagSwapTime = 36/40,
+	},
 
-    ["enter_ubgl"] = {
-        Source = "to_ubgl",
-        MinProgress = 0.8,
+	["enter_ubgl"] = {
+		Source = "to_ubgl",
+		MinProgress = 0.8,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
-        },
-    },
-    ["idle_ubgl"] = { Source = "ubgl", },  
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 0, },
+		{ t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+		},
+	},
+	["idle_ubgl"] = { Source = "ubgl", },  
 	--["idle"] = { Source = "idle_default", }, 
-    ["exit_ubgl"] = {
-        Source = "from_ubgl",
-        MinProgress = 0.8,
+	["exit_ubgl"] = {
+		Source = "from_ubgl",
+		MinProgress = 0.8,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },
-        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
-        },
-    },
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 1, },
+		{ t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+		},
+	},
 	["holster_ubgl"] = { Source = "ubgl_holster" },
 }
 
@@ -723,25 +723,25 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 -- 47.1342 -38.4459 -19.38
 -- -45.9059 39.9387 -26.0967
 ATT.Sights = {
-    {
-        Pos = Vector(4.1, 10, -5.1),
-        Ang = Angle(7.95, -3.2, -35),
-        Magnification = 1.05,
-        ViewModelFOV = 60,
-        CrosshairInSights = false,
-        Blur = false,
-        UBGLOnly = true,
-        Disassociate = true,
-    },
+	{
+		Pos = Vector(4.1, 10, -5.1),
+		Ang = Angle(7.95, -3.2, -35),
+		Magnification = 1.05,
+		ViewModelFOV = 60,
+		CrosshairInSights = false,
+		Blur = false,
+		UBGLOnly = true,
+		Disassociate = true,
+	},
 }
 
 ATT.Attachments = {
-    {
-        PrintName = "Conversion",
-        Category = {"oh_r870_lever"},
-        Pos = Vector(2, 0, 0),
-        Ang = Angle(0, 0, 0),
-    },
+	{
+		PrintName = "Conversion",
+		Category = {"oh_r870_lever"},
+		Pos = Vector(2, 0, 0),
+		Ang = Angle(0, 0, 0),
+	},
 }
 
 ATT.ActivePosUBGL = Vector(4, 3, 0)
@@ -812,103 +812,103 @@ ATT.PeekAngUBGL = Angle(0, 0, 10)
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
-        Source = "fire",
-        MinProgress = 0.6,
+		Source = "fire",
+		MinProgress = 0.6,
 		FireASAP = true,
-    },
+	},
 	
 	["fire_empty_ubgl"] = {
-        Source = "fire",
-        EventTable = {
-        },		
-        MinProgress = 0.05,
+		Source = "fire",
+		EventTable = {
+		},		
+		MinProgress = 0.05,
 		FireASAP = true,
-    },
+	},
 	["fire_ubgl_glempty"] = {
-        Source = "fire",
-        EventTable = {
-        },		
-    },
-    ["reload_ubgl"] = {
-        Source = "ubgl_reload",
-        MinProgress = 0.8,
+		Source = "fire",
+		EventTable = {
+		},		
+	},
+	["reload_ubgl"] = {
+		Source = "ubgl_reload",
+		MinProgress = 0.8,
 		FireASAP = true,
-        EventTable = {		
+		EventTable = {		
 			{s =  "myt_bf1942/dc/rpg_reload_oh.ogg" ,   t = 1 / 40},	
-			{s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,   t = 118 / 40},     
-        },
-    },  
+			{s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,   t = 118 / 40},	 
+		},
+	},  
 	["reload_ubgl_empty"] = {
-        Source = "ubgl_reload",
-        MinProgress = 0.85,
+		Source = "ubgl_reload",
+		MinProgress = 0.85,
 		FireASAP = true,
-        EventTable = {		
+		EventTable = {		
 			{s =  "myt_bf1942/dc/rpg_reload_oh.ogg" ,   t = 1 / 40},	
 			{s =  "myt_bf1942/dc/mp5_bolt1.ogg" ,   t = 118 / 40},   
-        },
-    },
+		},
+	},
 
-    ["enter_ubgl"] = {
-        Source = "to_ubgl",
-        MinProgress = 0.8,
+	["enter_ubgl"] = {
+		Source = "to_ubgl",
+		MinProgress = 0.8,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
-        },
-    },
-    ["idle_ubgl"] = {
-        Source = "ubgl",
-    }, 
-    ["exit_ubgl"] = {
-        Source = "from_ubgl",
-        MinProgress = 0.8,
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 0, },
+		{ t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+		},
+	},
+	["idle_ubgl"] = {
+		Source = "ubgl",
+	}, 
+	["exit_ubgl"] = {
+		Source = "from_ubgl",
+		MinProgress = 0.8,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },
-        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
-        },
-    },
-    ["enter_ubgl_glempty"] = {
-        Source = "to_ubgl_last",
-        MinProgress = 0.7,
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 1, },
+		{ t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+		},
+	},
+	["enter_ubgl_glempty"] = {
+		Source = "to_ubgl_last",
+		MinProgress = 0.7,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
-        },
-    },
-    ["exit_ubgl_glempty"] = {
-        Source = "from_ubgl_last",
-        MinProgress = 0.6,
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 0, },
+		{ t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+		},
+	},
+	["exit_ubgl_glempty"] = {
+		Source = "from_ubgl_last",
+		MinProgress = 0.6,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },
-        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
-        },
-    },
-    ["idle_ubgl_glempty"] = {
-        Source = "ubgl_last"
-    },
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 1, },
+		{ t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+		},
+	},
+	["idle_ubgl_glempty"] = {
+		Source = "ubgl_last"
+	},
 
 	["holster_ubgl"] = {
-        Source = "ubgl_holster"
-    },
+		Source = "ubgl_holster"
+	},
 	["holster_ubgl_empty"] = {
-        Source = "ubgl_holster_last"
-    },
+		Source = "ubgl_holster_last"
+	},
 } -- When an animation event plays, override it with one based on this LHIK model.
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)	
@@ -995,16 +995,16 @@ ATT.ModelOffset = Vector(10, 0, -1)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.Sights = {
-    {
-        Pos = Vector(1.92, 10, -7.75),
-        Ang = Angle(7.5, -2.5, -5),
-        Magnification = 1.05,
-        ViewModelFOV = 60,
-        CrosshairInSights = false,
-        Blur = false,
-        UBGLOnly = true,
-        Disassociate = true,
-    },
+	{
+		Pos = Vector(1.92, 10, -7.75),
+		Ang = Angle(7.5, -2.5, -5),
+		Magnification = 1.05,
+		ViewModelFOV = 60,
+		CrosshairInSights = false,
+		Blur = false,
+		UBGLOnly = true,
+		Disassociate = true,
+	},
 }
 
 ATT.ActivePosUBGL = Vector(4, 3, 0)
@@ -1022,6 +1022,185 @@ ATT.NearWallPosUBGL = Vector(7, -5, -6)
 ATT.NearWallAngUBGL = Angle(15, 20, 30)
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_rpg")
+
+
+----------------------------------------------------------
+-- Rilfe Grenade -- RPG --
+----------------------------------------------------------
+
+
+ATT = {}
+
+ATT.PrintName = [[Rifle Grenade]]
+ATT.CompactName = [[RG]]
+ATT.Icon = Material("entities/gekolt_css_blank.png")
+ATT.Description = [[Magic rpg warheads that somehow doesn't instantly blow up with any armed propellant.
+]] 
+ATT.SortOrder = 0
+
+
+ATT.ActivateElements = {"grenade_rile"}
+ATT.IKGunMotionQCA = 2
+ATT.MuzzleDeviceUBGL = true
+
+ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_rifle_rpg.mdl"
+ATT.DrawFunc = function(wep, model, curanim) 
+	if wep:Clip2() == 0 then
+		model:SetBodygroup(0,1)
+	end
+	if wep:GetReloading() then 
+		model:SetBodygroup(0,0)
+	end
+	
+	if wep:GetUBGL(true) then
+		model:SetModel("models/weapons/myt_bf1942/atts/dc/c_rifle_rpg.mdl")
+		if !wep:GetReloading() then 
+		--if curanim == "idle" then
+			model:SetModel("models/weapons/myt_bf1942/atts/dc/c_rifle_rpg_sansbras.mdl")
+		else
+		end
+	else
+		model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl")
+		model:SetBodygroup(0,0)
+	end
+end
+ATT.LHIK_Priority = 10000
+ATT.LHIK = true
+--[[ATT.Hook_Think = function(wep, curanim) 
+	if !wep:GetUBGL(true) then
+		wep.LHIK_Priority = -10000
+		wep.LHIK = false
+	else
+		wep.LHIK_Priority = 10000
+		wep.LHIK = true
+	end
+end]]
+
+ATT.Hook_PrimaryAttack = function(wep, curanim)
+	if wep:GetUBGL(true) then
+		wep:SetClip1(wep:Clip1() - 1)	-- also fires main gun
+	end
+end
+ATT.HookP_BlockFire = function(wep, curanim)
+	local canfire = wep:Clip1() == 0
+	if wep:GetUBGL(true) then
+		return canfire
+	end
+end
+
+ATT.IKAnimationProxy = {
+	["reload_ubgl"] = {
+		Source = "to_ubgl",
+		MinProgress = 0.8,
+		FireASAP = true,
+		EventTable = {		
+			{s =  "myt_bf1942/dc/rpg_reload_oh.ogg" ,   t = 1 / 40},	 
+		},
+	},  
+	["enter_ubgl"] = {
+		Source = "to_ubgl",
+		MinProgress = 0.8,
+		FireASAP = true,
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 0, },{ t = 0.5, lhik = 1, rhik = 0, },
+		{ t = 0.7, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+		},
+	},
+	["exit_ubgl"] = {
+		Source = "from_ubgl",
+		MinProgress = 0.8,
+		FireASAP = true,
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 1, },
+		{ t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+		},
+	},
+} -- When an animation event plays, override it with one based on this LHIK model.
+ATT.Category = {"bf1942_dc_muzzle_ubgl"}
+
+ATT.AimDownSightsTimeMult = 1.1
+ATT.SprintToFireTimeMult = 1.1
+
+ATT.UBGL = true
+ATT.UBGLAmmo = "RPG_Round"
+ATT.UBGLClipSize = 1
+ATT.UBGLFiremode = 1
+ATT.UBGLFiremodeName = "RPG"
+ATT.UBGLChamberSize = 0
+ATT.ShootVolumeUBGL = 110
+ATT.RPMUBGL = 900
+
+ATT.SpreadUBGL = 0.01
+
+ATT.FirstShootSoundUBGL = false
+ATT.ShootSoundUBGL = "myt_bf1942/dc/RPG.wav"
+ATT.DistantShootSoundUBGL = false
+ATT.HasSightsUBGL = true
+
+ATT.NumUBGL = 1
+ATT.ShootEntUBGL = "myt_bf1942_dc_rpg"
+ATT.ShootEntForceUBGL = 200000
+-- General recoil multiplier
+ATT.RecoilUBGL = 1
+
+-- These multipliers affect the predictible recoil by making the pattern taller, shorter, wider, or thinner.
+ATT.RecoilUpUBGL = 0.7 -- Multiplier for vertical recoil
+ATT.RecoilSideUBGL = 0.7 -- Multiplier for vertical recoil
+
+-- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
+-- This type of recoil CANNOT be predicted.
+ATT.RecoilRandomUpUBGL = 0.5
+ATT.RecoilRandomSideUBGL = 0.5
+
+ATT.RecoilDissipationRateUBGL = 50 -- How much recoil dissipates per second.
+ATT.RecoilResetTimeUBGL = 0 -- How long the gun must go before the recoil pattern starts to reset.
+
+ATT.RecoilAutoControlUBGL = 0 -- Multiplier for automatic recoil control.
+
+ATT.RangeMinUBGL = 300 -- How far bullets retain their maximum damage for.
+ATT.RangeMaxUBGL = 8000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
+
+ATT.PenetrationUBGL = 0 -- Units of wood that can be penetrated by this gun.
+
+ATT.MuzzleParticleUBGL = "muzzleflash_shotgun"
+
+ATT.ModelOffset = Vector(-24.5, 0, -3)
+ATT.ModelAngleOffset = Angle(0, 0, 0)
+
+ATT.Sights = {
+	{
+		Pos = Vector(2, 10, -7.75),
+		Ang = Angle(0, -4, 20),
+		Magnification = 1.05,
+		ViewModelFOV = 60,
+		CrosshairInSights = false,
+		Blur = false,
+		UBGLOnly = true,
+		Disassociate = true,
+	},
+}
+
+ATT.ActivePosUBGL = Vector(0, 1, -1)
+ATT.ActiveAngUBGL = Angle(0, 2, -10)
+
+ATT.SprintAngUBGL = Angle(0, -25, 10)
+ATT.SprintPosUBGL = Vector(2, 3, -0.5)
+
+ATT.CustomizeAngUBGL  = Angle(-90, 40, -6)
+ATT.CustomizePosUBGL  = Vector(-8, 60, 7)
+ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
+ATT.CustomCrosshairUBGL = false
+
+ATT.NearWallPosUBGL = Vector(7, -5, -6)
+ATT.NearWallAngUBGL = Angle(15, 20, 30)
+
+ARC9.LoadAttachment(ATT, "myt_bf1942_dc_rg_rpg")
 
 
 ----------------------------------------------------------
@@ -1051,45 +1230,45 @@ end
 
 ATT.IKAnimationProxy = {
 	["bash_ubgl"] = {
-        Source = {"fire", "fire2"},
-        MinProgress = 0.6,
+		Source = {"fire", "fire2"},
+		MinProgress = 0.6,
 		FireASAP = true,
 		Mult = 0.8,
-    },
+	},
 	["bash"] = {
-        Source = {"fire", "fire2"},
-        MinProgress = 0.6,
+		Source = {"fire", "fire2"},
+		MinProgress = 0.6,
 		FireASAP = true,
 		Mult = 0.8,
-    },
+	},
 	
-    ["enter_ubgl"] = {
-        Source = "to_ubgl",
-        MinProgress = 0.8,
+	["enter_ubgl"] = {
+		Source = "to_ubgl",
+		MinProgress = 0.8,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, },
-        { t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
-        },
-    },
-    ["idle_ubgl"] = {
-        Source = "ubgl",
-    }, 
-    ["exit_ubgl"] = {
-        Source = "from_ubgl",
-        MinProgress = 0.8,
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 0, },
+		{ t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+		},
+	},
+	["idle_ubgl"] = {
+		Source = "ubgl",
+	}, 
+	["exit_ubgl"] = {
+		Source = "from_ubgl",
+		MinProgress = 0.8,
 		FireASAP = true,
-        EventTable = {
-            {s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
-        },
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 1, },
-        { t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
-        },
-    },
+		EventTable = {
+			{s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 1, },
+		{ t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+		},
+	},
 } -- When an animation event plays, override it with one based on this LHIK model.
 
 ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate arc9

@@ -615,7 +615,7 @@ SWEP.Attachments = {
 
         DefaultIcon = Material("arc9/def_att_icons/barrel.png"),
         ExcludeElements = {"pre_muzzed"},
-        Category = {"muzzle_css"},
+        Category = {"muzzle_css", "bf1942_dc_muzzle_ubgl"},
         Bone = "W_Main",
         Pos = Vector(0, -2.8, 9),
         Ang = Angle(90, 0, -90),

@@ -1116,12 +1116,6 @@ ATT.Hook_BlockAnimation = function(wep, curanim)
 	if	curanim == "cycle_iron" 		then return true end
 	end
 end
-ATT.Hook_EndReload = function(wep, curanim, ammoType)
-	if wep.Bodge_Cycle == 1 and wep:Clip1() < wep:GetValue("ClipSize") and wep:Clip1() > 0 then -- very inelegant way of doing it
-		wep:GetOwner():GiveAmmo( wep:GetValue("ChamberSize"), wep:GetPrimaryAmmoType(), true )	 -- give back boolets
-		wep:SetClip1(wep:GetValue("ClipSize") ) -- force NOT +1 in chamber
-	end
-end
 -- has to do it manually otherwise it would stack
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if wep:GetNeedsCycle() then
@@ -1136,15 +1130,25 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_empty" then 
 			wep.Bodge_Cycle = 1 
 			return "reload_bolt_fast_dry"
-		end	
+		end
 	else
-		if	curanim == "reload_empty"	then	return "reload_empty_bolt"		end
-		if	curanim == "reload"			then	return "reload_bolt"			end
-		if	curanim == "reload_fail"	then	return "reload_bolt"			end	
+		if	curanim == "reload_empty"	then
+			wep.Bodge_Cycle = 0 -- probably unnecessary 
+			return "reload_empty_bolt"
+		end
+		if	curanim == "reload"	or curanim == "reload_fail"	then
+			wep.Bodge_Cycle = 0 -- probably unnecessary 
+			return "reload_bolt"
+		end
 	end
 
-	if	curanim == "fire"		then	wep.Bodge_Cycle = 0 return "fire_bolt"	end	
-	if	curanim == "fire_iron"	then	wep.Bodge_Cycle = 0 return "fire_bolt"	end	
+	if	curanim == "fire" or curanim == "fire_iron" then wep.Bodge_Cycle = 0 return "fire_bolt"	end	
+end
+ATT.Hook_PostReload = function(wep, curanim) -- very inelegant way of doing it
+	if wep.Bodge_Cycle == 1 and wep:Clip1() > 0 and wep:Clip1() != wep:GetValue("ClipSize") then 
+		wep:GetOwner():GiveAmmo( wep:GetValue("ChamberSize"), wep:GetPrimaryAmmoType(), true )	 -- give back boolets
+		wep:SetClip1(wep:GetValue("ClipSize") ) -- force NOT +1 in chamber
+	end
 end
 
 --ATT.ShootSound = {"myt_bf1942/dc/Saiga12k.wav"}
