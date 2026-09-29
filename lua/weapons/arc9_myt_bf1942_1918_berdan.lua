@@ -858,6 +858,7 @@ SWEP.AttachmentElements = {
 	["cal_bullpup"] = 	{ Bodygroups = { {0, 2}, {2, 3}, {3, 1} },	AttPosMods = { [6] = { Pos = Vector(1, -1.1, 18), } }		}, 
 	["cal_sg"] = 	{ Bodygroups = { {1, 1}, {2, 4} },},   
 	["cal_mag"] = 	{ Bodygroups = { {5, 1} },},  
+	["cal_sport"] = 	{ Bodygroups = { {0, 4}, {2, 5}, {5, 2} },},  
 	["cal_gl"] = 	{ 
 		Bodygroups = { {1, 2}, {2, 2}, {3, 2} },
 		IronSights = {
