@@ -530,7 +530,6 @@ ATT.IKAnimationProxy = {
 			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 11	/ 40}, 		
 		},
 	},
-
 	["cycle_ubgl"] = { -- doesnt work, edit 2026/10/7 IT DOES WORK NOW, WHEN ???
 		Source = "ubgl_pump",
 		MinProgress = 0.7,
@@ -625,7 +624,7 @@ ATT.SprintToFireTimeMult = 1.1
 ATT.UBGL = true
 
 ATT.ShotgunReloadUBGL = true
-ATT.ManualActionNoLastCycleUBGL = true -- THIS doesnt work
+--ATT.ManualActionNoLastCycleUBGL = true -- THIS doesnt work
 ATT.ShotgunReloadIncludesChamber = false
 ATT.CanReloadWhileUnCycled = true
 ATT.ManualActionUBGL = true
@@ -638,16 +637,16 @@ ATT.UBGLChamberSize = 1
 ATT.ShootVolumeUBGL = 110
 ATT.RPMUBGL = 600
 
+ATT.Bodge_CycleUBGL = 0
+ATT.Bodge_Reload = 0
 -- refer to winchester/berdan gnostic kit code
 ATT.Hook_BlockAnimation = function(wep, curanim) 
 	-- ManualActionNoLastCycleUBGL doesnt work
-	if wep:Clip2() == 0 or wep.Bodge_Cycle == 1 then
+	if wep:Clip2() == 0 or wep.Bodge_CycleUBGL == 1 then
 		if	curanim == "cycle_ubgl" 		then return true end
 		if	curanim == "cycle_ubgl_lever" 	then return true end
 	end	
 end
-
-ATT.Bodge_Reload = 0
 ATT.Hook_TranslateAnimation = function(wep, curanim)	
 	if wep:Clip2() == 0 then
 		if	curanim == "fire_ubgl" 					then	return "fire_ubgl_glempty"			end
@@ -662,14 +661,14 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_ubgl_finish_empty" 	then	return "reload_ubgl_finish"		end	
 	end
 
-	if wep.Bodge_Reload == 1 or wep.Bodge_Cycle == 1 then
+	if wep.Bodge_Reload == 1 or wep.Bodge_CycleUBGL == 1 then
 		if	curanim == "reload_ubgl_finish" 		then	return "reload_ubgl_finish_empty"	end
 	end
 	
 	if wep:GetNeedsCycle()	then
-		if	curanim == "reload_ubgl_start" 		then 	wep.Bodge_Cycle = 1 end	
+		if	curanim == "reload_ubgl_start" 		then 	wep.Bodge_CycleUBGL = 1 end	
 	end
-	if	curanim == "fire_ubgl" then 	wep.Bodge_Cycle = 0	end 
+	if	curanim == "fire_ubgl" then 	wep.Bodge_CycleUBGL = 0	end 
 end
 --THEY BROKE THE FUCKING UBGL FIRING FUNCTION
 ATT.HookP_BlockFire = function(wep, curanim)	
