@@ -958,7 +958,7 @@ SWEP.Bodge_Chamber = 0
 SWEP.Bodge_Final = 0
 SWEP.Bodge_UBGL = 0
 SWEP.Hook_Think = function(wep, curanim) 
-	if !wep:GetUBGL(true)  then -- OH MY BLEEDING CUNT
+
 	if wep.Bodge_Cycle == 1 then
 		-- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
 		if wep:GetOwner():KeyPressed(IN_ATTACK) then
@@ -966,12 +966,13 @@ SWEP.Hook_Think = function(wep, curanim)
 		end
 	end
 	
+	--[[if !wep:GetUBGL(true)  then  --legacy
 	-- 'stores' the uncycled state when the gun is in ubgl, i swear this base is barely functional and they gunna break all of this in an 'attempt' to fix the base
 	if wep:GetNeedsCycle() and wep:GetUBGL(true) then
 		wep:SetNeedsCycle(false)
 		wep.Bodge_UBGL = 1
 	end	
-	end
+	end]]
 end
 
 SWEP.Hook_BlockAnimation = function(wep, curanim)
