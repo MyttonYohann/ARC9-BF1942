@@ -647,9 +647,8 @@ ATT.Hook_BlockAnimation = function(wep, curanim)
 		if	curanim == "cycle_ubgl_lever" 	then return true end
 	end	
 end
-ATT.Hook_TranslateAnimation = function(wep, curanim)	
+ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if wep:Clip2() == 0 then
-		if	curanim == "fire_ubgl" 					then	return "fire_ubgl_glempty"			end
 		if	curanim == "reload_ubgl_start" 			then wep.Bodge_Reload = 1	end
 	end
 	if wep:Clip2() != 0 then
@@ -657,7 +656,6 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	end -- base broke ubgl reload, even the regular dry reload stops working
 	-- shit yourself
 	if wep:Clip1() == 0 and wep:Clip2() != 0	then
-		if	curanim == "fire_ubgl_glempty" 			then	return "fire_ubgl"				end	
 		if	curanim == "reload_ubgl_finish_empty" 	then	return "reload_ubgl_finish"		end	
 	end
 
