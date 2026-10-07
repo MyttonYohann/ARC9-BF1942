@@ -958,6 +958,7 @@ SWEP.Bodge_Chamber = 0
 SWEP.Bodge_Final = 0
 SWEP.Bodge_UBGL = 0
 SWEP.Hook_Think = function(wep, curanim) 
+	if !wep:GetUBGL(true)  then -- OH MY BLEEDING CUNT
 	if wep.Bodge_Cycle == 1 then
 		-- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
 		if wep:GetOwner():KeyPressed(IN_ATTACK) then
@@ -970,26 +971,25 @@ SWEP.Hook_Think = function(wep, curanim)
 		wep:SetNeedsCycle(false)
 		wep.Bodge_UBGL = 1
 	end	
+	end
 end
 
 SWEP.Hook_BlockAnimation = function(wep, curanim)
-	if !wep:GetUBGL(true)  then -- OH MY BLEEDING CUNT
-		if wep.Bodge_Cycle == 1 or wep.Bodge_Chamber == 1 then
-		if	curanim == "cycle" 				then return true end
-		if	curanim == "cycle_fail" 		then return true end
-		if	curanim == "cycle_fast" 		then return true end
-		if	curanim == "cycle_fail_fast" 	then return true end
-		if	curanim == "cycle_bp" 			then return true end
-		if	curanim == "cycle_fail_bp" 		then return true end
-		end	
-		if wep.Bodge_Chamber == 1	then
-		if	curanim == "reload_finish" 		then return true end
-		if	curanim == "reload_finish_fail" then return true end	
-		if	curanim == "reload_end_breach" 	then return true end
-		if	curanim == "reload_end_breach" 	then return true end
-		if	curanim == "reload_end_bp" 		then return true end
-		if	curanim == "reload_end_fail_bp" then return true end
-		end
+	if wep.Bodge_Cycle == 1 or wep.Bodge_Chamber == 1 then
+	if	curanim == "cycle" 				then return true end
+	if	curanim == "cycle_fail" 		then return true end
+	if	curanim == "cycle_fast" 		then return true end
+	if	curanim == "cycle_fail_fast" 	then return true end
+	if	curanim == "cycle_bp" 			then return true end
+	if	curanim == "cycle_fail_bp" 		then return true end
+	end	
+	if wep.Bodge_Chamber == 1	then
+	if	curanim == "reload_finish" 		then return true end
+	if	curanim == "reload_finish_fail" then return true end	
+	if	curanim == "reload_end_breach" 	then return true end
+	if	curanim == "reload_end_breach" 	then return true end
+	if	curanim == "reload_end_bp" 		then return true end
+	if	curanim == "reload_end_fail_bp" then return true end
 	end
 end
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
