@@ -520,33 +520,24 @@ ATT.PeekAngUBGL = Angle(0, 0, -10)
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
-		Source = "fire_full2",
-		EventTable = {
-			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
-			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 37	 / 40}, 
-			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 43 / 40},  			
-		},
-		Mult = 0.95,
+		Source = "ubgl_fire",
 	},
-	["fire_ubgl_lever"] = {
-		Source = "fire_lever",
+	["cycle_ubgl_lever"] = {
+		Source = "ubgl_pump_lever",
+		MinProgress = 0.45,
 		EventTable = {
-			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 11 / 40},  
-			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 20	 / 40}, 		
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 6 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 11	/ 40}, 		
 		},
-		Mult = 0.95,
-	},
-	["fire_ubgl_glempty"] = {
-		Source = "fire",	
 	},
 
-	["cycle_ubgl"] = { -- doesnt work
-		Source = "pump",
-		MinProgress = 0.6,
+	["cycle_ubgl"] = { -- doesnt work, edit 2026/10/7 IT DOES WORK NOW, WHEN ???
+		Source = "ubgl_pump",
+		MinProgress = 0.7,
 			EventTable = {
-			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 36 / 40},  
-			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 48 / 40}, 
-			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 45 / 40},  			
+			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,	t = 20 / 40},  
+			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,	t = 28 / 40}, 
+			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,	t = 38 / 40},  			
 		},
 	},
 
@@ -634,6 +625,8 @@ ATT.SprintToFireTimeMult = 1.1
 ATT.UBGL = true
 
 ATT.ShotgunReloadUBGL = true
+ATT.ManualActionNoLastCycleUBGL = true -- now THIS doesnt work
+ATT.ManualActionUBGL = true
 ATT.UBGLAmmo = "buckshot"
 ATT.UBGLClipSize = 4
 ATT.UBGLFiremode = 1
@@ -641,10 +634,10 @@ ATT.SecondarySupplyLimit = 6
 ATT.UBGLFiremodeName = "R870"
 ATT.UBGLChamberSize = 1
 ATT.ShootVolumeUBGL = 110
-ATT.RPMUBGL = 54
+ATT.RPMUBGL = 600
 
 -- I LOVE BODGING
-ATT.Hook_Think = function(wep)	-- reset RPM [FOR UGBL ONLY] cuz the bloody MANUAL ACTION DOESNT FUCKING WORK
+--[[ATT.Hook_Think = function(wep)	-- reset RPM [FOR UGBL ONLY] cuz the bloody MANUAL ACTION DOESNT FUCKING WORK
 	if wep:GetUBGL(true) then
 	if wep:Clip2() == 0 then wep:SetNextPrimaryFire(1) end
 	end
@@ -654,7 +647,14 @@ ATT.Hook_Think = function(wep)	-- reset RPM [FOR UGBL ONLY] cuz the bloody MANUA
 	else
 		wep.SpreadUBGL = 0.02 * ( wep.SpreadMultSights / wep.Spread)/10
 	end	]]
+--end]]
+ATT.Hook_BlockAnimation = function(wep, curanim) 
+	-- ManualActionNoLastCycleUBGL doesnt work
+	if wep:Clip2() == 0 then
+		if	curanim == "cycle_ubgl" 		then return true end
+	end	
 end
+
 ATT.Bodge_Reload = 0
 ATT.Hook_TranslateAnimation = function(wep, curanim)	
 	if wep:Clip2() == 0 then
@@ -773,12 +773,11 @@ ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
 ATT.Description = [[Converts to lever action, faster cycling
 ]]
 ATT.Hook_TranslateAnimation = function(wep, curanim)
-	if	curanim == "fire_ubgl"	then	return "fire_ubgl_lever"		end
+	if	curanim == "cycle_ubgl"	then	return "cycle_ubgl_lever"		end
 end
 
 ATT.Category = "oh_r870_lever"
 ATT.ActivateElements = {"oh_r870_lever"}
-ATT.RPMUBGL = 92
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_oh_r870_lever")
 
@@ -1053,28 +1052,19 @@ ATT.DrawFunc = function(wep, model, curanim)
 	end
 	
 	if wep:GetUBGL(true) then
+		wep.LHIK_Priority = 10000
 		model:SetModel("models/weapons/myt_bf1942/atts/dc/c_rifle_rpg.mdl")
-		if !wep:GetReloading() then 
-		--if curanim == "idle" then
+		if !wep:GetReloading() or curanim == "enter_ubgl" then 
 			model:SetModel("models/weapons/myt_bf1942/atts/dc/c_rifle_rpg_sansbras.mdl")
-		else
 		end
 	else
+		wep.LHIK_Priority = 0.001
 		model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl")
 		model:SetBodygroup(0,0)
 	end
 end
-ATT.LHIK_Priority = 10000
+ATT.LHIK_Priority = 0.001
 ATT.LHIK = true
---[[ATT.Hook_Think = function(wep, curanim) 
-	if !wep:GetUBGL(true) then
-		wep.LHIK_Priority = -10000
-		wep.LHIK = false
-	else
-		wep.LHIK_Priority = 10000
-		wep.LHIK = true
-	end
-end]]
 
 ATT.Hook_PrimaryAttack = function(wep, curanim)
 	if wep:GetUBGL(true) then
@@ -1096,6 +1086,14 @@ ATT.IKAnimationProxy = {
 		EventTable = {		
 			{s =  "myt_bf1942/dc/rpg_reload_oh.ogg" ,   t = 1 / 40},	 
 		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 0, },{ t = 0.5, lhik = 1, rhik = 0, },
+		{ t = 0.7, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, },
+		},
+	},  
+	["idle_ublg"] = {
+		Source = "ubgl",
+		IKTimeLine = { { t = 0, lhik = 0, rhik = 0, },{ t = 1, lhik = 0, rhik = 0, }, },
 	},  
 	["enter_ubgl"] = {
 		Source = "to_ubgl",
@@ -1175,30 +1173,19 @@ ATT.ModelAngleOffset = Angle(0, 0, 0)
 
 ATT.Sights = {
 	{
-		Pos = Vector(2, 10, -7.75),
-		Ang = Angle(0, -4, 20),
+		Pos = Vector(0, 4, -8),
+		Ang = Angle(0, -3, 0),
 		Magnification = 1.05,
 		ViewModelFOV = 60,
-		CrosshairInSights = false,
+		CrosshairInSights = true,
 		Blur = false,
 		UBGLOnly = true,
 		Disassociate = true,
 	},
 }
 
-ATT.ActivePosUBGL = Vector(0, 1, -1)
-ATT.ActiveAngUBGL = Angle(0, 2, -10)
-
-ATT.SprintAngUBGL = Angle(0, -25, 10)
-ATT.SprintPosUBGL = Vector(2, 3, -0.5)
-
-ATT.CustomizeAngUBGL  = Angle(-90, 40, -6)
-ATT.CustomizePosUBGL  = Vector(-8, 60, 7)
-ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
-ATT.CustomCrosshairUBGL = false
-
-ATT.NearWallPosUBGL = Vector(7, -5, -6)
-ATT.NearWallAngUBGL = Angle(15, 20, 30)
+ATT.ActivePosUBGL = Vector(0, 4, 0)
+ATT.ActiveAngUBGL = Angle(0, 0, -5)
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_dc_rg_rpg")
 
