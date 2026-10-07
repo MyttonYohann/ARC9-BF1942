@@ -625,7 +625,9 @@ ATT.SprintToFireTimeMult = 1.1
 ATT.UBGL = true
 
 ATT.ShotgunReloadUBGL = true
-ATT.ManualActionNoLastCycleUBGL = true -- now THIS doesnt work
+ATT.ManualActionNoLastCycleUBGL = true -- THIS doesnt work
+ATT.ShotgunReloadIncludesChamber = false
+ATT.CanReloadWhileUnCycled = true
 ATT.ManualActionUBGL = true
 ATT.UBGLAmmo = "buckshot"
 ATT.UBGLClipSize = 4
@@ -636,22 +638,12 @@ ATT.UBGLChamberSize = 1
 ATT.ShootVolumeUBGL = 110
 ATT.RPMUBGL = 600
 
--- I LOVE BODGING
---[[ATT.Hook_Think = function(wep)	-- reset RPM [FOR UGBL ONLY] cuz the bloody MANUAL ACTION DOESNT FUCKING WORK
-	if wep:GetUBGL(true) then
-	if wep:Clip2() == 0 then wep:SetNextPrimaryFire(1) end
-	end
-
-	--[[if wep:GetInSights() then
-		wep.SpreadUBGL = 0.02
-	else
-		wep.SpreadUBGL = 0.02 * ( wep.SpreadMultSights / wep.Spread)/10
-	end	]]
---end]]
+-- refer to winchester/berdan gnostic kit code
 ATT.Hook_BlockAnimation = function(wep, curanim) 
 	-- ManualActionNoLastCycleUBGL doesnt work
-	if wep:Clip2() == 0 then
+	if wep:Clip2() == 0 or wep.Bodge_Cycle == 1 then
 		if	curanim == "cycle_ubgl" 		then return true end
+		if	curanim == "cycle_ubgl_lever" 	then return true end
 	end	
 end
 
@@ -670,15 +662,19 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_ubgl_finish_empty" 	then	return "reload_ubgl_finish"		end	
 	end
 
-	if wep.Bodge_Reload == 1 then
+	if wep.Bodge_Reload == 1 or wep.Bodge_Cycle == 1 then
 		if	curanim == "reload_ubgl_finish" 		then	return "reload_ubgl_finish_empty"	end
 	end
+	
+	if wep:GetNeedsCycle()	then
+		if	curanim == "reload_ubgl_start" 		then 	wep.Bodge_Cycle = 1 end	
+	end
+	if	curanim == "fire_ubgl" then 	wep.Bodge_Cycle = 0	end 
 end
 --THEY BROKE THE FUCKING UBGL FIRING FUNCTION
 ATT.HookP_BlockFire = function(wep, curanim)	
 	if	wep:GetReloading()	then return true end
 end
-ATT.ShotgunReloadIncludesChamber = false
 ATT.SpreadUBGL = 0.02
 ATT.SpreadMultSightsUBGL = 0.02 -- doesnt fucking work
 ATT.FirstShootSoundUBGL = false
