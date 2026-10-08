@@ -543,9 +543,23 @@ ATT.IKAnimationProxy = {
 	["reload_ubgl_start"] = {
 		Source = "ubgl_reload1",
 		EventTable = {		
-			{s =  "myt_bf1942/dc/r870_foley1.ogg" ,   t = 1 / 40}, 
-			{s =  "myt_bf1942/dc/ak_foley2.ogg" ,   t = 5 / 40},   
+			{s = "myt_bf1942/dc/r870_foley1.ogg" ,   t = 1 / 40}, 
+			{s = "myt_bf1942/dc/ak_foley2.ogg" ,   t = 5 / 40},   
 			{s = "myt_bf1942/dc/r870_reload.ogg", t = 65 / 40},		
+		},
+		RestoreAmmo = 1,
+		RefillProgress = 35/40,
+		MinProgress = 35/40,
+		MagSwapTime = 35/40,
+	},
+	["reload_ubgl_start_emp"] = {
+		Source = "ubgl_reload1_emp",
+		EventTable = {		
+			{s = "myt_bf1942/dc/r870_foley1.ogg" ,   t = 1 / 40}, 
+			{s = "myt_bf1942/dc/ak_foley2.ogg" ,   t = 5 / 40},   
+			{s = "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 24 / 40},  
+			{s = "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 32 / 40}, 
+			{s = "myt_bf1942/dc/r870_reload.ogg", t = 74 / 40},		
 		},
 		RestoreAmmo = 1,
 		RefillProgress = 35/40,
@@ -555,18 +569,18 @@ ATT.IKAnimationProxy = {
 	["reload_ubgl_finish_empty"] = {
 		Source = "ubgl_reload3",
 		EventTable = {		
-			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
-			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 34 / 40}, 
-			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
+			{s = "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
+			{s = "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 34 / 40}, 
+			{s = "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
 		},
 		MinProgress = 0.9,
 	},  
 	["reload_ubgl_finish_glempty"] = {
 		Source = "ubgl_reload3",
 		EventTable = {		
-			{s =  "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
-			{s =  "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 34 / 40}, 
-			{s =  "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
+			{s = "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 26 / 40},  
+			{s = "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 34 / 40}, 
+			{s = "myt_bf1942/dc/r870_foley2.ogg" ,   t = 33 / 40},  
 		},
 		MinProgress = 0.9,
 	},  
@@ -587,12 +601,38 @@ ATT.IKAnimationProxy = {
 		MagSwapTime = 36/40,
 	},
 
+	["reload_ubgl_insert_emp"] = {
+		Source = "ubgl_reload2_emp",
+		EventTable = {		
+			{s = "myt_bf1942/dc/r870_bolt1.ogg",	t = 20 / 40},  
+			{s = "myt_bf1942/dc/r870_bolt2.ogg",	t = 28 / 40}, 
+			{s = "myt_bf1942/dc/r870_reload.ogg",	t = 72 / 40},		
+		},
+		RefillProgress = 36/40,
+		MinProgress = 36/40,
+		MagSwapTime = 36/40,
+	},
+
 	["enter_ubgl"] = {
 		Source = "to_ubgl",
 		MinProgress = 0.8,
 		FireASAP = true,
 		EventTable = {
 			{s =  "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 0, },
+		{ t = 0.1, lhik = 1, rhik = 1, },{ t = 1, lhik = 1, rhik = 1, },
+		},
+	},
+	["enter_ubgl_emp"] = {
+		Source = "to_ubgl_emp",
+		MinProgress = 0.7,
+		FireASAP = true,
+		EventTable = {
+			{s = "myt_bf1942/dc/ak_foley1.ogg" ,   t = 1 / 40},  
+			{s = "myt_bf1942/dc/r870_bolt1.ogg" ,   t = 19 / 40},  
+			{s = "myt_bf1942/dc/r870_bolt2.ogg" ,   t = 27 / 40}, 
 		},
 		IKTimeLine = {
 		{ t = 0, lhik = 1, rhik = 0, },
@@ -606,7 +646,19 @@ ATT.IKAnimationProxy = {
 		MinProgress = 0.8,
 		FireASAP = true,
 		EventTable = {
-			{s =  "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+			{s = "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
+		},
+		IKTimeLine = {
+		{ t = 0, lhik = 1, rhik = 1, },
+		{ t = 0.1, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
+		},
+	},
+	["exit_ubgl_glempty"] = {
+		Source = "from_ubgl",
+		MinProgress = 0.8,
+		FireASAP = true,
+		EventTable = {
+			{s = "myt_bf1942/dc/ak_foley3.ogg" ,   t = 1 / 40},  
 		},
 		IKTimeLine = {
 		{ t = 0, lhik = 1, rhik = 1, },
@@ -625,7 +677,7 @@ ATT.UBGL = true
 
 ATT.ShotgunReloadUBGL = true
 --ATT.ManualActionNoLastCycleUBGL = true -- THIS doesnt work
-ATT.ShotgunReloadIncludesChamber = false
+--ATT.ShotgunReloadIncludesChamber = false
 ATT.CanReloadWhileUnCycled = true
 ATT.ManualActionUBGL = true
 ATT.UBGLAmmo = "buckshot"
@@ -639,7 +691,8 @@ ATT.RPMUBGL = 600
 
 ATT.Bodge_CycleUBGL = 0
 ATT.Bodge_Reload = 0
--- refer to winchester/berdan gnostic kit code
+ATT.Bodge_StoreCycleUBGL = 0
+-- refer to winchester/berdan gnostic kit code for doc
 ATT.Hook_BlockAnimation = function(wep, curanim) 
 	-- ManualActionNoLastCycleUBGL doesnt work
 	if wep:Clip2() == 0 or wep.Bodge_CycleUBGL == 1 then
@@ -657,16 +710,47 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	-- shit yourself
 	if wep:Clip1() == 0 and wep:Clip2() != 0	then
 		if	curanim == "reload_ubgl_finish_empty" 	then	return "reload_ubgl_finish"		end	
+		--if	curanim == "exit_ubgl_glempty" 			then	return "exit_ubgl"		end	
 	end
-
-	if wep.Bodge_Reload == 1 or wep.Bodge_CycleUBGL == 1 then
-		if	curanim == "reload_ubgl_finish" 		then	return "reload_ubgl_finish_empty"	end
-	end
-	
+	-- uncycled state
 	if wep:GetNeedsCycle()	then
 		if	curanim == "reload_ubgl_start" 		then 	wep.Bodge_CycleUBGL = 1 end	
 	end
-	if	curanim == "fire_ubgl" then 	wep.Bodge_CycleUBGL = 0	end 
+	-- normal state
+	if !wep:GetNeedsCycle() then
+		if curanim == "reload_ubgl_start" or curanim == "reload_ubgl_start_emp" then
+			wep.Bodge_CycleUBGL = 0
+		end
+	end
+	if	curanim == "fire_ubgl" then
+		wep.Bodge_CycleUBGL = 0
+	end	
+	
+	-- use empty reload finish IF gun is EITHER uncycled OR starts at 0 but does not ends at 5
+	if wep.Bodge_CycleUBGL == 1 or wep.Bodge_Reload == 1 then
+		if	wep:Clip2() == 4 then
+			if curanim == "reload_ubgl_insert" 	then 	return "reload_ubgl_insert_emp"	end	
+			if curanim == "reload_ubgl_start" 	then 	return "reload_ubgl_start_emp"		end	
+		end
+		if  wep:Clip2() < 5 then
+			if	curanim == "reload_ubgl_finish" then	return "reload_ubgl_finish_empty"	end
+		end
+	end
+	
+	-- refer to winchester code for doc
+	if wep:GetUBGL(true) and wep:GetNeedsCycle() then
+		wep.Bodge_StoreCycleUBGL = 1
+	end
+	
+	if !wep:GetUBGL(true) and wep.Bodge_StoreCycleUBGL == 1 then
+		wep:SetNeedsCycle(false)
+		wep.Bodge_StoreCycleUBGL = 2
+	end
+	
+	if wep:GetUBGL(true) and wep.Bodge_StoreCycleUBGL == 2 then
+		if curanim == "enter_ubgl"		then return "enter_ubgl_emp" end
+		wep.Bodge_StoreCycleUBGL = 0
+	end
 end
 --THEY BROKE THE FUCKING UBGL FIRING FUNCTION
 ATT.HookP_BlockFire = function(wep, curanim)	

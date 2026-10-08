@@ -957,28 +957,28 @@ SWEP.Bodge_Cycle = 0
 SWEP.Bodge_Chamber = 0
 SWEP.Bodge_Final = 0
 SWEP.Bodge_StoreCycle = 0
-SWEP.Hook_Think = function(wep, curanim) 
-
+SWEP.Hook_Think = function(wep) 
 	if wep.Bodge_Cycle == 1 then
 		-- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
 		if wep:GetOwner():KeyPressed(IN_ATTACK) then
 			wep:SetNeedsCycle(false)
 		end
 	end
-	
-		-- 'stores' the uncycled state when the gun is in ubgl, i swear this base is barely functional and they gunna break all of this in an 'attempt' to fix the base
+
+	-- 'stores' the uncycled state when the gun is in ubgl, i swear this base is barely functional and they gunna break all of this in an 'attempt' to fix the base
 	if wep:GetNeedsCycle() and !wep:GetUBGL(true) then
 		wep.Bodge_StoreCycle = 1
 	end
-	
 	if wep:GetUBGL(true) and wep.Bodge_StoreCycle == 1 then
 		wep:SetNeedsCycle(false)
 		wep.Bodge_StoreCycle = 2
 	end
-	
 	if !wep:GetUBGL(true) and wep.Bodge_StoreCycle == 2 then
-		wep:SetNeedsCycle(true)
+		--wep:SetNeedsCycle(true)
 		wep.Bodge_StoreCycle = 0
+		-- im losing my fucking will to live over here
+		if SERVER then timer.Simple(0.3, function() if IsValid(wep) then wep:SetNeedsCycle(true) end end) end
+		if SERVER then timer.Simple(1, function() if IsValid(wep) then wep:SetNeedsCycle(false) end end) end
 	end
 end
 
@@ -1001,7 +1001,6 @@ SWEP.Hook_BlockAnimation = function(wep, curanim)
 	end
 end
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
-
 	-- uncycled state
 	if wep:GetNeedsCycle()	then
 		if	curanim == "reload_start" and wep:Clip1() == wep:GetValue("ClipSize") then 
