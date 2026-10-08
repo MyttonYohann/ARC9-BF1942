@@ -394,14 +394,14 @@ ATT.Hook_Think  = function(wep)
 	end
 	
 	-- refers to winchester code for docs
-	if wep:GetNeedsCycle() and !wep:GetUBGL(true) then
+	if !wep:GetUBGL() and wep:GetNeedsCycle() and wep.Bodge_StoreCycle == 0 then
 		wep.Bodge_StoreCycle = 1
 	end
-	if wep:GetUBGL(true) and wep.Bodge_StoreCycle == 1 then
+	if wep:GetUBGL() and wep.Bodge_StoreCycle == 1 then
 		wep:SetNeedsCycle(false)
 		wep.Bodge_StoreCycle = 2
 	end
-	if !wep:GetUBGL(true) and wep.Bodge_StoreCycle == 2 then
+	if !wep:GetUBGL() and wep.Bodge_StoreCycle == 2 then
 		wep:SetNeedsCycle(true)
 		wep.Bodge_StoreCycle = 0
 	end	

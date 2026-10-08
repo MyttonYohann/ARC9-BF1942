@@ -966,19 +966,22 @@ SWEP.Hook_Think = function(wep)
 	end
 
 	-- 'stores' the uncycled state when the gun is in ubgl, i swear this base is barely functional and they gunna break all of this in an 'attempt' to fix the base
-	if wep:GetNeedsCycle() and !wep:GetUBGL(true) then
+	if !wep:GetUBGL() andwep:GetNeedsCycle() and  wep.Bodge_StoreCycle == 0 then
 		wep.Bodge_StoreCycle = 1
 	end
-	if wep:GetUBGL(true) and wep.Bodge_StoreCycle == 1 then
+	if wep:GetUBGL() and wep.Bodge_StoreCycle == 1 then
 		wep:SetNeedsCycle(false)
 		wep.Bodge_StoreCycle = 2
 	end
-	if !wep:GetUBGL(true) and wep.Bodge_StoreCycle == 2 then
-		--wep:SetNeedsCycle(true)
+	if !wep:GetUBGL() and wep.Bodge_StoreCycle == 2 then
+		wep:SetNeedsCycle(true)
 		wep.Bodge_StoreCycle = 0
 		-- im losing my fucking will to live over here
-		if SERVER then timer.Simple(0.3, function() if IsValid(wep) then wep:SetNeedsCycle(true) end end) end
-		if SERVER then timer.Simple(1, function() if IsValid(wep) then wep:SetNeedsCycle(false) end end) end
+		--if SERVER then timer.Simple(0.3, function() if IsValid(wep) then wep:SetNeedsCycle(true) end end) end
+		--if SERVER then timer.Simple(1, function() if IsValid(wep) then wep:SetNeedsCycle(false) end end) end
+	end
+	if !wep:GetUBGL() and wep:GetNeedsCycle()  then
+		wep.Bodge_StoreCycle = 3 -- this doesnt do anything except making not 0
 	end
 end
 

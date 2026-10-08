@@ -738,18 +738,21 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	end
 	
 	-- refer to winchester code for doc
-	if wep:GetUBGL(true) and wep:GetNeedsCycle() then
+	if wep:GetUBGL() and wep:GetNeedsCycle() then
 		wep.Bodge_StoreCycleUBGL = 1
 	end
 	
-	if !wep:GetUBGL(true) and wep.Bodge_StoreCycleUBGL == 1 then
+	if !wep:GetUBGL() and wep.Bodge_StoreCycleUBGL == 1 then
 		wep:SetNeedsCycle(false)
 		wep.Bodge_StoreCycleUBGL = 2
 	end
 	
-	if wep:GetUBGL(true) and wep.Bodge_StoreCycleUBGL == 2 then
+	if wep:GetUBGL() and wep.Bodge_StoreCycleUBGL == 2 then
 		if curanim == "enter_ubgl"		then return "enter_ubgl_emp" end
 		wep.Bodge_StoreCycleUBGL = 0
+	end
+	if !wep:GetUBGL() and wep:GetNeedsCycle() then
+		wep.Bodge_StoreCycleUBGL = 3 -- this doesnt do anything except making not 0
 	end
 end
 --THEY BROKE THE FUCKING UBGL FIRING FUNCTION
