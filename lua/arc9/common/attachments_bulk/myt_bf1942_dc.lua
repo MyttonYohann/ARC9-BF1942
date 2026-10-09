@@ -1295,11 +1295,9 @@ ATT.IKAnimationProxy = {
 
 --works, kind of, jitters a bit and reload stage gets undefined for some reason so you can still shoot and shit during reload
 ATT.Hook_PostReload = function(wep)
+	wep:CancelReload()
 	wep:PlayAnimation("reload_knife_start")
-
-	timer.Create("Bodge", 1/32, 1, function()
-	wep:PlayAnimation("reload")
-	end)
+	--if SERVER then timer.Simple(0.2, function() if IsValid(wep) then wep:PlayAnimation("reload") end end) end
 end
 
 ATT.Hook_EndReload = function(wep)

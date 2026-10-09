@@ -387,24 +387,22 @@ ATT.Bodge_Cycle = 0
 ATT.Bodge_StoreCycle = 0
 -- this stupid base keeps the damn gun uncycled so you cant even cancel reload
 ATT.Hook_Think  = function(wep)
-	if wep:GetOwner():KeyPressed(IN_ATTACK) then -- the whole primary attack function is disabled when the gun is uncycled so i cant use Hook_PrimaryAttack
+	-- refers to winchester code for docs
+	if wep:GetOwner():KeyPressed(IN_ATTACK) then
 		if wep.Bodge_Cycle == 1 then
-			wep:SetNeedsCycle(false) -- happy accident, turns out this forces the gun to stop reloading, i still have no idea why but i cant give a shit anymore
+			wep:SetNeedsCycle(false)
 		end
 	end
 	
-	-- refers to winchester code for docs
-	if !wep:GetUBGL() and wep:GetNeedsCycle() and wep.Bodge_StoreCycle == 0 then
+	-- causing WAYY to much problem
+	--[[if wep:GetUBGL() and wep:GetNeedsCycle() and wep.Bodge_StoreCycle == 0 then
+		wep:SetNeedsCycle(false)
 		wep.Bodge_StoreCycle = 1
 	end
-	if wep:GetUBGL() and wep.Bodge_StoreCycle == 1 then
-		wep:SetNeedsCycle(false)
-		wep.Bodge_StoreCycle = 2
-	end
-	if !wep:GetUBGL() and wep.Bodge_StoreCycle == 2 then
+	if !wep:GetUBGL() and wep.Bodge_StoreCycle == 1 then
 		wep:SetNeedsCycle(true)
 		wep.Bodge_StoreCycle = 0
-	end	
+	end]]
 end
 
 ATT.Hook_BlockAnimation = function(wep, curanim)

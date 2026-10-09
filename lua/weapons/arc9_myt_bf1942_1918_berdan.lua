@@ -1,4 +1,9 @@
 AddCSLuaFile()
+-- Manual action stuff --
+-- I CAN put this in the att files but it just shits itself and dont call stuff properly, ie, with off hand stuff when uncycled
+SWEP.Bodge_Cycle = 0
+SWEP.Bodge_StoreCycle = 0
+--
 
 SWEP.Base = "arc9_base"
 

@@ -275,7 +275,7 @@ ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_scor_uc.mdl"
 
-ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
+ATT.DrawFunc = function(wep, model)	-- hide gun when not in 
 	if wep:GetReloading() and !wep:GetUBGL(true) then 
 	model:SetBodygroup(0,1)	
 	model:SetBodygroup(1,2)
@@ -283,6 +283,23 @@ ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
 	model:SetBodygroup(0,0)
 	model:SetBodygroup(1,0)
 	end
+
+	--[[local is_subgun = wep:GetUBGL() or wep:GetCustomize()
+	local owner = wep:GetOwner()	
+
+	if is_subgun then
+		model:SetModel("models/weapons/myt_bf1942/atts/dc/c_scor_uc.mdl")
+	end
+	if ((owner:KeyDown(IN_USE) and owner:KeyPressed(IN_ATTACK2)) or owner:KeyPressed(ARC9.IN_UBGL)) and wep:GetUBGL() then
+		timer.Simple(0.3, function() 
+			model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl") 
+		end)
+	end
+
+	--if !is_subgun then
+		model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl")
+	end]]
+	
 end
 
 ATT.PeekPosUBGL = Vector(1.5, -5, -1.5)
@@ -691,7 +708,7 @@ ATT.RPMUBGL = 600
 
 ATT.Bodge_CycleUBGL = 0
 ATT.Bodge_Reload = 0
-ATT.Bodge_StoreCycleUBGL = 0
+
 -- refer to winchester/berdan gnostic kit code for doc
 ATT.Hook_BlockAnimation = function(wep, curanim) 
 	-- ManualActionNoLastCycleUBGL doesnt work
@@ -738,23 +755,18 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	end
 	
 	-- refer to winchester code for doc
-	if wep:GetUBGL() and wep:GetNeedsCycle() then
+	-- causing WAYY to much problem
+	--[[if !wep:GetUBGL() and wep:GetNeedsCycle() then --and wep.Bodge_StoreCycleUBGL == 0 then
+		wep:SetNeedsCycle(false)
 		wep.Bodge_StoreCycleUBGL = 1
 	end
-	
-	if !wep:GetUBGL() and wep.Bodge_StoreCycleUBGL == 1 then
-		wep:SetNeedsCycle(false)
-		wep.Bodge_StoreCycleUBGL = 2
-	end
-	
-	if wep:GetUBGL() and wep.Bodge_StoreCycleUBGL == 2 then
+	if wep:GetUBGL() and wep.Bodge_StoreCycleUBGL == 1 then
 		if curanim == "enter_ubgl"		then return "enter_ubgl_emp" end
 		wep.Bodge_StoreCycleUBGL = 0
-	end
-	if !wep:GetUBGL() and wep:GetNeedsCycle() then
-		wep.Bodge_StoreCycleUBGL = 3 -- this doesnt do anything except making not 0
-	end
+	end]]
 end
+
+
 --THEY BROKE THE FUCKING UBGL FIRING FUNCTION
 ATT.HookP_BlockFire = function(wep, curanim)	
 	if	wep:GetReloading()	then return true end
