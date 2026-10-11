@@ -958,6 +958,7 @@ SWEP.Bodge_Chamber = 0
 SWEP.Bodge_Final = 0
 SWEP.Bodge_StoreCycle = 0
 SWEP.Hook_Think = function(wep) 
+	-- for reloading when the gun is not chambered (uncycled, holding down the attack button)
 	if wep.Bodge_Cycle == 1 then
 		-- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
 		if wep:GetOwner():KeyPressed(IN_ATTACK) then
@@ -996,8 +997,10 @@ SWEP.Hook_BlockAnimation = function(wep, curanim)
 	end
 end
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
+	if !wep:GetUBGL() then -- only checking the gun not the off hand
+
 	-- uncycled state
-	if wep:GetNeedsCycle()	then
+	if wep:GetNeedsCycle() then
 		if	curanim == "reload_start" and wep:Clip1() == wep:GetValue("ClipSize") then 
 			wep.Bodge_Chamber = 1 return "reload_start_fast"	
 		end
@@ -1060,6 +1063,8 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "cycle"	and wep:Clip1()	!= 0	then	return "cycle_fail"			end	-- there's nothing in mag to fail, it doesnt cycle on last shot but keeping this in case i do slam fire
 	elseif rng <= wep.DementiaCounter + varextra and wep:Clip1() == wep:GetValue("ClipSize") + wep:GetValue("ChamberSize") then
 		if	curanim == "reload_finish" 					then	return "reload_finish_fail"	end	-- overloading
+	end
+	
 	end
 end
 

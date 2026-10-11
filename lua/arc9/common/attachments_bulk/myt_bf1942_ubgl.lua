@@ -747,7 +747,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	if wep.Bodge_CycleUBGL == 1 or wep.Bodge_Reload == 1 then
 		if	wep:Clip2() == 4 then
 			if curanim == "reload_ubgl_insert" 	then 	return "reload_ubgl_insert_emp"	end	
-			if curanim == "reload_ubgl_start" 	then 	return "reload_ubgl_start_emp"		end	
+			if curanim == "reload_ubgl_start" 	then 	return "reload_ubgl_start_emp"	end	
 		end
 		if  wep:Clip2() < 5 then
 			if	curanim == "reload_ubgl_finish" then	return "reload_ubgl_finish_empty"	end
