@@ -959,23 +959,12 @@ SWEP.Bodge_Final = 0
 SWEP.Bodge_StoreCycle = 0
 SWEP.Hook_Think = function(wep) 
 	-- for reloading when the gun is not chambered (uncycled, holding down the attack button)
-	if wep.Bodge_Cycle == 1 then
+	if wep.Bodge_Cycle == 1 and !wep:GetUBGL() then
 		-- uncycled state kinda disables the whole primary attack function so i cant use Hook_PrimaryAttack
 		if wep:GetOwner():KeyPressed(IN_ATTACK) then
 			wep:SetNeedsCycle(false)
 		end
 	end
-
-	-- 'stores' the uncycled state when the gun is in ubgl, i swear this base is barely functional and they gunna break all of this in an 'attempt' to fix the base
-	-- causing WAYY to much problem
-	--[[if wep:GetUBGL() and wep:GetNeedsCycle() and wep.Bodge_StoreCycle == 0 then
-		wep:SetNeedsCycle(false)
-		wep.Bodge_StoreCycle = 1
-	end
-	if !wep:GetUBGL() and wep.Bodge_StoreCycle == 1 then
-		wep:SetNeedsCycle(true)
-		wep.Bodge_StoreCycle = 0
-	end]]
 end
 
 SWEP.Hook_BlockAnimation = function(wep, curanim)
@@ -1066,6 +1055,16 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	end
 	
 	end
+	
+	-- 'stores' the uncycled state when the gun is in ubgl, i swear this base is barely functional and they gunna break all of this in an 'attempt' to fix the base
+	--[[if wep:GetUBGL() and wep:GetNeedsCycle() then
+		wep:SetNeedsCycle(false)
+		wep.Bodge_StoreCycle = 1
+	end
+	if (curanim == "exit_ubgl_glempty" or curanim == "exit_ubgl") and wep.Bodge_StoreCycle == 1 then
+		wep:SetNeedsCycle(true)
+		wep.Bodge_StoreCycle = 0
+	end]]
 end
 
 -------------------------- ATTACHMENTS
