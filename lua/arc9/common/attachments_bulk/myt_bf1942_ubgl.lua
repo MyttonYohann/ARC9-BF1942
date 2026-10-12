@@ -708,6 +708,7 @@ ATT.RPMUBGL = 600
 
 ATT.Bodge_CycleUBGL = 0
 ATT.Bodge_Reload = 0
+ATT.Bodge_StoreCycleUBGL = 0
 
 -- refer to winchester/berdan gnostic kit code for doc
 ATT.Hook_BlockAnimation = function(wep, curanim) 
@@ -718,6 +719,8 @@ ATT.Hook_BlockAnimation = function(wep, curanim)
 	end	
 end
 ATT.Hook_TranslateAnimation = function(wep, curanim)
+	if wep:GetUBGL() then
+
 	if wep:Clip2() == 0 then
 		if	curanim == "reload_ubgl_start" 			then wep.Bodge_Reload = 1	end
 	end
@@ -756,14 +759,17 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	
 	-- refer to winchester code for doc
 	-- causing WAYY to much problem
-	--[[if !wep:GetUBGL() and wep:GetNeedsCycle() then --and wep.Bodge_StoreCycleUBGL == 0 then
+	
+	end
+	
+	if (curanim == "exit_ubgl" or curanim == "exit_ubgl_glempty") and wep:GetNeedsCycle() then
 		wep:SetNeedsCycle(false)
 		wep.Bodge_StoreCycleUBGL = 1
 	end
 	if wep:GetUBGL() and wep.Bodge_StoreCycleUBGL == 1 then
 		if curanim == "enter_ubgl"		then return "enter_ubgl_emp" end
 		wep.Bodge_StoreCycleUBGL = 0
-	end]]
+	end
 end
 
 

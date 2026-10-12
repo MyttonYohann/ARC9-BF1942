@@ -82,7 +82,15 @@ SWEP.BashWhileSprint = true
 -------------------------- MELEE
 
 SWEP.Bash = true
-SWEP.PrimaryBash = true
+SWEP.PrimaryBash = false
+
+SWEP.Hook_Think = function(wep)
+	if wep:GetInSights() then
+		wep.PrimaryBash = true
+	else
+		wep.PrimaryBash = false
+	end
+end
 
 SWEP.BashDamage = 90
 SWEP.BashLungeRange = 0
