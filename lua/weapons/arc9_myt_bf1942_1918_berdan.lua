@@ -164,12 +164,11 @@ SWEP.SprintToFireTime = 0.5
 SWEP.SpeedMult = 1
 SWEP.SpeedMultSights = 0.75
 SWEP.SpeedMultShooting = 0.9
-SWEP.SpeedMultMelee = 2
 SWEP.SpeedMultCrouch = 1
 
 -------------------------- MELEE
 
-SWEP.Bash = false
+SWEP.Bash = true
 SWEP.PrimaryBash = false
 
 -------------------------- TRACERS
@@ -345,12 +344,6 @@ SWEP.Animations = {
     },	
 	["bash_bayo_jank"] = {
         Source = {"melee_sprint"},
-        IKTimeLine = {
-        { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
-        },
-    },	
-	["bash"] = {
-        Source = {"melee"},
         IKTimeLine = {
         { t = 0, lhik = 1, rhik = 0, }, { t = 1, lhik = 1, rhik = 0, },
         },
@@ -799,7 +792,15 @@ SWEP.Animations = {
         { t = 0.4, lhik = 1, rhik = 0, },{ t = 1, lhik = 1, rhik = 0, },
         },
     },  
+	["bash"] = { Source = {"idle"},},	-- has to exist for translateanim to work
 }
+SWEP.Bash = true
+SWEP.Hook_BlockHasAnimation = function (wep, anim) -- use normal bash fuction if no bayonet
+	if !wep:HasElement("has_ubgl_bash") then
+		if anim == "bash" and !wep:HasElement("has_bashing") then return false end
+	end
+end
+
 
 SWEP.DementiaCounter = 0
 SWEP.DementiaVariation = 0

@@ -49,7 +49,7 @@ ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
 	model:SetBodygroup(0,0)
 	end
 end
-
+ATT.BarrelLengthUBGL = 18
 ATT.PeekPosUBGL = Vector(1.5, -5, -1.5)
 ATT.PeekAngUBGL = Angle(0, 0, -10)
 
@@ -275,7 +275,7 @@ This one was modified to use a pistol grip to further reduce length.
 ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_scor_uc.mdl"
-
+ATT.BarrelLengthUBGL = 18
 ATT.DrawFunc = function(wep, model)	-- hide gun when not in 
 	if wep:GetReloading() and !wep:GetUBGL(true) then 
 	model:SetBodygroup(0,1)	
@@ -532,7 +532,7 @@ ATT.DrawFunc = function(wep, model, wm)
 	model:SetBodygroup(0,0)
 	end
 end
-
+ATT.BarrelLengthUBGL = 28
 ATT.PeekPosUBGL = Vector(2, 0, -1.5)
 ATT.PeekAngUBGL = Angle(0, 0, -10)
 
@@ -757,13 +757,12 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 			if	curanim == "reload_ubgl_finish" then	return "reload_ubgl_finish_empty"	end
 		end
 	end
-	
-	-- refer to winchester code for doc
-	-- causing WAYY to much problem
-	
+
+
 	end
 	
-	if (curanim == "exit_ubgl" or curanim == "exit_ubgl_glempty") and wep:GetNeedsCycle() then
+	-- storing uncycled state when EXITING ubgl, either from changing back to the main gun or switching to a different gun | holstering doesnt seems to work though
+	if (curanim == "exit_ubgl" or curanim == "exit_ubgl_glempty" or curanim == "holster_ubgl") and wep:GetNeedsCycle() then
 		wep:SetNeedsCycle(false)
 		wep.Bodge_StoreCycleUBGL = 1
 	end
@@ -907,6 +906,7 @@ end
 
 ATT.PeekPosUBGL = Vector(2, 0, 0)
 ATT.PeekAngUBGL = Angle(0, 0, 10)
+ATT.BarrelLengthUBGL = 38
 
 ATT.IKAnimationProxy = {
 	["fire_ubgl"] = {
@@ -1304,7 +1304,7 @@ ATT.Description = [[You run faster.
 ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_knife.mdl"
-ATT.ActivateElements = {"off_hand", "is_melee"}
+ATT.ActivateElements = {"off_hand", "is_melee", "has_ubgl_bash"} -- ?? what the fuck is is_melee
 
 ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
 	if wep:GetReloading() and !wep:GetUBGL(true) then 
@@ -1356,13 +1356,19 @@ ATT.IKAnimationProxy = {
 		},
 	},
 } -- When an animation event plays, override it with one based on this LHIK model.
-
-ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate arc9
-	if wep:GetUBGL(true)	then
-		if	curanim == "bash" 		then	return "bash_bayo"		end
-	else
+ATT.BarrelLengthUBGL = 12
+ATT.Hook_BlockHasAnimation = function (wep, anim) -- use normal bash fuction if no bayonet
+	if !wep:HasElement("has_bashing") then
+		if anim == "bash" and !wep:GetUBGL() then return false end
 	end
 end
+
+ATT.Hook_TranslateAnimation = function(wep, curanim) -- bodging, i fucking hate arc9
+	if wep:GetUBGL()	then
+		if	curanim == "bash" 		then	return "bash_ubgl"		end
+	end
+end
+
 ATT.Category = {"bf1942_dc_offhand"}
 
 ATT.AimDownSightsTimeMult = 1.1

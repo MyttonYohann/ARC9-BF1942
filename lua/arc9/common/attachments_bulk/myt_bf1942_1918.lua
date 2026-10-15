@@ -451,7 +451,7 @@ ATT.Description = [[This base has the worst melee function ever
 
 ATT.SortOrder = 100
 ATT.Category = "bf1942_1918_berdan_muz"
-ATT.ActivateElements = {"bayonet"} -- worst fucking base ever made
+ATT.ActivateElements = {"bayonet", "has_bashing"} -- worst fucking base ever made
 ATT.ExcludeElements = {"no_bayo"}
 
 ATT.Bash = true
@@ -461,14 +461,15 @@ ATT.BashLungeRange = 0
 ATT.BashRange = 104
 ATT.PreBashTime = 0.135
 ATT.PostBashTime = 0.8
-
+ATT.SpeedMultMelee = 2
 
 -- there would have been a faster animation when sprint bash but i cant figure out how to change prebash and postbash whilst sprinting
---[[ATT.Hook_TranslateAnimation = function(wep, curanim)
+ATT.Hook_TranslateAnimation = function(wep, curanim)
 	--if	curanim == "idle_sprint"	then	return "idle_sprint_bayo"		end
-	if	curanim == "bash"	then	return "bash_bayo"		end
-	if	self:GetOwner():KeyDown(IN_SPEED) and	curanim == "bash"	then	return "bash_bayo_jank"		end
-end]]
+
+	if	curanim == "bash" and !wep:GetUBGL()	then	return "bash_bayo"		end
+	--if	self:GetOwner():KeyDown(IN_SPEED) and	curanim == "bash"	then	return "bash_bayo_jank"		end
+end
 
 -- this doesnt fucking work
 --[[ATT.Hook_Think = function(self)
@@ -555,9 +556,9 @@ ATT = {}
 ATT.PrintName = [[Cyclone Conversion]]
 ATT.CompactName = [[C. Auto]]
 ATT.Icon = Material("entities/gekolt_css_blank.png", "mips smooth")
-ATT.Description = [[How do you mean that's not what it does?
+ATT.Description = [[How do you mean that's not what it does ?
 Does not require a heavy trigger press, effectively an auto single action(?)
-More prone to malfuctions. Like very prone
+More prone to malfuctions.
 ]]
 
 ATT.SortOrder = 1
