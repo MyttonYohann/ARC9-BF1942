@@ -518,8 +518,8 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,  		t = 15 / 40},  
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 55 / 40},
         },
-		RestoreAmmo = 0, -- WHO FUCKING BROKE THIS, insert is now consider 1 + RestoreAmmo
-		RefillProgress = 60/40,
+		RestoreAmmo = 1,
+		RefillProgress = 20/40,
     },
 	["reload_emptoloop_breach"] = {
         Source = "reload_emptoloop_bullpup",
