@@ -1034,6 +1034,34 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 	end
 end
 
+ATT.Hook_PrimaryAttack = function(wep)
+	local owner = wep:GetOwner()
+	if IsValid(owner) and owner:IsPlayer() and wep:GetUBGL() then
+		if SERVER then
+			local tr = util.TraceLine( {
+				start = owner:EyePos(),
+				endpos = owner:EyePos() + owner:EyeAngles():Forward() * -128,
+				filter = owner
+			} )
+
+			-- debugoverlay.Line(owner:EyePos(), tr.HitPos)
+			if tr.Hit then
+				timer.Simple(0, function()
+					local d = DamageInfo()
+					d:SetDamage( 40 )
+					d:SetAttacker( owner )
+					d:SetDamageType( DMG_BURN )
+					--owner:TakeDamageInfo( d )
+
+					if IsValid(tr.Entity) and (tr.Entity:IsNPC() or tr.Entity:IsPlayer() or tr.Entity:IsNextBot()) then
+						tr.Entity:TakeDamageInfo( d )
+						tr.Entity:Ignite(math.Rand(5, 10))
+					end
+				end)
+			end
+		end
+	end
+end
 
 ATT.Category = {"bf1942_dc_offhand"}
 

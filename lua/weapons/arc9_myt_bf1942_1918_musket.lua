@@ -244,6 +244,8 @@ SWEP.ShellPhysBox = Vector(0.5, 0.5, 2)
 SWEP.NoShellEject = true
 SWEP.NoShellEjectManualAction = true
 
+SWEP.AfterShotParticle = "barrel_smoke"
+
 -------------------------- SOUNDS
 
 SWEP.ShootSound = "myt_bf1942/1918/musket.wav"
