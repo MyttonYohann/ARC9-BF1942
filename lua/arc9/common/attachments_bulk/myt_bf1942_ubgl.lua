@@ -1044,7 +1044,6 @@ ATT.Hook_PrimaryAttack = function(wep)
 				filter = owner
 			} )
 
-			-- debugoverlay.Line(owner:EyePos(), tr.HitPos)
 			if tr.Hit then
 				timer.Simple(0, function()
 					local d = DamageInfo()
