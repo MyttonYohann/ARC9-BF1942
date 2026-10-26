@@ -486,27 +486,7 @@ ATT.PostBashTimeHook = function(wep)
 		return 0.5
 	end
 end
-
--- this doesnt fucking work
---[[ATT.Hook_Think = function(self)
-	if self:GetOwner():IsSprinting() then
-	self.PreBashTime = 0.01	
-	self.PostBashTime = 0.5
-	end
-end]]
-
-
--- you cant fucking use bashwhilespring WITHOUT shootwhilesprint
 ATT.BashWhileSprint = true
-ATT.ShootWhileSprint = true
-ATT.HookP_BlockFire = function(self)
-    local owner = self:GetOwner() 
-	local canfire = owner:KeyDown(IN_SPEED) and !owner:KeyDown(IN_USE)
-	
-	if owner:KeyDown(IN_FORWARD + IN_BACK + IN_MOVELEFT + IN_MOVERIGHT) then
-    return canfire
-	end
-end
 
 ATT.SprintPos = Vector(0, 2, 1)
 ATT.SprintAng = Angle(2, -2, -30)

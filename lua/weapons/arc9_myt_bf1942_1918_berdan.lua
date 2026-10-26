@@ -170,6 +170,22 @@ SWEP.SpeedMultCrouch = 1
 
 SWEP.Bash = true
 SWEP.PrimaryBash = false
+SWEP.BashWhileSprint = false
+SWEP.ShootWhileSprint = true
+-- you cant fucking use bashwhilespring WITHOUT shootwhilesprint
+SWEP.HookP_BlockFire = function(self)
+	local owner = self:GetOwner() 
+	local canfire = owner:KeyDown(IN_SPEED) and !owner:KeyDown(IN_USE)
+	
+	if self:GetOwner():KeyDown(IN_SPEED) then
+	return canfire
+	end
+end
+SWEP.ShootWhileSprintHook = function(self)
+	if !self:GetOwner():KeyDown(IN_USE) then
+		return false
+	end
+end
 
 -------------------------- TRACERS
 

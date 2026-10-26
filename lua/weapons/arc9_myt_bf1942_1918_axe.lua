@@ -84,11 +84,11 @@ SWEP.BashWhileSprint = true
 SWEP.Bash = true
 SWEP.PrimaryBash = false
 
-SWEP.Hook_Think = function(wep)
-	if wep:GetInSights() then
-		wep.PrimaryBash = true
+SWEP.PrimaryBashHook = function(wep)
+	if !wep:GetInSights() then
+		return true
 	else
-		wep.PrimaryBash = false
+		return false
 	end
 end
 
@@ -264,8 +264,8 @@ SWEP.Animations = {
 SWEP.Hook_TranslateAnimation = function(wep, curanim)		-- 	bodging
 	if	curanim == "exit_ubgl_empty" then return "exit_ubgl"	end	
 	if	curanim == "exit_ubgl_glempty" then return "exit_ubgl"	end	
-
 end
+
 -------------------------- ATTACHMENTS
 
 SWEP.DefaultBodygroups = "00000000000000000"

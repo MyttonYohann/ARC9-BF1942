@@ -1178,18 +1178,17 @@ ATT.DrawFunc = function(wep, model, curanim)
 	end
 	
 	if wep:GetUBGL(true) then
-		wep.LHIK_Priority = 10000
 		model:SetModel("models/weapons/myt_bf1942/atts/dc/c_rifle_rpg.mdl")
 		if !wep:GetReloading() or curanim == "enter_ubgl" then 
 			model:SetModel("models/weapons/myt_bf1942/atts/dc/c_rifle_rpg_sansbras.mdl")
 		end
 	else
-		wep.LHIK_Priority = 0.001
 		model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl")
 		model:SetBodygroup(0,0)
 	end
 end
-ATT.LHIK_Priority = 0.001
+
+ATT.LHIK_Priority = 1
 ATT.LHIK = true
 
 ATT.Hook_PrimaryAttack = function(wep, curanim)
