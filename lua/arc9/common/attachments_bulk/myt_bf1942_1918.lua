@@ -471,7 +471,7 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 end
 
 ATT.BashDamageHook = function(wep, dmg)
-	if wep:GetOwner():IsSprinting() then
+	if wep:GetOwner():KeyDown(IN_SPEED) and wep:GetOwner():KeyDown(IN_FORWARD + IN_BACK + IN_MOVELEFT + IN_MOVERIGHT) then
 		return dmg * 4
 	end
 end
