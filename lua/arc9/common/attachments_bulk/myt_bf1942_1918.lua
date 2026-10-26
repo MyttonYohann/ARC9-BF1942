@@ -463,17 +463,27 @@ ATT.PreBashTime = 0.135
 ATT.PostBashTime = 0.8
 ATT.SpeedMultMelee = 2
 
--- there would have been a faster animation when sprint bash but i cant figure out how to change prebash and postbash whilst sprinting
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	--if	curanim == "idle_sprint"	then	return "idle_sprint_bayo"		end
 
 	if	curanim == "bash" and !wep:GetUBGL()	then	return "bash_bayo"		end
-	--if	self:GetOwner():KeyDown(IN_SPEED) and	curanim == "bash"	then	return "bash_bayo_jank"		end
+	if	wep:GetOwner():KeyDown(IN_SPEED) and	curanim == "bash"	then	return "bash_bayo_jank"		end
 end
 
 ATT.BashDamageHook = function(wep, dmg)
-	if wep:GetOwner():KeyDown(IN_SPEED) and wep:GetOwner():KeyDown(IN_FORWARD + IN_BACK + IN_MOVELEFT + IN_MOVERIGHT) then
+	if wep:GetOwner():IsSprinting() then
 		return dmg * 4
+	end
+end
+-- faster bayonetting whilst in sprint
+ATT.PreBashTimeHook = function(wep)
+	if wep:GetOwner():IsSprinting() then
+		return 0.018
+	end
+end
+ATT.PostBashTimeHook = function(wep)
+	if wep:GetOwner():IsSprinting() then
+		return 0.5
 	end
 end
 
