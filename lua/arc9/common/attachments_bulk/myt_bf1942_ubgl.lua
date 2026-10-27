@@ -1036,29 +1036,17 @@ end
 
 ATT.Hook_PrimaryAttack = function(wep)
 	local owner = wep:GetOwner()
+	local d = DamageInfo()
+	d:SetDamage( 80 )
+	d:SetAttacker( owner )
+	d:SetDamageType( DMG_BURN )
 	if IsValid(owner) and owner:IsPlayer() and wep:GetUBGL() then
-		if SERVER then
-			local tr = util.TraceLine( {
-				start = owner:EyePos(),
-				endpos = owner:EyePos() + owner:EyeAngles():Forward() * -128,
-				filter = owner
-			} )
-
-			if tr.Hit then
-				timer.Simple(0, function()
-					local d = DamageInfo()
-					d:SetDamage( 40 )
-					d:SetAttacker( owner )
-					d:SetDamageType( DMG_BURN )
-					--owner:TakeDamageInfo( d )
-
-					if IsValid(tr.Entity) and (tr.Entity:IsNPC() or tr.Entity:IsPlayer() or tr.Entity:IsNextBot()) then
-						tr.Entity:TakeDamageInfo( d )
-						tr.Entity:Ignite(math.Rand(5, 10))
-					end
-				end)
+		for _,v in ipairs(ents.FindInCone(wep:GetPos(),owner:EyeAngles():Forward() * -1, 128 , math.cos( math.rad( 60 ) ) )) do
+			if IsValid(v.Entity) and (v.Entity:IsNPC() or v.Entity:IsPlayer() or v.Entity:IsNextBot()) then
+				v.Entity:TakeDamageInfo( d )
+				v.Entity:Ignite(math.Rand(5, 10))
 			end
-		end
+		end	
 	end
 end
 
