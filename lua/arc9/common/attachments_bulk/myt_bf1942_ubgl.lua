@@ -1043,8 +1043,8 @@ ATT.Hook_PrimaryAttack = function(wep)
 	if IsValid(owner) and owner:IsPlayer() and wep:GetUBGL() then
 		for _,v in ipairs(ents.FindInCone(wep:GetPos(),owner:EyeAngles():Forward() * -1, 128 , math.cos( math.rad( 60 ) ) )) do
 			if IsValid(v.Entity) and (v.Entity:IsNPC() or v.Entity:IsPlayer() or v.Entity:IsNextBot()) then
-				v.Entity:TakeDamageInfo( d )
 				v.Entity:Ignite(math.Rand(5, 10))
+				v.Entity:TakeDamageInfo( d )
 			end
 		end	
 	end
