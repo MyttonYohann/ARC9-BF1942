@@ -133,17 +133,17 @@ SWEP.RecoilMultSights = 1
 
 -------------------------- SPREAD
 
-SWEP.Spread = 0.01
+SWEP.Spread = 0.075
 
 SWEP.SpreadAddRecoil = 0.005 -- Applied per unit of recoil.
 SWEP.RecoilModifierCap = 15
 
 SWEP.SpreadAddMove = 0.04
 SWEP.SpreadAddMidAir = 0.0075
-SWEP.SpreadMultHipFire = 5
+SWEP.SpreadMultHipFire = 1
 SWEP.SpreadMultCrouch = 1
 
-SWEP.SpreadMultSights = 0.0025/0.005
+SWEP.SpreadMultSights = 0.1
 SWEP.RecoilModifierCapSights = 5
 
 -------------------------- HANDLING

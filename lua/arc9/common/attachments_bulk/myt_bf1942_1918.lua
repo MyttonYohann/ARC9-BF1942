@@ -465,9 +465,9 @@ ATT.SpeedMultMelee = 2
 
 ATT.Hook_TranslateAnimation = function(wep, curanim)
 	--if	curanim == "idle_sprint"	then	return "idle_sprint_bayo"		end
-
+	local owner = wep:GetOwner()
 	if	curanim == "bash" and !wep:GetUBGL()	then	return "bash_bayo"		end
-	if	wep:GetOwner():KeyDown(IN_SPEED) and	curanim == "bash"	then	return "bash_bayo_jank"		end
+	if IsValid(owner) and owner:IsPlayer() and wep:GetOwner():KeyDown(IN_SPEED) and	curanim == "bash"	then	return "bash_bayo_jank"		end
 end
 
 ATT.BashDamageHook = function(wep, dmg)

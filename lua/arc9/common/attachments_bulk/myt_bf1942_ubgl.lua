@@ -185,7 +185,8 @@ ATT.UBGLChamberSize = 1
 ATT.ShootVolumeUBGL = 110
 ATT.RPMUBGL = 600
 
-ATT.SpreadUBGL = 0.0075
+ATT.SpreadUBGL = 0.05
+
 ATT.SpreadMultHipFiredUBGL = 1
 ATT.FreeAimRadiusUGBL = 10
 
@@ -277,7 +278,7 @@ ATT.SortOrder = 0
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_scor_uc.mdl"
 ATT.BarrelLengthUBGL = 18
 ATT.DrawFunc = function(wep, model)	-- hide gun when not in 
-	if wep:GetReloading() and !wep:GetUBGL(true) then 
+	if wep:GetReloading() and !wep:GetUBGL() then 
 	model:SetBodygroup(0,1)	
 	model:SetBodygroup(1,2)
 	else
@@ -430,7 +431,7 @@ ATT.UBGLChamberSize = 1
 ATT.ShootVolumeUBGL = 110
 ATT.RPMUBGL = 900
 
-ATT.SpreadUBGL = 0.015
+ATT.SpreadUBGL = 0.075
 ATT.SpreadMultHipFiredUBGL = 1
 ATT.FreeAimRadiusUGBL = 10
 
@@ -522,7 +523,7 @@ ATT.SortOrder = 0
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_r870.mdl"
 ATT.DrawFunc = function(wep, model, wm)
 -- hide gun during normal reload
-	if wep:GetReloading() and !wep:GetUBGL(true) then 
+	if wep:GetReloading() and !wep:GetUBGL() then 
 	model:SetBodygroup(0,1)
 	model:SetBodygroup(1,0)	
 	else
@@ -777,13 +778,18 @@ end
 ATT.HookP_BlockFire = function(wep, curanim)	
 	if	wep:GetReloading()	then return true end
 end
-ATT.SpreadUBGL = 0.02
-ATT.SpreadMultSightsUBGL = 0.02 -- doesnt fucking work
+ATT.SpreadUBGL = 0.1
+ATT.SpreadMultHipFireUBGL = 1
+ATT.SpreadMultSightsUBGL = 1 -- doesnt fucking work
 ATT.FirstShootSoundUBGL = false
 ATT.ShootSoundUBGL = "myt_bf1942/dc/r870.ogg"
 ATT.DistantShootSoundUBGL = false
 ATT.HasSightsUBGL = true
-
+ATT.SpreadOverrideSights = function(self) -- force a fixed value cos the ubgl suffix sort of shares the same value as the main gun so its mult of a mult
+	if self:GetUBGL() then
+		return self.SpreadUBGL
+	end
+end
 
 ATT.NumUBGL = 8
 -- General recoil multiplier
@@ -1064,7 +1070,7 @@ ATT.UBGLChamberSize = 0
 ATT.ShootVolumeUBGL = 110
 ATT.RPMUBGL = 900
 
-ATT.SpreadUBGL = 0.01
+ATT.SpreadUBGL = 0.075
 
 ATT.FirstShootSoundUBGL = false
 ATT.ShootSoundUBGL = "myt_bf1942/dc/RPG.wav"
@@ -1165,7 +1171,7 @@ ATT.DrawFunc = function(wep, model, curanim)
 		model:SetBodygroup(0,0)
 	end
 	
-	if wep:GetUBGL(true) then
+	if wep:GetUBGL() then
 		model:SetModel("models/weapons/myt_bf1942/atts/dc/c_rifle_rpg.mdl")
 		if !wep:GetReloading() or curanim == "enter_ubgl" then 
 			model:SetModel("models/weapons/myt_bf1942/atts/dc/c_rifle_rpg_sansbras.mdl")
@@ -1180,13 +1186,13 @@ ATT.LHIK_Priority = 1
 ATT.LHIK = true
 
 ATT.Hook_PrimaryAttack = function(wep, curanim)
-	if wep:GetUBGL(true) then
+	if wep:GetUBGL() then
 		wep:SetClip1(wep:Clip1() - 1)	-- also fires main gun
 	end
 end
 ATT.HookP_BlockFire = function(wep, curanim)
 	local canfire = wep:Clip1() == 0
-	if wep:GetUBGL(true) then
+	if wep:GetUBGL() then
 		return canfire
 	end
 end
@@ -1321,7 +1327,7 @@ ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_knife.mdl"
 ATT.ActivateElements = {"off_hand", "is_melee", "has_ubgl_bash"} -- ?? what the fuck is is_melee
 
 ATT.DrawFunc = function(wep, model, wm)	-- hide gun during normal reload
-	if wep:GetReloading() and !wep:GetUBGL(true) then 
+	if wep:GetReloading() and !wep:GetUBGL() then 
 	model:SetBodygroup(0,1)
 	else
 	model:SetBodygroup(0,0)
