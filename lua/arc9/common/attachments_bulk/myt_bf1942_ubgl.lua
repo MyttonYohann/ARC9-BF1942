@@ -709,7 +709,7 @@ ATT.ShootVolumeUBGL = 110
 ATT.RPMUBGL = 600
 
 ATT.Bodge_CycleUBGL = 0
-ATT.Bodge_Reload = 0
+ATT.Bodge_ReloadUBGL = 0
 ATT.Bodge_StoreCycleUBGL = 0
 
 -- refer to winchester/berdan gnostic kit code for doc
@@ -721,45 +721,44 @@ ATT.Hook_BlockAnimation = function(wep, curanim)
 	end	
 end
 ATT.Hook_TranslateAnimation = function(wep, curanim)
-	if wep:GetUBGL() then
-
-	if wep:Clip2() == 0 then
-		if	curanim == "reload_ubgl_start" 			then wep.Bodge_Reload = 1	end
-	end
-	if wep:Clip2() != 0 then
-		if	curanim == "reload_ubgl_start" 			then wep.Bodge_Reload = 0	end
-	end -- base broke ubgl reload, even the regular dry reload stops working
-	-- shit yourself
-	if wep:Clip1() == 0 and wep:Clip2() != 0	then
-		if	curanim == "reload_ubgl_finish_empty" 	then	return "reload_ubgl_finish"		end	
-		--if	curanim == "exit_ubgl_glempty" 			then	return "exit_ubgl"		end	
-	end
-	-- uncycled state
-	if wep:GetNeedsCycle()	then
-		if	curanim == "reload_ubgl_start" 		then 	wep.Bodge_CycleUBGL = 1 end	
-	end
-	-- normal state
-	if !wep:GetNeedsCycle() then
-		if curanim == "reload_ubgl_start" or curanim == "reload_ubgl_start_emp" then
+	if wep:GetUBGL() then -- all of the affixes make this redundant but just to be sure
+		-- base broke ubgl reload, even the regular dry reload stops working, this is fixed but im keeping it to remind fesiug that he broke everything
+		if wep:Clip1() == 0 and wep:Clip2() != 0	then
+			if	curanim == "reload_ubgl_finish_empty" 	then	return "reload_ubgl_finish"		end	
+			--if	curanim == "exit_ubgl_glempty" 			then	return "exit_ubgl"		end	
+		end
+		
+		-- condition for reloading when not chambered
+		if wep:Clip2() == 0 then
+			if	curanim == "reload_ubgl_start" 			then wep.Bodge_ReloadUBGL = 1	end
+		end
+		if wep:Clip2() != 0 then
+			if	curanim == "reload_ubgl_start" 			then wep.Bodge_ReloadUBGL = 0	end
+		end 
+		-- uncycled state
+		if wep:GetNeedsCycle()	then
+			if	curanim == "reload_ubgl_start" 		then 	wep.Bodge_CycleUBGL = 1 end	
+		end
+		-- normal state
+		if !wep:GetNeedsCycle() then
+			if curanim == "reload_ubgl_start" or curanim == "reload_ubgl_start_emp" then
+				wep.Bodge_CycleUBGL = 0
+			end
+		end
+		if	curanim == "fire_ubgl" then
 			wep.Bodge_CycleUBGL = 0
+		end	
+		
+		-- use empty reload finish IF gun is EITHER uncycled OR starts at 0 but does not ends at 5
+		if wep.Bodge_CycleUBGL == 1 or wep.Bodge_ReloadUBGL == 1 then
+			if	wep:Clip2() == 4 then
+				if curanim == "reload_ubgl_insert" 	then 	return "reload_ubgl_insert_emp"	end	
+				if curanim == "reload_ubgl_start" 	then 	return "reload_ubgl_start_emp"	end	
+			end
+			if  wep:Clip2() < 5 then
+				if	curanim == "reload_ubgl_finish" then	return "reload_ubgl_finish_empty"	end
+			end
 		end
-	end
-	if	curanim == "fire_ubgl" then
-		wep.Bodge_CycleUBGL = 0
-	end	
-	
-	-- use empty reload finish IF gun is EITHER uncycled OR starts at 0 but does not ends at 5
-	if wep.Bodge_CycleUBGL == 1 or wep.Bodge_Reload == 1 then
-		if	wep:Clip2() == 4 then
-			if curanim == "reload_ubgl_insert" 	then 	return "reload_ubgl_insert_emp"	end	
-			if curanim == "reload_ubgl_start" 	then 	return "reload_ubgl_start_emp"	end	
-		end
-		if  wep:Clip2() < 5 then
-			if	curanim == "reload_ubgl_finish" then	return "reload_ubgl_finish_empty"	end
-		end
-	end
-
-
 	end
 	
 	-- storing uncycled state when EXITING ubgl, either from changing back to the main gun or switching to a different gun | holstering doesnt seems to work though
@@ -775,17 +774,20 @@ end
 
 
 --THEY BROKE THE FUCKING UBGL FIRING FUNCTION
+-- I think its fixed but better safe than sorry
 ATT.HookP_BlockFire = function(wep, curanim)	
 	if	wep:GetReloading()	then return true end
 end
-ATT.SpreadUBGL = 0.1
-ATT.SpreadMultHipFireUBGL = 1
-ATT.SpreadMultSightsUBGL = 1 -- doesnt fucking work
 ATT.FirstShootSoundUBGL = false
 ATT.ShootSoundUBGL = "myt_bf1942/dc/r870.ogg"
 ATT.DistantShootSoundUBGL = false
 ATT.HasSightsUBGL = true
-ATT.SpreadOverrideSights = function(self) -- force a fixed value cos the ubgl suffix sort of shares the same value as the main gun so its mult of a mult
+
+ATT.SpreadUBGL = 0.08
+ATT.SpreadMultHipFireUBGL = 1
+ATT.SpreadMultSightsUBGL = 1 -- doesnt fucking work
+-- force a fixed value cos the ubgl suffix sort of shares the same value as the main gun so its mult of a mult and its a headache to wrap around
+ATT.SpreadOverrideSights = function(self)
 	if self:GetUBGL() then
 		return self.SpreadUBGL
 	end

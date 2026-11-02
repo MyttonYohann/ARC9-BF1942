@@ -385,9 +385,8 @@ SWEP.Animations = {
 		RestoreAmmo = 1,
         FireASAP = true,
         EjectAt = 18 / 40,
-		RefillProgress = 35/40,
-		MinProgress = 0.9, -- doesnt work
-        MagSwapTime = 35/40,
+		RefillProgress = 45/40,
+		MinProgress = 0.8,
     },  
 	["reload_start_fast_bp"] = {
         Source = "reload_start_fast",
@@ -976,14 +975,14 @@ SWEP.Hook_BlockAnimation = function(wep, curanim)
 	if	curanim == "cycle_bp" 			then return true end
 	if	curanim == "cycle_fail_bp" 		then return true end
 	end	
-	if wep.Bodge_Chamber == 1	then
+	--[[if wep.Bodge_Chamber == 1	then
 	if	curanim == "reload_finish" 		then return true end
 	if	curanim == "reload_finish_fail" then return true end	
 	if	curanim == "reload_end_breach" 	then return true end
 	if	curanim == "reload_end_breach" 	then return true end
 	if	curanim == "reload_end_bp" 		then return true end
 	if	curanim == "reload_end_fail_bp" then return true end
-	end
+	end]]
 end
 SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	if !wep:GetUBGL() then -- only checking the gun not the off hand
@@ -991,11 +990,19 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	-- uncycled state
 	if wep:GetNeedsCycle() then
 		if	curanim == "reload_start" and wep:Clip1() == wep:GetValue("ClipSize") then 
-			wep.Bodge_Chamber = 1 return "reload_start_fast"	
+			wep.Bodge_Chamber = 1 
+			return "idle"	
 		end
 		if	curanim == "reload_start" 	then 
 			wep.Bodge_Cycle = 1
 		end
+	end
+	-- fast reload
+	if	(curanim == "reload_insert" or curanim == "reload_insert_fail")  and wep.Bodge_Chamber == 1 then 
+		return "idle"	
+	end
+	if	(curanim == "reload_finish" or curanim == "reload_finish_fail") and wep.Bodge_Chamber == 1 then 
+		return "reload_start_fast"	
 	end
 	-- normal state
 	if !wep:GetNeedsCycle() and curanim == "reload_start" then
