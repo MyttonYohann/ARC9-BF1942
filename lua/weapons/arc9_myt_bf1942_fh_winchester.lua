@@ -517,7 +517,6 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,  		t = 15 / 40},  
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 55 / 40},
         },
-		RestoreAmmo = 1,
 		RefillProgress = 20/40,
     },
 	["reload_emptoloop_breach"] = {
@@ -530,7 +529,6 @@ SWEP.Animations = {
             {s =  "myt_bf1942/dc/r870_bolt2.ogg" ,  		t = 15 / 40},  
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 42 / 40},
         },
-		RestoreAmmo = 0, -- WHO FUCKING BROKE THIS
 		RefillProgress = 40/40,
 		Mult = 0.9,
     },
@@ -545,7 +543,6 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 50 / 40},
         },
 		RefillProgress = 52/40,
-		RestoreAmmo = 0, -- WHO FUCKING BROKE THIS
     },
     ["reload_finish"] = {
         Source = "reload_end",
@@ -901,7 +898,6 @@ SWEP.Animations = {
 			{s =  "myt_bf1942/dc/r870_reload.ogg" ,			t = 42 / 40},
         },
 		RefillProgress = 40/40,
-		RestoreAmmo = 0, -- WHO FUCKING BROKE THIS
     },
     ["reload_end_bp"] = {
         Source = "reload_end_breach",
