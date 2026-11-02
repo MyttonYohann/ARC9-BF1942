@@ -1020,7 +1020,7 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 		if	curanim == "reload_finish" 		then return "reload_end_fast"	end	
 		if	curanim == "reload_finish_fail" then return "reload_end_fast"	end	
 	end
-	--[[if wep:GetInSights() and wep:HasElement("has_optic")	and not wep.Peeking	 then	-- bodging for cycle with sight attachment
+	--[[if wep:GetInSights() and wep:HasElement("has_optic")	and !wep.Peeking	 then	-- bodging for cycle with sight attachment
 		if	curanim == "cycle" 			then 	return "cycle_scope"		end	
 	end]]
 

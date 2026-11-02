@@ -433,29 +433,6 @@ SWEP.Hook_Think = function(self)
 	end
 end
 
-
-
-function SWEP:CanReload()
-	-- base code --
-    if self:GetOwner():KeyDown(IN_WALK) then return false end
-    if self:StillWaiting() then return end
-    if self:GetCapacity(self:GetUBGL()) <= 0 then return end
-    -- if self:GetTraversalSprintAmount() >= 0 then return end
-    local ammo = self:Ammo1()
-    if self:GetUBGL() then
-        ammo = self:Ammo2()
-    end
-    if ammo <= 0 and !self:GetInfiniteAmmo() then return end
-    if !self:GetProcessedValue("ReloadWhileSprint", true) and self:GetSprintAmount() > 0 then
-        return
-    end
-    if self:GetJammed() then return end
-    if self:GetCustomize() then
-        return
-    end
-	-- separate check --
-	--if !self:GetBipod() then return end
-	if !self:GetBipod() and self:GetInSights() then return end
-
-    return true
+SWEP.HookP_BlockReload = function(wep) 
+	if !wep:GetBipod() and wep:GetInSights() then return true end
 end
