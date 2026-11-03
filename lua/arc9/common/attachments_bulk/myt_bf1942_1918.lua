@@ -38,7 +38,7 @@ ATT.BoneMerge = true
 ATT.ActivateElements = {"--[your_element_name]--"}
 
 ATT.Hook_ModifyBodygroups = function(wep, data)
-    local model = data.model
+	local model = data.model
 	if wep:HasElement("--[your_element_name]--") then
 	model:SetBodygroup(0,3) -- main
 	model:SetBodygroup(1,4) -- ammo type
@@ -108,13 +108,13 @@ ATT.ShellModel = "models/weapons/shotgun_shell.mdl"
 ATT.ShellScale = 0.5
 
 ATT.Attachments = {
-    {
-        PrintName = "Ammo Type",
-        DefaultName = "Default Type",
-        Category = {"css_ammo_sg"},
-        Pos = Vector(7, 0, 0),
-        Ang = Angle(0, 0, 0),
-    },
+	{
+		PrintName = "Ammo Type",
+		DefaultName = "Default Type",
+		Category = {"css_ammo_sg"},
+		Pos = Vector(7, 0, 0),
+		Ang = Angle(0, 0, 0),
+	},
 }
 
 ATT.Penetration = 0
@@ -144,22 +144,22 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 end
 
 ATT.CustomizePosHook = function(wep, vec)
-    return vec + Vector(-11, 0, 0)
+	return vec + Vector(-11, 0, 0)
 end
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0, 8, 0)
+	return vec + Vector(0, 8, 0)
 end
 
 ATT.IronSights = {
-    Pos = Vector(-2.705, 8, 3.15),
-    Ang = Angle(0,0,0),
-    Midpoint = { -- Where the gun should be at the middle of it's irons
-        Pos = Vector(0, 15, -4),
-        Ang = Angle(0, 0, -45),
-    },
-    Magnification = 1.1,
-    CrosshairInSights = false
+	Pos = Vector(-2.705, 8, 3.15),
+	Ang = Angle(0,0,0),
+	Midpoint = { -- Where the gun should be at the middle of it's irons
+		Pos = Vector(0, 15, -4),
+		Ang = Angle(0, 0, -45),
+	},
+	Magnification = 1.1,
+	CrosshairInSights = false
 }
 
 ATT.SprintPos = Vector(4, 8, -8)
@@ -211,22 +211,22 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 end
 
 ATT.CustomizePosHook = function(wep, vec)
-    return vec + Vector(11, 0, 0)
+	return vec + Vector(11, 0, 0)
 end
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0, -12, 0)
+	return vec + Vector(0, -12, 0)
 end
 
 ATT.IronSights = {
-    Pos = Vector(-2.705, -8, 2.675),
-    Ang = Angle(0,0.4,0),
-    Midpoint = { -- Where the gun should be at the middle of it's irons
-        Pos = Vector(0, 15, -4),
-        Ang = Angle(0, 0, -45),
-    },
-    Magnification = 1.1,
-    CrosshairInSights = false
+	Pos = Vector(-2.705, -8, 2.675),
+	Ang = Angle(0,0.4,0),
+	Midpoint = { -- Where the gun should be at the middle of it's irons
+		Pos = Vector(0, 15, -4),
+		Ang = Angle(0, 0, -45),
+	},
+	Magnification = 1.1,
+	CrosshairInSights = false
 }
 
 ATT.SprintPos = Vector(6, 3, 1)
@@ -295,23 +295,23 @@ ATT.ShellScale = 3
 ATT.DamageType = DMG_BLAST + DMG_BULLET + DMG_AIRBOAT
 
 ATT.Hook_PrimaryAttack = function(wep)
-    local rng = math.Truncate(util.SharedRandom("if stunfisk mention cb lokix again i will kick a dog", 1,100))
+	local rng = math.Truncate(util.SharedRandom("if stunfisk mention cb lokix again i will kick a dog", 1,100))
 	if rng <= 1  then
-        -- Stole from 8Z.
-        wep:GetOwner():EmitSound("vo/npc/male01/myarm0" .. math.random(1, 2) .. ".wav", 75)
-        local dmg = DamageInfo()
-        dmg:SetAttacker(wep:GetOwner())
-        dmg:SetInflictor(wep)
-        dmg:SetDamage(math.random(20, 40))
-        dmg:SetDamageType(DMG_GENERIC)
-        wep:GetOwner():TakeDamageInfo(dmg)
-        wep:GetOwner():ViewPunch(Angle(2, -10, 10))
-        -- can't do it right now because the gun isn't done firing yet
-        timer.Simple(0, function()
-            if IsValid(wep) and IsValid(wep:GetOwner()) then
-                wep:GetOwner():DropWeapon(wep, nil, wep:GetOwner():GetForward() * -200 + VectorRand() * 50 + Vector(0, 0, 150))
-            end
-        end)
+		-- Stole from 8Z.
+		wep:GetOwner():EmitSound("vo/npc/male01/myarm0" .. math.random(1, 2) .. ".wav", 75)
+		local dmg = DamageInfo()
+		dmg:SetAttacker(wep:GetOwner())
+		dmg:SetInflictor(wep)
+		dmg:SetDamage(math.random(20, 40))
+		dmg:SetDamageType(DMG_GENERIC)
+		wep:GetOwner():TakeDamageInfo(dmg)
+		wep:GetOwner():ViewPunch(Angle(2, -10, 10))
+		-- can't do it right now because the gun isn't done firing yet
+		timer.Simple(0, function()
+			if IsValid(wep) and IsValid(wep:GetOwner()) then
+				wep:GetOwner():DropWeapon(wep, nil, wep:GetOwner():GetForward() * -200 + VectorRand() * 50 + Vector(0, 0, 150))
+			end
+		end)
 	end
 end
 
@@ -349,15 +349,15 @@ ATT.ShootEnt = "myt_bf1942_1918_gl_launcher"
 ATT.ShootEntForce = 20000
 
 ATT.CustomizePosHook = function(wep, vec)
-    return vec + Vector(-7, 0, 0)
+	return vec + Vector(-7, 0, 0)
 end
 
 ATT.ActiveAngHook = function(wep, ang)
-    return ang + Angle(0, 5, -3)
+	return ang + Angle(0, 5, -3)
 end
 
 ATT.ActivePosHook = function(wep, vec)
-    return vec + Vector(0, -1, -2)
+	return vec + Vector(0, -1, -2)
 end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan5")
@@ -610,8 +610,8 @@ ATT.RecoilMult = 2
 ATT.RecoilPatternDriftMult = 2
 
 ATT.BulletBones = { 
-    [1] = "W_Ammo2",
-    [3] = "W_Ammo3", 
+	[1] = "W_Ammo2",
+	[3] = "W_Ammo3", 
 	[5] = "W_Ammo4",  
 	[2] = "W_Ammo5",  
 	[4] = "W_Ammo6",
@@ -681,14 +681,14 @@ ATT.HoldType = "ar2"
 ATT.HoldTypeSights = "ar2"
 
 ATT.IronSights = {
-    Pos = Vector(-2.705, 5, 0.875),
-    Ang = Angle(0,0,0),
-    Midpoint = { -- Where the gun should be at the middle of it's irons
-        Pos = Vector(0, 15, -4),
-        Ang = Angle(0, 0, -45),
-    },
-    Magnification = 1.1,
-    CrosshairInSights = false
+	Pos = Vector(-2.705, 5, 0.875),
+	Ang = Angle(0,0,0),
+	Midpoint = { -- Where the gun should be at the middle of it's irons
+		Pos = Vector(0, 15, -4),
+		Ang = Angle(0, 0, -45),
+	},
+	Magnification = 1.1,
+	CrosshairInSights = false
 }
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_1918_webley4")
@@ -719,7 +719,7 @@ ATT.Penetration = 16
 ATT.TriggerDelayReleaseToFire = true
 
 ATT.BulletBones = { 
-    [1] = "W_Ammo1",
+	[1] = "W_Ammo1",
 }
 
 
@@ -759,9 +759,9 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 end
 
 ATT.Firemodes = {
-    {
-        Mode = 1,
-    },
+	{
+		Mode = 1,
+	},
 }
 
 ATT.SortOrder = 120
@@ -811,16 +811,16 @@ ATT.Hook_TranslateAnimation = function(wep, curanim)
 end
 
 ATT.Firemodes = {
-    {
-        Mode = 1,
+	{
+		Mode = 1,
 		PrintName = "SINGLE",
-    },
-    {
-        Mode = 1,
+	},
+	{
+		Mode = 1,
 		PrintName = "DOUBLE",
 		AmmoPerShot = 2,
 		NumOverride = 24,
-    },
+	},
 }
 
 ATT.SortOrder = 1.5
@@ -875,9 +875,9 @@ ATT.Category = "bf1942_fh_winch_cal"
 ATT.ActivateElements = {"cal_monolith"}
 
 ATT.Firemodes = {
-    {
-        Mode = 1,
-    },
+	{
+		Mode = 1,
+	},
 }
 
 ATT.NumOverride = 1
@@ -902,23 +902,23 @@ ATT.Hook_PrimaryAttack = function(wep)
 
 	if !wep:GetUBGL(true) then
 
-    local rng = math.Truncate(util.SharedRandom("fallout did NOT win best adaptation	lies all of them", 1,100))
+	local rng = math.Truncate(util.SharedRandom("fallout did NOT win best adaptation	lies all of them", 1,100))
 	if rng <= 1  then
-        -- Stole from 8Z.
-        wep:GetOwner():EmitSound("vo/npc/male01/myarm0" .. math.random(1, 2) .. ".wav", 75)
-        local dmg = DamageInfo()
-        dmg:SetAttacker(wep:GetOwner())
-        dmg:SetInflictor(wep)
-        dmg:SetDamage(math.random(20, 40))
-        dmg:SetDamageType(DMG_GENERIC)
-        wep:GetOwner():TakeDamageInfo(dmg)
-        wep:GetOwner():ViewPunch(Angle(2, -10, 10))
-        -- can't do it right now because the gun isn't done firing yet
-        timer.Simple(0, function()
-            if IsValid(wep) and IsValid(wep:GetOwner()) then
-                wep:GetOwner():DropWeapon(wep, nil, wep:GetOwner():GetForward() * -200 + VectorRand() * 50 + Vector(0, 0, 150))
-            end
-        end)
+		-- Stole from 8Z.
+		wep:GetOwner():EmitSound("vo/npc/male01/myarm0" .. math.random(1, 2) .. ".wav", 75)
+		local dmg = DamageInfo()
+		dmg:SetAttacker(wep:GetOwner())
+		dmg:SetInflictor(wep)
+		dmg:SetDamage(math.random(20, 40))
+		dmg:SetDamageType(DMG_GENERIC)
+		wep:GetOwner():TakeDamageInfo(dmg)
+		wep:GetOwner():ViewPunch(Angle(2, -10, 10))
+		-- can't do it right now because the gun isn't done firing yet
+		timer.Simple(0, function()
+			if IsValid(wep) and IsValid(wep:GetOwner()) then
+				wep:GetOwner():DropWeapon(wep, nil, wep:GetOwner():GetForward() * -200 + VectorRand() * 50 + Vector(0, 0, 150))
+			end
+		end)
 	end
 
 	end
@@ -956,12 +956,13 @@ ATT.Category = "bf1942_fh_winch_cal"
 ATT.ActivateElements = {"cal_auto"}
 
 ATT.Firemodes = {
-    {
-        Mode = 1,
-    },
+	{
+		Mode = 1,
+	},
 }
 
 ATT.NumOverride = 8
+ATT.SpreadMult = 1.1
 ATT.DamageMaxMult = 0.9
 ATT.DamageMinMult = 0.9
 
@@ -1008,18 +1009,21 @@ ATT.PeekPos = Vector(2, -1, -2)
 ATT.PeekAng = Angle(0, 0, -10)
 
 ATT.Firemodes = {
-    {
-        Mode = 1,
+	{
+		Mode = 1,
 		PrintName = "PUMP",
 		ImpactForce = 4,
 		RPM = 600,
-    }, 
+	}, 
 	{
-        Mode = 1,
+		Mode = 1,
 		ManualAction = false,
+		SpreadMult = 1.2,
+		DamageMaxMult = 0.9,
+		DamageMinMult = 0.9,
 		ImpactForce = 2,
 		RPM = 200,
-    },
+	},
 }
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch3")
@@ -1105,14 +1109,14 @@ end
 ATT.ClipSize = 10
 
 ATT.IronSights = {
-    Pos = Vector(-2.705, -6, -1),
-    Ang = Angle(0,0,0),
-    Midpoint = { -- Where the gun should be at the middle of it's irons
-        Pos = Vector(0, 15, -4),
-        Ang = Angle(0, 0, -45),
-    },
-    Magnification = 1.1,
-    CrosshairInSights = false
+	Pos = Vector(-2.705, -6, -1),
+	Ang = Angle(0,0,0),
+	Midpoint = { -- Where the gun should be at the middle of it's irons
+		Pos = Vector(0, 15, -4),
+		Ang = Angle(0, 0, -45),
+	},
+	Magnification = 1.1,
+	CrosshairInSights = false
 }
 
 
@@ -1220,12 +1224,12 @@ ATT.CanLeanUBGL = false
 ATT.BashWhileSprint = true
 ATT.ShootWhileSprint = true
 ATT.HookP_BlockFire = function(self)
-    local owner = self:GetOwner() 
+	local owner = self:GetOwner() 
 	local b_ugbl 	= wep:GetUBGL(true)	
 	local canfire = owner:KeyDown(IN_SPEED) and !owner:KeyDown(IN_USE)
 	
 	if owner:KeyDown(IN_FORWARD + IN_BACK + IN_MOVELEFT + IN_MOVERIGHT) then
-    return canfire
+	return canfire
 	end
 end]]
 

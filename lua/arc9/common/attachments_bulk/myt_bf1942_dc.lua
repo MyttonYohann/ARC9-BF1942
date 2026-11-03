@@ -185,11 +185,9 @@ ATT.ModelOffset = Vector(-11, 0, -3)
 ATT.ModelAngleOffset = Angle(0, 0, 0)
 ATT.Model = "models/weapons/myt_bf1942/dc/c_mp5_ik_k.mdl"
 
-ATT.DrawFunc = function(swep, model) 
-	if swep:GetElements()["s_4"] then
+ATT.DrawFunc = function(wep, model) 
+	if wep:HasElement("s_4") then
 		model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl")	-- cant set nil?
-	else
-		model:SetModel("models/weapons/myt_bf1942/dc/c_mp5_ik_k.mdl")
 	end
 end
 
