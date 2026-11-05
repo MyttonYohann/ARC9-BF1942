@@ -277,31 +277,42 @@ ATT.SortOrder = 0
 
 ATT.Model = "models/weapons/myt_bf1942/atts/dc/c_scor_uc.mdl"
 ATT.BarrelLengthUBGL = 18
-ATT.DrawFunc = function(wep, model)	-- hide gun when not in 
-	if wep:GetReloading() and !wep:GetUBGL() then 
+ATT.UBGLBodge_Swap = 1 -- forced to start at blank
+ATT.DrawFunc = function(wep, model)
+	-- legacy code, only hide during reload
+	--[[if wep:GetReloading() and !wep:GetUBGL() then 
 	model:SetBodygroup(0,1)	
 	model:SetBodygroup(1,2)
 	else
 	model:SetBodygroup(0,0)
 	model:SetBodygroup(1,0)
-	end
+	end]]
 
-	--[[local is_subgun = wep:GetUBGL() or wep:GetCustomize()
-	local owner = wep:GetOwner()	
+	-- it has some random flickering if changing the model half way
+	local is_subgun = wep:GetUBGL() or wep:GetCustomize()
+	local owner = wep:GetOwner()
+
+	if !is_subgun and wep.UBGLBodge_Swap == 1 then
+		model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl")
+		--model:SetBodygroup(0,1)	
+		--model:SetBodygroup(1,2)
+	end
 
 	if is_subgun then
 		model:SetModel("models/weapons/myt_bf1942/atts/dc/c_scor_uc.mdl")
+		--model:SetBodygroup(0,0)
+		--model:SetBodygroup(1,0)
+		wep.UBGLBodge_Swap = 0
+		
 	end
-	if ((owner:KeyDown(IN_USE) and owner:KeyPressed(IN_ATTACK2)) or owner:KeyPressed(ARC9.IN_UBGL)) and wep:GetUBGL() then
-		timer.Simple(0.3, function() 
-			model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl") 
+	
+	if !wep:GetUBGL() then
+		timer.Simple(0.5, function() 
+			if not (IsValid(owner) and owner:IsPlayer()) then return end
+			wep.UBGLBodge_Swap = 1
+			wep.RHIK_Priority = -10 -- pretty sure it doesnt work like this
 		end)
 	end
-
-	--if !is_subgun then
-		model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl")
-	end]]
-	
 end
 
 ATT.PeekPosUBGL = Vector(1.5, -5, -1.5)
@@ -390,32 +401,6 @@ ATT.IKAnimationProxy = {
 
 } -- When an animation event plays, override it with one based on this LHIK model.
 
-ATT.Hook_TranslateAnimation = function(wep, curanim)	
-	if wep:Clip2() == 0 then
-		if	curanim == "fire_ubgl_sights" 		then	return "fire_ubgl_sights_last"		end
-		if	curanim == "exit_ubgl" 				then	return "exit_ubgl_glempty"			end
-		-- separete check 'cos the new ugbl ik update broke something
-		if	curanim == "reload_ubgl" 			then	return "reload_ubgl_empty"			end	
-		if	curanim == "idle_ubgl" 				then	return "idle_ubgl_empty"			end
-		if	curanim == "fire_ubgl" 				then	return "fire_ubgl_empty"			end	
-		if	curanim == "holster_ubgl"			then	return "holster_ubgl_empty"			end
-		if	curanim == "enter_ubgl" 			then	return "enter_ubgl_glempty"			end
-	end
-
-	-- i forgor why i did this and im too afraid to delete this
-	if wep:Clip1() == 0 and wep:Clip2() != 0	then	-- well realistically need only check for if clip2 not empty
-		if	curanim == "idle_ubgl_empty" 		then	return "idle_ubgl"		end
-		if	curanim == "fire_ubgl_empty" 		then	return "fire_ubgl"		end	
-		if	curanim == "fire_ubgl_iron_empty" 	then	return "fire_ubgl_iron"	end	
-		if	curanim == "reload_ubgl_empty" 		then	return "reload_ubgl"	end	
-		if	curanim == "holster_ubgl_empty"		then	return "holster_ubgl"	end
-	-- separate check
-		if	curanim == "enter_ubgl_glempty" 		then	return "enter_ubgl"		end
-	else
-		return 
-	end
-end
-
 ATT.Category = {"bf1942_dc_offhand"}
 
 ATT.AimDownSightsTimeMult = 1.1
@@ -497,7 +482,7 @@ ATT.SprintAngUBGL = Angle(0, -20, 10)
 ATT.SprintPosUBGL = Vector(2, 3, 0)
 
 ATT.CustomizeAngUBGL  = Angle(-90, 40, -5)
-ATT.CustomizePosUBGL  = Vector(-12, 32, 4)
+ATT.CustomizePosUBGL  = Vector(-14, 32, 4)
 ATT.CustomizeRotateAnchorUBGL = Vector(10, -2, -10)
 
 ATT.NearWallPosUBGL = Vector(7, -3, -6)
