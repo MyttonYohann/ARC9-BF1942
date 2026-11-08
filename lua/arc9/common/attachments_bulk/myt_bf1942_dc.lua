@@ -515,10 +515,10 @@ Supposedly popular with civilians
 
 ATT.SortOrder = 21
 ATT.Category = "bf1942_dc_ak47_grip"
-ATT.ActivateElements = {"g_2", "nostock", "rh_occupied"}
+ATT.ActivateElements = {"g_2", "nostock","rh_occupied"}
 
 ATT.RHIK = true
-ATT.RHIK_Priority = 0
+ATT.RHIK_Priority = 1/10
 
 ATT.Scale = 1
 ATT.ModelOffset = Vector(3, 0, 3.5)
@@ -554,7 +554,7 @@ ATT.Category = "bf1942_dc_ak47_grip"
 ATT.ActivateElements = {"g_4", "nostock", "rh_occupied"}
 
 ATT.RHIK = true
-ATT.RHIK_Priority = 0
+ATT.RHIK_Priority = 1/10
 
 ATT.Scale = 1
 ATT.ModelOffset = Vector(3, 0, 3.5)
@@ -590,7 +590,7 @@ ATT.Category = "bf1942_dc_ak47_grip"
 ATT.ActivateElements = {"g_5", "nostock", "rh_occupied"}
 
 ATT.RHIK = true
-ATT.RHIK_Priority = 0
+ATT.RHIK_Priority = 1/10
 
 ATT.Scale = 1
 ATT.ModelOffset = Vector(3, 0, 3.5)
@@ -626,7 +626,7 @@ ATT.Category = "bf1942_dc_ak47_grip"
 ATT.ActivateElements = {"g_6", "nostock", "rh_occupied"}
 
 ATT.RHIK = true
-ATT.RHIK_Priority = 0
+ATT.RHIK_Priority = 1/10
 
 ATT.Scale = 1
 ATT.ModelOffset = Vector(3, 0, 3.5)
@@ -663,9 +663,9 @@ ATT.Category = "bf1942_dc_ak47_grip"
 ATT.ActivateElements = {"g_8", "nostock", "rh_occupied"}
 
 ATT.RHIK = true
-ATT.RHIK_Priority = 0.01
+ATT.RHIK_Priority = 1/10
 ATT.LHIK = true
-ATT.LHIK_Priority = 0.01
+ATT.LHIK_Priority = 1/10
  
 ATT.Scale = 1
 ATT.ModelOffset = Vector(3, 0, 3.5)

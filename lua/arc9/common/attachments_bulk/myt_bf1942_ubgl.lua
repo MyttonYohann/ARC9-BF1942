@@ -294,14 +294,10 @@ ATT.DrawFunc = function(wep, model)
 
 	if !is_subgun and wep.UBGLBodge_Swap == 1 then
 		model:SetModel("models/weapons/myt_bf1942/dc/blank.mdl")
-		--model:SetBodygroup(0,1)	
-		--model:SetBodygroup(1,2)
 	end
 
 	if is_subgun then
 		model:SetModel("models/weapons/myt_bf1942/atts/dc/c_scor_uc.mdl")
-		--model:SetBodygroup(0,0)
-		--model:SetBodygroup(1,0)
 		wep.UBGLBodge_Swap = 0
 		
 	end
@@ -310,11 +306,15 @@ ATT.DrawFunc = function(wep, model)
 		timer.Simple(0.5, function() 
 			if not (IsValid(owner) and owner:IsPlayer()) then return end
 			wep.UBGLBodge_Swap = 1
-			wep.RHIK_Priority = -10 -- pretty sure it doesnt work like this
+			--wep.RHIK_Priority = 1/100 -- pretty sure it doesnt work like this, if i can get this working then both off hand and stock rhik can be used at the same time
 		end)
 	end
 end
-
+--[[ATT.RHIK_Priority = function(wep)
+	if wep:GetUBGL() then
+		return 1/100
+	end
+end]]
 ATT.PeekPosUBGL = Vector(1.5, -5, -1.5)
 ATT.PeekAngUBGL = Angle(0, 0, -10)
 
@@ -772,11 +772,10 @@ ATT.SpreadUBGL = 0.08
 ATT.SpreadMultHipFireUBGL = 1
 ATT.SpreadMultSightsUBGL = 1 -- doesnt fucking work
 -- force a fixed value cos the ubgl suffix sort of shares the same value as the main gun so its mult of a mult and its a headache to wrap around
-ATT.SpreadOverrideSights = function(self)
+--[[ATT.SpreadOverrideSightsHook = function(self)
 	if self:GetUBGL() then
-		return self.SpreadUBGL
 	end
-end
+end]]
 
 ATT.NumUBGL = 8
 -- General recoil multiplier

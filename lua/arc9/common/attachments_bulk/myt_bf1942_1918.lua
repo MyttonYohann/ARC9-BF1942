@@ -284,7 +284,7 @@ ATT.DamageMinMult = 4
 ATT.RecoilMult = 5
 ATT.RecoilPatternDriftMult = 4
 
-ATT.PhysBulletMuzzleVelocity = 1540 * 12
+ATT.PhysBulletMuzzleVelocityMult = 0.5
 ATT.ImpactForce = 12
 ATT.Penetration = 24
 
@@ -293,10 +293,12 @@ ATT.Penetration = 24
 ATT.ShellScale = 3
 
 ATT.DamageType = DMG_BLAST + DMG_BULLET + DMG_AIRBOAT
+ATT.ExplosionRadiusOverride = 128
+ATT.ExplosionDamageOverride = 40
+ATT.ImpactDecal = "FadingScorch"
 
 ATT.Hook_PrimaryAttack = function(wep)
-	local rng = math.Truncate(util.SharedRandom("if stunfisk mention cb lokix again i will kick a dog", 1,100))
-	if rng <= 1  then
+	if math.Rand(1, 100) == 1 then
 		-- Stole from 8Z.
 		wep:GetOwner():EmitSound("vo/npc/male01/myarm0" .. math.random(1, 2) .. ".wav", 75)
 		local dmg = DamageInfo()
@@ -313,6 +315,95 @@ ATT.Hook_PrimaryAttack = function(wep)
 			end
 		end)
 	end
+end
+
+ATT.HookC_DrawBullet = function(wep, bullet)
+	if bullet.Travelled <= 128 then return false end
+	local a = Lerp(bullet.Travelled / 3000, 0, 1) or 0
+	if a == 0 then return false end
+
+	-- Do not try to keep emitting while time is frozen (singleplayer pause)
+	if (bullet.LastTick or 0) == CurTime() then return false end
+	bullet.LastTick = CurTime()
+
+	local emitter = ParticleEmitter(bullet.Pos)
+	if !IsValid(emitter) then return end
+
+	local vec = bullet.Vel * engine.TickInterval()
+	local count = math.ceil(vec:Length() / 8)
+
+	local count2 = math.ceil(math.sqrt(count) / 3 * a)
+	for j = 1, count2 do
+		local p = bullet.Pos - vec * (j / count2) + VectorRand() * math.Clamp((CurTime() - bullet.StartTime) / 0.5, 0, 8)
+
+		local spark = emitter:Add("effects/combinemuzzle1", p)
+		spark:SetVelocity(VectorRand() * 4 + vec * 0.75)
+		spark:SetGravity(Vector(math.Rand(-10, 10), math.Rand(-10, 10), -75))
+		spark:SetDieTime(math.Rand(0.06, 0.12))
+		spark:SetStartAlpha(200)
+		spark:SetEndAlpha(0)
+		spark:SetStartSize(math.Rand(2, 3))
+		spark:SetEndSize(math.Rand(6, 9))
+		spark:SetRoll(math.Rand(-180, 180))
+		spark:SetRollDelta(math.Rand(-0.2, 0.2))
+		spark:SetColor(255, 220, 220)
+		spark:SetAirResistance(50)
+		spark:SetLighting(false)
+		spark:SetCollide(true)
+		spark:SetBounce(0.8)
+	end
+
+	emitter:Finish()
+	bullet.RenderTick = (bullet.RenderTick or 0) + 1
+
+	return false
+end
+
+ATT.Hook_PhysBulletImpact = function(wep, data)
+	local emitter = ParticleEmitter(data.tr.HitPos)
+	if !IsValid(emitter) then return end
+
+	local dir = data.tr.Normal
+	local reflect = dir:Dot(data.tr.HitNormal) * 2 * data.tr.HitNormal - dir
+	local vec = (reflect + VectorRand() * 0.1):GetNormalized()
+
+	for i = 1, math.random(36, 48) do
+		local ember = emitter:Add("effects/spark", data.tr.HitPos + VectorRand() * 4)
+		ember:SetVelocity(VectorRand() * 900 - vec * math.Rand(200, 500) + Vector(0, 0, math.Rand(75, 150)))
+		ember:SetGravity(Vector(0, 0, -1200))
+		ember:SetDieTime(math.Rand(0.15, 0.5))
+		ember:SetStartAlpha(255)
+		ember:SetEndAlpha(0)
+		ember:SetStartSize(math.Rand(3, 6))
+		ember:SetEndSize(0)
+		ember:SetRoll(math.Rand(-180, 180))
+		ember:SetRollDelta(math.Rand(-0.2, 0.2))
+		ember:SetColor(255, 255, 220)
+		ember:SetAirResistance(350)
+		ember:SetLighting(false)
+		ember:SetCollide(true)
+		ember:SetBounce(0.5)
+	end
+
+	for i = 1, 3 do
+		local spark = emitter:Add("effects/fire_cloud" .. math.random(1, 2), data.tr.HitPos + VectorRand() * 4)
+		spark:SetVelocity(VectorRand() * 32 - vec * math.Rand(100, 200))
+		spark:SetGravity(Vector(math.Rand(-10, 10), math.Rand(-10, 10), -75))
+		spark:SetDieTime(math.Rand(0.04, 0.12))
+		spark:SetStartAlpha(20)
+		spark:SetEndAlpha(0)
+		spark:SetStartSize(math.Rand(30, 50))
+		spark:SetEndSize(math.Rand(120, 150))
+		spark:SetRoll(math.Rand(-180, 180))
+		spark:SetRollDelta(math.Rand(-0.5, 0.5))
+		spark:SetColor(255, 255, 255)
+		spark:SetAirResistance(50)
+		spark:SetLighting(false)
+		spark:SetCollide(false)
+		spark:SetBounce(0.8)
+	end
+
+	emitter:Finish()
 end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_1918_berdan4")
@@ -888,7 +979,7 @@ ATT.RecoilMult = 3
 ATT.RecoilPatternDriftMult = 2
 ATT.SpreadMultSights = 0.0005/0.0025
 
-ATT.PhysBulletMuzzleVelocityMult = 2.5
+ATT.PhysBulletMuzzleVelocityMult = 0.5
 ATT.ImpactForce = 12
 ATT.Penetration = 32
 
@@ -898,12 +989,13 @@ ATT.ClipSize = 1
 ATT.ChamberSize = 0
 
 
+ATT.DamageType = DMG_BLAST + DMG_BULLET + DMG_AIRBOAT
+ATT.ExplosionRadiusOverride = 128
+ATT.ExplosionDamageOverride = 40
+ATT.ImpactDecal = "FadingScorch"
+
 ATT.Hook_PrimaryAttack = function(wep)
-
-	if !wep:GetUBGL(true) then
-
-	local rng = math.Truncate(util.SharedRandom("fallout did NOT win best adaptation	lies all of them", 1,100))
-	if rng <= 1  then
+	if math.Rand(1, 100) == 1  then
 		-- Stole from 8Z.
 		wep:GetOwner():EmitSound("vo/npc/male01/myarm0" .. math.random(1, 2) .. ".wav", 75)
 		local dmg = DamageInfo()
@@ -920,8 +1012,95 @@ ATT.Hook_PrimaryAttack = function(wep)
 			end
 		end)
 	end
+end
 
+ATT.HookC_DrawBullet = function(wep, bullet)
+	if bullet.Travelled <= 128 then return false end
+	local a = Lerp(bullet.Travelled / 3000, 0, 1) or 0
+	if a == 0 then return false end
+
+	-- Do not try to keep emitting while time is frozen (singleplayer pause)
+	if (bullet.LastTick or 0) == CurTime() then return false end
+	bullet.LastTick = CurTime()
+
+	local emitter = ParticleEmitter(bullet.Pos)
+	if !IsValid(emitter) then return end
+
+	local vec = bullet.Vel * engine.TickInterval()
+	local count = math.ceil(vec:Length() / 8)
+
+	local count2 = math.ceil(math.sqrt(count) / 3 * a)
+	for j = 1, count2 do
+		local p = bullet.Pos - vec * (j / count2) + VectorRand() * math.Clamp((CurTime() - bullet.StartTime) / 0.5, 0, 8)
+
+		local spark = emitter:Add("effects/combinemuzzle1", p)
+		spark:SetVelocity(VectorRand() * 4 + vec * 0.75)
+		spark:SetGravity(Vector(math.Rand(-10, 10), math.Rand(-10, 10), -75))
+		spark:SetDieTime(math.Rand(0.06, 0.12))
+		spark:SetStartAlpha(200)
+		spark:SetEndAlpha(0)
+		spark:SetStartSize(math.Rand(2, 3))
+		spark:SetEndSize(math.Rand(6, 9))
+		spark:SetRoll(math.Rand(-180, 180))
+		spark:SetRollDelta(math.Rand(-0.2, 0.2))
+		spark:SetColor(255, 220, 220)
+		spark:SetAirResistance(50)
+		spark:SetLighting(false)
+		spark:SetCollide(true)
+		spark:SetBounce(0.8)
 	end
+
+	emitter:Finish()
+	bullet.RenderTick = (bullet.RenderTick or 0) + 1
+
+	return false
+end
+
+ATT.Hook_PhysBulletImpact = function(wep, data)
+	local emitter = ParticleEmitter(data.tr.HitPos)
+	if !IsValid(emitter) then return end
+
+	local dir = data.tr.Normal
+	local reflect = dir:Dot(data.tr.HitNormal) * 2 * data.tr.HitNormal - dir
+	local vec = (reflect + VectorRand() * 0.1):GetNormalized()
+
+	for i = 1, math.random(36, 48) do
+		local ember = emitter:Add("effects/spark", data.tr.HitPos + VectorRand() * 4)
+		ember:SetVelocity(VectorRand() * 900 - vec * math.Rand(200, 500) + Vector(0, 0, math.Rand(75, 150)))
+		ember:SetGravity(Vector(0, 0, -1200))
+		ember:SetDieTime(math.Rand(0.15, 0.5))
+		ember:SetStartAlpha(255)
+		ember:SetEndAlpha(0)
+		ember:SetStartSize(math.Rand(3, 6))
+		ember:SetEndSize(0)
+		ember:SetRoll(math.Rand(-180, 180))
+		ember:SetRollDelta(math.Rand(-0.2, 0.2))
+		ember:SetColor(255, 255, 220)
+		ember:SetAirResistance(350)
+		ember:SetLighting(false)
+		ember:SetCollide(true)
+		ember:SetBounce(0.5)
+	end
+
+	for i = 1, 3 do
+		local spark = emitter:Add("effects/fire_cloud" .. math.random(1, 2), data.tr.HitPos + VectorRand() * 4)
+		spark:SetVelocity(VectorRand() * 32 - vec * math.Rand(100, 200))
+		spark:SetGravity(Vector(math.Rand(-10, 10), math.Rand(-10, 10), -75))
+		spark:SetDieTime(math.Rand(0.04, 0.12))
+		spark:SetStartAlpha(20)
+		spark:SetEndAlpha(0)
+		spark:SetStartSize(math.Rand(30, 50))
+		spark:SetEndSize(math.Rand(120, 150))
+		spark:SetRoll(math.Rand(-180, 180))
+		spark:SetRollDelta(math.Rand(-0.5, 0.5))
+		spark:SetColor(255, 255, 255)
+		spark:SetAirResistance(50)
+		spark:SetLighting(false)
+		spark:SetCollide(false)
+		spark:SetBounce(0.8)
+	end
+
+	emitter:Finish()
 end
 
 ARC9.LoadAttachment(ATT, "myt_bf1942_fh_winch4")
