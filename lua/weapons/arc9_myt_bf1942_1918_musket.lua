@@ -427,16 +427,30 @@ SWEP.Hook_TranslateAnimation = function(wep, curanim)
 	end
 end
 
-SWEP.Hook_PostReload = function(wep) -- i am convinced this hook doesnt do anything
-	wep.BarrelLength = 0
-	 --wep.SpeedMultReload = 0.001
-	timer.Simple(160/40, function() wep.SpeedMultReload = 0.001 end)
-	timer.Simple(445/40, function() wep.SpeedMultReload = 1 end)
+SWEP.BarrelLength = 86	
+
+SWEP.Hook_PostReload = function (wep)
+	timer.Simple(150/40, function()
+		if IsValid(wep) and IsValid(wep:GetOwner()) then	
+			wep.MuteReloadSpeed = 1
+			--print ("ahoy")
+		end
+	end)
+	timer.Simple(440/40, function()
+		if IsValid(wep) and IsValid(wep:GetOwner()) then	
+			wep.MuteReloadSpeed = 0
+			--print ("ahoi")
+		end
+	end)
 end
-SWEP.Hook_EndReload = function(wep)
-	wep.BarrelLength = 86
+
+SWEP.SpeedHook = function(wep)
+	if wep.MuteReloadSpeed == 1 then
+		return 0.15
+	else
+		return
+	end
 end
-SWEP.BarrelLength = 86
 
 
 -------------------------- ATTACHMENTS
