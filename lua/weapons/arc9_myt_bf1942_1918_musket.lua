@@ -445,8 +445,9 @@ SWEP.Hook_PostReload = function (wep)
 end
 
 SWEP.SpeedHook = function(wep)
-	if wep.MuteReloadSpeed == 1 then
-		return 0.15
+	-- slow down speed when standing cos the gun is planted on the ground
+	if wep.MuteReloadSpeed == 1 and !wep:GetOwner():Crouching() then
+		return 0.2
 	else
 		return
 	end
