@@ -84,6 +84,12 @@ SWEP.BashWhileSprint = true
 SWEP.Bash = true
 SWEP.PrimaryBash = true
 
+-- WHY THE FUCK NO ONE TOLD ME ABOUT THIS
+SWEP.DynamicConditions = {
+    ["Recoil"] = true,
+    ["PrimaryBash"] = true,
+}
+
 SWEP.PrimaryBashHook = function(wep)
 	if !wep:GetInSights() then
 		return true
@@ -106,15 +112,6 @@ SWEP.TracerNum = 1 -- Tracer every X
 SWEP.TracerColor = Color(255, 225, 200) -- Color of tracers. Only works if tracer effect supports it. For physical bullets, this is compressed down to 9-bit color.
 
 -------------------------- POSITIONS
-
-SWEP.BulletBones = { 
-    [1] = "W_Ammo2",
-    [2] = "W_Ammo3", 
-	[3] = "W_Ammo4",  
-	[4] = "W_Ammo5",  
-	[5] = "W_Ammo6",
-	[6] = "W_Ammo1",
-}
 
 SWEP.IronSights = {
     Pos = Vector(0, 10, -5),
