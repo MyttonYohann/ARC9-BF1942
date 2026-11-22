@@ -26,7 +26,7 @@ SWEP.WorldModel = "models/weapons/myt_bf1942/dc/c_spear.mdl"
 SWEP.Slot = 1
 
 SWEP.MirrorVMWM = true
-SWEP.WorldModelMirror = "models/weapons/myt_bf1942/1918/c_spear.mdl"
+SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_spear.mdl"
 SWEP.WorldModelOffset = {
 	Pos = Vector(-1, 2, -7),
 	Ang = Angle(-5, 0, 180),
@@ -72,12 +72,21 @@ SWEP.SpeedMult = 0.8
 SWEP.SpeedMultSights = 0.6
 SWEP.SpeedMultShooting = 0.5
 SWEP.SpeedMultMelee = 0.725
-SWEP.SpeedMultCrouch = 0.85
+SWEP.SpeedMultCrouch = 0.85 
 SWEP.SpeedMultBlindFire = 1
 
 SWEP.ShootWhileSprint = true
 SWEP.BashWhileSprint = true
-
+SWEP.SpeedMultMeleeHook = function(wep)
+	if wep:GetIsSprinting() then
+		return 1
+	end
+end
+SWEP.SpeedMultShooting = function(wep)
+	if wep:GetIsSprinting() then
+		return 1
+	end
+end
 -------------------------- MELEE
 
 SWEP.Bash = true
@@ -97,9 +106,15 @@ SWEP.PrimaryBashHook = function(wep)
 	end
 end
 
-SWEP.BashDamage = 90
+SWEP.BashDamageHook = function(wep, dmg)
+	if wep:GetIsSprinting() and !wep:GetUBGL() then
+		return dmg * 4
+	end
+end
+
+SWEP.BashDamage = 60
 SWEP.BashLungeRange = 0
-SWEP.BashRange = 72
+SWEP.BashRange = 150
 SWEP.PreBashTime = 0.35
 SWEP.PostBashTime = 0.3
 
@@ -139,7 +154,7 @@ SWEP.CrouchPos = Vector(-0.2, -0.5, -1.5)
 SWEP.CrouchAng = Angle(0, 0, -7)
 
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(10, 28, 7)
+SWEP.CustomizePos = Vector(23, 54, 7)
 SWEP.CustomizeSnapshotFOV = 110
 SWEP.CustomizeNoRotate = false
 
