@@ -123,12 +123,12 @@ SWEP.SpeedMultBlindFire = 1
 
 SWEP.ShootWhileSprint = true
 SWEP.BashWhileSprint = true
-SWEP.SpeedMultMeleeHook = function(wep)
+SWEP.SpeedHookMelee = function(wep)
 	if wep:GetIsSprinting() then
 		return 1
 	end
 end
-SWEP.SpeedMultShooting = function(wep)
+SWEP.SpeedHookShooting = function(wep)
 	if wep:GetIsSprinting() then
 		return 1
 	end
