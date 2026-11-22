@@ -51,7 +51,7 @@ SWEP.SecondarySupplyLimit = 2 -- Amount of reserve UBGL magazines you can take.
 SWEP.ReloadInSights = false -- This weapon can aim down sights while reloading.
 
 -------------------------- FIREMODES
-SWEP.RPM = 500
+SWEP.RPM = 600
 
 SWEP.Firemodes = {
 	{
@@ -60,6 +60,52 @@ SWEP.Firemodes = {
 		-- add other attachment modifiers
 	},
 }
+
+-------------------------- RECOIL
+
+SWEP.RecoilPatternDrift = 15
+
+-- General recoil multiplier
+SWEP.Recoil = 1
+
+-- These multipliers affect the predictible recoil by making the pattern taller, shorter, wider, or thinner.
+SWEP.RecoilUp = 0.75 -- Multiplier for vertical recoil
+SWEP.RecoilSide = 0.25 -- Multiplier for vertical recoil
+
+-- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
+-- This type of recoil CANNOT be predicted.
+SWEP.RecoilRandomUp = 0.5
+SWEP.RecoilRandomSide = 0.5
+
+SWEP.RecoilDissipationRate = 7 -- How much recoil dissipates per second.
+SWEP.RecoilResetTime = 0 -- How long the gun must go before the recoil pattern starts to reset.
+
+SWEP.RecoilAutoControl = 0 -- Multiplier for automatic recoil control.
+
+SWEP.RecoilKick = 1.5
+
+SWEP.RecoilPerShot = 1
+SWEP.RecoilKickDamping = 50
+
+SWEP.RecoilMultCrouch = 0.7
+SWEP.RecoilMultHipFire = 1
+SWEP.RecoilMultSights = 1
+
+-------------------------- SPREAD
+
+SWEP.Spread = 0.03
+
+SWEP.SpreadAddRecoil = 0.0025 -- Applied per unit of recoil.
+SWEP.RecoilModifierCap = 10
+
+SWEP.SpreadAddMove = 0.04
+SWEP.SpreadAddMidAir = 0.0075
+SWEP.SpreadMultHipFire = 1
+SWEP.SpreadMultCrouch = 0.5
+
+SWEP.SpreadMultSights = 0.25
+SWEP.RecoilModifierCapSights = 2.5
+SWEP.RecoilModifierCapCrouch = 5
 
 -------------------------- HANDLING
 
