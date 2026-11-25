@@ -23,7 +23,7 @@ SWEP.Description = [[A spotting gun from a rocket launcher, rechambered and elon
 SWEP.ViewModel = "models/weapons/myt_bf1942/dc/c_spear.mdl"
 SWEP.WorldModel = "models/weapons/myt_bf1942/dc/c_spear.mdl"
 
-SWEP.Slot = 1
+SWEP.Slot = 2
 
 SWEP.MirrorVMWM = true
 SWEP.WorldModelMirror = "models/weapons/myt_bf1942/dc/c_spear.mdl"
@@ -37,7 +37,34 @@ SWEP.WorldModelOffset = {
 SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
-SWEP.ImpactForce = 1
+
+SWEP.DamageMax = 38 -- Damage done at point blank range
+SWEP.DamageMin = 12 -- Damage done at maximum range
+
+SWEP.DamageRand = 0.1
+
+SWEP.RangeMin = 500 -- How far bullets retain their maximum damage for.
+SWEP.RangeMax = 8000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
+
+SWEP.Penetration = 12 -- Units of wood that can be penetrated by this gun.
+
+SWEP.ImpactForce = 8
+
+SWEP.BodyDamageMults = {
+	[HITGROUP_HEAD] = 2.5,
+	[HITGROUP_CHEST] = 1,
+	[HITGROUP_LEFTARM] = 0.9,
+	[HITGROUP_RIGHTARM] = 0.9,
+	[HITGROUP_LEFTLEG] = 0.75,
+	[HITGROUP_RIGHTLEG] = 0.75,
+}
+
+-------------------------- PHYS BULLET BALLISTICS
+
+SWEP.PhysBulletMuzzleVelocity = 2329 * 12
+SWEP.PhysBulletGravity = 1.5
+SWEP.PhysBulletDrag = 1.15
+
 
 -------------------------- MAGAZINE
 
@@ -117,7 +144,7 @@ SWEP.AimDownSightsTime = 0.3
 SWEP.SpeedMult = 0.8
 SWEP.SpeedMultSights = 0.6
 SWEP.SpeedMultShooting = 0.5
-SWEP.SpeedMultMelee = 0.725
+SWEP.SpeedMultMelee = 0.9
 SWEP.SpeedMultCrouch = 0.85 
 SWEP.SpeedMultBlindFire = 1
 
@@ -154,7 +181,7 @@ end
 
 SWEP.BashDamageHook = function(wep, dmg)
 	if wep:GetIsSprinting() and !wep:GetUBGL() then
-		return dmg * 4
+		return dmg * 2
 	end
 end
 
@@ -185,6 +212,9 @@ SWEP.IronSights = {
 }
 
 SWEP.Crosshair = false
+SWEP.PeekPos = Vector(1.5, -1, -1)
+SWEP.PeekAng = Angle(0, 0, -15)
+
 
 SWEP.BipodPos = Vector(-2.58, 0, 1)
 SWEP.BipodAng = Angle(0, 0, -5)
@@ -212,7 +242,7 @@ SWEP.StandardPresets = {
 -------------------------- HoldTypes
 
 SWEP.HoldType = "ar2"
-SWEP.HoldTypeSprint = "physgun"
+SWEP.HoldTypeSprint = "ar2"
 SWEP.HoldTypeHolstered = "passive"
 SWEP.HoldTypeSights = "ar2"
 SWEP.HoldTypeCustomize = "slam"

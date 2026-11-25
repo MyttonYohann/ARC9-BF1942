@@ -233,7 +233,7 @@ SWEP.StandardPresets = {
 -------------------------- HoldTypes
 
 SWEP.HoldType = "revolver"
-SWEP.HoldTypeSprint = "passive"
+SWEP.HoldTypeSprint = "slam"
 SWEP.HoldTypeHolstered = "passive"
 SWEP.HoldTypeSights = "revolver"
 SWEP.HoldTypeCustomize = "slam"

@@ -1543,8 +1543,8 @@ ATT.RecoilAutoControlUBGL = 0 -- Multiplier for automatic recoil control.
 ATT.RecoilKickUBGL = 1
 
 ATT.DamageTypeUBGL = DMG_BULLET
-ATT.DamageMaxUBGL = 38 -- Damage done at point blank range
-ATT.DamageMinUBGL = 14 -- Damage done at maximum range
+ATT.DamageMaxUBGL = 24 -- Damage done at point blank range
+ATT.DamageMinUBGL = 8 -- Damage done at maximum range
 
 ATT.DamageRandUBGL = 0.3 -- Damage varies randomly per shot by this fraction. 0.1 = +- 10% damage per shot.
 

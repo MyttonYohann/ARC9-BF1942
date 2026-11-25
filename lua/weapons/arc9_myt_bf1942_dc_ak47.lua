@@ -38,18 +38,18 @@ SWEP.WorldModelOffset = {
 SWEP.MirrorVMWMHeldOnly = false
 
 -------------------------- DAMAGE PROFILE
+	
+SWEP.DamageMax = 24 -- Damage done at point blank range
+SWEP.DamageMin = 8 -- Damage done at maximum range
 
-SWEP.DamageMax = 28 -- Damage done at point blank range
-SWEP.DamageMin = 12 -- Damage done at maximum range
+SWEP.DamageRand = 0.3
 
-SWEP.DamageRand = 0.1
+SWEP.RangeMin = 400 -- How far bullets retain their maximum damage for.
+SWEP.RangeMax = 6000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
 
-SWEP.RangeMin = 500 -- How far bullets retain their maximum damage for.
-SWEP.RangeMax = 8000 -- In Hammer units, how far bullets can travel before dealing DamageMin.
+SWEP.Penetration = 7 -- Units of wood that can be penetrated by this gun.
 
-SWEP.Penetration = 12 -- Units of wood that can be penetrated by this gun.
-
-SWEP.ImpactForce = 8
+SWEP.ImpactForce = 4
 
 SWEP.BodyDamageMults = {
 	[HITGROUP_HEAD] = 2.5,
@@ -81,14 +81,6 @@ SWEP.ReloadInSights = false -- This weapon can aim down sights while reloading.
 
 SWEP.RPM = 600
 
--- Works different to ArcCW
-
--- -1: Automatic
--- 0: Safe. Don't use this for safety.
--- 1: Semi.
--- 2: Two-round burst.
--- 3: Three-round burst.
--- n: n-round burst.
 SWEP.Firemodes = {
 	{
 		Mode = -1,
@@ -107,7 +99,7 @@ SWEP.RecoilPatternDrift = 15
 SWEP.Recoil = 1
 
 -- These multipliers affect the predictible recoil by making the pattern taller, shorter, wider, or thinner.
-SWEP.RecoilUp = 1.2 -- Multiplier for vertical recoil
+SWEP.RecoilUp = 0.8 -- Multiplier for vertical recoil
 SWEP.RecoilSide = 0.425 -- Multiplier for vertical recoil
 
 -- These values determine how much extra movement is applied to the recoil entirely randomly, like in a circle.
